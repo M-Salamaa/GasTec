@@ -70,7 +70,7 @@ namespace WebApp_gastec.Controllers
             }
             #endregion Caching images returned from API
         }
-        private async Task<HomePageViewModel> GetHomeViewModelAsync(string encryptedClassificationId_, string encryptedTreeClassificationId_)
+        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_)
         {
             // Create Instance for home page view model to return Main Home Page View
             HomePageViewModel homePageViewModel = new()
@@ -86,23 +86,51 @@ namespace WebApp_gastec.Controllers
 
         public async Task<IActionResult> AdvantageAsync()
         {
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("3"), Domain.System.Encrypt("19"));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("19"));
             await CachedAllImagesAsync(model, "CarConversion_Advantage");
             await CachedAllHtmlLinksAsync(model, "CarConversion_Advantage");
             return View(model);
         }
         public async Task<IActionResult> Conversion_ProccessAsync()
         {
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("3"), Domain.System.Encrypt("20"));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("20"));
             await CachedAllImagesAsync(model, "Conversion_Proccess");
             await CachedAllHtmlLinksAsync(model, "Conversion_Proccess");
             return View(model);
         }
         public async Task<IActionResult> Conversion_CostAsync()
         {
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("3"), Domain.System.Encrypt("21"));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("21"));
             await CachedAllImagesAsync(model, "Conversion_Cost");
             await CachedAllHtmlLinksAsync(model, "Conversion_Cost");
+            return View(model);
+        }
+        public async Task<IActionResult> SafteyFactorAsync()
+        {
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("22"));
+            await CachedAllImagesAsync(model, "SafteyFactor");
+            await CachedAllHtmlLinksAsync(model, "SafteyFactor");
+            return View(model);
+        }
+        public async Task<IActionResult> CommonQuestionsAsync()
+        {
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("23"));
+            await CachedAllImagesAsync(model, "CommonQuestions");
+            await CachedAllHtmlLinksAsync(model, "CommonQuestions");
+            return View(model);
+        }
+        public async Task<IActionResult> Conversion_CentersAsync()
+        {
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("24"));
+            await CachedAllImagesAsync(model, "Conversion_Centers");
+            await CachedAllHtmlLinksAsync(model, "Conversion_Centers");
+            return View(model);
+        }
+        public async Task<IActionResult> local_manufacturingAsync()
+        {
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("25"));
+            await CachedAllImagesAsync(model, "local_manufacturing");
+            await CachedAllHtmlLinksAsync(model, "local_manufacturing");
             return View(model);
         }
     }

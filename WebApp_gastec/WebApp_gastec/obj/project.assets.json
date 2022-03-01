@@ -6230,19 +6230,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mohamed Salama\\.nuget\\packages\\": {}
+    "C:\\Users\\Softex\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Softex\\WebApp_gastec\\WebApp_gastec\\WebApp_gastec.csproj",
+      "projectUniqueName": "D:\\GitHub\\GasTec\\WebApp_gastec\\WebApp_gastec\\WebApp_gastec.csproj",
       "projectName": "WebApp_gastec",
-      "projectPath": "E:\\Softex\\WebApp_gastec\\WebApp_gastec\\WebApp_gastec.csproj",
-      "packagesPath": "C:\\Users\\Mohamed Salama\\.nuget\\packages\\",
-      "outputPath": "E:\\Softex\\WebApp_gastec\\WebApp_gastec\\obj\\",
+      "projectPath": "D:\\GitHub\\GasTec\\WebApp_gastec\\WebApp_gastec\\WebApp_gastec.csproj",
+      "packagesPath": "C:\\Users\\Softex\\.nuget\\packages\\",
+      "outputPath": "D:\\GitHub\\GasTec\\WebApp_gastec\\WebApp_gastec\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Mohamed Salama\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Softex\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6295,7 +6295,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }

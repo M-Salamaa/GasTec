@@ -69,23 +69,23 @@
                                         }
                                         else if (entity.ClassificationID == 22)
                                         {
-                                            //Security
-                                            <li><a href="#">@entity.ClassificationName</a></li>
+                                            //SafteyFactor
+                                            <li><a href="@Url.Action("SafteyFactor", "Car_Conversion")">@entity.ClassificationName</a></li>
                                         }
                                         else if (entity.ClassificationID == 23)
                                         {
                                             //Questions
-                                            <li><a href="#">@entity.ClassificationName</a></li>
+                                            <li><a href="@Url.Action("CommonQuestions", "Car_Conversion")">@entity.ClassificationName</a></li>
                                         }
                                         else if (entity.ClassificationID == 24)
                                         {
                                             //Conversion Centers
-                                            <li><a href="#">@entity.ClassificationName</a></li>
+                                            <li><a href="@Url.Action("Conversion_Centers", "Car_Conversion")">@entity.ClassificationName</a></li>
                                         }
                                         else if (entity.ClassificationID == 25)
                                         {
                                             //Local Manuf
-                                            <li><a href="#">@entity.ClassificationName</a></li>
+                                            <li><a href="@Url.Action("local_manufacturing", "Car_Conversion")">@entity.ClassificationName</a></li>
                                         }
                                     }
                                 }
@@ -116,29 +116,26 @@
                                             {
                                                 <!--//end backend to retrieve variables  -->
                                                 <!--//Start backend to retrieve variables  -->
-                                                @while (counter <= 1)
+
+                                                @if (webSection.WebSectionID == 57)
                                                 {
-                                                    @if (webSection.WebSectionID == 57)
-                                                    {
-                                                        <table border="1" cellpadding="1" cellspacing="1" dir="rtl" style="width: 800px;">
+                                                    <table border="1" cellpadding="1" cellspacing="1" dir="rtl" style="width: 800px;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="text-align: justify;">
+                                                                    <img src="~/Images/Conversion_Cost/@image.ImageGUID" style="height: 250px; width: 400px;">
+                                                                </td>
 
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td style="text-align: justify;">
-                                                                        <img src="~/Images/Conversion_Cost/@image.ImageGUID" style="height: 250px; width: 400px;">
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        counter++;
-                                                    }
-                                                    else
-                                                    {
-
-                                                        <img src="~/Images/Conversion_Cost/@image.ImageGUID">
-                                                    }
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Images/Conversion_Cost/@image.ImageGUID">
                                                 }
                                             }
+
                                         </p>
                                         <hr />
                                     }
