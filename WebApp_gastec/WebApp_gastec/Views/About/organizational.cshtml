@@ -1,0 +1,97 @@
+﻿@model HomePageViewModel
+
+@{
+    ViewData["Title"] = "GASTEC";
+    Layout = "_Layout";
+}
+
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/hr.jpg');">
+    <div class="auto-container">
+        @foreach (var section in Model.AboutUsSection)
+        {
+            @foreach (var entity in section.LstChildClassification)
+            {
+                <!--<h1> @entity.ClassificationName</h1>-->
+            }
+        }
+    </div>
+</section>
+<!--End Page Title-->
+<!--Page Info-->
+<div class="page-info">
+    <div class="auto-container">
+        <div class="inner-container clearfix">
+            @if (Gastech_Vault.TranslationLanguageID == 0)
+            {
+                <ul class="bread-crumb pull-right">
+                    <li>
+                        <a href="@Url.Action("Index","Home")">
+                            الرئيسية
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("LegalEntity","About")">
+                            عن غازتك
+                        </a>
+                    </li>
+                    @foreach (var entity in Model.AboutUsSection)
+                    {
+                        <li>@entity.ClassificationName</li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+</div>
+<!--End Page Info-->
+<!--Sidebar Page Container-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Sidebar Side-->
+            <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-right">
+                <aside class="sidebar">
+                    <div id="sidenavelist"></div>
+                    <div class="sidebar-widget sidebar-blog-category">
+                        <ul class="blog-cat">
+                            @foreach (var mainSection in Model.HR)
+                            {
+                                @foreach (var entity in mainSection.LstChildClassification)
+                                {
+                                    @if (entity.ClassificationID == 15)
+                                    {
+                                        //Management
+                                        <li><a href="@Url.Action("HR", "About")">@entity.ClassificationName</a></li>
+                                    }
+                                    else if (entity.ClassificationID == 78)
+                                    {
+                                        // Relations
+                                        <li> <a href="@Url.Action("Relations", "About")">@entity.ClassificationName</a></li>
+                                    }
+                                    else if (entity.ClassificationID == 17)
+                                    {
+                                        //Training
+                                        <li> <a href="@Url.Action("Training","About")">@entity.ClassificationName</a></li>
+                                    }
+                                    else if (entity.ClassificationID == 18)
+                                    {
+                                        //organizitional
+                                        <li class="active"> <a href="@Url.Action("organizational","About")">@entity.ClassificationName</a></li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Content Side -->
+
+
+<!-- End Content Side -->

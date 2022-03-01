@@ -1,0 +1,144 @@
+﻿@model HomePageViewModel
+
+@{
+    ViewData["Title"] = "GASTEC";
+    Layout = "_Layout";
+}
+
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/hr.jpg');">
+    <div class="auto-container">
+        @foreach (var section in Model.AboutUsSection)
+        {
+            @foreach (var entity in section.LstChildClassification)
+            {
+                <!--<h1> @entity.ClassificationName</h1>-->
+            }
+        }
+    </div>
+
+</section>
+<!--End Page Title-->
+<!--Page Info-->
+<div class="page-info">
+    <div class="auto-container">
+        <div class="inner-container clearfix">
+            <ul class="bread-crumb pull-right">
+                <li>
+                    <a href="@Url.Action("Index","Home")">
+                        الرئيسية
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("LegalEntity","About")">
+                        عن غازتك
+                    </a>
+                </li>
+                @foreach (var entity in Model.AboutUsSection)
+                {
+                    <li>@entity.ClassificationName</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<!--End Page Info-->
+<!--Sidebar Page Container-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Sidebar Side-->
+            <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-right">
+                <aside class="sidebar">
+                    <div id="sidenavelist"></div>
+                    <div class="sidebar-widget sidebar-blog-category">
+                        <ul class="blog-cat">
+                            @foreach (var mainSection in Model.HR)
+                            {
+                                @foreach (var entity in mainSection.LstChildClassification)
+                                {
+                                    @if (entity.ClassificationID == 15)
+                                    {
+                                        //Management
+                                        <li class="active"><a href="@Url.Action("HR", "About")">@entity.ClassificationName</a></li>
+                                    }
+                                    else if (entity.ClassificationID == 78)
+                                    {
+                                        // Relations
+                                        <li> <a href="@Url.Action("Relations", "About")">@entity.ClassificationName</a></li>
+                                    }
+                                    else if (entity.ClassificationID == 17)
+                                    {
+                                        //Training
+                                        <li> <a href="@Url.Action("Training","About")">@entity.ClassificationName</a></li>
+                                    }
+                                    else if (entity.ClassificationID == 18)
+                                    {
+                                        //organizational
+                                        <li> <a href="@Url.Action("organizational","About")">@entity.ClassificationName</a></li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+            <!--Content Side-->
+            <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="services-single" dir="rtl">
+                    <div class="inner-box">
+                        <div id="cmspage1">
+                            @foreach (var entity in Model.AboutUsSection)
+                            {
+                                <h2>@entity.ClassificationName</h2>
+                                <div style="font-size:14px; position:relative">
+                                    @foreach (var image in entity.LstImages)
+                                    {
+                                        <h3>&nbsp;</h3>
+                                        <table border="1" cellpadding="1" cellspacing="1" style="width:900px;">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <h3>
+                                                            <span style="font-size:18px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
+                                                        </h3>
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            <span style="font-size:18px;"> @image.ImageName</span>
+                                                        </p>
+                                                        <p>
+                                                            <span style="font-size:18px;">  @image.Image_AltText</span>
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <h3>
+                                                            <span style="font-size:18px;">
+                                                                <img src="~/Images/Management/@image.ImageGUID" style="height: 234px; width: 200px; float: left;">
+                                                            </span>
+                                                        </h3>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<?php
+    if($linkcms!="http://"){
+    ?>
+    {!!  \App\System::getURLData("cmsmeta/".$linkcms) !!}
+    <?php } ?>*@
+
+
+

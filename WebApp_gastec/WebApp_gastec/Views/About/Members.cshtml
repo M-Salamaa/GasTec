@@ -1,0 +1,167 @@
+﻿@model HomePageViewModel
+
+@{
+    ViewData["Title"] = "GASTEC";
+    Layout = "_Layout";
+}
+
+
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/4.jpg');">
+    <div class="auto-container">
+        @foreach (var entity in Model.AboutUsSection)
+        {
+            <!--<h1>@entity.ClassificationName</h1>-->
+        }
+    </div>
+</section>
+<!--End Page Title-->
+<!--Page Info-->
+<div class="page-info">
+    <div class="auto-container">
+        <div class="inner-container clearfix">
+                <ul class="bread-crumb pull-right">
+                    <li><a href="@Url.Action("Index", "Home")">الرئيسية</a></li>
+                    @foreach (var entity in Model.AboutUsSection)
+                    {
+                        <li>@entity.ClassificationName</li>
+                    }
+                </ul>       
+        </div>
+    </div>
+</div>
+<!--End Page Info-->
+<!--Sidebar Page Container-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Sidebar Side-->
+            @if (Gastech_Vault.TranslationLanguageID == 0)
+            {
+                <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-right">
+                    <aside class="sidebar">
+
+                        <div id="sidenavelist"></div>
+                        <div class="sidebar-widget sidebar-blog-category">
+                            <ul class="blog-cat">
+                                @foreach (var mainSection in Model.AboutUs)
+                                {
+                                    @foreach (var entity in mainSection.LstChildClassification)
+                                    {
+                                        @if (entity.ClassificationID == 124)
+                                        {
+                                            //Activities
+                                            <li><a href="@Url.Action("Activities", "About")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 9)
+                                        {
+                                            // Legal Entity
+                                            <li> <a href="@Url.Action("LegalEntity", "About")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 121)
+                                        {
+                                            //Vision and Mision
+                                            <li> <a href="@Url.Action("VisionMision", "About")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 120)
+                                        {
+                                            // Members
+                                            <li class="active"> <a href="@Url.Action("Members", "About")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 123)
+                                        {
+                                            //Human Resources
+                                            <li> <a href="@Url.Action("HR", "About")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 122)
+                                        {
+                                            //Contributors
+                                            <li> <a href="@Url.Action("Contributors", "About")">@entity.ClassificationName</a></li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            }
+
+            <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="services-single" dir="rtl">
+
+                    <div class="inner-box">
+
+                        <div id="cmspage1">
+                            <!--//end backend to retrieve variables  -->
+                            <!--//Start backend to retrieve variables  -->
+                            @foreach (var entity in Model.AboutUsSection)
+                            {
+
+                                <h2>@entity.ClassificationName</h2>
+
+                                <link href="" rel="stylesheet" type="text/css">
+                                <div style="font-size:14px; position:relative">
+                                    @foreach (var image in entity.LstImages)
+                                    {
+                                        <p style="text-align: justify;">&nbsp;</p>
+                                        @if (image.ImageID == "5")
+                                        {
+
+                                            <table align="center" border="1" cellpadding="1" cellspacing="1" style="width:800px;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                                                        <td>
+                                                            <p style="text-align: center;">
+                                                                <span style="color:#273461;"><span style="font-size:18px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @image.ImageName</span></span>
+                                                            </p>
+                                                            <p style="text-align: center;">
+                                                                <span style="font-size:18px;"><span style="color:#263a69;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @image.Image_AltText </span></span>
+                                                            </p>
+                                                            <p style="text-align: center;">&nbsp;</p>
+                                                        </td>
+                                                        <td><img src="~/Images/Members/@image.ImageGUID" style="height: 240px; width: 200px; float: left;"></td>
+                                                        <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        }
+                                        else
+                                        {
+                                            <table align="center" border="2" cellpadding="1" cellspacing="1" style="width:800px;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                                                        <td>
+                                                            <p style="text-align: center;">
+                                                                <span style="color:#273461;"><span style="font-size:18px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @image.ImageName</span></span>
+                                                            </p>
+                                                            <p style="text-align: center;">
+                                                                <span style="font-size:18px;"><span style="color:#263a69;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @image.Image_AltText </span></span>
+                                                            </p>
+                                                            <p style="text-align: center;">&nbsp;</p>
+                                                        </td>
+                                                        <td><img src="~/Images/Members/@image.ImageGUID" style="height: 240px; width: 200px; float: left;"></td>
+                                                        <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <p>&nbsp;</p>
+                                        }
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="team-column col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
+                    <div class="inner-column">
+                        <div class="row clearfix">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

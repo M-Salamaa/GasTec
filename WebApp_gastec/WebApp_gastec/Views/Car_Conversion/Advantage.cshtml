@@ -1,0 +1,153 @@
+﻿@model HomePageViewModel
+
+@{
+    ViewData["Title"] = "GASTEC";
+    Layout = "_Layout";
+}
+
+@foreach (var entity in Model.Car_ConversionCategory)
+{
+    @foreach (var Websection in entity.LstWebSections)
+    {
+        @Html.Raw(Websection.Style)
+    }
+}
+
+<!-- Page Title-->
+<section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/car_conv.jpg');">
+    <div class="auto-container">
+        @foreach (var entity in Model.Car_ConversionCategory)
+        {
+            <!-- <h1>@entity.ClassificationName  </h1>-->
+        }
+    </div>
+</section>
+<!-- End Page Title-->
+<!-- Page Info-->
+<div class="page-info">
+    <div class="auto-container">
+        <div class="inner-container clearfix">
+            <ul class="bread-crumb pull-right">
+                <li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
+                @foreach (var entity in Model.Car_ConversionCategory)
+                {
+                    <li>@entity.ClassificationName</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End Page Info-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Sidebar Side-->
+            <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-right">
+                <aside class="sidebar">
+                    <!--Blog Category Widget-->
+
+                    <div id="sidenavelist">
+                        <div class="sidebar-widget sidebar-blog-category">
+                            <ul class="blog-cat">
+                                @foreach (var mainSection in Model.Car_ConversionMain)
+                                {
+                                    @foreach (var entity in mainSection.LstChildClassification)
+                                    {
+                                        @if (entity.ClassificationID == 19)
+                                        {
+                                            // Advantages
+                                            <li class="active"><a href="@Url.Action("Advantage", "Car_Conversion")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 20)
+                                        {
+                                            //Conversion Proccess
+                                            <li><a href="@Url.Action("Conversion_Proccess", "Car_Conversion")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 21)
+                                        {
+                                            //Conversion Cost
+                                            <li><a href="@Url.Action("Conversion_Cost", "Car_Conversion")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 22)
+                                        {
+                                            //Security
+                                            <li><a href="#">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 23)
+                                        {
+                                            //Questions
+                                            <li><a href="#">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 24)
+                                        {
+                                            //Conversion Centers
+                                            <li><a href="#">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 25)
+                                        {
+                                            //Local Manuf
+                                            <li><a href="#">@entity.ClassificationName</a></li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <!--Content Side-->
+            <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="services-single" dir="rtl">
+                    <div class="inner-box">
+                        <div id="cmspage1">
+                            @foreach (var entity in Model.Car_ConversionCategory)
+                            {
+                                <h2>@entity.ClassificationName</h2>
+                                <div >
+                                    @foreach (var webSection in entity.LstWebSections)
+                                    {
+                                        <!-- Rendreing Body with HTML Link-->               
+                                        <span>
+                                        @Html.Raw(webSection.Body)
+                                        </span>
+
+                                        @foreach (var image in webSection.LstImages)
+                                        {
+                                            <!--//end backend to retrieve variables  -->
+                                            <!--//Start backend to retrieve variables  -->
+                                            <p>
+                                                @if (webSection.WebSectionID == 25)
+                                                {
+                                                    <span style="color:#273461;"><img src="~/Images/CarConversion_Advantage/@image.ImageGUID" style="height: 346px; width: 900px;"></span>
+                                                }
+                                                else if (webSection.WebSectionID == 30)
+                                                {
+                                                    <img src="~/Images/CarConversion_Advantage/@image.ImageGUID" style="height: 193px; width: 400px; float: left; margin: 10px;">
+                                                }
+                                                else if (webSection.WebSectionID == 32)
+                                                {
+                                                    <img src="~/Images/CarConversion_Advantage/@image.ImageGUID" style="width: 400px; float: left; margin: 10px;">
+                                                }
+                                                else if (webSection.WebSectionID == 33)
+                                                {
+                                                    <span style="color:#273461;"><img src="~/Images/CarConversion_Advantage/@image.ImageGUID" style="height: 533px; width: 900px;"></span>
+                                                }
+                                            </p>
+                                            <hr />
+                                        }
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="team-column col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
+                    <div class="inner-column">
+                        <div class="row clearfix">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
