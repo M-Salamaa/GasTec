@@ -450,6 +450,33 @@
                                                                 </ul>
                                                             </li>
                                                         }
+                                                        // Check iff ID = 7 for Statistics Section
+                                                        else if (classification.ClassificationID == 7)
+                                                        {
+                                                            <li class="dropdown">
+                                                                <a href="#">@classification.ClassificationName</a>
+                                                                <ul>
+                                                                    @foreach (var entity in classification.LstChildClassification)
+                                                                    {
+                                                                        @if (entity.ClassificationID == 44)
+                                                                        {
+                                                                            // Stat_Gastec
+                                                                            <li><a href="@Url.Action("Stat_Gastec", "Statistics")">@entity.ClassificationName</a></li>
+                                                                        }
+                                                                        else if (entity.ClassificationID == 45)
+                                                                        {
+                                                                            //Stat_Egypt
+                                                                            <li><a href="@Url.Action("Stat_Egypt", "Statistics")">@entity.ClassificationName</a></li>
+                                                                        }
+                                                                        else if (entity.ClassificationID == 46)
+                                                                        {
+                                                                            //Stat_World
+                                                                            <li><a href="@Url.Action("Stat_World", "Statistics")">@entity.ClassificationName</a></li>
+                                                                        }
+                                                                    }
+                                                                </ul>
+                                                            </li>
+                                                        }
                                                         else
                                                         {
                                                             <li class="dropdown">

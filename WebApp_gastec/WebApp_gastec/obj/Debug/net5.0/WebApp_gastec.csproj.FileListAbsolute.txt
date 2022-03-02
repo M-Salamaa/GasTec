@@ -445,3 +445,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.genr
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.csproj.AssemblyReference.cache
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Catering_Stations\OccupationalSafety.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Catering_Stations\MobileStations.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Statistics\Stat_Gastec.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Statistics\Stat_Egypt.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Statistics\Stat_World.cshtml.g.cs
