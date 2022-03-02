@@ -26,6 +26,9 @@ namespace WebApp_gastec.Models
         // *********************************************************************** 
         public List<OutputGetClassificationTreeModel> Cylindar_Test_Main { get; set; }
         public List<OutputGetClassificationTreeModel> Cylindar_Test_Categories { get; set; }
+        // *********************************************************************** 
+        public List<OutputGetClassificationTreeModel> Stations_Main { get; set; }
+        public List<OutputGetClassificationTreeModel> Stations_Categories { get; set; }
 
 
     }

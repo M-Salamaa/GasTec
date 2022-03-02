@@ -105,9 +105,18 @@ namespace WebApp_gastec.Controllers
         // Route For Activites Page
         public async Task<IActionResult> ActivitiesAsync()
         {
+            CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
+            Domain.System system = new Domain.System();
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt("124"));
             await CachedAllImagesAsync(model, "Activities");
-            await CachedAllHtmlLinksAsync(model, "Activities");
+            foreach(var entity in model.AboutUsSection)
+            {
+                string path = await cachedHtml.CahceAllHtmlLinksAsync("Activities", entity.HTML_GUID, entity.Classification_HTMLLink);
+                entity.Body = system.ReadFileAsStringForBody(path);
+                entity.Style = system.ReadFileAsStringForStyle(path);
+            }
+
+
             return View(model);
         }
         // Route For Members Page

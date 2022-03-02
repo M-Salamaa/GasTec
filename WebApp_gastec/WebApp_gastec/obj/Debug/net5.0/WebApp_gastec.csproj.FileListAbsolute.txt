@@ -390,7 +390,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\bin\Debug\net5.0\zh-Hans\Microsoft.
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.csproj.AssemblyReference.cache
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.GeneratedMSBuildEditorConfig.editorconfig
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.AssemblyInfoInputs.cache
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.AssemblyInfo.cs
@@ -420,6 +419,11 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Car_Co
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Car_Conversion\Conversion_Proccess.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Car_Conversion\local_manufacturing.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Car_Conversion\SafteyFactor.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Catering_Stations\IntegratedStations.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Catering_Stations\LiquidGas.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Catering_Stations\NaturalGas.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Catering_Stations\TransportationProccess.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Cylindar_Test\Explainer_videos.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Cylindar_Test\Testing_Centers.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Cylindar_Test\Testing_Proccess.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
@@ -438,4 +442,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.dll
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\ref\WebApp_gastec.dll
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.pdb
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.genruntimeconfig.cache
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Cylindar_Test\Explainer_videos.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.csproj.AssemblyReference.cache
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Catering_Stations\OccupationalSafety.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Catering_Stations\MobileStations.cshtml.g.cs

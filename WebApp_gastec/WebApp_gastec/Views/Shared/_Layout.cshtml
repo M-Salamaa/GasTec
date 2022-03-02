@@ -408,6 +408,48 @@
                                                                 </ul>
                                                             </li>
                                                         }
+                                                        // Check if ID = 4 for Catering Stations
+                                                        else if (classification.ClassificationID == 4)
+                                                        {
+                                                            <li class="dropdown">
+                                                                <a href="#">@classification.ClassificationName</a>
+                                                                <ul>
+                                                                    @foreach (var entity in classification.LstChildClassification)
+                                                                    {
+                                                                        @if (entity.ClassificationID == 26)
+                                                                        {
+                                                                            // NaturalGas
+                                                                            <li><a href="@Url.Action("NaturalGas", "Catering_Stations")">@entity.ClassificationName</a></li>
+                                                                        }
+                                                                        else if (entity.ClassificationID == 27)
+                                                                        {
+                                                                            //Liquid Gas
+                                                                            <li><a href="@Url.Action("LiquidGas", "Catering_Stations")">@entity.ClassificationName</a></li>
+                                                                        }
+                                                                        else if (entity.ClassificationID == 28)
+                                                                        {
+                                                                            //Integrated Stations
+                                                                            <li><a href="@Url.Action("IntegratedStations","Catering_Stations")">@entity.ClassificationName</a></li>
+                                                                        }
+                                                                        else if (entity.ClassificationID == 29)
+                                                                        {
+                                                                            //Transportation Projects
+                                                                            <li><a href="@Url.Action("TransportationProccess","Catering_Stations")">@entity.ClassificationName</a></li>
+                                                                        }
+                                                                        else if (entity.ClassificationID == 30)
+                                                                        {
+                                                                            //Saftey
+                                                                            <li><a href="@Url.Action("OccupationalSafety","Catering_Stations")">@entity.ClassificationName</a></li>
+                                                                        }
+                                                                        else if (entity.ClassificationID == 31)
+                                                                        {
+                                                                            //Mobile Stations
+                                                                            <li><a href="@Url.Action("MobileStations","Catering_Stations")">@entity.ClassificationName</a></li>
+                                                                        }
+                                                                    }
+                                                                </ul>
+                                                            </li>
+                                                        }
                                                         else
                                                         {
                                                             <li class="dropdown">

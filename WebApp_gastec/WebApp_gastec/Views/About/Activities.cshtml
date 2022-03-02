@@ -5,6 +5,11 @@
     Layout = "_Layout";
 }
 
+@foreach (var entity in Model.AboutUsSection)
+{
+   
+    @Html.Raw(entity.Style)
+}
 
 <!--Page Title-->
 <section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/4.jpg');">

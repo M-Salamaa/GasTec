@@ -1,0 +1,162 @@
+﻿@model HomePageViewModel
+@{
+    ViewData["Title"] = "GASTEC";
+    Layout = "_Layout";
+}
+
+
+@foreach (var entity in Model.Stations_Categories)
+{
+    @foreach (var Websection in entity.LstWebSections)
+    {
+        @Html.Raw(Websection.Style)
+    }
+}
+
+<!-- Page Title-->
+<section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/Stations.jpg');">
+    <div class="auto-container">
+        @foreach (var entity in Model.Stations_Categories)
+        {
+            <!-- <h1>@entity.ClassificationName  </h1>-->
+        }
+    </div>
+</section>
+<!-- End Page Title-->
+<!-- Page Info-->
+<div class="page-info">
+    <div class="auto-container">
+        <div class="inner-container clearfix">
+            <ul class="bread-crumb pull-right">
+                <li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
+                @foreach (var entity in Model.Stations_Categories)
+                {
+                    <li>@entity.ClassificationName</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End Page Info-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Sidebar Side-->
+            <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-right">
+                <aside class="sidebar">
+                    <!--Blog Category Widget-->
+                    <div id="sidenavelist">
+                        <div class="sidebar-widget sidebar-blog-category">
+                            <ul class="blog-cat">
+                                @foreach (var mainSection in Model.Stations_Main)
+                                {
+                                    @foreach (var entity in mainSection.LstChildClassification)
+                                    {
+                                        @if (entity.ClassificationID == 26)
+                                        {
+                                            // NaturalGas
+                                            <li class="active"><a href="@Url.Action("NaturalGas", "Catering_Stations")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 27)
+                                        {
+                                            //Liquid Gas
+                                            <li><a href="@Url.Action("LiquidGas", "Catering_Stations")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 28)
+                                        {
+                                            //Integrated Stations
+                                            <li><a href="@Url.Action("IntegratedStations","Catering_Stations")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 29)
+                                        {
+                                            //Transportation Projects
+                                            <li><a href="@Url.Action("TransportationProccess","Catering_Stations")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 30)
+                                        {
+                                            //Saftey
+                                            <li><a href="@Url.Action("OccupationalSafety","Catering_Stations")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 31)
+                                        {
+                                            // Mobile Stations
+                                            <li><a href="@Url.Action("MobileStations","Catering_Stations")">@entity.ClassificationName</a></li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <!--Content Side-->
+            <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="services-single" dir="rtl">
+                    <div class="inner-box">
+                        <div id="cmspage1">
+                            @foreach (var entity in Model.Stations_Categories)
+                            {
+                                <h2>@entity.ClassificationName</h2>
+                                <div style="font-size:14px; position:relative">
+                                    <p style="text-align: justify;">
+                                        @foreach (var webSection in entity.LstWebSections)
+                                        {
+                                            <span style="color:#263a69;">
+                                                <span style="font-size:18px;">
+                                                    @Html.Raw(webSection.Body)
+                                                </span>
+                                            </span>
+                                            @foreach (var image in webSection.LstImages)
+                                            {
+                                                @if (webSection.WebSectionID == 79)
+                                                {
+                                                    <img src="~/Images/NaturalGas_Stations/@image.ImageGUID" style="height: 179px; width: 268px; margin: 0px 25px; float: left;">
+                                                }
+                                                else if (webSection.WebSectionID == 80)
+                                                {
+                                                    <img src="~/Images/NaturalGas_Stations/@image.ImageGUID" style="width: 110px; height: 201px; margin-left: 25px; margin-right: 25px; float: left;">
+                                                }
+                                                else if (webSection.WebSectionID == 81)
+                                                {
+                                                    <table align="center" border="1" cellpadding="1" cellspacing="1">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="text-align: justify;">
+                                                                    <span style="color:#263a69;">
+                                                                        <img alt="" src="~/Images/NaturalGas_Stations/@image.ImageGUID" style="margin-left: 25px; margin-right: 25px; width: 400px; height: 234px;">
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                }
+                                                else if (webSection.WebSectionID == 92)
+                                                {
+                                                    <a href="" target="_blank">
+                                                        <img src="~/Images/NaturalGas_Stations/@image.ImageGUID" style="height: 566px; width: 400px;">
+                                                        &nbsp;
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Images/NaturalGas_Stations/@image.ImageGUID" />
+                                                }
+                                            }
+                                            <hr />
+                                        }
+                                    </p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="team-column col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
+                    <div class="inner-column">
+                        <div class="row clearfix">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
