@@ -106,7 +106,7 @@ namespace WebApp_gastec.Controllers
                 NewsSection = await API_GetNewsTopics.GetAllNewsTopics(4),
             };
             // Caching all images Returned in home page view model
-            CachedAllImagesAsync(homePageViewModel);
+            await CachedAllImagesAsync(homePageViewModel);
             return homePageViewModel;
         }
         public async Task<IActionResult> IndexAsync()

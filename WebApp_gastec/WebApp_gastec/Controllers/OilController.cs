@@ -86,7 +86,7 @@ namespace WebApp_gastec.Controllers
             };
             return homePageViewModel;
         }
-
+        // Routing for Exclusive Agency Page
         public async Task<IActionResult> AgencyAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("40"));
@@ -94,20 +94,28 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "Oil_Agency");
             return View(model);
         }
-
-        public async Task<IActionResult> DistributorAsync()
+        // Routing for Industrial Oils Page (This Function doesn't Return the List of Child Classification)
+        public async Task<IActionResult> IndustrialAsync()
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("43"));
-            await CachedAllImagesAsync(model, "Oil_Distributer");
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("41"), Domain.System.Encrypt("190"));
+            await CachedAllImagesAsync(model, "Industrial_Oil");
+            await CachedAllHtmlLinksAsync(model, "Industrial_Oil");
             return View(model);
         }
-
+        // Routing for Commerical Oils Page
         public async Task<IActionResult> CommercialAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("42"));
             await CachedAllImagesAsync(model, "Commerical_Oil");
             await CachedAllHtmlLinksAsync(model, "Commerical_Oil");
-                return View(model);
+            return View(model);
+        }
+        // Routing for Oil Distribution Page
+        public async Task<IActionResult> DistributorAsync()
+        {
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("43"));
+            await CachedAllImagesAsync(model, "Oil_Distributer");
+            return View(model);
         }
     }
 }

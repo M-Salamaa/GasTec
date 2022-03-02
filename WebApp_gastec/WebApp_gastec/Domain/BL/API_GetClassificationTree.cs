@@ -14,9 +14,12 @@ namespace WebApp_gastec.Domain
         private static readonly int showProperty = 1;
         private static readonly string encryptedMajorTreeNodeID = System.Encrypt("1");
 
+
         // Function to get Tree Nodes for Clasification Tree with EncryptedSpecificTreeClassificationID
         public static List<OutputGetClassificationTreeModel> GetClassificationTree(string encryptedTreeClassificationID_, string encryptedSpecificTreeClassificationID_)
         {
+            Domain.System system = new Domain.System();
+
             // Create instance for output
             List<OutputGetClassificationTreeModel> descrptionText = new ();
             //create Client to consume the API
@@ -25,7 +28,7 @@ namespace WebApp_gastec.Domain
                 //Create Base Address
                 client.BaseAddress = new Uri(Gastech_Vault.baseURL);
                 // just for testing encryption
-                //var test = SaltEncryption.Encrypt("9");
+                //var test = Domain.System.Encrypt("");
                 // Creating Instance To Pass Input to API 
                 InputGetClassificationTreeModel getClassificationInputObject = new InputGetClassificationTreeModel()
                 {

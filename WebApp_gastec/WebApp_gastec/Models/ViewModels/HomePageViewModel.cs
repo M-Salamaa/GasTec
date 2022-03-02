@@ -36,6 +36,9 @@ namespace WebApp_gastec.Models
         // *********************************************************************** 
         public List<OutputGetClassificationTreeModel> Oil_Main { get; set; }
         public List<OutputGetClassificationTreeModel> Oil_Categories { get; set; }
+        // *********************************************************************** 
+        public List<OutputGetClassificationTreeModel> Main_Section { get; set; }
+        public List<OutputGetClassificationTreeModel> Sub_Section { get; set; }
 
     }
 }
