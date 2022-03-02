@@ -1,0 +1,119 @@
+﻿@model HomePageViewModel
+@{
+    ViewData["Title"] = "GASTEC";
+    Layout = "_Layout";
+}
+
+
+@foreach (var entity in Model.Oil_Categories)
+{
+    @foreach (var Websection in entity.LstWebSections)
+    {
+        @Html.Raw(Websection.Style)
+    }
+}
+
+<!-- Page Title-->
+<section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/eni-header.jpg');">
+    <div class="auto-container">
+        @foreach (var entity in Model.Oil_Categories)
+        {
+            <!-- <h1>@entity.ClassificationName  </h1>-->
+        }
+    </div>
+</section>
+<!-- End Page Title-->
+<!-- Page Info-->
+<div class="page-info">
+    <div class="auto-container">
+        <div class="inner-container clearfix">
+            <ul class="bread-crumb pull-right">
+                <li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
+                @foreach (var entity in Model.Oil_Categories)
+                {
+                    <li>@entity.ClassificationName</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End Page Info-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Sidebar Side-->
+            <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-right">
+                <aside class="sidebar">
+                    <!--Blog Category Widget-->
+                    <div id="sidenavelist">
+                        <div class="sidebar-widget sidebar-blog-category">
+                            <ul class="blog-cat">
+                                @foreach (var mainSection in Model.Oil_Main)
+                                {
+                                    @foreach (var entity in mainSection.LstChildClassification)
+                                    {
+                                        @if (entity.ClassificationID == 40)
+                                        {
+                                            // Agency
+                                            <li class="active"><a href="@Url.Action("Agency", "Oil")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 41)
+                                        {
+                                            //Industrial Oil
+                                            <li><a href="#">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 42)
+                                        {
+                                            //Commerical Oil
+                                            <li><a href="@Url.Action("Commercial", "Oil")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 43)
+                                        {
+                                            //Distributers
+                                            <li><a href="@Url.Action("Distributor", "Oil")">@entity.ClassificationName</a></li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <!--Content Side-->
+            <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="services-single" dir="rtl">
+                    <div class="inner-box">
+                        <div id="cmspage1">
+                            @foreach (var entity in Model.Oil_Categories)
+                            {
+                                <h2>@entity.ClassificationName</h2>
+                                <div style="font-size:14px; position:relative">
+                                    @foreach (var webSection in entity.LstWebSections)
+                                    {
+                                        <span style="color:#263a69;">
+                                            @Html.Raw(webSection.Body)
+                                        </span>
+                                        <p dir="rtl">&nbsp;</p>
+                                        @foreach (var image in webSection.LstImages)
+                                        {
+                                            <p dir="rtl">
+                                                <img src="~/Images/Oil_Agency/@image.ImageGUID" />
+                                            </p>
+                                        }
+                                        <hr />
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="team-column col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
+                    <div class="inner-column">
+                        <div class="row clearfix">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
