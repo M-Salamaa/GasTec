@@ -1,0 +1,122 @@
+﻿
+@model HomePageViewModel
+
+@{
+    ViewData["Title"] = "GASTEC";
+    Layout = "_Layout";
+}
+
+@foreach (var entity in Model.Cylindar_Test_Categories)
+{
+    @foreach (var Websection in entity.LstWebSections)
+    {
+        @Html.Raw(Websection.Style)
+    }
+}
+
+<!-- Page Title-->
+<section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/cyl_test.jpg');">
+    <div class="auto-container">
+        @foreach (var entity in Model.Cylindar_Test_Categories)
+        {
+            <!-- <h1>@entity.ClassificationName  </h1>-->
+        }
+    </div>
+</section>
+<!-- End Page Title-->
+<!-- Page Info-->
+<div class="page-info">
+    <div class="auto-container">
+        <div class="inner-container clearfix">
+            <ul class="bread-crumb pull-right">
+                <li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
+                @foreach (var entity in Model.Cylindar_Test_Categories)
+                {
+                    <li>@entity.ClassificationName</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End Page Info-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Sidebar Side-->
+            <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-right">
+                <aside class="sidebar">
+                    <!--Blog Category Widget-->
+
+                    <div id="sidenavelist">
+                        <div class="sidebar-widget sidebar-blog-category">
+                            <ul class="blog-cat">
+                                @foreach (var mainSection in Model.Cylindar_Test_Main)
+                                {
+                                    @foreach (var entity in mainSection.LstChildClassification)
+                                    {
+                                        @if (entity.ClassificationID == 37)
+                                        {
+                                            // Testing Proccess
+                                            <li><a href="@Url.Action("Testing_Proccess", "Cylindar_Test")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 38)
+                                        {
+                                            //Testing Centers
+                                            <li class="active"><a href="@Url.Action("Testing_Centers", "Cylindar_Test")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 39)
+                                        {
+                                            //Videos
+                                            <li><a href="@Url.Action("Explainer_videos", "Cylindar_Test")">@entity.ClassificationName</a></li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <!--Content Side-->
+            <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="services-single" dir="rtl">
+                    <div class="inner-box">
+                        <div id="cmspage1">
+                            @foreach (var entity in Model.Cylindar_Test_Categories)
+                            {
+                                <h2>@entity.ClassificationName</h2>
+                                <div style="font-size:14px; position:relative">
+                                    @foreach (var webSection in entity.LstWebSections)
+                                    {
+                                        @Html.Raw(webSection.Body)
+                                        @foreach (var image in webSection.LstImages)
+                                        {
+                                            @if (webSection.WebSectionID == 158)
+                                            {
+                                                <img src="~/Images/Testing_Centers/@image.ImageGUID">
+                                            }
+                                            else if (webSection.WebSectionID == 159)
+                                            {
+                                                <img src="~/Images/Testing_Centers/@image.ImageGUID" style="width: 500px; height: 262px;">
+                                            }
+                                            else if (webSection.WebSectionID == 160)
+                                            {
+                                                <img src="~/Images/Testing_Centers/@image.ImageGUID" style="margin-left: 25px; margin-right: 25px; width: 400px; height: 266px;">
+                                            }
+                                        }
+                                    }
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="team-column col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
+                    <div class="inner-column">
+                        <div class="row clearfix">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

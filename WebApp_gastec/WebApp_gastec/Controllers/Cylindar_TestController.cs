@@ -68,6 +68,7 @@ namespace WebApp_gastec.Controllers
             }
             #endregion Caching images returned from API
         }
+        // Return Data Model after Consuming API
         private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_)
         {
             // Create Instance for home page view model to return Main Home Page View
@@ -75,17 +76,35 @@ namespace WebApp_gastec.Controllers
             {
                 // Consuming Main Menu from Classification Tree API 
                 MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                // Consuming Main Cylindar Test Menu from Classification Tree API 
                 Cylindar_Test_Main = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("5"), Domain.System.Encrypt("0")),
+                // Consuming Cylindar Category from Classification Tree API 
                 Cylindar_Test_Categories = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
 
             };
             return homePageViewModel;
         }
+        //Routing for Testing Proccess Page
         public async Task<IActionResult> Testing_ProccessAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("5"), Domain.System.Encrypt("37"));
             await CachedAllImagesAsync(model, "Testing_Proccess");
             await CachedAllHtmlLinksAsync(model, "Testing_Proccess");
+            return View(model);
+        }
+        //Routing for Testing Centers Page
+        public async Task<IActionResult> Testing_CentersAsync()
+        {
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("5"), Domain.System.Encrypt("38"));
+            await CachedAllImagesAsync(model, "Testing_Centers");
+            await CachedAllHtmlLinksAsync(model, "Testing_Centers");
+            return View(model);
+        }
+        //Routing for Explaoner Videos Page
+        public async Task<IActionResult> Explainer_videosAsync()
+        {
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("5"), Domain.System.Encrypt("39"));
+            await CachedAllHtmlLinksAsync(model, "Explainer_videos");
             return View(model);
         }
     }
