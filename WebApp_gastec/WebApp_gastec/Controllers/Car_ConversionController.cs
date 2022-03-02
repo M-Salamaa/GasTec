@@ -12,18 +12,18 @@ namespace WebApp_gastec.Controllers
     public class Car_ConversionController : Controller
     {
         public readonly IWebHostEnvironment _hostingEnvironment;
-
         public Car_ConversionController(IWebHostEnvironment hostingEnvironment)
         {
             _hostingEnvironment = hostingEnvironment;
         }
-
         // Caching All HTML Links Returned From API via Model
         private async Task CachedAllHtmlLinksAsync(HomePageViewModel model_, string folderName_)
         {
             string path = "";
             #region Caching Html Links Returned from API
+            //Create Instance from Caching Image Class
             CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
+            //Create Instance from System Class
             Domain.System system = new Domain.System();
             foreach (var entity in model_.Car_ConversionCategory)
             {
@@ -49,9 +49,11 @@ namespace WebApp_gastec.Controllers
         private async Task CachedAllImagesAsync(HomePageViewModel model_, string folderName_)
         {
             #region Caching images returned from API 
+            //Create Instance from Caching Image Class
             CacheImages cachedImages = new CacheImages(_hostingEnvironment);
             foreach (var entity in model_.Car_ConversionCategory)
             {
+                // Check if there are a List of Web Sections
                 if (entity.LstWebSections.Count > 0)
                 {
                     foreach (var webSection in entity.LstWebSections)
@@ -70,20 +72,23 @@ namespace WebApp_gastec.Controllers
             }
             #endregion Caching images returned from API
         }
+        // Get the OutPut Model after Consuming 
         private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_)
         {
             // Create Instance for home page view model to return Main Home Page View
             HomePageViewModel homePageViewModel = new()
             {
-                // Consuming Main Menu from Classification Tree API 
+                // Consuming Main Navigation bar from Classification Tree API 
                 MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                // Consuming Main Menu of Car Conversion Section from Classification Tree API 
                 Car_ConversionMain = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("3"), Domain.System.Encrypt("0")),
+                // Consuming Sub Categories of car Conversion Section from Classification Tree API 
                 Car_ConversionCategory = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
 
             };
             return homePageViewModel;
         }
-
+        // Routing for Advantage Page
         public async Task<IActionResult> AdvantageAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("19"));
@@ -91,6 +96,7 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "CarConversion_Advantage");
             return View(model);
         }
+        // Routing for Conversion Process Page
         public async Task<IActionResult> Conversion_ProccessAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("20"));
@@ -98,6 +104,7 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "Conversion_Proccess");
             return View(model);
         }
+        // Routing for Conversion Cost Page
         public async Task<IActionResult> Conversion_CostAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("21"));
@@ -105,6 +112,7 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "Conversion_Cost");
             return View(model);
         }
+        // Routing for Saftey Factor Page
         public async Task<IActionResult> SafteyFactorAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("22"));
@@ -112,6 +120,7 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "SafteyFactor");
             return View(model);
         }
+        // Routing for Common Questions Page
         public async Task<IActionResult> CommonQuestionsAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("23"));
@@ -119,6 +128,7 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "CommonQuestions");
             return View(model);
         }
+        // Routing for Conversion Center Page
         public async Task<IActionResult> Conversion_CentersAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("24"));
@@ -126,6 +136,7 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "Conversion_Centers");
             return View(model);
         }
+        // Routing for Local Manufacturing Page
         public async Task<IActionResult> local_manufacturingAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("25"));
