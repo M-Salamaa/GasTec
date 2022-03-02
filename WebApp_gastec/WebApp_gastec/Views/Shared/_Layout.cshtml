@@ -379,6 +379,35 @@
                                                                 </ul>
                                                             </li>
                                                         }
+                                                        //Check if ID = 5 for Cylindar Test
+                                                        else if (classification.ClassificationID == 5)
+                                                        {
+                                                            <li class="dropdown">
+                                                                <a href="#">@classification.ClassificationName</a>
+                                                                <ul>
+                                                                    @foreach (var entity in classification.LstChildClassification)
+                                                                    {
+                                                                        @if (entity.ClassificationID == 37)
+                                                                        {
+                                                                            // Testing Proccess
+                                                                            <li>
+                                                                                <a href="@Url.Action("Testing_Proccess", "Cylindar_Test")">@entity.ClassificationName</a>
+                                                                            </li>
+                                                                        }
+                                                                        else if (entity.ClassificationID == 38)
+                                                                        {
+                                                                            //Testing Centers
+                                                                            <li><a href="#">@entity.ClassificationName</a></li>
+                                                                        }
+                                                                        else if (entity.ClassificationID == 39)
+                                                                        {
+                                                                            //Videos
+                                                                            <li><a href="#">@entity.ClassificationName</a></li>
+                                                                        }
+                                                                    }
+                                                                </ul>
+                                                            </li>
+                                                        }
                                                         else
                                                         {
                                                             <li class="dropdown">
