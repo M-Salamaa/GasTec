@@ -1,5 +1,6 @@
 ﻿
 @model HomePageViewModel
+@using WebApp_gastec.Domain
 
 <!DOCTYPE html>
 
@@ -92,497 +93,404 @@
                 <!-- Header Top -->
                 <div class="header-top">
                     <div class="auto-container">
-                        @if (Gastech_Vault.TranslationLanguageID == 0)
-                        {
-                            <div class="inner-container clearfix">
-                                <!--Top left-->
-                                <div class="top-left clearfix hidden-sm hidden-xs">
-                                    <!--social-icon-->
-                                    <div class="social-icon">
-                                        <ul class="clearfix">
-                                            <li><a href="https://www.facebook.com/gasteceg/" target="_blank"><span class="fa fa-facebook"></span></a></li>
-                                            <li><a href="https://www.youtube.com/channel/UCTLayD5SdoD3WCPk7T3jgcQ" target="_blank"><span class="fa fa-youtube"></span></a></li>
-
-                                        </ul>
-                                    </div>
-                                    <ul class="links clearfix">
-                                        <li style="padding-top: 8px">|</li>
-                                        <li><a href="mailto:gastec@gastec-egypt.com"><span class="icon flaticon-note-1"></span></a></li>
-                                        <li><a href="https://www.gastec-egypt.com/public/lang/en"><strong>English</strong><span class="icon flaticon-chat"></span></a></li>
+                        <div class="inner-container clearfix">
+                            <!--Top left-->
+                            <div class="top-left clearfix hidden-sm hidden-xs">
+                                <!--social-icon-->
+                                <div class="social-icon">
+                                    <ul class="clearfix">
+                                        <li><a href="https://www.facebook.com/gasteceg/" target="_blank"><span class="fa fa-facebook"></span></a></li>
+                                        <li><a href="https://www.youtube.com/channel/UCTLayD5SdoD3WCPk7T3jgcQ" target="_blank"><span class="fa fa-youtube"></span></a></li>
 
                                     </ul>
                                 </div>
-                                <!--Top Right-->
-                                <div class="top-right clearfix hidden-sm">
-                                    <!--social-icon-->
-                                    <div class="links clearfix">
-                                        <ul class="clearfix">
-                                            @foreach (var entity in Model.MainNavigationBar)
-                                            {
-                                                @if (entity.ClassificationID == 8)
-                                                {
-                                                    <li><a href="@Url.Action("PhotoCenter", "MediaCenter")">@entity.ClassificationName</a></li>
-                                                }
-                                                else
-                                                    continue;
-                                            }
-                                            <li><a href="https://www.gastec-egypt.com/public/careers">وظائف</a></li>
-                                            <li><a href="https://www.gastec-egypt.com/public/contacts">اتصل بنا</a></li>
-                                            <li><a href="https://www.gastec-egypt.com/public/conversion_form">طلب تحويل سيارة</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                        else if (Gastech_Vault.TranslationLanguageID == 1)
-                        {
-                            <div class="inner-container clearfix">
-                                <!--Top Right-->
-                                <div class="top-right clearfix hidden-sm">
-                                    <!--social-icon-->
-                                    <div class="links clearfix">
-                                        <ul class="clearfix">
-                                            @foreach (var entity in Model.MainNavigationBar)
-                                            {
-                                                @if (entity.ClassificationID == 8)
-                                                {
-                                            <li><a href="@Url.Action("PhotoCenter", "MediaCenter")">@entity.ClassificationName</a></li>
-                                                }
-                                                else
-                                                    continue;
-                                            }
-                                            <li><a href="https://www.gastec-egypt.com/public/careers">Careers</a></li>
-                                            <li><a href="https://www.gastec-egypt.com/public/contacts">Contact Us</a></li>
-                                            <li><a href="https://www.gastec-egypt.com/public/conversion_form">Car Conversion Request</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!--Top left-->
-                                <div class="top-left clearfix">
-                                    <!--social-icon-->
-                                    <div class="social-icon">
-                                        <ul class="clearfix">
-                                            <li>
-                                                <a href="https://www.facebook.com/gasteceg/" target="_blank">
-                                                    <span class="fa fa-facebook"></span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="https://www.youtube.com/channel/UCTLayD5SdoD3WCPk7T3jgcQ"
-                                                   target="_blank"><span class="fa fa-youtube"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <ul class="links clearfix">
-                                        <li style="padding-top: 8px">|</li>
-                                        <li>
-                                            <a href="mailto:gastec@gastec-egypt.com"><span class="icon flaticon-note-1"></span></a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <strong>English</strong><span class="icon flaticon-chat"></span>
-                                            </a>
-                                        </li>
+                                <ul class="links clearfix">
+                                    <li style="padding-top: 8px">|</li>
+                                    <li><a href="mailto:gastec@gastec-egypt.com"><span class="icon flaticon-note-1"></span></a></li>
+                                    <li><a href="https://www.gastec-egypt.com/public/lang/en"><strong>English</strong><span class="icon flaticon-chat"></span></a></li>
 
-                                    </ul>
-                                </div>
+                                </ul>
                             </div>
-                        }
-                    </div>
-                </div>
-                <!-- Header Top End -->
-                <div class="auto-container">
-                    <div class="sticky-inner-container clearfix">
-                        <!--Logo-->
-                        <div class="logo pull-right">
-                            @if (Gastech_Vault.TranslationLanguageID == 0)
-                            {
-                                <a href="@Url.Action("Index","Home")" class="img-responsive"><img src="~/public/assets/softextwo/images/logo-ar.png" alt="" title="" /></a>
-                            }
-                            else if (Gastech_Vault.TranslationLanguageID == 1)
-
-                            {
-                                <a href="@Url.Action("Index","Home")" class="img-responsive"><img src="~/public/assets/softextwo/images/logo.png" alt="" title="" /></a>
-                            }
-                        </div>
-                        <!--Right Col-->
-                        <div class="right-col pull-left">
-                            <!--Outer Box-->
-                            <div class="outer-box">
-                                <!--Search Box-->
-                                <div class="search-box-outer">
-                                    <div class="dropdown">
-                                        <button class="search-box-btn dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-search"></span></button>
-                                        <ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu4">
-                                            <li class="panel-outer">
-                                                <div class="form-container">
-                                                    <form method="get" action="https://www.gastec-egypt.com/public/searchresult">
-                                                        <div class="form-group">
-                                                            <input type="text" name="keyword" value="" placeholder="Search Here" required="" />
-                                                            <button type="submit" class="search-btn"><span class="fa fa-search"></span></button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Main Menu -->
-                            <nav class="main-menu">
-                                <div class="navbar-header">
-                                    <!-- Toggle Button -->
-                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                </div>
-                                <div class="navbar-collapse collapse clearfix">
-                                    <ul class="navigation clearfix">
-                                        @foreach (var classification in Model.MainNavigationBar)
+                            <!--Top Right-->
+                            <div class="top-right clearfix hidden-sm">
+                                <!--social-icon-->
+                                <div class="links clearfix">
+                                    <ul class="clearfix">
+                                        @foreach (var entity in Model.MainNavigationBar)
                                         {
-                                            @if (classification.ClassificationID == 1)
+                                            @if (entity.ClassificationID == 8)
                                             {
-                                                <li>
-                                                    <a href="@Url.Action("Index","Home")">@classification.ClassificationName</a>
-                                                </li>
-                                            }
-                                            else if (classification.ClassificationID == 8 || classification.ClassificationID == 20 || classification.ClassificationID == 121)
-                                            {
-                                                continue;
+                                                <li><a href="@Url.Action("Index", "MediaCenter",new { ID = "48" })">@entity.ClassificationName</a></li>
                                             }
                                             else
-                                            {
-                                                @if (classification.LstChildClassification.Count > 0)
-                                                {
-                                                    // check if Id = 125 for About us
-                                                    @if (classification.ClassificationID == 125)
-                                                    {
-                                                        <li class="dropdown">
-                                                            <a href="#">@classification.ClassificationName</a>
-                                                            <ul>
-                                                                @foreach (var entity in classification.LstChildClassification)
-                                                                {
-                                                                    @if (entity.ClassificationID == 9)
-                                                                    {
-                                                                        // Legal Entity
-                                                                        <li>
-                                                                            <a href="@Url.Action("LegalEntity","About")">@entity.ClassificationName</a>
-                                                                        </li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 121)
-                                                                    {
-                                                                        //Vision and Mision
-                                                                        <li>
-                                                                            <a href="@Url.Action("VisionMision","About")">@entity.ClassificationName</a>
-                                                                        </li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 124)
-                                                                    {
-                                                                        // Company Activites
-                                                                        <li>
-                                                                            <a href="@Url.Action("Activities","About")">@entity.ClassificationName</a>
-                                                                        </li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 122)
-                                                                    {
-                                                                        // Contributors
-                                                                        <li>
-                                                                            <a href="@Url.Action("Contributors","About")">@entity.ClassificationName</a>
-                                                                        </li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 120)
-                                                                    {
-                                                                        // Members
-                                                                        <li>
-                                                                            <a href="@Url.Action("Members","About")">@entity.ClassificationName</a>
-                                                                        </li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 123)
-                                                                    {
-                                                                        // HR
-                                                                        <li class="dropdown">
-                                                                            <a href="@Url.Action("HR", "About")">@entity.ClassificationName</a>
-                                                                            <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>
-                                                                            <ul>
-                                                                                @foreach (var child in entity.LstChildClassification)
-                                                                                {
-                                                                                    @if (child.ClassificationID == 15)
-                                                                                    {
-                                                                                        //Management
-                                                                                        <li>
-                                                                                            <a href="@Url.Action("HR", "About")">@child.ClassificationName</a>
-                                                                                        </li>
-                                                                                    }
-                                                                                    else if (child.ClassificationID == 78)
-                                                                                    {
-                                                                                        // Relations
-                                                                                        <li> <a href="@Url.Action("Relations", "About")">@child.ClassificationName</a></li>
-                                                                                    }
-                                                                                    else if (child.ClassificationID == 17)
-                                                                                    {
-                                                                                        //Training
-                                                                                        <li> <a href="@Url.Action("Training","About")">@child.ClassificationName</a></li>
-                                                                                    }
-                                                                                    else if (child.ClassificationID == 18)
-                                                                                    {
-                                                                                        // organizational
-                                                                                        <li> <a href="@Url.Action("organizational","About")">@child.ClassificationName</a></li>
-                                                                                    }
-                                                                                }
-                                                                            </ul>
-                                                                        </li>
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        <li>
-                                                                            <a href="#">@entity.ClassificationName</a>
+                                                continue;
+                                        }
+                                        <li><a href="https://www.gastec-egypt.com/public/careers">وظائف</a></li>
+                                        <li><a href="https://www.gastec-egypt.com/public/contacts">اتصل بنا</a></li>
+                                        <li><a href="https://www.gastec-egypt.com/public/conversion_form">طلب تحويل سيارة</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Header Top End -->
+                        <div class="auto-container">
+                            <div class="sticky-inner-container clearfix">
+                                <!--Logo-->
+                                <div class="logo pull-right">
+                                    @if (Gastech_Vault.TranslationLanguageID == 0)
+                                    {
+                                        <a href="@Url.Action("Index","Home")" class="img-responsive"><img src="~/public/assets/softextwo/images/logo-ar.png" alt="" title="" /></a>
+                                    }
+                                    else if (Gastech_Vault.TranslationLanguageID == 1)
 
-                                                                        </li>
-                                                                    }
-                                                                }
-                                                            </ul>
+                                    {
+                                        <a href="@Url.Action("Index","Home")" class="img-responsive"><img src="~/public/assets/softextwo/images/logo.png" alt="" title="" /></a>
+                                    }
+                                </div>
+                                <!--Right Col-->
+                                <div class="right-col pull-left">
+                                    <!--Outer Box-->
+                                    <div class="outer-box">
+                                        <!--Search Box-->
+                                        <div class="search-box-outer">
+                                            <div class="dropdown">
+                                                <button class="search-box-btn dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-search"></span></button>
+                                                <ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu4">
+                                                    <li class="panel-outer">
+                                                        <div class="form-container">
+                                                            <form method="get" action="https://www.gastec-egypt.com/public/searchresult">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="keyword" value="" placeholder="Search Here" required="" />
+                                                                    <button type="submit" class="search-btn"><span class="fa fa-search"></span></button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Main Menu -->
+                                    <nav class="main-menu">
+                                        <div class="navbar-header">
+                                            <!-- Toggle Button -->
+                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                            </button>
+                                        </div>
+                                        <div class="navbar-collapse collapse clearfix">
+                                            <ul class="navigation clearfix">
+                                                @foreach (var classification in Model.MainNavigationBar)
+                                                {
+                                                    @if (classification.ClassificationID == 1)
+                                                    {
+                                                        <li>
+                                                            <a href="@Url.Action("Index","Home")">@classification.ClassificationName</a>
                                                         </li>
                                                     }
-                                                    // check if Id = 3 for Car Conversion
-                                                    else if (classification.ClassificationID == 3)
+                                                    else if (classification.ClassificationID == 8 || classification.ClassificationID == 20 || classification.ClassificationID == 121)
                                                     {
-                                                        <li class="dropdown">
-                                                            <a href="#">@classification.ClassificationName</a>
-                                                            <ul>
-                                                                @foreach (var entity in classification.LstChildClassification)
-                                                                {
-                                                                    @if (entity.ClassificationID == 19)
-                                                                    {
-                                                                        // Advantage
-                                                                        <li>
-                                                                            <a href="@Url.Action("Advantage","Car_Conversion")">@entity.ClassificationName</a>
-                                                                        </li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 20)
-                                                                    {
-                                                                        //Conversion Proccess
-                                                                        <li><a href="@Url.Action("Conversion_Proccess", "Car_Conversion")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 21)
-                                                                    {
-                                                                        //Conversion Cost
-                                                                        <li><a href="@Url.Action("Conversion_Cost", "Car_Conversion")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 22)
-                                                                    {
-                                                                        //Saftey Factor
-                                                                        <li><a href="@Url.Action("SafteyFactor", "Car_Conversion")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 23)
-                                                                    {
-                                                                        //Questions
-                                                                        <li><a href="@Url.Action("CommonQuestions", "Car_Conversion")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 24)
-                                                                    {
-                                                                        //Conversion Centers
-                                                                        <li><a href="@Url.Action("Conversion_Centers", "Car_Conversion")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 25)
-                                                                    {
-                                                                        //Local Manuf
-                                                                        <li><a href="@Url.Action("local_manufacturing", "Car_Conversion")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                }
-                                                            </ul>
-                                                        </li>
-                                                    }
-                                                    //Check if ID = 5 for Cylindar Test
-                                                    else if (classification.ClassificationID == 5)
-                                                    {
-                                                        <li class="dropdown">
-                                                            <a href="#">@classification.ClassificationName</a>
-                                                            <ul>
-                                                                @foreach (var entity in classification.LstChildClassification)
-                                                                {
-                                                                    @if (entity.ClassificationID == 37)
-                                                                    {
-                                                                        // Testing Proccess
-                                                                        <li>
-                                                                            <a href="@Url.Action("Testing_Proccess", "Cylindar_Test")">@entity.ClassificationName</a>
-                                                                        </li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 38)
-                                                                    {
-                                                                        //Testing Centers
-                                                                        <li><a href="@Url.Action("Testing_Centers", "Cylindar_Test")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 39)
-                                                                    {
-                                                                        //Videos
-                                                                        <li><a href="@Url.Action("Explainer_videos", "Cylindar_Test")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                }
-                                                            </ul>
-                                                        </li>
-                                                    }
-                                                    // Check if ID = 4 for Catering Stations
-                                                    else if (classification.ClassificationID == 4)
-                                                    {
-                                                        <li class="dropdown">
-                                                            <a href="#">@classification.ClassificationName</a>
-                                                            <ul>
-                                                                @foreach (var entity in classification.LstChildClassification)
-                                                                {
-                                                                    @if (entity.ClassificationID == 26)
-                                                                    {
-                                                                        // NaturalGas
-                                                                        <li><a href="@Url.Action("NaturalGas", "Catering_Stations")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 27)
-                                                                    {
-                                                                        //Liquid Gas
-                                                                        <li><a href="@Url.Action("LiquidGas", "Catering_Stations")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 28)
-                                                                    {
-                                                                        //Integrated Stations
-                                                                        <li><a href="@Url.Action("IntegratedStations","Catering_Stations")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 29)
-                                                                    {
-                                                                        //Transportation Projects
-                                                                        <li><a href="@Url.Action("TransportationProccess","Catering_Stations")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 30)
-                                                                    {
-                                                                        //Saftey
-                                                                        <li><a href="@Url.Action("OccupationalSafety","Catering_Stations")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 31)
-                                                                    {
-                                                                        //Mobile Stations
-                                                                        <li><a href="@Url.Action("MobileStations","Catering_Stations")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                }
-                                                            </ul>
-                                                        </li>
-                                                    }
-                                                    // Check iff ID = 7 for Statistics Section
-                                                    else if (classification.ClassificationID == 7)
-                                                    {
-                                                        <li class="dropdown">
-                                                            <a href="#">@classification.ClassificationName</a>
-                                                            <ul>
-                                                                @foreach (var entity in classification.LstChildClassification)
-                                                                {
-                                                                    @if (entity.ClassificationID == 44)
-                                                                    {
-                                                                        // Stat_Gastec
-                                                                        <li><a href="@Url.Action("Stat_Gastec", "Statistics")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 45)
-                                                                    {
-                                                                        //Stat_Egypt
-                                                                        <li><a href="@Url.Action("Stat_Egypt", "Statistics")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 46)
-                                                                    {
-                                                                        //Stat_World
-                                                                        <li><a href="@Url.Action("Stat_World", "Statistics")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                }
-                                                            </ul>
-                                                        </li>
-                                                    }
-                                                    // Check iff ID = 6 for Oils Section
-                                                    else if (classification.ClassificationID == 6)
-                                                    {
-                                                        <li class="dropdown">
-                                                            <a href="#">@classification.ClassificationName</a>
-                                                            <ul>
-                                                                @foreach (var entity in classification.LstChildClassification)
-                                                                {
-                                                                    @if (entity.ClassificationID == 40)
-                                                                    {
-                                                                        // Agency
-                                                                        <li><a href="@Url.Action("Agency", "Oil")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 41)
-                                                                    {
-                                                                        //Industrial Oil
-                                                                        <li><a href="@Url.Action("Industrial", "Oil")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 42)
-                                                                    {
-                                                                        //Commerical Oil
-                                                                        <li><a href="@Url.Action("Commercial", "Oil")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                    else if (entity.ClassificationID == 43)
-                                                                    {
-                                                                        //Distributers
-                                                                        <li><a href="@Url.Action("Distributor", "Oil")">@entity.ClassificationName</a></li>
-                                                                    }
-                                                                }
-                                                            </ul>
-                                                        </li>
+                                                        continue;
                                                     }
                                                     else
                                                     {
-                                                        <li class="dropdown">
-                                                            <a href="#">@classification.ClassificationName</a>
-                                                            <ul>
-                                                                @foreach (var entity in classification.LstChildClassification)
-                                                                {
-                                                                    <li><a href="#">@entity.ClassificationName</a></li>
-                                                                }
-                                                            </ul>
-                                                        </li>
+                                                        @if (classification.LstChildClassification.Count > 0)
+                                                        {
+                                                            // check if Id = 125 for About us
+                                                            @if (classification.ClassificationID == 125)
+                                                            {
+                                                                <li class="dropdown">
+                                                                    <a href="#">@classification.ClassificationName</a>
+                                                                    <ul>
+                                                                        @foreach (var entity in classification.LstChildClassification)
+                                                                        {
+
+
+                                                                            @if (entity.ClassificationID == 123)
+                                                                            {
+                                                                                // HR
+                                                                                <li class="dropdown">
+                                                                                    <a href="@Url.Action("HR", "About")">@entity.ClassificationName</a>
+                                                                                    <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>
+                                                                                    <ul>
+                                                                                        @foreach (var child in entity.LstChildClassification)
+                                                                                        {
+                                                                                            @if (child.ClassificationID == 15)
+                                                                                            {
+                                                                                                //Management
+                                                                                                <li>
+                                                                                                    <a href="@Url.Action("HR", "About")">@child.ClassificationName</a>
+                                                                                                </li>
+                                                                                            }
+                                                                                            else if (child.ClassificationID == 78)
+                                                                                            {
+                                                                                                // Relations
+                                                                                                <li> <a href="@Url.Action("Relations", "About")">@child.ClassificationName</a></li>
+                                                                                            }
+                                                                                            else if (child.ClassificationID == 17)
+                                                                                            {
+                                                                                                //Training
+                                                                                                <li> <a href="@Url.Action("Training","About")">@child.ClassificationName</a></li>
+                                                                                            }
+                                                                                            else if (child.ClassificationID == 18)
+                                                                                            {
+                                                                                                // organizational
+                                                                                                <li> <a href="@Url.Action("organizational","About")">@child.ClassificationName</a></li>
+                                                                                            }
+                                                                                        }
+                                                                                    </ul>
+                                                                                </li>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <li>
+                                                                                    <a href="@Url.Action(GetActionName.GetActionNameByClassificationTreeID(entity.ClassificationID),"About")">@entity.ClassificationName</a>
+                                                                                </li>
+                                                                            }
+                                                                        }
+                                                                    </ul>
+                                                                </li>
+                                                            }
+                                                            // check if Id = 3 for Car Conversion
+                                                            else if (classification.ClassificationID == 3)
+                                                            {
+                                                                <li class="dropdown">
+                                                                    <a href="#">@classification.ClassificationName</a>
+                                                                    <ul>
+                                                                        @foreach (var entity in classification.LstChildClassification)
+                                                                        {
+                                                                            @if (entity.ClassificationID == 19)
+                                                                            {
+                                                                                // Advantage
+                                                                                <li>
+                                                                                    <a href="@Url.Action("Advantage","Car_Conversion")">@entity.ClassificationName</a>
+                                                                                </li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 20)
+                                                                            {
+                                                                                //Conversion Proccess
+                                                                                <li><a href="@Url.Action("Conversion_Proccess", "Car_Conversion")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 21)
+                                                                            {
+                                                                                //Conversion Cost
+                                                                                <li><a href="@Url.Action("Conversion_Cost", "Car_Conversion")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 22)
+                                                                            {
+                                                                                //Saftey Factor
+                                                                                <li><a href="@Url.Action("SafteyFactor", "Car_Conversion")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 23)
+                                                                            {
+                                                                                //Questions
+                                                                                <li><a href="@Url.Action("CommonQuestions", "Car_Conversion")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 24)
+                                                                            {
+                                                                                //Conversion Centers
+                                                                                <li><a href="@Url.Action("Conversion_Centers", "Car_Conversion")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 25)
+                                                                            {
+                                                                                //Local Manuf
+                                                                                <li><a href="@Url.Action("local_manufacturing", "Car_Conversion")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                        }
+                                                                    </ul>
+                                                                </li>
+                                                            }
+                                                            //Check if ID = 5 for Cylindar Test
+                                                            else if (classification.ClassificationID == 5)
+                                                            {
+                                                                <li class="dropdown">
+                                                                    <a href="#">@classification.ClassificationName</a>
+                                                                    <ul>
+                                                                        @foreach (var entity in classification.LstChildClassification)
+                                                                        {
+                                                                            @if (entity.ClassificationID == 37)
+                                                                            {
+                                                                                // Testing Proccess
+                                                                                <li>
+                                                                                    <a href="@Url.Action("Testing_Proccess", "Cylindar_Test")">@entity.ClassificationName</a>
+                                                                                </li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 38)
+                                                                            {
+                                                                                //Testing Centers
+                                                                                <li><a href="@Url.Action("Testing_Centers", "Cylindar_Test")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 39)
+                                                                            {
+                                                                                //Videos
+                                                                                <li><a href="@Url.Action("Explainer_videos", "Cylindar_Test")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                        }
+                                                                    </ul>
+                                                                </li>
+                                                            }
+                                                            // Check if ID = 4 for Catering Stations
+                                                            else if (classification.ClassificationID == 4)
+                                                            {
+                                                                <li class="dropdown">
+                                                                    <a href="#">@classification.ClassificationName</a>
+                                                                    <ul>
+                                                                        @foreach (var entity in classification.LstChildClassification)
+                                                                        {
+                                                                            @if (entity.ClassificationID == 26)
+                                                                            {
+                                                                                // NaturalGas
+                                                                                <li><a href="@Url.Action("NaturalGas", "Catering_Stations")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 27)
+                                                                            {
+                                                                                //Liquid Gas
+                                                                                <li><a href="@Url.Action("LiquidGas", "Catering_Stations")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 28)
+                                                                            {
+                                                                                //Integrated Stations
+                                                                                <li><a href="@Url.Action("IntegratedStations","Catering_Stations")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 29)
+                                                                            {
+                                                                                //Transportation Projects
+                                                                                <li><a href="@Url.Action("TransportationProccess","Catering_Stations")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 30)
+                                                                            {
+                                                                                //Saftey
+                                                                                <li><a href="@Url.Action("OccupationalSafety","Catering_Stations")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 31)
+                                                                            {
+                                                                                //Mobile Stations
+                                                                                <li><a href="@Url.Action("MobileStations","Catering_Stations")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                        }
+                                                                    </ul>
+                                                                </li>
+                                                            }
+                                                            // Check iff ID = 7 for Statistics Section
+                                                            else if (classification.ClassificationID == 7)
+                                                            {
+                                                                <li class="dropdown">
+                                                                    <a href="#">@classification.ClassificationName</a>
+                                                                    <ul>
+                                                                        @foreach (var entity in classification.LstChildClassification)
+                                                                        {
+                                                                            @if (entity.ClassificationID == 44)
+                                                                            {
+                                                                                // Stat_Gastec
+                                                                                <li><a href="@Url.Action("Stat_Gastec", "Statistics")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 45)
+                                                                            {
+                                                                                //Stat_Egypt
+                                                                                <li><a href="@Url.Action("Stat_Egypt", "Statistics")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 46)
+                                                                            {
+                                                                                //Stat_World
+                                                                                <li><a href="@Url.Action("Stat_World", "Statistics")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                        }
+                                                                    </ul>
+                                                                </li>
+                                                            }
+                                                            // Check iff ID = 6 for Oils Section
+                                                            else if (classification.ClassificationID == 6)
+                                                            {
+                                                                <li class="dropdown">
+                                                                    <a href="#">@classification.ClassificationName</a>
+                                                                    <ul>
+                                                                        @foreach (var entity in classification.LstChildClassification)
+                                                                        {
+                                                                            @if (entity.ClassificationID == 40)
+                                                                            {
+                                                                                // Agency
+                                                                                <li><a href="@Url.Action("Agency", "Oil")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 41)
+                                                                            {
+                                                                                //Industrial Oil
+                                                                                <li><a href="@Url.Action("Industrial", "Oil")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 42)
+                                                                            {
+                                                                                //Commerical Oil
+                                                                                <li><a href="@Url.Action("Commercial", "Oil")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                            else if (entity.ClassificationID == 43)
+                                                                            {
+                                                                                //Distributers
+                                                                                <li><a href="@Url.Action("Distributor", "Oil")">@entity.ClassificationName</a></li>
+                                                                            }
+                                                                        }
+                                                                    </ul>
+                                                                </li>
+                                                            }
+                                                            else
+                                                            {
+                                                                <li class="dropdown">
+                                                                    <a href="#">@classification.ClassificationName</a>
+                                                                    <ul>
+                                                                        @foreach (var entity in classification.LstChildClassification)
+                                                                        {
+                                                                            <li><a href="#">@entity.ClassificationName</a></li>
+                                                                        }
+                                                                    </ul>
+                                                                </li>
+                                                            }
+                                                        }
+
                                                     }
                                                 }
+                                            </ul>
+                                        </div>
+                                    </nav>
+                                    <script>
+                                        //Update Header Style and Scroll to Top
+                                        function headerStyle() {
+                                            if ($('.main-header').length) {
+                                                var windowpos = $(window).scrollTop();
+                                                var siteHeader = $('.main-header');
 
+                                                var scrollLink = $('.scroll-to-top');
+                                                if (windowpos >= 1) {
+                                                    siteHeader.addClass('fixed-header');
+                                                    scrollLink.fadeIn(0);
+                                                } else {
+                                                    siteHeader.removeClass('fixed-header');
+                                                    scrollLink.fadeOut(0);
+                                                }
                                             }
                                         }
-                                    </ul>
-                                </div>
-                            </nav>
-                            <script>
-                                //Update Header Style and Scroll to Top
-                                function headerStyle() {
-                                    if ($('.main-header').length) {
-                                        var windowpos = $(window).scrollTop();
-                                        var siteHeader = $('.main-header');
 
-                                        var scrollLink = $('.scroll-to-top');
-                                        if (windowpos >= 1) {
-                                            siteHeader.addClass('fixed-header');
-                                            scrollLink.fadeIn(0);
-                                        } else {
-                                            siteHeader.removeClass('fixed-header');
-                                            scrollLink.fadeOut(0);
+                                        headerStyle();
+                                        //Submenu Dropdown Toggle
+                                        if ($('.main-header li.dropdown ul').length) {
+                                            $('.main-header li.dropdown').append('<div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>');
+
+                                            //Dropdown Button
+                                            $('.main-header li.dropdown .dropdown-btn').on('click', function () {
+                                                $(this).prev('ul').slideToggle(500);
+                                            });
+
+                                            //Disable dropdown parent link
+                                            $('.main-header .navigation li.dropdown > a,.hidden-bar .side-menu li.dropdown > a').on('click', function (e) {
+                                                e.preventDefault();
+                                            });
                                         }
-                                    }
-                                }
-
-                                headerStyle();
-                                //Submenu Dropdown Toggle
-                                if ($('.main-header li.dropdown ul').length) {
-                                    $('.main-header li.dropdown').append('<div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>');
-
-                                    //Dropdown Button
-                                    $('.main-header li.dropdown .dropdown-btn').on('click', function () {
-                                        $(this).prev('ul').slideToggle(500);
-                                    });
-
-                                    //Disable dropdown parent link
-                                    $('.main-header .navigation li.dropdown > a,.hidden-bar .side-menu li.dropdown > a').on('click', function (e) {
-                                        e.preventDefault();
-                                    });
-                                }
-                            </script>
-                            <!-- Main Menu End-->
+                                    </script>
+                                    <!-- Main Menu End-->
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!--End Sticky Header-->
+                    <!--End Sticky Header-->
         </header>
 
         @RenderBody()
@@ -670,157 +578,65 @@
             <div class="container-fluid">
                 <!--Widgets Section-->
                 <div class="widgets-section">
-
-                    <div id="footer1"></div>
-
-                    @*<style>
-                        @media (min-width: 768px)
-                               {
-
-                            .seven-cols .col-md-2,
-                            .seven-cols .col-sm-2,
-                            .seven-cols .col-lg-2 {
-                                width: 100%;
-                                *width: 100%;
-                            }
-                        }
-
-                        @media (min-width: 992px)
-                               {
-
-                            .seven-cols .col-md-2,
-                            .seven-cols .col-sm-2,
-                            .seven-cols .col-lg-2 {
-                                width: 14.285714285714285714285714285714%;
-                                *width: 14.285714285714285714285714285714%;
-                            }
-                        }
-
-                        @media (min-width: 1200px) {
-
-                            .seven-cols .col-md-2,
-                            .seven-cols .col-sm-2,
-                            .seven-cols .col-lg-2 {
-                                width: 14.285714285714285714285714285714%;
-                                *width: 14.285714285714285714285714285714%;
-                            }
-                        }
-                            </style>*@
-
-                    <div class="row d-flex flex-row-reverse seven-cols clearfix">
-                        <!--big column-->
-                        @*@foreach ($getmenu as $getmenudata)*@
-                        <div class="big-column col-md-2 col-sm-12 col-xs-12 pull-left">
-                            <!--Footer Column-->
-                            <div class="footer-column col-md-12 col-sm-12 col-xs-12">
-                                <div class="footer-widget links-widget">
-                                    @*@if (Gastech_Vault.TranslationLanguageID == 0)
-                                        {
-                                            <h2>{{ $getmenudata["name"] }}</h2>
-                                        }
-
-                                        else if (Gastech_Vault.TranslationLanguageID == 1)
-                                        {
-                                            <h2>{{ $getmenudata["second_name"] }}</h2>
-                                        }*@
-                                    <div class="widget-content">
-                                        <ul class="list">
-
-
-                                            @*@foreach ($getmenudata["linksdata"] as $gesubmenudata)
-                                                <?php
-                                                if($gesubmenudata["class"]=="32693"){
-                                                $linkfullurl = env('APP_URL')."aboutus/";
-                                                }
-                                                elseif($gesubmenudata["class"]=="32695"){
-                                                $linkfullurl = env('APP_URL')."car_conversion/";
-                                                }
-                                                elseif($gesubmenudata["class"]=="32696"){
-                                                $linkfullurl = env('APP_URL')."stations/";
-                                                }
-                                                elseif($gesubmenudata["class"]=="32697"){
-                                                $linkfullurl = env('APP_URL')."cylinder_test/";
-                                                }
-                                                elseif($gesubmenudata["class"]=="32698"){
-                                                $linkfullurl = env('APP_URL')."oil_distribution/";
-                                                }
-                                                elseif($gesubmenudata["class"]=="32699"){
-                                                $linkfullurl = env('APP_URL')."statistics/";
-                                                }
-                                                elseif($gesubmenudata["class"]=="32694"){
-                                                $linkfullurl = env('APP_URL')."hr/";
-                                                }*@
-                                            @*?>*@
-
-                                            @*@if (Gastech_Vault.TranslationLanguageID == 0)
-                                                {
-                                                    <li>
-
-                                                        <a href="{{ $linkfullurl . $gesubmenudata["id"] }}">{{ $gesubmenudata["title"] }}</a>
-                                                    </li>
-                                                }
-
-                                                else if (Gastech_Vault.TranslationLanguageID == 1)
-                                                {
-                                                    <li>
-
-                                                        <a href="{{ $linkfullurl . $gesubmenudata["id"] }}">{{ $gesubmenudata["second_title"] }}</a>
-
-                                                    </li>
-
-                                                }*@
-                                            @*@endforeach*@
-                                        </ul>
+                    <div id="footer1">
+                        <div class="row d-flex flex-row-reverse seven-cols clearfix">
+                            @foreach (var classification in Model.MainNavigationBar)
+                            {
+                                @if (classification.ClassificationID == 1 || classification.ClassificationID == 8 || classification.ClassificationID == 20 || classification.ClassificationID == 121)
+                                {
+                                    continue;
+                                }
+                                <div class="big-column col-md-2 col-sm-12 col-xs-12 pull-left">
+                                    <div class="footer-column col-md-12 col-sm-12 col-xs-12">
+                                        <div class="footer-widget links-widget">
+                                            <h2>@classification.ClassificationName</h2>
+                                            <div class="widget-content">
+                                                <ul class="list">
+                                                    @foreach (var entity in classification.LstChildClassification)
+                                                    {
+                                                        <li> <a href="#">@entity.ClassificationName</a> </li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            }
                         </div>
-                        @*@endforeach*@
                     </div>
-                </div>
-                <!--Footer Bottom-->
-                <div class="footer-bottom">
-                    <div class="clearfix">
-                        <div class="col-md-12 text-center">
-                            <ul class="social-icon-one">
-                                <li>
-                                    <a href="https://www.facebook.com/gasteceg/" target="_blank">
-                                        <span class="fa fa-facebook"
-                                              target="_blank"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.youtube.com/channel/UCTLayD5SdoD3WCPk7T3jgcQ" target="_blank">
-                                        <span class="fa fa-youtube"></span>
-                                    </a>
-                                </li>
+                    <!--Footer Bottom-->
+                    <div class="footer-bottom">
+                        <div class="clearfix">
+                            <div class="col-md-12 text-center">
+                                <ul class="social-icon-one">
+                                    <li>
+                                        <a href="https://www.facebook.com/gasteceg/" target="_blank">
+                                            <span class="fa fa-facebook"
+                                                  target="_blank"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/channel/UCTLayD5SdoD3WCPk7T3jgcQ" target="_blank">
+                                            <span class="fa fa-youtube"></span>
+                                        </a>
+                                    </li>
 
 
 
-                            </ul>
+                                </ul>
 
-                            <div class="center">
-
-
-                                @if (Gastech_Vault.TranslationLanguageID == 0)
-                                {
+                                <div class="center">
                                     <span style="font-size: 16px;font-weight: 600; color: #243a69;">
                                         جميع الحقوق محفوظة للشركة
                                         المصرية الدولية لتكنولوجيا الغاز - غازتك
                                     </span>
-                                }
-                                else if (Gastech_Vault.TranslationLanguageID == 1)
-                                {
-                                    <span style="font-size: 16px;font-weight: 600; color: #243a69;">
-                                        All rights reserved to the
-                                        Egyptian International Gas Technology - GASTEC
-                                    </span>
-                                }
-                                <div class="copyright">
-                                    Powered by <a href="http://softexsw.com" target="_blank">
-                                        Softex Software
-                                        House
-                                    </a>
+
+                                    <div class="copyright">
+                                        Powered by <a href="http://softexsw.com" target="_blank">
+                                            Softex Software
+                                            House
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -863,6 +679,5 @@
         <script src="~/public/assets/softextwo/plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
         <script src="~/public/assets/softextwo/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
         <script src="~/public/assets/softextwo/plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
-    </div>
 </body>
 </html>

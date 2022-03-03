@@ -60,6 +60,16 @@ namespace WebApp_gastec.Controllers
                         }
                     }
                 }
+                else if (entity.LstChildClassification.Count > 0)
+                {
+                    foreach (var classification in entity.LstChildClassification)
+                    {
+                        foreach (var image in classification.LstImages)
+                        {
+                            image.ImageGUID = await cachedImages.CahceAllImageAsync(folderName_, image.ImageGUID, image.ImageLink);
+                        }
+                    }
+                }
                 else
                 {
                     foreach (var image in entity.LstImages)
@@ -97,9 +107,9 @@ namespace WebApp_gastec.Controllers
         // Routing for Industrial Oils Page (This Function doesn't Return the List of Child Classification)
         public async Task<IActionResult> IndustrialAsync()
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("41"), Domain.System.Encrypt("190"));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("41"), Domain.System.Encrypt("0"));
             await CachedAllImagesAsync(model, "Industrial_Oil");
-            await CachedAllHtmlLinksAsync(model, "Industrial_Oil");
+            //await CachedAllHtmlLinksAsync(model, "Industrial_Oil");
             return View(model);
         }
         // Routing for Commerical Oils Page

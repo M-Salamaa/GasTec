@@ -5,13 +5,13 @@
 }
 
 
-@foreach (var entity in Model.Oil_Categories)
-{
-    @foreach (var Websection in entity.LstWebSections)
+@*@foreach (var entity in Model.Oil_Categories)
     {
-        @Html.Raw(Websection.Style)
-    }
-}
+        @foreach (var Websection in entity.LstWebSections)
+        {
+            @Html.Raw(Websection.Style)
+        }
+    }*@
 
 <!-- Page Title-->
 <section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/eni-header.jpg');">
@@ -65,7 +65,7 @@
                                         else if (entity.ClassificationID == 42)
                                         {
                                             //Commerical Oil
-                                            <li ><a href="@Url.Action("Commercial", "Oil")">@entity.ClassificationName</a></li>
+                                            <li><a href="@Url.Action("Commercial", "Oil")">@entity.ClassificationName</a></li>
                                         }
                                         else if (entity.ClassificationID == 43)
                                         {
@@ -80,70 +80,39 @@
                 </aside>
             </div>
             <!--Content Side-->
-            <div class="services-single" dir="rtl">
-
-                <div class="inner-box">
-
-                    <div id="cmspage1"></div>
-
-                </div>
-            </div>
-            @{
-                var Counter = 0;
-            }
             <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
-                <div class="services-single" dir="rtl">
-
-                    <div class="inner-box">
-
-                        <div id="cmspage1"></div>
-
-                    </div>
-                </div>
                 <div class="team-column col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
                     <div class="inner-column">
                         <div class="row clearfix">
-                            <div id="teambox">
-                                @foreach (var entity in Model.Oil_Categories)
-                                {
-                                    @foreach (var webSection in entity.LstWebSections)
+                            @foreach (var oilCategory in Model.Oil_Categories)
+                            {
+                                <div id="teambox">
+                                    @foreach (var entity in oilCategory.LstChildClassification)
                                     {
-                                        Counter = 0;
+
                                         <div class="team-block col-md-3 col-sm-6 col-xs-12 pull-right">
                                             <div class="inner-box">
-                                                @foreach (var image in webSection.LstImages)
-                                                {
-                                                    @if (Counter == 1)
-                                                        break;
-                                                    else
-                                                    {
-                                                        @for (int i = 0; i < 1; i++)
-                                                        {
-                                                            <div class="image">
-                                                                <a href="@image.ImageLink">
-                                                                    <img src="~/Images/Commerical_Oil/@image.ImageGUID" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="lower-box">
-                                                                <h3>
-                                                                    <a href="#">
-                                                                        @Html.Raw(webSection.Body)
-                                                                    </a>
-                                                                </h3>
-                                                            </div>
-                                                        }
-                                                    }
-                                                    Counter++;
-                                                }
+                                                <div class="image">
+                                                    <a href="@entity.LstImages.Select(x=>x.ImageLink).FirstOrDefault().ToString()">
+                                                        <img src="~/Images/Industrial_Oil/@entity.LstImages.Select(x=>x.ImageGUID).FirstOrDefault().ToString()" alt="" />
+                                                    </a>
+
+                                                </div>
+                                                <div class="lower-box">
+                                                    <h3>
+                                                        <a href="#">
+                                                            @entity.ClassificationName
+                                                        </a>
+                                                    </h3>
+
+                                                </div>
                                             </div>
                                         </div>
                                     }
-                                }
-                            </div>
+                                </div>
+                            }
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>

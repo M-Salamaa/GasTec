@@ -48,17 +48,17 @@
                                         @if (entity.ClassificationID == 48)
                                         {
                                             // Photo Center
-                                            <li><a href="@Url.Action("PhotoCenter", "MediaCenter")">@entity.ClassificationName</a></li>
+                                            <li ><a href="@Url.Action("Index", "MediaCenter",new { PhotoID = entity.ClassificationID.ToString()})">@entity.ClassificationName</a></li>
                                         }
                                         else if (entity.ClassificationID == 49)
                                         {
                                             //Videos
-                                            <li><a href="@Url.Action("Videos", "MediaCenter")">@entity.ClassificationName</a></li>
+                                            <li><a href="@Url.Action("Index", "MediaCenter", new { PhotoID = entity.ClassificationID.ToString()})">@entity.ClassificationName</a></li>
                                         }
                                         else if (entity.ClassificationID == 50)
                                         {
                                             //Activites Photo
-                                            <li><a href="@Url.Action("ActivitiesPhoto", "MediaCenter")">@entity.ClassificationName</a></li>
+                                            <li><a href="@Url.Action("Index", "MediaCenter", new { PhotoID = entity.ClassificationID.ToString()})">@entity.ClassificationName</a></li>
                                         }
                                         else if (entity.ClassificationID == 51)
                                         {
@@ -78,7 +78,7 @@
                     <div class="inner-box">
                         <div id="filesholder">
                             <!-- Tabs Side-->
-                           
+                            
                         </div>
                     </div>
                 </div>

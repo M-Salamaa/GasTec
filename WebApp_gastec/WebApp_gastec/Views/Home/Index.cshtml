@@ -75,19 +75,6 @@
         </section>
         <script src="~/public/assets/softextwo/js/main-slider-script.js"></script>
     </div>
-    @*<script>
-            setTimeout(function () {
-                $("#mainslider").html("<div class='linear-background'></div>");
-                $.ajax({
-                    type: 'POST',
-                    url: "https://www.gastec-egypt.com/public/index.php/galtempfour/1190",
-                    data: "_token=2gbhU6dv8V7qFEuYNhhQb4ipNRKFHgje4vHDluQW",
-                }).success(function (response) {
-
-                    $("#mainslider").html(response);
-                });
-            }, 0);
-        </script>*@
 
     <!--End Main Slider-->
     <!--About Section-->
@@ -210,95 +197,44 @@
         <div class="auto-container">
             <div class="row clearfix">
                 <!--Image Column-->
-
-                @if (Gastech_Vault.TranslationLanguageID == 0)
-                {
-                    <div class="image-column col-lg-2 col-md-12 col-sm-12 pull-right wow slideInUp">
-                        <div class="image">
-                            <h1>أرقام غازتك</h1>
-                        </div>
-
-                        <h1 class="cng">CNG for Mobility</h1>
+                <div class="image-column col-lg-2 col-md-12 col-sm-12 pull-right wow slideInUp">
+                    <div class="image">
+                        <h1>أرقام غازتك</h1>
                     </div>
-                }
-                else if (Gastech_Vault.TranslationLanguageID == 1)
-                {
-                    <div class="image-column col-lg-2 col-md-12 col-sm-12 pull-left wow slideInUp">
-                        <div class="image">
-                            <h1>Gastec Numbers</h1>
-                        </div>
 
-                        <h1 class="cng">CNG for Mobility</h1>
-                    </div>
-                }
-
+                    <h1 class="cng">CNG for Mobility</h1>
+                </div>
                 @*This Part is for numbers*@
-                @if (Gastech_Vault.TranslationLanguageID == 0)
-                {
-                    <!--Counter Column-->
-                    <div class="counter-main-column col-lg-10 col-md-12 col-sm-12">
-                        <div class="inner-column">
-                            <div class="fact-counter">
-                                <div class="row clearfix">
-                                    @foreach (var listWebSection in Model.GastechNumbers)
+                <!--Counter Column-->
+                <div class="counter-main-column col-lg-10 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="fact-counter">
+                            <div class="row clearfix">
+                                @foreach (var listWebSection in Model.GastechNumbers)
+                                {
+                                    @foreach (var webSection in listWebSection.LstWebSections)
                                     {
-                                        @foreach (var webSection in listWebSection.LstWebSections)
-                                        {
-                                            <!--Column-->
-                                            <div class="column counter-column col-lg-3 col-md-3 col-sm-6 col-xs-6 wow fadeIn" data-wow-delay=".70s">
-                                                <div class="card-top"><img src="~/public/assets/softextwo/images/card-top.png" alt="" /></div>
-                                                <div class="inner">
-                                                    <div class="count-outer count-box">
-                                                        <span class="count-text" data-speed="2500" data-stop="@webSection.WebSectionTitle">0</span>@webSection.ToolTip
-                                                    </div>
-                                                    @foreach (var img in webSection.LstImages)
-                                                    {
-                                                        <img src="~/Images/GastechNumbers/@img.ImageGUID" alt="" />
-                                                    }
-                                                    <h4 class="counter-title">@webSection.WebSection_PlainText</h4>
+                                        <!--Column-->
+                                        <div class="column counter-column col-lg-3 col-md-3 col-sm-6 col-xs-6 wow fadeIn" data-wow-delay=".70s">
+                                            <div class="card-top"><img src="~/public/assets/softextwo/images/card-top.png" alt="" /></div>
+                                            <div class="inner">
+                                                <div class="count-outer count-box">
+                                                    <span class="count-text" data-speed="2500" data-stop="@webSection.WebSectionTitle">0</span>@webSection.ToolTip
                                                 </div>
+                                                @foreach (var img in webSection.LstImages)
+                                                {
+                                                    <img src="~/Images/GastechNumbers/@img.ImageGUID" alt="" />
+                                                }
+                                                <h4 class="counter-title">@webSection.WebSection_PlainText</h4>
                                             </div>
-                                        }
+                                        </div>
                                     }
-                                </div>
+                                }
                             </div>
                         </div>
                     </div>
-                }
-                else if (Gastech_Vault.TranslationLanguageID == 1)
-                {
-                    <!--Counter Column-->
-                    <div class="counter-main-column col-lg-10 col-md-12 col-sm-12">
-                        <div class="inner-column">
-                            <div class="fact-counter">
-                                <div class="row clearfix">
-                                    @foreach (var listWebSection in Model.GastechNumbers)
-                                    {
+                </div>
 
-                                        @foreach (var webSection in listWebSection.LstWebSections)
-                                        {
-                                            @foreach (var img in webSection.LstImages)
-                                            {
-                                                <!--Column-->
-                                                <div class="column counter-column col-lg-3 col-md-3 col-sm-6 col-xs-6 wow fadeIn" data-wow-delay=".70s">
-                                                    <div class="card-top"><img src="~/public/assets/softextwo/images/card-top.png" alt="" /></div>
-                                                    <div class="inner">
-                                                        <div class="count-outer count-box">
-                                                            <span class="count-text" data-speed="3500" data-stop="@webSection.WebSectionTitle">0</span>@webSection.ToolTip
-                                                        </div>
-                                                        <img src="~/Images/GastechNumbers/@img.ImageGUID" alt="" />
-                                                    </div>
-                                                </div>
-                                            }
-                                            <h4 class="counter-title">@webSection.WebSection_PlainText</h4>
-
-                                        }
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
             </div>
         </div>
     </section>
@@ -534,25 +470,24 @@
     <!--News Section-->
     <section class="project-section">
         <div class="auto-container">
-                <div class="sec-title">
-                    <h2>فعاليات غازتك<a href="<?=env('APP_URL')?>allnews/32690" class="theme-btn read-more" style="float: left;direction: rtl;font-size: 18px;color: #fff;">عرض جميع الفعاليات<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span></a></h2>
-                </div>
+            <div class="sec-title">
+                <h2>فعاليات غازتك<a href="#" class="theme-btn read-more" style="float: left;direction: rtl;font-size: 18px;color: #fff;">عرض جميع الفعاليات<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span></a></h2>
+            </div>
             <div class="row clearfix">
                 <!--Column-->
                 <div class="column col-md-12 col-sm-12 col-xs-12">
                     <div class="row clearfix">
-
                         <div id="events3">
                             @foreach (var image in Model.NewsSection.LstNews)
                             {
                                 <!--News Block-->
-                                <div class="news-block col-md-4 col-sm-6 col-xs-12 wow fadeIn pull-right">
+                                <div class="news-block col-md-4 col-sm-6 col-xs-12 wow fadeIn pull-right" style="visibility: visible; animation-name: fadeIn;">
                                     <div class="inner-box">
                                         <div class="image">
                                             <a href="#"><img src="~/Images/NewsSection/@image.ImageGUID" alt="" /></a>
                                         </div>
-                                        <div class="lower-box">
                                             @* Adding News Date *@
+                                        <div class="lower-box">
                                             <div class="post-info">@image.TopicDate</div>
                                             <h3><a href="#">@image.NewsTitle</a></h3>
                                             <a href="#" class="theme-btn read-more">إقرأ المزيد<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span></a>
@@ -573,9 +508,6 @@
 
     <div id="locationmap"></div>
 
-    @*<?php
-        \App\System::showMap();
-        ?>*@
     <!--End Call Back Section-->
     <!-- PAGE - END -->
     <!-- ==========================
@@ -590,3 +522,37 @@
     =========================== -->
     <div style="position: absolute; left: 0px; top: -2px; height: 1px; overflow: hidden; visibility: hidden; width: 1px;"><span style="position: absolute; font-size: 300px; width: auto; height: auto; margin: 0px; padding: 0px; font-family: Roboto, Arial, sans-serif;">BESbswy</span></div>
 </body>
+<script>
+    $(document).ready(function () {
+        navigator.geolocation.getCurrentPosition(showPosition, error);
+    });
+
+    function showPosition(position) {
+
+        getlat = position.coords.latitude;
+        getlong = position.coords.longitude;
+        $("#locationmap").html("please wait...");
+        $.ajax({
+            type: 'POST',
+            url: "<?= env('APP_URL') ?>index.php/geomap/0",
+            data: "_token=<?php echo csrf_token(); ?>&getlat=" + getlat + "&getlong=" + getlong,
+        }).success(function (response) {
+
+            $("#locationmap").html(response);
+
+        });
+
+    }
+    function error(err) {
+        $("#locationmap").html("please wait...");
+        $.ajax({
+            type: 'POST',
+            url: "@Url.Action("_ShowMapPartial","Home")",
+            data: { longtitude: 7.629603, latitude: 23.377556 },
+        }).success(function (response) {
+
+            $("#locationmap").html(response);
+
+        });
+    }
+</script>

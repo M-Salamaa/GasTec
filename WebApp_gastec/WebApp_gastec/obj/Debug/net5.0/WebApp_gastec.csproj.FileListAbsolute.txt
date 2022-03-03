@@ -469,3 +469,9 @@ E:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.dll
 E:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\ref\WebApp_gastec.dll
 E:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.pdb
 E:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.genruntimeconfig.cache
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\MediaCenter\ActivitiesPhoto.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\MediaCenter\Reports.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\MediaCenter\Videos.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Oil\Industrial.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Home\_ShowMapPartial.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\MediaCenter\Index.cshtml.g.cs

@@ -125,5 +125,13 @@ namespace WebApp_gastec.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        [HttpPost]
+        public IActionResult _ShowMapPartial(double longtitude,double latitude)
+        {
+            MapLocationModel model = new MapLocationModel();
+            model.longtitude = longtitude;
+            model.latitude = latitude;
+            return PartialView(model);
+        }
     }
 }

@@ -164,5 +164,6 @@ namespace WebApp_gastec.Controllers
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("123"), Domain.System.Encrypt("18"));
             return View(model);
         }
+       
     }
 }

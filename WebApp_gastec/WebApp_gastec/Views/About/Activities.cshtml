@@ -41,75 +41,76 @@
 <div class="sidebar-page-container">
     <div class="auto-container">
         <div class="row clearfix">
-            <!--Sidebar Side-->
-            <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-right">
-                <aside class="sidebar">
-                    <div id="sidenavelist"></div>
-                    <div class="sidebar-widget sidebar-blog-category">
-                        <ul class="blog-cat">
-                            @foreach (var mainSection in Model.AboutUs)
-                            {
-                                @foreach (var entity in mainSection.LstChildClassification)
+         
+                <!--Sidebar Side-->
+                <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-right">
+                    <aside class="sidebar">
+                        <div id="sidenavelist"></div>
+                        <div class="sidebar-widget sidebar-blog-category">
+                            <ul class="blog-cat">
+                                @foreach (var mainSection in Model.AboutUs)
                                 {
-                                    @if (entity.ClassificationID == 124)
+                                    @foreach (var entity in mainSection.LstChildClassification)
                                     {
-                                        //Activities
-                                        <li class="active"><a href="@Url.Action("Activities", "About")">@entity.ClassificationName</a></li>
-                                    }
-                                    else if (entity.ClassificationID == 9)
-                                    {
-                                        // Legal Entity
-                                        <li> <a href="@Url.Action("LegalEntity", "About")">@entity.ClassificationName</a></li>
-                                    }
-                                    else if (entity.ClassificationID == 121)
-                                    {
-                                        //Vision and Mision
-                                        <li> <a href="@Url.Action("VisionMision", "About")">@entity.ClassificationName</a></li>
-                                    }
-                                    else if (entity.ClassificationID == 120)
-                                    {
-                                        // Members
-                                        <li> <a href="@Url.Action("Members", "About")">@entity.ClassificationName</a></li>
-                                    }
-                                    else if (entity.ClassificationID == 123)
-                                    {
-                                        //Human Resources
-                                        <li> <a href="@Url.Action("HR", "About")">@entity.ClassificationName</a></li>
-                                    }
-                                    else if (entity.ClassificationID == 122)
-                                    {
-                                        //Contributors
-                                        <li> <a href="@Url.Action("Contributors", "About")">@entity.ClassificationName</a></li>
+                                        @if (entity.ClassificationID == 124)
+                                        {
+                                            //Activities
+                                            <li class="active"><a href="@Url.Action("Activities", "About")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 9)
+                                        {
+                                            // Legal Entity
+                                            <li> <a href="@Url.Action("LegalEntity", "About")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 121)
+                                        {
+                                            //Vision and Mision
+                                            <li> <a href="@Url.Action("VisionMision", "About")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 120)
+                                        {
+                                            // Members
+                                            <li> <a href="@Url.Action("Members", "About")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 123)
+                                        {
+                                            //Human Resources
+                                            <li> <a href="@Url.Action("HR", "About")">@entity.ClassificationName</a></li>
+                                        }
+                                        else if (entity.ClassificationID == 122)
+                                        {
+                                            //Contributors
+                                            <li> <a href="@Url.Action("Contributors", "About")">@entity.ClassificationName</a></li>
+                                        }
                                     }
                                 }
-                            }
-                        </ul>
-                    </div>
-                </aside>
-            </div>
-            <!--Content Side-->
-            <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+                <!--Content Side-->
+                <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
 
-                <div class="services-single" dir="rtl">
-                    <div class="inner-box">
-                        <div id="cmspage1"></div>
-                        <!--//end backend to retrieve variables  -->
-                        @foreach (var entity in Model.AboutUsSection)
-                        {
-                            <!--//Start backend to retrieve variables  -->
-                            <h2>@entity.ClassificationName</h2>
-                            @foreach (var image in entity.LstImages)
+                    <div class="services-single" dir="rtl">
+                        <div class="inner-box">
+                            <div id="cmspage1"></div>
+                            <!--//end backend to retrieve variables  -->
+                            @foreach (var entity in Model.AboutUsSection)
                             {
-                                <div style="font-size:14px; position:relative">
-                                    @Html.Raw(entity.Body)
-                                    <img src="~/Images/Activities/@image.ImageGUID" style="height: 315px; width: 900px;">
-                                </div>
+                                <!--//Start backend to retrieve variables  -->
+                                <h2>@entity.ClassificationName</h2>
+                                @foreach (var image in entity.LstImages)
+                                {
+                                    <div style="font-size:14px; position:relative">
+                                        @Html.Raw(entity.Body)
+                                        <img src="~/Images/Activities/@image.ImageGUID" style="height: 315px; width: 900px;">
+                                    </div>
+                                }
                             }
-                        }
 
+                        </div>
                     </div>
                 </div>
-            </div>
 
         </div>
     </div>

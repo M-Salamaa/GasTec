@@ -18,6 +18,8 @@ namespace WebApp_gastec.Models
         public List<LstImageModel> LstImages { get; set; }
         public List<ListWebSectionModel> LstWebSections { get; set; }
         public List<LstChildClassificationModel> LstChildClassification { get; set; }
+        public List<LstFile> LstFiles { get; set; }
+
         public string Style { get; set; }
         public string Body { get; set; }
     }

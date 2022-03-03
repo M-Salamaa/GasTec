@@ -29,9 +29,9 @@ namespace WebApp_gastec.Controllers
             var model = this.GetHomeViewModel(Domain.System.Encrypt("8"), Domain.System.Encrypt("48"));
             return View(model);
         }
-        public IActionResult Videos()
+        public IActionResult Index(string ID)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("8"), Domain.System.Encrypt("49"));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("8"), Domain.System.Encrypt(ID));
             return View(model);
         }
         public IActionResult ActivitiesPhoto()
@@ -41,7 +41,7 @@ namespace WebApp_gastec.Controllers
         }
         public IActionResult Reports()
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("8"), Domain.System.Encrypt("51"));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("51"), Domain.System.Encrypt("0"));
             return View(model);
         }
     }
