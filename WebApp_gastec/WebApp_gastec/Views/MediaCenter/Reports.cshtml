@@ -1,4 +1,5 @@
 ﻿@model HomePageViewModel
+@using WebApp_gastec.Domain
 
 @{
     ViewData["Title"] = "GASTEC";
@@ -45,26 +46,9 @@
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
-                                        @if (entity.ClassificationID == 48)
-                                        {
-                                            // Photo Center
-                                            <li ><a href="@Url.Action("Index", "MediaCenter",new { PhotoID = entity.ClassificationID.ToString()})">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 49)
-                                        {
-                                            //Videos
-                                            <li><a href="@Url.Action("Index", "MediaCenter", new { PhotoID = entity.ClassificationID.ToString()})">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 50)
-                                        {
-                                            //Activites Photo
-                                            <li><a href="@Url.Action("Index", "MediaCenter", new { PhotoID = entity.ClassificationID.ToString()})">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 51)
-                                        {
-                                            //Reports
-                                            <li class="active"><a href="@Url.Action("Reports", "MediaCenter")">@entity.ClassificationName</a></li>
-                                        }
+                                        <li >
+                                            <a href="@Url.Action(GetActionName.GetActionNameforMediaCenterSectionByID(entity.ClassificationID), "MediaCenter")">@entity.ClassificationName</a>
+                                        </li>
                                     }
                                 }
                             </ul>
@@ -77,17 +61,49 @@
                 <div class="services-single" dir="rtl">
                     <div class="inner-box">
                         <div id="filesholder">
-                            <!-- Tabs Side-->
-                            
+                            <ul class="nav nav-tabs" dir="rtl">
+                                @foreach (var section in Model.Sub_Section)
+                                {
+                                    @foreach (var entity in section.LstChildClassification)
+                                    {
+                                        <li>
+                                            <a data-toggle="tab" href="#@entity.ClassificationID" aria-expanded="true">
+                                                @entity.ClassificationName
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+
+                            @foreach (var section in Model.Sub_Section)
+                            {
+                                @foreach (var entity in section.LstChildClassification)
+                                {
+                                    <div class="tab-content text-right" style="padding-top: 20px">
+                                        <div id="#@entity.ClassificationID" class="tab-pane fade active in">
+                                            <div class="clearfix"></div>
+                                            <div>
+                                                <!--//Start backend to retrieve variables  -->
+                                                <!--//End backend to retrieve variables  -->
+                                                <!--News Block-->
+                                                @foreach (var file in entity.LstFiles)
+                                                {
+                                                    <div>
+                                                        <a href="@file.FileLink" style="font-size: 14px;" target="_blank">
+                                                            <i class="fa fa-download" style="margin-left: 10px;"></i>
+                                                            @file.FileName
+                                                        </a>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
                         </div>
                     </div>
                 </div>
-                <div class="team-column col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
-                    <div class="inner-column">
-                        <div class="row clearfix">
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

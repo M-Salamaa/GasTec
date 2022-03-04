@@ -8,7 +8,7 @@ namespace WebApp_gastec.Models
 {
     public class HomePageViewModel
     {
-        public OutputGetBannersInfoModel BannersHome { get; set; }
+        public List<OutputGetClassificationTreeModel> BannersHome { get; set; }
         public List<OutputGetClassificationTreeModel> MainNavigationBar { get; set; }
         public OutputGetNewsTopicsModel EniGastech { get; set; }
         public OutputGetNewsTopicsModel NewsSection { get; set; }

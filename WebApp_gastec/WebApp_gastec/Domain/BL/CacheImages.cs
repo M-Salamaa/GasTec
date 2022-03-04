@@ -54,7 +54,6 @@ namespace WebApp_gastec.Domain
 
             return fullPath;
         }
-
         //Replace All Special Characters in Image GUID and Finish Path with .webp
         public string ReplaceSpecialCharInImageGUID(string imgGuid_)
         {
@@ -64,7 +63,6 @@ namespace WebApp_gastec.Domain
         {
             return htmlGuid_.Replace(":", "_").Replace(" ", "").Replace("/", "_") + ".html";
         }
-
         //Set Local Path for Caching images and return it
         public string GetCacheFullPath(string folderName_, string imgGuid_)
         {
@@ -98,7 +96,7 @@ namespace WebApp_gastec.Domain
             // Open file and Write the Bytes in
             await File.WriteAllBytesAsync(fullPath_, imageBytes);
         }
-
+        // Save Html on Server 
         public async Task SaveHtmlAsync(string fullPath_ , string htmlLink_)
         {
             // Create Instance for Http Client

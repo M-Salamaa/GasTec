@@ -1,4 +1,5 @@
 ﻿@model HomePageViewModel
+@using WebApp_gastec.Domain
 
 @{
     ViewData["Title"] = "GASTEC";
@@ -53,21 +54,9 @@
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
-                                        @if (entity.ClassificationID == 37)
-                                        {
-                                            // Testing Proccess
-                                            <li class="active"><a href="@Url.Action("Testing_Proccess", "Cylindar_Test")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 38)
-                                        {
-                                            //Testing Centers
-                                            <li><a href="@Url.Action("Testing_Centers", "Cylindar_Test")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 39)
-                                        {
-                                            //Videos
-                                            <li><a href="@Url.Action("Explainer_videos", "Cylindar_Test")">@entity.ClassificationName</a></li>
-                                        }
+                                        <li>
+                                            <a href="@Url.Action(GetActionName.GetActionNameforCylindarTestingSectionByID(entity.ClassificationID), "Cylindar_Test")">@entity.ClassificationName</a>
+                                        </li>
                                     }
                                 }
                             </ul>

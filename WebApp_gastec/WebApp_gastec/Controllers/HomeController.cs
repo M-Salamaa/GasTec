@@ -27,18 +27,19 @@ namespace WebApp_gastec.Controllers
             #region Caching images returned from API 
             CacheImages cacheImages = new CacheImages(_hostingEnvironment);
             //Caching main slider banners 
-            foreach (var banner in model_.BannersHome.LstImages)
+            foreach (var entity in model_.BannersHome)
             {
-                banner.FileGUID = await cacheImages.CahceAllImageAsync("Banners", banner.FileGUID, banner.DynamicLink);
+                foreach (var image in entity.LstImages)
+                {
+                    image.ImageGUID = await cacheImages.CahceAllImageAsync("Banners", image.ImageGUID, image.ImageLink);
+                }
             }
-
             //Caching News Topics Section images
-
             foreach (var topic in model_.NewsTopics.LstNews)
             {
                 if (topic.GroupID == 1 || topic.GroupID == 2)
                 {
-                    topic.ImageGUID = await cacheImages .CahceAllImageAsync("NewsTopics", topic.ImageGUID, topic.ImageLink);
+                    topic.ImageGUID = await cacheImages.CahceAllImageAsync("NewsTopics", topic.ImageGUID, topic.ImageLink);
                 }
                 else
                     continue;
@@ -50,7 +51,7 @@ namespace WebApp_gastec.Controllers
                 {
                     foreach (var image in webSection.LstImages)
                     {
-                        image.ImageGUID = await cacheImages .CahceAllImageAsync("GastechNumbers", image.ImageGUID, image.ImageLink);
+                        image.ImageGUID = await cacheImages.CahceAllImageAsync("GastechNumbers", image.ImageGUID, image.ImageLink);
                     }
                 }
             }
@@ -59,7 +60,7 @@ namespace WebApp_gastec.Controllers
             {
                 foreach (var image in listImage.LstImages)
                 {
-                    image.ImageGUID =await cacheImages.CahceAllImageAsync("MidSection", image.ImageGUID, image.ImageLink);
+                    image.ImageGUID = await cacheImages.CahceAllImageAsync("MidSection", image.ImageGUID, image.ImageLink);
 
                 }
             }
@@ -68,18 +69,18 @@ namespace WebApp_gastec.Controllers
             {
                 foreach (var image in listImages.LstImages)
                 {
-                    image.ImageGUID = await cacheImages .CahceAllImageAsync("MidBanner", image.ImageGUID, image.ImageLink);
+                    image.ImageGUID = await cacheImages.CahceAllImageAsync("MidBanner", image.ImageGUID, image.ImageLink);
                 }
             }
             //Caching News Section images
             foreach (var image in model_.NewsSection.LstNews)
             {
-                image.ImageGUID = await cacheImages .CahceAllImageAsync("NewsSection", image.ImageGUID, image.ImageLink);
+                image.ImageGUID = await cacheImages.CahceAllImageAsync("NewsSection", image.ImageGUID, image.ImageLink);
             }
 
             foreach (var topic in model_.EniGastech.LstNews)
             {
-                topic.ImageGUID = await cacheImages .CahceAllImageAsync("EniGastec", topic.ImageGUID, topic.ImageLink);
+                topic.ImageGUID = await cacheImages.CahceAllImageAsync("EniGastec", topic.ImageGUID, topic.ImageLink);
             }
             #endregion Caching images returned from API
         }
@@ -91,7 +92,7 @@ namespace WebApp_gastec.Controllers
                 // Consuming Main Menu from Classification Tree API 
                 MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
                 // Consuming Banners API 
-                BannersHome = await API_GetBannerImgInfo.GetBannersInfoAsync(Domain.System.Encrypt("118")),
+                BannersHome =  API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("1"), Domain.System.Encrypt("118")),
                 //Consuming Gastech Numbers Section from Classification Tree API 
                 GastechNumbers = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("1"), Domain.System.Encrypt("349")),
                 //Consuming Mid Section from Classification Tree API 
@@ -126,7 +127,7 @@ namespace WebApp_gastec.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
         [HttpPost]
-        public IActionResult _ShowMapPartial(double longtitude,double latitude)
+        public IActionResult _ShowMapPartial(double longtitude, double latitude)
         {
             MapLocationModel model = new MapLocationModel();
             model.longtitude = longtitude;

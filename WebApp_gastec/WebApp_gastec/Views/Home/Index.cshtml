@@ -12,99 +12,71 @@
             <div class="rev_slider_wrapper " id="rev_slider_three_wrapper" data-source="gallery">
                 <div class="rev_slider fullwidthabanner" id="rev_slider_three" data-version="5.4.1">
                     <ul>
-                        @foreach (var img in Model.BannersHome.LstImages)
+                        @foreach (var entity in Model.BannersHome)
                         {
+                            foreach (var image in entity.LstImages)
+                            {
 
-                            <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="parallaxhorizontal" data-hideafterloop="0" data-hideslideonmobile="off" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="@img.DynamicLink" data-title="Slide Title" data-transition="parallaxhorizontal">
-                                <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="~/Images/Banners/@img.FileGUID" />
-                                <div class="tp-caption"
-                                     data-paddingbottom="[0,0,0,0]"
-                                     data-paddingleft="[0,0,0,0]"
-                                     data-paddingright="[0,0,0,0]"
-                                     data-paddingtop="[0,0,0,0]"
-                                     data-responsive_offset="on"
-                                     data-type="text"
-                                     data-height="none"
-                                     data-width="['700','700','700','400']"
-                                     data-whitespace="normal"
-                                     data-hoffset="['15','15','15','15']"
-                                     data-voffset="['150','120','80','60']"
-                                     data-x="['center','center','center','center']"
-                                     data-y="['middle','middle','middle','middle']"
-                                     data-textalign="['center','center','center','center']"
-                                     data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-                                    @if (Gastech_Vault.TranslationLanguageID == 0)
-                                    {
-                                        <h2>@img.FileName </h2>
-                                    }
-                                    else if (Gastech_Vault.TranslationLanguageID == 1)
-                                    {
-                                        <h2>@img.FileName</h2>
-                                    }
-                                </div>
-                                <div class="tp-caption"
-                                     data-paddingbottom="[0,0,0,0]"
-                                     data-paddingleft="[0,0,0,0]"
-                                     data-paddingright="[0,0,0,0]"
-                                     data-paddingtop="[0,0,0,0]"
-                                     data-responsive_offset="on"
-                                     data-type="text"
-                                     data-height="none"
-                                     data-width="['700','700','700','400']"
-                                     data-whitespace="normal"
-                                     data-hoffset="['15','15','15','15']"
-                                     data-voffset="['250','200','140','145']"
-                                     data-x="['center','center','center','center']"
-                                     data-y="['middle','middle','middle','middle']"
-                                     data-textalign="['center','center','center','center']"
-                                     data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-                                    @if (Gastech_Vault.TranslationLanguageID == 0)
-                                    {
-                                        <div class="text">@img.AltText</div>
-                                    }
-                                    else if (Gastech_Vault.TranslationLanguageID == 1)
-                                    {
-                                        <div class="text">@img.AltText</div>
-                                    }
-                                </div>
-                            </li>
+                                <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="parallaxhorizontal" data-hideafterloop="0" data-hideslideonmobile="off" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="" data-title="Slide Title" data-transition="parallaxhorizontal">
+                                    <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="~/Images/Banners/@image.ImageGUID" />
+                                    <div class="tp-caption"
+                                         data-paddingbottom="[0,0,0,0]"
+                                         data-paddingleft="[0,0,0,0]"
+                                         data-paddingright="[0,0,0,0]"
+                                         data-paddingtop="[0,0,0,0]"
+                                         data-responsive_offset="on"
+                                         data-type="text"
+                                         data-height="none"
+                                         data-width="['700','700','700','400']"
+                                         data-whitespace="normal"
+                                         data-hoffset="['15','15','15','15']"
+                                         data-voffset="['150','120','80','60']"
+                                         data-x="['center','center','center','center']"
+                                         data-y="['middle','middle','middle','middle']"
+                                         data-textalign="['center','center','center','center']"
+                                         data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
+                                        <h2>@image.ImageName </h2>
+                                    </div>
+                                    <div class="tp-caption"
+                                         data-paddingbottom="[0,0,0,0]"
+                                         data-paddingleft="[0,0,0,0]"
+                                         data-paddingright="[0,0,0,0]"
+                                         data-paddingtop="[0,0,0,0]"
+                                         data-responsive_offset="on"
+                                         data-type="text"
+                                         data-height="none"
+                                         data-width="['700','700','700','400']"
+                                         data-whitespace="normal"
+                                         data-hoffset="['15','15','15','15']"
+                                         data-voffset="['250','200','140','145']"
+                                         data-x="['center','center','center','center']"
+                                         data-y="['middle','middle','middle','middle']"
+                                         data-textalign="['center','center','center','center']"
+                                         data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
+                                        <div class="text">@image.Image_AltText</div>
+                                    </div>
+                                </li>
+                            }
                         }
                     </ul>
                 </div>
             </div>
         </section>
-        <script src="~/public/assets/softextwo/js/main-slider-script.js"></script>
     </div>
-
     <!--End Main Slider-->
     <!--About Section-->
     <section class="aproach-section bg-wave">
         <div class="auto-container">
-            @if (Gastech_Vault.TranslationLanguageID == 0)
-            {
-
-                <div class="sec-title">
-                    <h2>
-                        أحدث الأخبار <a href="#" class="theme-btn read-more"
-                                        style="float: left;direction: rtl;font-size: 18px;">
-                            عرض جميع الأخبار<span class="icon flaticon-left-arrow"
-                                                  style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
-                        </a>
-                    </h2>
-                </div>
-            }
-            else if (Gastech_Vault.TranslationLanguageID == 1)
-            {
-                <div class="sec-title">
-                    <h2>
-                        Latest News <a href="#" class="theme-btn read-more"
-                                       style="float: right;direction: ltr;font-size: 18px;">
-                            View all news<span class="icon flaticon-right-arrow-1"
-                                               style="margin-left: 10px;font-size: 20px;vertical-align: sub;"></span>
-                        </a>
-                    </h2>
-                </div>
-            }
+            <div class="sec-title">
+                <h2>
+                    أحدث الأخبار
+                    <a href="#" class="theme-btn read-more"
+                       style="float: left;direction: rtl;font-size: 18px;">
+                        عرض جميع الأخبار<span class="icon flaticon-left-arrow"
+                                              style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
+                    </a>
+                </h2>
+            </div>
             <div id="events1" class="row clearfix">
                 <div class="three-item-carousel owl-carousel owl-theme">
                     @foreach (var topic in Model.NewsTopics.LstNews)
@@ -118,37 +90,18 @@
                                         <div class="content-overlay">
                                             <div class="overlay-inner">
                                                 <div class="content-box">
-                                                    @if (Gastech_Vault.TranslationLanguageID == 0)
-                                                    {
-                                                        <div class="blockdate">
-                                                            @topic.TopicDate &nbsp;<span class="icon flaticon-calendar"></span>
-                                                        </div>
+                                                    <div class="blockdate">
+                                                        @topic.TopicDate &nbsp;<span class="icon flaticon-calendar"></span>
+                                                    </div>
 
-                                                        <h4>
-                                                            <a href="#">@topic.NewsTitle</a>
-                                                        </h4>
+                                                    <h4>
+                                                        <a href="#">@topic.NewsTitle</a>
+                                                    </h4>
 
-                                                        <a href="#" class="detail">
-                                                            اقرأ
-                                                            المزيد
-                                                        </a>
-                                                    }
-                                                    else if (Gastech_Vault.TranslationLanguageID == 1)
-                                                    {
-                                                        <div class="blockdate">
-                                                            <span class="icon flaticon-calendar"></span>
-                                                            &nbsp;@topic.TopicDate
-                                                        </div>
-
-                                                        <h4>
-                                                            <a href="#">@topic.NewsTitle</a>
-                                                        </h4>
-
-                                                        <a href="#" class="detail">
-                                                            View
-                                                            More
-                                                        </a>
-                                                    }
+                                                    <a href="#" class="detail">
+                                                        اقرأ
+                                                        المزيد
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -158,37 +111,7 @@
                         }
                     }
                 </div>
-                <script>
-                    if ($('.three-item-carousel').length) {
-                        $('.three-item-carousel').owlCarousel({
-                            loop: true,
-                            margin: 30,
-                            nav: true,
-                            smartSpeed: 700,
-                            autoplay: 4000,
-                            navText: ['<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>'],
-                            responsive: {
-                                0: {
-                                    items: 1
-                                },
-                                600: {
-                                    items: 2
-                                },
-                                800: {
-                                    items: 2
-                                },
-                                1024: {
-                                    items: 3
-                                },
-                                1200: {
-                                    items: 3
-                                }
-                            }
-                        });
-                    }
-                </script>
             </div>
-
         </div>
     </section>
     <!--End About Section-->
@@ -234,7 +157,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -242,40 +164,19 @@
     <!--Service Section-->
     <section class="services-section" style="background:#ffd41f">
         <div class="auto-container">
-            @if (Gastech_Vault.TranslationLanguageID == 0)
-            {
-                <div class="col-md-3 col-sm-12 col-xs-12 news-block pull-left text-left wow slideInLeft" style="padding-top:50px; padding-bottom: 30px; direction: rtl;">
-                    <img src="~/public/assets/softextwo/images/eni-logo.png" alt="" />
-                </div>
-            }
-            else if (Gastech_Vault.TranslationLanguageID == 1)
-            {
-                <div class="col-md-3 col-sm-12 col-xs-12 news-block pull-right text-right wow slideInLeft" style="padding-top:50px; padding-bottom: 30px; direction: rtl;">
-                    <img src="~/public/assets/softextwo/images/eni-logo.png" alt="" />
-                </div>
-            }
+            <div class="col-md-3 col-sm-12 col-xs-12 news-block pull-left text-left wow slideInLeft" style="padding-top:50px; padding-bottom: 30px; direction: rtl;">
+                <img src="~/public/assets/softextwo/images/eni-logo.png" alt="" />
+            </div>
             <div class="col-md-9 col-sm-12 col-xs-12 pull-right">
-                @if (Gastech_Vault.TranslationLanguageID == 0)
-                {
-                    <div dir="rtl">
-                        <h1 style="padding-bottom: 10px"> إينى – غازتك </h1>
-                        <h2 style="padding-bottom: 30px"> شراكة استراتيجية لتطوير خدمات التموين وتوزيع الزيوت</h2>
-                    </div>
-                }
-                else if (Gastech_Vault.TranslationLanguageID == 1)
-                {
-                    <div>
-                        <h1 style="padding-bottom: 10px">Eni - Gastec</h1>
-                        <h2 style="padding-bottom: 30px">A strategic partnership to develop catering services and Lubricants</h2>
-                    </div>
-                }
+                <div dir="rtl">
+                    <h1 style="padding-bottom: 10px"> إينى – غازتك </h1>
+                    <h2 style="padding-bottom: 30px"> شراكة استراتيجية لتطوير خدمات التموين وتوزيع الزيوت</h2>
+                </div>
                 <div class="row clearfix">
                     <!--Column-->
                     <!--Column-->
                     <div class="column col-md-12 col-sm-12">
-
                         <div class="row clearfix">
-
                             <!--News Block-->
                             <div id="events2"></div>
                             <div class="single-item-carousel owl-carousel owl-theme">
@@ -290,63 +191,19 @@
                                                     <img src="~/Images/EniGastec/@img.ImageGUID" alt="" />
                                                 </div>
                                             </div>
-                                            @if (Gastech_Vault.TranslationLanguageID == 0)
-                                            {
-                                                <div class="text"><a href="{{ env('APP_URL') }}newsfull/{{ $eventid }}">@img.NewsTitle</a></div>
-                                            }
-                                            else if (Gastech_Vault.TranslationLanguageID == 1)
-
-                                            {
-                                                <div class="text"><a href="{{ env('APP_URL') }}newsfull/{{ $eventid }}">@img.NewsTitle</a></div>
-                                            }
+                                            <div class="text">
+                                                <a href="#">@img.NewsTitle</a>
+                                            </div>
                                         </div>
                                     </div>
                                 }
                             </div>
-
-                            <script>
-                                if ($('.single-item-carousel').length) {
-                                    $('.single-item-carousel').owlCarousel({
-                                        loop: true,
-                                        margin: 0,
-                                        nav: true,
-                                        smartSpeed: 500,
-                                        autoplay: true,
-                                        navText: ['<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>'],
-                                        responsive: {
-                                            0: {
-                                                items: 1
-                                            },
-                                            600: {
-                                                items: 1
-                                            },
-                                            800: {
-                                                items: 1
-                                            },
-                                            1024: {
-                                                items: 1
-                                            },
-                                            1200: {
-                                                items: 1
-                                            }
-                                        }
-                                    });
-                                }
-                            </script>
-
                             @* Remeber h-Reference *@
-                            @if (Gastech_Vault.TranslationLanguageID == 0)
-                            {
-                                <div dir="rtl">
-                                    <a href="<?=env('APP_URL')?>allnews/32689" class="theme-btn read-more">المزيد من الأخبار<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span></a>
-                                </div>
-                            }
-                            else if (Gastech_Vault.TranslationLanguageID == 1)
-                            {
-                                <div>
-                                    <a href="<?=env('APP_URL')?>allnews/32689" class="theme-btn read-more">View More <span class="icon flaticon-right-arrow-1" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span></a>
-                                </div>
-                            }
+                            <div dir="rtl">
+                                <a href="#" class="theme-btn read-more">
+                                    المزيد من الأخبار<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -356,31 +213,16 @@
         </div>
         <div class="container-fluid">
             <div id="gallerybanner"></div>
-            @if (Gastech_Vault.TranslationLanguageID == 0)
-            {
-                <!--//Start backend to retrieve variables  -->
+            <!--//Start backend to retrieve variables  -->
 
-                @foreach (var listImages in Model.MidBanner)
-                {
-                    @foreach (var image in listImages.LstImages)
-                    {
-                        <img src="~/Images/MidBanner/@image.ImageGUID" class="eni-img img-opa" alt="" />
-                    }
-                }
-                <!--//end backend to retrieve variables  -->
-            }
-            else if (Gastech_Vault.TranslationLanguageID == 1)
+            @foreach (var listImages in Model.MidBanner)
             {
-                <!--//Start backend to retrieve variables  -->
-                @foreach (var listImages in Model.MidBanner)
+                @foreach (var image in listImages.LstImages)
                 {
-                    @foreach (var image in listImages.LstImages)
-                    {
-                        <img src="~/Images/MidBanner/@image.ImageGUID" class="eni-img img-opa" alt="" />
-                    }
+                    <img src="~/Images/MidBanner/@image.ImageGUID" class="eni-img img-opa" alt="" />
                 }
-                <!--//end backend to retrieve variables  -->
             }
+            <!--//end backend to retrieve variables  -->
         </div>
         <div class="auto-container">
             <div id="gallery3"></div>
@@ -394,76 +236,30 @@
                         <div class="services-block-three">
                             <div class="inner-box">
                                 <div class="image">
-                                    <a href="#"><img src="~/Images/MidSection/@image.ImageGUID" alt="" /></a>
+                                    <a href="#">
+                                        <img src="~/Images/MidSection/@image.ImageGUID" alt="" />
+                                    </a>
                                 </div>
-                                @if (Gastech_Vault.TranslationLanguageID == 0)
-                                {
-                                    <div class="lower-content">
-                                        <h3><a href="#">@image.ImageName</a></h3>
-
-                                        <div class="text"><a href="#" class="theme-btn read-more" dir="rtl">إقرأ المزيد<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span></a></div>
-
+                                <div class="lower-content">
+                                    <h3>
+                                        <a href="#">@image.ImageName</a>
+                                    </h3>
+                                    <div class="text">
+                                        <a href="#" class="theme-btn read-more" dir="rtl">
+                                            إقرأ المزيد<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
+                                        </a>
                                     </div>
-
-                                }
-                                else if (Gastech_Vault.TranslationLanguageID == 1)
-                                {
-                                    <div class="lower-content">
-                                        <h3><a href="#">@image.ImageName</a></h3>
-
-                                        <div class="text"><a href="#" class="theme-btn read-more">Read More <span class="icon flaticon-right-arrow-1" style="margin-left: 10px;font-size: 20px;vertical-align: sub;"></span></a></div>
-
-                                    </div>
-                                }
-
+                                </div>
                             </div>
                         </div>
                     }
                 }
             </div>
-            <script>
-                //Four Item Carousel
-                if ($('.four-item-carousel').length) {
-                    $('.four-item-carousel').owlCarousel({
-                        loop: true,
-                        margin: 30,
-                        nav: true,
-                        smartSpeed: 700,
-                        autoplay: 4000,
-                        navText: ['<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>'],
-                        responsive: {
-                            0: {
-                                items: 2
-                            },
-                            300: {
-                                items: 2
-                            },
-                            600: {
-                                items: 2
-                            },
-                            800: {
-                                items: 2
-                            },
-                            1024: {
-                                items: 3
-                            },
-                            1200: {
-                                items: 4
-                            }
-                        }
-                    });
-                }
-            </script>
-
-            @if (Gastech_Vault.TranslationLanguageID == 0)
-            {
-                <div class="text-left" style="margin-top: 30px" dir="rtl"> <a href="https://oilproducts.eni.com/en_GB/products" target="_blank" class="theme-btn read-more" style="font-size: 18px;">موقع إيني العالمية<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span></a></div>
-            }
-
-            else if (Gastech_Vault.TranslationLanguageID == 1)
-            {
-                <div class="text-right" style="margin-top: 30px"> <a href="https://oilproducts.eni.com/en_GB/products" target="_blank" class="theme-btn read-more" style="font-size: 18px;">Eni Global Website <span class="icon flaticon-right-arrow-1" style="margin-left: 10px;font-size: 20px;vertical-align: sub;"></span></a></div>
-            }
+            <div class="text-left" style="margin-top: 30px" dir="rtl">
+                <a href="https://oilproducts.eni.com/en_GB/products" target="_blank" class="theme-btn read-more" style="font-size: 18px;">
+                    موقع إيني العالمية<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
+                </a>
+            </div>
         </div>
     </section>
     <!--End Service Section-->
@@ -471,7 +267,11 @@
     <section class="project-section">
         <div class="auto-container">
             <div class="sec-title">
-                <h2>فعاليات غازتك<a href="#" class="theme-btn read-more" style="float: left;direction: rtl;font-size: 18px;color: #fff;">عرض جميع الفعاليات<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span></a></h2>
+                <h2>
+                    فعاليات غازتك<a href="#" class="theme-btn read-more" style="float: left;direction: rtl;font-size: 18px;color: #fff;">
+                        عرض جميع الفعاليات<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
+                    </a>
+                </h2>
             </div>
             <div class="row clearfix">
                 <!--Column-->
@@ -486,11 +286,15 @@
                                         <div class="image">
                                             <a href="#"><img src="~/Images/NewsSection/@image.ImageGUID" alt="" /></a>
                                         </div>
-                                            @* Adding News Date *@
+                                        @* Adding News Date *@
                                         <div class="lower-box">
                                             <div class="post-info">@image.TopicDate</div>
-                                            <h3><a href="#">@image.NewsTitle</a></h3>
-                                            <a href="#" class="theme-btn read-more">إقرأ المزيد<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span></a>
+                                            <h3>
+                                                <a href="#">@image.NewsTitle</a>
+                                            </h3>
+                                            <a href="#" class="theme-btn read-more">
+                                                إقرأ المزيد<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -505,7 +309,6 @@
     <!--End News Section-->
     <!--================Map Area =================-->
     @*check the Map Section in Source code*@
-
     <div id="locationmap"></div>
 
     <!--End Call Back Section-->
@@ -522,6 +325,65 @@
     =========================== -->
     <div style="position: absolute; left: 0px; top: -2px; height: 1px; overflow: hidden; visibility: hidden; width: 1px;"><span style="position: absolute; font-size: 300px; width: auto; height: auto; margin: 0px; padding: 0px; font-family: Roboto, Arial, sans-serif;">BESbswy</span></div>
 </body>
+<script src="~/public/assets/softextwo/js/main-slider-script.js"></script>
+<script>
+    if ($('.single-item-carousel').length) {
+        $('.single-item-carousel').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: true,
+            smartSpeed: 500,
+            autoplay: true,
+            navText: ['<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                800: {
+                    items: 1
+                },
+                1024: {
+                    items: 1
+                },
+                1200: {
+                    items: 1
+                }
+            }
+        });
+    }
+</script>
+<script>
+    if ($('.three-item-carousel').length) {
+        $('.three-item-carousel').owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: true,
+            smartSpeed: 700,
+            autoplay: 4000,
+            navText: ['<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                800: {
+                    items: 2
+                },
+                1024: {
+                    items: 3
+                },
+                1200: {
+                    items: 3
+                }
+            }
+        });
+    }
+</script>
 <script>
     $(document).ready(function () {
         navigator.geolocation.getCurrentPosition(showPosition, error);
@@ -553,6 +415,39 @@
 
             $("#locationmap").html(response);
 
+        });
+    }
+</script>
+<script>
+    //Four Item Carousel
+    if ($('.four-item-carousel').length) {
+        $('.four-item-carousel').owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: true,
+            smartSpeed: 700,
+            autoplay: 4000,
+            navText: ['<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>'],
+            responsive: {
+                0: {
+                    items: 2
+                },
+                300: {
+                    items: 2
+                },
+                600: {
+                    items: 2
+                },
+                800: {
+                    items: 2
+                },
+                1024: {
+                    items: 3
+                },
+                1200: {
+                    items: 4
+                }
+            }
         });
     }
 </script>

@@ -37,8 +37,10 @@ namespace WebApp_gastec.Domain
         // Function To Read Files and Return Body Tags
         public string ReadFileAsStringForBody(string fuulPath_)
         {
+
             using (StreamReader reader = new StreamReader(fuulPath_))
             {
+                string Final;
                 string line = "";
                 StringBuilder stringBuilder = new StringBuilder();
                 while ((line = reader.ReadLine()) != null)
@@ -46,7 +48,7 @@ namespace WebApp_gastec.Domain
                     stringBuilder.Append(line);
                 }
                 string html_Result = stringBuilder.ToString();
-                string Final = Between(html_Result, "<body>", "</body>");
+                Final = Between(html_Result, "<body>", "</body>");
                 return Final;
             }
         }
@@ -55,6 +57,7 @@ namespace WebApp_gastec.Domain
         {
             using (StreamReader reader = new StreamReader(fuulPath_))
             {
+                string Final;
                 string line = "";
                 StringBuilder stringBuilder = new StringBuilder();
                 while ((line = reader.ReadLine()) != null)
@@ -62,7 +65,7 @@ namespace WebApp_gastec.Domain
                     stringBuilder.Append(line);
                 }
                 string html_Result = stringBuilder.ToString();
-                string Final = Between(html_Result, "<head>", "</head>");
+                Final = Between(html_Result, "<head>", "</head>");
                 return Final;
             }
         }

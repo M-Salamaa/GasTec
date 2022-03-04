@@ -1,4 +1,6 @@
 ﻿@model HomePageViewModel
+@using WebApp_gastec.Domain
+
 @{
     ViewData["Title"] = "GASTEC";
     Layout = "_Layout";
@@ -43,26 +45,9 @@
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
-                                        @if (entity.ClassificationID == 40)
-                                        {
-                                            // Agency
-                                            <li><a href="@Url.Action("Agency", "Oil")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 41)
-                                        {
-                                            //Industrial Oil
-                                            <li><a href="@Url.Action("Industrial", "Oil")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 42)
-                                        {
-                                            //Commerical Oil
-                                            <li><a href="@Url.Action("Commercial", "Oil")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 43)
-                                        {
-                                            //Distributers
-                                            <li class="active"><a href="@Url.Action("Distributor", "Oil")">@entity.ClassificationName</a></li>
-                                        }
+                                        <li>
+                                            <a href="@Url.Action(GetActionName.GetActionNameforOilsSectionByID(entity.ClassificationID), "Oil")">@entity.ClassificationName</a>
+                                        </li>
                                     }
                                 }
                             </ul>

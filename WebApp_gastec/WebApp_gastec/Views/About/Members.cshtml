@@ -1,4 +1,5 @@
 ﻿@model HomePageViewModel
+@using WebApp_gastec.Domain
 
 @{
     ViewData["Title"] = "GASTEC";
@@ -21,13 +22,13 @@
 <div class="page-info">
     <div class="auto-container">
         <div class="inner-container clearfix">
-                <ul class="bread-crumb pull-right">
-                    <li><a href="@Url.Action("Index", "Home")">الرئيسية</a></li>
-                    @foreach (var entity in Model.AboutUsSection)
-                    {
-                        <li>@entity.ClassificationName</li>
-                    }
-                </ul>       
+            <ul class="bread-crumb pull-right">
+                <li><a href="@Url.Action("Index", "Home")">الرئيسية</a></li>
+                @foreach (var entity in Model.AboutUsSection)
+                {
+                    <li>@entity.ClassificationName</li>
+                }
+            </ul>
         </div>
     </div>
 </div>
@@ -49,36 +50,7 @@
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
-                                        @if (entity.ClassificationID == 124)
-                                        {
-                                            //Activities
-                                            <li><a href="@Url.Action("Activities", "About")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 9)
-                                        {
-                                            // Legal Entity
-                                            <li> <a href="@Url.Action("LegalEntity", "About")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 121)
-                                        {
-                                            //Vision and Mision
-                                            <li> <a href="@Url.Action("VisionMision", "About")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 120)
-                                        {
-                                            // Members
-                                            <li class="active"> <a href="@Url.Action("Members", "About")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 123)
-                                        {
-                                            //Human Resources
-                                            <li> <a href="@Url.Action("HR", "About")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 122)
-                                        {
-                                            //Contributors
-                                            <li> <a href="@Url.Action("Contributors", "About")">@entity.ClassificationName</a></li>
-                                        }
+                                        <li><a href="@Url.Action(GetActionName.GetActionNameByClassificationTreeID(entity.ClassificationID), "About")">@entity.ClassificationName</a></li>
                                     }
                                 }
                             </ul>
@@ -99,56 +71,41 @@
                             {
 
                                 <h2>@entity.ClassificationName</h2>
-
                                 <link href="" rel="stylesheet" type="text/css">
                                 <div style="font-size:14px; position:relative">
+                                    <p style="text-align: justify;">&nbsp;</p>
                                     @foreach (var image in entity.LstImages)
                                     {
-                                        <p style="text-align: justify;">&nbsp;</p>
-                                        @if (image.ImageID == "5")
-                                        {
 
-                                            <table align="center" border="1" cellpadding="1" cellspacing="1" style="width:800px;">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
-                                                        <td>
-                                                            <p style="text-align: center;">
-                                                                <span style="color:#273461;"><span style="font-size:18px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @image.ImageName</span></span>
-                                                            </p>
-                                                            <p style="text-align: center;">
-                                                                <span style="font-size:18px;"><span style="color:#263a69;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @image.Image_AltText </span></span>
-                                                            </p>
-                                                            <p style="text-align: center;">&nbsp;</p>
-                                                        </td>
-                                                        <td><img src="~/Images/Members/@image.ImageGUID" style="height: 240px; width: 200px; float: left;"></td>
-                                                        <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        }
-                                        else
-                                        {
-                                            <table align="center" border="2" cellpadding="1" cellspacing="1" style="width:800px;">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
-                                                        <td>
-                                                            <p style="text-align: center;">
-                                                                <span style="color:#273461;"><span style="font-size:18px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @image.ImageName</span></span>
-                                                            </p>
-                                                            <p style="text-align: center;">
-                                                                <span style="font-size:18px;"><span style="color:#263a69;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @image.Image_AltText </span></span>
-                                                            </p>
-                                                            <p style="text-align: center;">&nbsp;</p>
-                                                        </td>
-                                                        <td><img src="~/Images/Members/@image.ImageGUID" style="height: 240px; width: 200px; float: left;"></td>
-                                                        <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <p>&nbsp;</p>
-                                        }
+                                        <table align="center" border="1" cellpadding="1" cellspacing="1" style="width:800px;">
+                                            <tbody>
+                                                <tr>
+                                                    <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                                                    <td>
+                                                        <p style="text-align: center;">
+                                                            <span style="color:#273461;">
+                                                                <span style="font-size:18px;">
+                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @image.ImageName
+                                                                </span>
+                                                            </span>
+                                                        </p>
+                                                        <p style="text-align: center;">
+                                                            <span style="font-size:18px;">
+                                                                <span style="color:#263a69;">
+                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @image.Image_AltText
+                                                                </span>
+                                                            </span>
+                                                        </p>
+                                                        <p style="text-align: center;">&nbsp;</p>
+                                                    </td>
+                                                    <td>
+                                                        <img src="~/Images/Members/@image.ImageGUID" style="height: 240px; width: 200px; float: left;">
+                                                    </td>
+                                                    <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p>&nbsp;</p>
                                     }
                                 </div>
                             }

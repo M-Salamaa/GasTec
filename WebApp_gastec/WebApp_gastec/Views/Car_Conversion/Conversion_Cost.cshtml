@@ -1,4 +1,5 @@
 ﻿@model HomePageViewModel
+@using WebApp_gastec.Domain
 
 @{
     ViewData["Title"] = "GASTEC";
@@ -52,41 +53,9 @@
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
-                                        @if (entity.ClassificationID == 19)
-                                        {
-                                            // Advantages
-                                            <li><a href="@Url.Action("Advantage", "Car_Conversion")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 20)
-                                        {
-                                            //Conversion Proccess
-                                            <li><a href="@Url.Action("Conversion_Proccess", "Car_Conversion")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 21)
-                                        {
-                                            //Conversion Cost
-                                            <li class="active"><a href="@Url.Action("Conversion_Cost", "Car_Conversion")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 22)
-                                        {
-                                            //SafteyFactor
-                                            <li><a href="@Url.Action("SafteyFactor", "Car_Conversion")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 23)
-                                        {
-                                            //Questions
-                                            <li><a href="@Url.Action("CommonQuestions", "Car_Conversion")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 24)
-                                        {
-                                            //Conversion Centers
-                                            <li><a href="@Url.Action("Conversion_Centers", "Car_Conversion")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 25)
-                                        {
-                                            //Local Manuf
-                                            <li><a href="@Url.Action("local_manufacturing", "Car_Conversion")">@entity.ClassificationName</a></li>
-                                        }
+                                        <li>
+                                            <a href="@Url.Action(GetActionName.GetActionNameforCarConversionSectionByID(entity.ClassificationID), "Car_Conversion")">@entity.ClassificationName</a>
+                                        </li>
                                     }
                                 }
                             </ul>

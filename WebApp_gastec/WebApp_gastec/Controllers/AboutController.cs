@@ -19,7 +19,7 @@ namespace WebApp_gastec.Controllers
             _hostingEnvironment = hostingEnvironment;
         }
 
-  
+
         // Caching All HTML Links Returned From API via Model
         private async Task CachedAllHtmlLinksAsync(HomePageViewModel model_, string folderName_)
         {
@@ -39,9 +39,12 @@ namespace WebApp_gastec.Controllers
 
                     }
                 }
-                path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
-                entity.Body = system.ReadFileAsStringForBody(path);
-                entity.Style = system.ReadFileAsStringForStyle(path);
+                else
+                {
+                    path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
+                    entity.Body = system.ReadFileAsStringForBody(path);
+                    entity.Style = system.ReadFileAsStringForStyle(path);
+                }
             }
             #endregion
         }
@@ -63,9 +66,12 @@ namespace WebApp_gastec.Controllers
                         }
                     }
                 }
-                foreach (var image in entity.LstImages)
+                else
                 {
-                    image.ImageGUID = await cachedImages.CahceAllImageAsync(folderName_, image.ImageGUID, image.ImageLink);
+                    foreach (var image in entity.LstImages)
+                    {
+                        image.ImageGUID = await cachedImages.CahceAllImageAsync(folderName_, image.ImageGUID, image.ImageLink);
+                    }
                 }
             }
             #endregion Caching images returned from API
@@ -109,7 +115,7 @@ namespace WebApp_gastec.Controllers
             Domain.System system = new Domain.System();
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt("124"));
             await CachedAllImagesAsync(model, "Activities");
-            foreach(var entity in model.AboutUsSection)
+            foreach (var entity in model.AboutUsSection)
             {
                 string path = await cachedHtml.CahceAllHtmlLinksAsync("Activities", entity.HTML_GUID, entity.Classification_HTMLLink);
                 entity.Body = system.ReadFileAsStringForBody(path);
@@ -164,6 +170,6 @@ namespace WebApp_gastec.Controllers
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("123"), Domain.System.Encrypt("18"));
             return View(model);
         }
-       
+
     }
 }

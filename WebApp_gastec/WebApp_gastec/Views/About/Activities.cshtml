@@ -1,5 +1,5 @@
 ﻿@model HomePageViewModel
-
+@using WebApp_gastec.Domain
 @{
     ViewData["Title"] = "GASTEC";
     Layout = "_Layout";
@@ -52,36 +52,8 @@
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
-                                        @if (entity.ClassificationID == 124)
-                                        {
-                                            //Activities
-                                            <li class="active"><a href="@Url.Action("Activities", "About")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 9)
-                                        {
-                                            // Legal Entity
-                                            <li> <a href="@Url.Action("LegalEntity", "About")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 121)
-                                        {
-                                            //Vision and Mision
-                                            <li> <a href="@Url.Action("VisionMision", "About")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 120)
-                                        {
-                                            // Members
-                                            <li> <a href="@Url.Action("Members", "About")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 123)
-                                        {
-                                            //Human Resources
-                                            <li> <a href="@Url.Action("HR", "About")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 122)
-                                        {
-                                            //Contributors
-                                            <li> <a href="@Url.Action("Contributors", "About")">@entity.ClassificationName</a></li>
-                                        }
+                                        <li><a href="@Url.Action(GetActionName.GetActionNameByClassificationTreeID(entity.ClassificationID), "About")">@entity.ClassificationName</a></li>
+
                                     }
                                 }
                             </ul>

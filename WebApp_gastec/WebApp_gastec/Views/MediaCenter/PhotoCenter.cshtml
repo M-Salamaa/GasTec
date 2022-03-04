@@ -7,18 +7,10 @@
 }
 
 
-@foreach (var entity in Model.Statistics_Categories)
-{
-    @foreach (var Websection in entity.LstWebSections)
-    {
-        @Html.Raw(Websection.Style)
-    }
-}
-
 <!-- Page Title-->
-<section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/Stat.jpg');">
+<section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/4.jpg');">
     <div class="auto-container">
-        @foreach (var entity in Model.Statistics_Categories)
+        @foreach (var entity in Model.Sub_Section)
         {
             <!-- <h1>@entity.ClassificationName  </h1>-->
         }
@@ -31,7 +23,7 @@
         <div class="inner-container clearfix">
             <ul class="bread-crumb pull-right">
                 <li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
-                @foreach (var entity in Model.Statistics_Categories)
+                @foreach (var entity in Model.Sub_Section)
                 {
                     <li>@entity.ClassificationName</li>
                 }
@@ -50,12 +42,12 @@
                     <div id="sidenavelist">
                         <div class="sidebar-widget sidebar-blog-category">
                             <ul class="blog-cat">
-                                @foreach (var mainSection in Model.Statistics_Main)
+                                @foreach (var mainSection in Model.Main_Section)
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
                                         <li>
-                                            <a href="@Url.Action(GetActionName.GetActionNameforStatisticsSectionByID(entity.ClassificationID), "Statistics")">@entity.ClassificationName</a>
+                                            <a href="@Url.Action(GetActionName.GetActionNameforMediaCenterSectionByID(entity.ClassificationID), "MediaCenter")">@entity.ClassificationName</a>
                                         </li>
                                     }
                                 }
@@ -66,31 +58,10 @@
             </div>
             <!--Content Side-->
             <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
-                <div class="services-single" dir="rtl">
-                    <div class="inner-box">
-                        <div id="cmspage1">
-                            @foreach (var entity in Model.Statistics_Categories)
-                            {
-                                <h2>@entity.ClassificationName</h2>
-                                <div style="font-size:14px; position:relative">
-                                    @foreach (var webSection in entity.LstWebSections)
-                                    {
-                                        @foreach (var image in webSection.LstImages)
-                                        {
-                                            <img src="~/Images/World_Stat/@image.ImageGUID" style="width: max-content;" />
-                                        }
-                                        <p style="text-align: justify;">
-                                            <span style="color:#273461;">
-                                                <span style="font-size:18px;">
-                                                    @Html.Raw(webSection.Body)
-                                                </span>
-                                            </span>
-                                        </p>
-                                        <hr />
-                                    }
-                                </div>
-                            }
-                        </div>
+                <div class="auto-container">
+                    <div id="galrow">
+                        <!-- Tabs Side-->
+
                     </div>
                 </div>
                 <div class="team-column col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">

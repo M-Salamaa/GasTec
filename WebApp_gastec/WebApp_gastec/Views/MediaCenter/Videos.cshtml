@@ -1,5 +1,5 @@
 ﻿@model HomePageViewModel
-
+@using WebApp_gastec.Domain
 @{
     ViewData["Title"] = "GASTEC";
     Layout = "_Layout";
@@ -45,26 +45,9 @@
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
-                                        @if (entity.ClassificationID == 48)
-                                        {
-                                            // Photo Center
-                                            <li ><a href="@Url.Action("Index", "MediaCenter",new { PhotoID = entity.ClassificationID.ToString()})">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 49)
-                                        {
-                                            //Videos
-                                            <li class="active"><a href="@Url.Action("Index", "MediaCenter", new { PhotoID = entity.ClassificationID.ToString()})">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 50)
-                                        {
-                                            //Activites Photo
-                                            <li><a href="@Url.Action("Index", "MediaCenter", new { PhotoID = entity.ClassificationID.ToString()})">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 51)
-                                        {
-                                            //Reports
-                                            <li><a href="@Url.Action("Reports", "MediaCenter")">@entity.ClassificationName</a></li>
-                                        }
+                                        <li >
+                                            <a href="@Url.Action(GetActionName.GetActionNameforMediaCenterSectionByID(entity.ClassificationID), "MediaCenter")">@entity.ClassificationName</a>
+                                        </li>
                                     }
                                 }
                             </ul>

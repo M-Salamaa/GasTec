@@ -26,12 +26,12 @@ namespace WebApp_gastec.Controllers
         }
         public IActionResult PhotoCenter()
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("8"), Domain.System.Encrypt("48"));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("48"), Domain.System.Encrypt("0"));
             return View(model);
         }
-        public IActionResult Index(string ID)
+        public IActionResult Videos(string ID)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("8"), Domain.System.Encrypt(ID));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("8"), Domain.System.Encrypt("49"));
             return View(model);
         }
         public IActionResult ActivitiesPhoto()

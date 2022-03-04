@@ -1,4 +1,6 @@
 ﻿@model HomePageViewModel
+@using WebApp_gastec.Domain
+
 @{
     ViewData["Title"] = "GASTEC";
     Layout = "_Layout";
@@ -52,36 +54,9 @@
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
-                                        @if (entity.ClassificationID == 26)
-                                        {
-                                            // NaturalGas
-                                            <li><a href="@Url.Action("NaturalGas", "Catering_Stations")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 27)
-                                        {
-                                            //Liquid Gas
-                                            <li><a href="@Url.Action("LiquidGas", "Catering_Stations")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 28)
-                                        {
-                                            //Integrated Stations
-                                            <li><a href="@Url.Action("IntegratedStations","Catering_Stations")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 29)
-                                        {
-                                            //Transportation Projects
-                                            <li ><a href="@Url.Action("TransportationProccess","Catering_Stations")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 30)
-                                        {
-                                            //Saftey
-                                            <li class="active"><a href="@Url.Action("OccupationalSafety","Catering_Stations")">@entity.ClassificationName</a></li>
-                                        }
-                                        else if (entity.ClassificationID == 31)
-                                        {
-                                            //Mobile Stations
-                                            <li><a href="@Url.Action("MobileStations","Catering_Stations")">@entity.ClassificationName</a></li>
-                                        }
+                                        <li>
+                                            <a href="@Url.Action(GetActionName.GetActionNameforCateringStationsSectionByID(entity.ClassificationID), "Catering_Stations")">@entity.ClassificationName</a>
+                                        </li>
                                     }
                                 }
                             </ul>
@@ -111,7 +86,7 @@
                                                 }
                                                 else if (webSection.WebSectionID == 101)
                                                 {
-                                                    <img src="~/Images/Occupational_Safety/@image.ImageGUID" >
+                                                    <img src="~/Images/Occupational_Safety/@image.ImageGUID">
 
                                                 }
                                                 else
