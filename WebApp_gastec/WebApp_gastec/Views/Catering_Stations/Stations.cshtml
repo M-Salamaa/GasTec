@@ -69,47 +69,36 @@
                 <div class="services-single" dir="rtl">
                     <div class="inner-box">
                         <div id="cmspage1">
-                            <div style="font-size:14px; position:relative">
-                                <h3 dir="rtl" style="text-align: justify;">
-                                    <span style="color:#263a69;">
-                                        <span style="font-size:18px;">- محطات تموين نموذجية متكاملة الخدمات بالوقود السائل والغاز الطبيعي والشحن الكهربائي</span>
-                                    </span>
-                                </h3>
-                                @foreach (var Lstchild in Model.Stations_Categories)
-                                {
-                                    <table border="1" cellpadding="1" cellspacing="1" dir="rtl" style="width:100%;">
-                                        <tbody>
-                                            <tr>
-                                                @foreach (var child in Lstchild.LstChildClassification)
-                                                {
-                                                    <td>
-                                                        <a href="@Url.Action("Stations","Catering_Stations",new { Id_ = child.ClassificationID.ToString()})">
-                                                            @child.ClassificationName
-                                                        </a>
-                                                    </td>
-                                                }
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <p dir="rtl" style="text-align: justify;">&nbsp;</p>
-                                    <p dir="rtl" style="text-align: justify;">
-                                        <span style="color:#263a69;">
-                                            <span style="font-size:18px;">
-                                                @Html.Raw(Lstchild.Body)
-                                            </span>
-                                        </span>
-                                    </p>
-                                    <p dir="rtl" style="text-align: justify;">&nbsp;</p>
-                                    <h3 dir="rtl" style="text-align: justify;">
-                                        <span style="color:#263a69;">
-                                            @foreach (var image in Lstchild.LstImages)
+                            <!--//end backend to retrieve variables  -->
+                            <!--//Start backend to retrieve variables  -->
+                            @foreach (var station in Model.Stations_Categories)
+                            {
+                                <h2>
+                                    @station.ClassificationName
+                                </h2>
+                                <link href="" rel="stylesheet" type="text/css">
+                                <div style="font-size:14px; position:relative">
+                                    @foreach (var webSection in station.LstWebSections)
+                                    {
+                                        @Html.Raw(webSection.Body)
+                                        @foreach (var image in webSection.LstImages)
+                                        {
+                                            @if (webSection.WebSectionID == 231 || webSection.WebSectionID == 233 || webSection.WebSectionID == 127 || webSection.WebSectionID == 130 || webSection.WebSectionID == 136 || webSection.WebSectionID == 142 || webSection.WebSectionID == 148)
                                             {
-                                                <img src="~/Images/Integrated_Stations/@image.ImageGUID" style="height: 315px; width: 900px;">
+                                                <img src="~/Images/Integrated_Stations/@image.ImageGUID">
                                             }
-                                        </span>
-                                    </h3>
-                                }
-                            </div>
+                                            else if (webSection.WebSectionID == 232 || webSection.WebSectionID == 128 || webSection.WebSectionID == 129 || webSection.WebSectionID == 137)
+                                            {
+                                                <img src="~/Images/Integrated_Stations/@image.ImageGUID" style="height: 200px; width: 300px;">
+                                            }
+                                            else if (webSection.WebSectionID == 149 || webSection.WebSectionID == 143)
+                                            {
+                                                <img src="~/Images/Integrated_Stations/@image.ImageGUID">
+                                            }
+                                        }
+                                    }
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -123,3 +112,4 @@
         </div>
     </div>
 </div>
+

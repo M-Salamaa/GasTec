@@ -12,7 +12,6 @@ namespace WebApp_gastec.Controllers
     public class Catering_StationsController : Controller
     {
         public readonly IWebHostEnvironment _hostingEnvironment;
-
         public Catering_StationsController(IWebHostEnvironment hostEnvironment)
         {
             _hostingEnvironment = hostEnvironment;
@@ -71,7 +70,6 @@ namespace WebApp_gastec.Controllers
             }
             #endregion Caching images returned from API
         }
-
         // Return Data Model after Consuming API
         private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_)
         {
@@ -88,7 +86,7 @@ namespace WebApp_gastec.Controllers
             };
             return homePageViewModel;
         }
-
+        // Routing for Natural Gas Page
         public async Task<IActionResult> NaturalGasAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("26"));
@@ -96,6 +94,7 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "NaturalGas_Stations");
             return View(model);
         }
+        // Routing for Liquid Gas Page
         public async Task<IActionResult> LiquidGasAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("27"));
@@ -103,13 +102,14 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "LiquidGas_Stations");
             return View(model);
         }
-        // This for Integrated Stations Section (It's Not Complete yet)
+        // Routing For Integreated Station Page
         public async Task<IActionResult> IntegratedStationsAsync()
         {
             CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
             Domain.System system = new Domain.System();
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("28"));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("28"), Domain.System.Encrypt("0"));
             await CachedAllImagesAsync(model, "Integrated_Stations");
+            await CachedAllHtmlLinksAsync(model, "Integrated_Stations");
             foreach (var entity in model.Stations_Categories)
             {
                 string path = await cachedHtml.CahceAllHtmlLinksAsync("Integrated_Stations", entity.HTML_GUID, entity.Classification_HTMLLink);
@@ -122,6 +122,7 @@ namespace WebApp_gastec.Controllers
             }
             return View(model);
         }
+        // Routing For Transportation Proccess Page
         public async Task<IActionResult> TransportationProccessAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("29"));
@@ -129,7 +130,7 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "Transportation_Proccess");
             return View(model);
         }
-
+        // Routing For Occupational Saftey Page
         public async Task<IActionResult> OccupationalSafetyAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("30"));
@@ -137,6 +138,7 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "Occupational_Safety");
             return View(model);
         }
+        // Routing For Mobile Station Page
         public async Task<IActionResult> MobileStationsAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("31"));
@@ -144,5 +146,14 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "Mobile_Stations");
             return View(model);
         }
+        // Routing For Integreated Station Category Page
+        public async Task<IActionResult> Stations(string Id_)
+        {
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt(Id_));
+            await CachedAllImagesAsync(model, "Integrated_Stations");
+            await CachedAllHtmlLinksAsync(model, "Integrated_Stations");
+            return View(model);
+        }
+
     }
 }
