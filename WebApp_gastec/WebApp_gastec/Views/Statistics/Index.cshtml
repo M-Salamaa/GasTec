@@ -55,7 +55,7 @@
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
                                         <li>
-                                            <a href="@Url.Action(GetActionName.GetActionNameforStatisticsSectionByID(entity.ClassificationID), "Statistics")">@entity.ClassificationName</a>
+                                            <a href="@Url.Action("Index", "Statistics",new { ID_ = entity.ClassificationID.ToString()})">@entity.ClassificationName</a>
                                         </li>
                                     }
                                 }
@@ -75,17 +75,15 @@
                                 <div style="font-size:14px; position:relative">
                                     @foreach (var webSection in entity.LstWebSections)
                                     {
+                                        <h3 style="text-align: justify;">
+                                            <span style="color:#263a69;">
+                                                @Html.Raw(webSection.Body)
+                                            </span>
+                                        </h3>
                                         @foreach (var image in webSection.LstImages)
                                         {
-                                            <img src="~/Images/World_Stat/@image.ImageGUID" style="width: max-content;" />
+                                            <img src="~/Images/Statistics/@image.ImageGUID" style="width: max-content;" />
                                         }
-                                        <p style="text-align: justify;">
-                                            <span style="color:#273461;">
-                                                <span style="font-size:18px;">
-                                                    @Html.Raw(webSection.Body)
-                                                </span>
-                                            </span>
-                                        </p>
                                         <hr />
                                     }
                                 </div>

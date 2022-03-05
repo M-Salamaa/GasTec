@@ -120,6 +120,14 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "Commerical_Oil");
             return View(model);
         }
+        // Routing for Sub Commerical Oils Page
+        public async Task<IActionResult> SubCommercialAsync(string oilID_)
+        {
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt(oilID_));
+            await CachedAllImagesAsync(model, "Commerical_Oil");
+            await CachedAllHtmlLinksAsync(model, "Commerical_Oil");
+            return View(model);
+        }
         // Routing for Oil Distribution Page
         public async Task<IActionResult> DistributorAsync()
         {

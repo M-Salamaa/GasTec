@@ -73,9 +73,6 @@
 
                 </div>
             </div>
-            @{
-                var Counter = 0;
-            }
             <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
                 <div class="services-single" dir="rtl">
 
@@ -93,33 +90,21 @@
                                 {
                                     @foreach (var webSection in entity.LstWebSections)
                                     {
-                                        Counter = 0;
                                         <div class="team-block col-md-3 col-sm-6 col-xs-12 pull-right">
                                             <div class="inner-box">
-                                                @foreach (var image in webSection.LstImages)
-                                                {
-                                                    @if (Counter == 1)
-                                                        break;
-                                                    else
-                                                    {
-                                                        @for (int i = 0; i < 1; i++)
-                                                        {
-                                                            <div class="image">
-                                                                <a href="@image.ImageLink">
-                                                                    <img src="~/Images/Commerical_Oil/@image.ImageGUID" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="lower-box">
-                                                                <h3>
-                                                                    <a href="#">
-                                                                        @Html.Raw(webSection.Body)
-                                                                    </a>
-                                                                </h3>
-                                                            </div>
-                                                        }
-                                                    }
-                                                    Counter++;
-                                                }
+
+                                                <div class="image">
+                                                    <a href="@Url.Action("SubCommercial", "Oil" , new { oilID_ = webSection.WebSectionID.ToString()})">
+                                                        <img src="~/Images/Commerical_Oil/@webSection.LstImages.Select(x=>x.ImageGUID).FirstOrDefault().ToString()" />
+                                                    </a>
+                                                </div>
+                                                <div class="lower-box">
+                                                    <h3>
+                                                        <a href="@Url.Action("SubCommercial", "Oil" , new { oilID_ = webSection.WebSectionID.ToString()})">
+                                                            @Html.Raw(webSection.Body)
+                                                        </a>
+                                                    </h3>
+                                                </div>
                                             </div>
                                         </div>
                                     }

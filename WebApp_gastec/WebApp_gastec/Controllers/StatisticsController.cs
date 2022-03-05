@@ -86,25 +86,12 @@ namespace WebApp_gastec.Controllers
             };
             return homePageViewModel;
         }
-        public async Task<IActionResult> Stat_GastecAsync()
+        // Routing for Statistics Pages Using classification ID
+        public async Task<IActionResult> IndexAsync(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("7"), Domain.System.Encrypt("44"));
-            await CachedAllImagesAsync(model, "Gastec_Stat");
-            await CachedAllHtmlLinksAsync(model, "Gastec_Stat");
-            return View(model);
-        }
-        public async Task<IActionResult> Stat_EgyptAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("7"), Domain.System.Encrypt("45"));
-            await CachedAllImagesAsync(model, "Egypt_Stat");
-            await CachedAllHtmlLinksAsync(model, "Egypt_Stat");
-            return View(model);
-        }
-        public async Task<IActionResult> Stat_WorldAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("7"), Domain.System.Encrypt("46"));
-            await CachedAllImagesAsync(model, "World_Stat");
-            await CachedAllHtmlLinksAsync(model, "World_Stat");
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("7"), Domain.System.Encrypt(ID_));
+            await CachedAllImagesAsync(model, "Statistics");
+            await CachedAllHtmlLinksAsync(model, "Statistics");
             return View(model);
         }
     }

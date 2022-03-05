@@ -1,0 +1,72 @@
+﻿@model HomePageViewModel
+@using WebApp_gastec.Domain
+
+@{
+    ViewData["Title"] = "GASTEC";
+    Layout = "_Layout";
+}
+
+
+@foreach (var entity in Model.Oil_Categories)
+{
+    @foreach (var Websection in entity.LstWebSections)
+    {
+        @Html.Raw(Websection.Style)
+    }
+}
+
+<!-- Page Title-->
+<section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/Integrated_station.jpg');">
+    <div class="auto-container">
+        @foreach (var entity in Model.Oil_Categories)
+        {
+            <!-- <h1>@entity.ClassificationName  </h1>-->
+        }
+
+    </div>
+</section>
+
+<!-- End Page Title-->
+<!-- Page Info-->
+<div class="page-info">
+    <div class="auto-container">
+        <div class="inner-container clearfix">
+            <ul class="bread-crumb pull-right">
+                <li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
+                @foreach (var entity in Model.Oil_Main)
+                {
+                    <li>@entity.ClassificationName</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End Page Info-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Content Side-->
+            @foreach (var category in Model.Oil_Categories)
+            {
+                @foreach (var webSection in category.LstWebSections)
+                {
+                    @foreach (var image in webSection.LstImages)
+                    {
+                        <div id="imgfull">
+                            <div class="content-side col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                <div class="services-single" dir="rtl">
+                                    <div class="sidebar-title">
+                                        <p style="text-align:right">
+                                            <img src="~/Images/Commerical_Oil/126-198-21-02-20224-32-21PM.webp" style="height:392px; width:350px">
+                                        </p>
+                                        @Html.Raw(image.Body)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>

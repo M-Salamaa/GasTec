@@ -97,6 +97,9 @@
                                 <!--social-icon-->
                                 <div class="social-icon">
                                     <ul class="clearfix">
+                                        <li>
+                                            <a href="#"><img src="~/public/assets/softextwo/images/16528.png" alt="" title=""></a>
+                                        </li>
                                         <li><a href="https://www.facebook.com/gasteceg/" target="_blank"><span class="fa fa-facebook"></span></a></li>
                                         <li><a href="https://www.youtube.com/channel/UCTLayD5SdoD3WCPk7T3jgcQ" target="_blank"><span class="fa fa-youtube"></span></a></li>
 
@@ -276,7 +279,7 @@
                                                                         @foreach (var entity in classification.LstChildClassification)
                                                                         {
                                                                             <li>
-                                                                                <a href="@Url.Action(GetActionName.GetActionNameforStatisticsSectionByID(entity.ClassificationID), "Statistics")">@entity.ClassificationName</a>
+                                                                                <a href="@Url.Action("Index", "Statistics",new { ID_ = entity.ClassificationID.ToString()})">@entity.ClassificationName</a>
                                                                             </li>
                                                                         }
                                                                     </ul>

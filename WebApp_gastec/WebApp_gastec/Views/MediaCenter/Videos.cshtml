@@ -70,23 +70,26 @@
                                             {
                                                 @foreach (var webSection in entity.LstWebSections)
                                                 {
-                                                    <div class="news-block-three col-md-6 col-sm-12 col-xs-12 pull-right">
-                                                        <div class="inner-box">
-                                                            <div class="video-box">
-                                                                <div class="image">
-                                                                    <img src="@webSection.WebSection_PlainText" alt="">
-                                                                    <a href="@webSection.ActionURL" class="lightbox-image overlay-box">
-                                                                        <span class="flaticon-play-button-2"></span>
-                                                                    </a>
+                                                    @foreach (var image in webSection.LstImages)
+                                                    {
+                                                        <div class="news-block-three col-md-6 col-sm-12 col-xs-12 pull-right">
+                                                            <div class="inner-box">
+                                                                <div class="video-box">
+                                                                    <div class="image">
+                                                                        <img src="~/Images/Media_Center_Videos/@image.ImageGUID" alt="">
+                                                                        <a href="@webSection.ActionURL" class="lightbox-image overlay-box">
+                                                                            <span class="flaticon-play-button-2"></span>
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="lower-content">
-                                                                <div class="lower-box" style="height: 40px;">
-                                                                    <h3>@webSection.ToolTip</h3>
+                                                                <div class="lower-content">
+                                                                    <div class="lower-box" style="height: 40px;">
+                                                                        <h3>@webSection.ToolTip</h3>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    }
                                                 }
                                             }
                                         </div>
