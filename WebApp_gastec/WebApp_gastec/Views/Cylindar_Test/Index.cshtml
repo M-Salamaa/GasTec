@@ -55,7 +55,7 @@
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
                                         <li>
-                                            <a href="@Url.Action(GetActionName.GetActionNameforCylindarTestingSectionByID(entity.ClassificationID), "Cylindar_Test")">@entity.ClassificationName</a>
+                                            <a href="@Url.Action("Index", "Cylindar_Test",new { ID_ = entity.ClassificationID.ToString()})">@entity.ClassificationName</a>
                                         </li>
 
                                     }
@@ -77,8 +77,37 @@
                                     @foreach (var webSection in entity.LstWebSections)
                                     {
                                         @Html.Raw(webSection.Body)
-                                        <a href="@webSection.ActionURL">@webSection.ActionURL</a>
-                                        <hr />
+                                        @if (entity.ClassificationID == 39)
+                                        {
+                                            <a href="@webSection.ActionURL">@webSection.ActionURL</a>
+                                            <hr />
+                                        }
+                                        else
+                                        {
+                                            @foreach (var image in webSection.LstImages)
+                                            {
+                                                @if (webSection.WebSectionID == 154)
+                                                {
+                                                    <img src="~/Images/Cylinder_Testing/@image.ImageGUID" style="height: 331px; width: 200px; margin: 10px; float: left;">
+                                                }
+                                                else if (webSection.WebSectionID == 155)
+                                                {
+                                                    <img src="~/Images/Cylinder_Testing/@image.ImageGUID" style="float: left; height: 311px; width: 200px; margin: 10px;">
+                                                }
+                                                else if (webSection.WebSectionID == 158)
+                                                {
+                                                    <img src="~/Images/Cylinder_Testing/@image.ImageGUID">
+                                                }
+                                                else if (webSection.WebSectionID == 159)
+                                                {
+                                                    <img src="~/Images/Cylinder_Testing/@image.ImageGUID" style="width: 500px; height: 262px;">
+                                                }
+                                                else if (webSection.WebSectionID == 160)
+                                                {
+                                                    <img src="~/Images/Cylinder_Testing/@image.ImageGUID" style="margin-left: 25px; margin-right: 25px; width: 400px; height: 266px;">
+                                                }
+                                            }
+                                        }
                                     }
                                 </div>
                             }

@@ -84,27 +84,12 @@ namespace WebApp_gastec.Controllers
             };
             return homePageViewModel;
         }
-        //Routing for Testing Proccess Page
-        public async Task<IActionResult> Testing_ProccessAsync()
+        //Routing for Cylindar Testing Pages using Classification ID
+        public async Task<IActionResult> IndexAsync(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("5"), Domain.System.Encrypt("37"));
-            await CachedAllImagesAsync(model, "Testing_Proccess");
-            await CachedAllHtmlLinksAsync(model, "Testing_Proccess");
-            return View(model);
-        }
-        //Routing for Testing Centers Page
-        public async Task<IActionResult> Testing_CentersAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("5"), Domain.System.Encrypt("38"));
-            await CachedAllImagesAsync(model, "Testing_Centers");
-            await CachedAllHtmlLinksAsync(model, "Testing_Centers");
-            return View(model);
-        }
-        //Routing for Explaoner Videos Page
-        public async Task<IActionResult> Explainer_videosAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("5"), Domain.System.Encrypt("39"));
-            await CachedAllHtmlLinksAsync(model, "Explainer_videos");
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("5"), Domain.System.Encrypt(ID_));
+            await CachedAllImagesAsync(model, "Cylinder_Testing");
+            await CachedAllHtmlLinksAsync(model, "Cylinder_Testing");
             return View(model);
         }
     }
