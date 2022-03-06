@@ -66,6 +66,11 @@
             </div>
             <!--Content Side-->
             <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="services-single" dir="rtl">
+                    <div class="inner-box">
+                        <div id="cmspage1"></div>
+                    </div>
+                </div>
                 <div class="team-column col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
                     <div class="inner-column">
                         <div class="row clearfix">
@@ -74,14 +79,12 @@
                                 <div id="teambox">
                                     @foreach (var entity in oilCategory.LstChildClassification)
                                     {
-
                                         <div class="team-block col-md-3 col-sm-6 col-xs-12 pull-right">
                                             <div class="inner-box">
                                                 <div class="image">
                                                     <a href="@entity.LstImages.Select(x=>x.ImageLink).FirstOrDefault().ToString()">
                                                         <img src="~/Images/Industrial_Oil/@entity.LstImages.Select(x=>x.ImageGUID).FirstOrDefault().ToString()" alt="" />
                                                     </a>
-
                                                 </div>
                                                 <div class="lower-box">
                                                     <h3>
@@ -89,7 +92,6 @@
                                                             @entity.ClassificationName
                                                         </a>
                                                     </h3>
-
                                                 </div>
                                             </div>
                                         </div>

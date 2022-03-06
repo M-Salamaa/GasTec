@@ -121,11 +121,20 @@ namespace WebApp_gastec.Controllers
             return View(model);
         }
         // Routing for Sub Commerical Oils Page
-        public async Task<IActionResult> SubCommercialAsync(string oilID_)
+        public async Task<IActionResult> SubCommercialAsync(string OilID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt(oilID_));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("42"));
+            model.WebSectionID = OilID_;
             await CachedAllImagesAsync(model, "Commerical_Oil");
             await CachedAllHtmlLinksAsync(model, "Commerical_Oil");
+            return View(model);
+        }
+        public async Task<IActionResult> SubIndustrialAsync(string OilID_)
+        {
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("42"));
+            model.WebSectionID = OilID_;
+            await CachedAllImagesAsync(model, "Industrial_Oil");
+            await CachedAllHtmlLinksAsync(model, "Industrial_Oil");
             return View(model);
         }
         // Routing for Oil Distribution Page

@@ -14,5 +14,6 @@ namespace WebApp_gastec.Models
         public string ImageID { get; set; }
         public string Style { get; set; }
         public string Body { get; set; }
+
     }
 }

@@ -46,20 +46,31 @@
     <div class="auto-container">
         <div class="row clearfix">
             <!--Content Side-->
-            @foreach (var category in Model.Oil_Categories)
+            @foreach (var type in Model.Oil_Categories)
             {
-                @foreach (var webSection in category.LstWebSections)
+                @foreach (var webSection in type.LstWebSections)
                 {
-                    @foreach (var image in webSection.LstImages)
+                    @if (webSection.WebSectionID.ToString() == Model.WebSectionID)
                     {
+
+                        <div class="sidebar-side col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-right text-right">
+                            <img src="~/Images/Commerical_Oil/@webSection.LstImages.Select(x=>x.ImageGUID).FirstOrDefault().ToString()" alt="">
+                        </div>
                         <div id="imgfull">
                             <div class="content-side col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                 <div class="services-single" dir="rtl">
                                     <div class="sidebar-title">
-                                        <p style="text-align:right">
-                                            <img src="~/Images/Commerical_Oil/126-198-21-02-20224-32-21PM.webp" style="height:392px; width:350px">
-                                        </p>
-                                        @Html.Raw(image.Body)
+                                        <h2>
+                                            @Html.Raw(webSection.Body)
+                                        </h2>
+                                    </div>
+                                    <div class="inner-box">
+                                        @foreach (var image in webSection.LstImages.Skip(1))
+                                        {
+                                            <p>
+                                                <img src="~/Images/Commerical_Oil/@image.ImageGUID" style="height:392px; width:350px">
+                                            </p>
+                                        }
                                     </div>
                                 </div>
                             </div>
