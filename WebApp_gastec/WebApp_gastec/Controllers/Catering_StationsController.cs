@@ -41,14 +41,12 @@ namespace WebApp_gastec.Controllers
                     {
                         path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
                         webSection.Body = system.ReadFileAsStringForBody(path);
-                        webSection.Style = system.ReadFileAsStringForStyle(path);
                     }
                 }
                 else
                 {
                     path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
                     entity.Body = system.ReadFileAsStringForBody(path);
-                    entity.Style = system.ReadFileAsStringForStyle(path);
                 }
             }
             #endregion
@@ -121,13 +119,13 @@ namespace WebApp_gastec.Controllers
             CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
             Domain.System system = new Domain.System();
             var model = this.GetHomeViewModel(Domain.System.Encrypt("28"), Domain.System.Encrypt("0"));
+            ActivateSelectedForMainCategories(model, "28");
             await CachedAllImagesAsync(model, "Integrated_Stations");
             await CachedAllHtmlLinksAsync(model, "Integrated_Stations");
             foreach (var entity in model.Stations_Categories)
             {
                 string path = await cachedHtml.CahceAllHtmlLinksAsync("Integrated_Stations", entity.HTML_GUID, entity.Classification_HTMLLink);
                 entity.Body = system.ReadFileAsStringForBody(path);
-                entity.Style = system.ReadFileAsStringForStyle(path);
                 foreach (var image in entity.LstImages)
                 {
                     image.ImageGUID = await cachedHtml.CahceAllImageAsync("Integrated_Stations", image.ImageGUID, image.ImageLink);

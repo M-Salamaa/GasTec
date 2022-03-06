@@ -7,13 +7,6 @@
 }
 
 
-@foreach (var entity in Model.Oil_Categories)
-{
-    @foreach (var Websection in entity.LstWebSections)
-    {
-        @Html.Raw(Websection.Style)
-    }
-}
 
 <!-- Page Title-->
 <section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/eni-header.jpg');">
@@ -54,9 +47,18 @@
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
-                                        <li>
-                                            <a href="@Url.Action(GetActionName.GetActionNameforOilsSectionByID(entity.ClassificationID), "Oil")">@entity.ClassificationName</a>
-                                        </li>
+                                        @if (entity.IsActive == true)
+                                        {
+                                            <li class="active">
+                                                <a href="@Url.Action(GetActionName.GetActionNameforOilsSectionByID(entity.ClassificationID), "Oil")">@entity.ClassificationName</a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <a href="@Url.Action(GetActionName.GetActionNameforOilsSectionByID(entity.ClassificationID), "Oil")">@entity.ClassificationName</a>
+                                            </li>
+                                        }
                                     }
                                 }
                             </ul>

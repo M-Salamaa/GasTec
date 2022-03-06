@@ -7,13 +7,6 @@
 }
 
 
-@foreach (var entity in Model.Car_ConversionCategory)
-{
-    @foreach (var Websection in entity.LstWebSections)
-    {
-        @Html.Raw(Websection.Style)
-    }
-}
 
 <!-- Page Title-->
 <section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/car_conv.jpg');">

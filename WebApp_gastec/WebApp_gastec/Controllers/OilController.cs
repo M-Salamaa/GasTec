@@ -16,6 +16,7 @@ namespace WebApp_gastec.Controllers
         {
             _hostingEnvironment = hostingEnviroment;
         }
+        // Activate Selected Page in WebSite
         private void ActivateSelectedForMainCategories(HomePageViewModel model_, string id_)
         {
             foreach (var child in model_.Oil_Main)
@@ -39,9 +40,19 @@ namespace WebApp_gastec.Controllers
                 {
                     foreach (var webSection in entity.LstWebSections)
                     {
+                        if (webSection.LstImages.Count > 0)
+                        {
+                            foreach (var image in webSection.LstImages)
+                            {
+                                path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, image.ImageGUID, image.HTMLLink);
+                                image.Body = system.ReadFileAsStringForBody(path);
+                                image.Style = system.ReadFileAsStringForStyle(path);
+                            }
+                        }
                         path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
                         webSection.Body = system.ReadFileAsStringForBody(path);
                         webSection.Style = system.ReadFileAsStringForStyle(path);
+
                     }
                 }
                 else
@@ -120,9 +131,8 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> IndustrialAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("41"), Domain.System.Encrypt("0"));
-
             await CachedAllImagesAsync(model, "Industrial_Oil");
-            model.IsActive = true;
+            ActivateSelectedForMainCategories(model, "41");
             //await CachedAllHtmlLinksAsync(model, "Industrial_Oil");
             return View(model);
         }
@@ -152,6 +162,7 @@ namespace WebApp_gastec.Controllers
             await CachedAllHtmlLinksAsync(model, "Commerical_Oil");
             return View(model);
         }
+        // Routing for Sub Industrial Oils Page
         public async Task<IActionResult> SubIndustrialAsync(string OilID_)
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("42"));

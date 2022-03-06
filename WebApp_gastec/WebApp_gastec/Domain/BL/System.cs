@@ -48,8 +48,8 @@ namespace WebApp_gastec.Domain
                     stringBuilder.Append(line);
                 }
                 string html_Result = stringBuilder.ToString();
-                Final = Between(html_Result, "<body>", "</body>");
-                return Final;
+                //Final = Between(html_Result, "<body>", "</body>");
+                return html_Result;
             }
         }
         // Function To Read Files and Return Style Tags
