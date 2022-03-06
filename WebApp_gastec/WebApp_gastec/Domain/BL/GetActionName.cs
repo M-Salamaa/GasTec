@@ -201,7 +201,7 @@ namespace WebApp_gastec.Domain
                     actionName = "Reports";
                     break;
                 default:
-                    actionName = "PhotoCenter";
+                    actionName = "News";
                     break;
             }
             return actionName;

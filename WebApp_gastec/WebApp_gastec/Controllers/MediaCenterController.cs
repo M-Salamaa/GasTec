@@ -43,6 +43,17 @@ namespace WebApp_gastec.Controllers
 
             return "http://img.youtube.com/vi/" + youTubeThumb + "/default.jpg";
         }
+        private void ActivateSelectedForMainCategories(HomePageViewModel model_, string id_)
+        {
+            foreach (var child in model_.Main_Section)
+            {
+                foreach (var classification in child.LstChildClassification)
+                {
+                    if (classification.ClassificationID.ToString() == id_)
+                        classification.IsActive = true;
+                }
+            }
+        }
         private async Task CachedAllHtmlLinksAsync(HomePageViewModel model_, string folderName_)
         {
             string path = "";
@@ -108,29 +119,73 @@ namespace WebApp_gastec.Controllers
                 Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("8"), Domain.System.Encrypt("0")),
                 // Consuming Cylindar Category from Classification Tree API 
                 Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
+
             };
             return homePageViewModel;
+        }
+        private async Task<HomePageViewModel> GetNewsModel(int groupId_)
+        {
+            HomePageViewModel homePageViewModel = new()
+            {
+                // Consuming Main Menu from Classification Tree API 
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                // Consuming Main Cylindar Test Menu from Classification Tree API 
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("8"), Domain.System.Encrypt("0")),
+                // Consuming News Groups from Get News Topic API
+                News_Group = await API_GetNewsGroup.GetNewsGroup(),
+                // Consuming All News from Get News Topic API
+                NewsTopics = await API_GetNewsTopics.GetAllNewsTopics(groupId_),
+            };
+            return homePageViewModel; 
         }
         public IActionResult PhotoCenter()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("48"), Domain.System.Encrypt("0"));
+            ActivateSelectedForMainCategories(model, "0");
             return View(model);
         }
         public async Task<IActionResult> VideosAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("8"), Domain.System.Encrypt("49"));
+            ActivateSelectedForMainCategories(model, "49");
             await CachedAllImagesAsync(model, "Media_Center_Videos");
             return View(model);
         }
         public IActionResult ActivitiesPhoto()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("8"), Domain.System.Encrypt("50"));
+            ActivateSelectedForMainCategories(model, "50");
             return View(model);
         }
         public IActionResult Reports()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("51"), Domain.System.Encrypt("0"));
+            ActivateSelectedForMainCategories(model, "0");
             return View(model);
         }
+        public async Task<IActionResult> NewsAsync(int GroupId_)
+        {
+            var model = await this.GetNewsModel(GroupId_);
+            await CacheAllNewsImages(model, "MediaCenter_NewsSection");
+            foreach(var group in model.News_Group)
+            {
+                if (group.GroupID == GroupId_)
+                    group.IsActive = true;
+            }
+            return View(model);
+        }
+
+        // Caching All News Images
+        private async Task CacheAllNewsImages(HomePageViewModel model_ , string folderName_)
+        {
+            #region caching images 
+            CacheImages cachedImages = new CacheImages(_hostingEnvironment);
+            foreach (var entity in model_.NewsTopics.LstNews)
+            {
+                entity.ImageGUID = await cachedImages.CahceAllImageAsync(folderName_, entity.ImageGUID, entity.ImageLink);
+            }
+            #endregion
+        }
+      
     }
 }

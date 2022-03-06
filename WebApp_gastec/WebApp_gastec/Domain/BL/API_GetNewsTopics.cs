@@ -11,8 +11,6 @@ namespace WebApp_gastec.Domain
 {
     public class API_GetNewsTopics
     {
-        // parameter for Properties of classification Settings
-        private static readonly int showProperty = 1;
         // this functions to Get Topics for Latest News Section
         public static async Task<OutputGetNewsTopicsModel> GetAllNewsTopics(int groupId_)
         {
