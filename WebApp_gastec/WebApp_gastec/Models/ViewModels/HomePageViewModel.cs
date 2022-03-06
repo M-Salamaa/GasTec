@@ -40,6 +40,6 @@ namespace WebApp_gastec.Models
         public List<OutputGetClassificationTreeModel> Main_Section { get; set; }
         public List<OutputGetClassificationTreeModel> Sub_Section { get; set; }
         public string WebSectionID { get; set; }
-
+        public bool IsActive { get; set; }
     }
 }

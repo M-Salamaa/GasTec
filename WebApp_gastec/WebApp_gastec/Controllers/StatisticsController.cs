@@ -22,7 +22,7 @@ namespace WebApp_gastec.Controllers
             #region Caching Html Links Returned from API
             CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
             Domain.System system = new Domain.System();
-            foreach (var entity in model_.Statistics_Categories)
+            foreach (var entity in model_.Sub_Section)
             {
                 if (entity.LstWebSections.Count > 0)
                 {
@@ -47,7 +47,7 @@ namespace WebApp_gastec.Controllers
         {
             #region Caching images returned from API 
             CacheImages cachedImages = new CacheImages(_hostingEnvironment);
-            foreach (var entity in model_.Statistics_Categories)
+            foreach (var entity in model_.Sub_Section)
             {
                 if (entity.LstWebSections.Count > 0)
                 {
@@ -79,9 +79,9 @@ namespace WebApp_gastec.Controllers
                 // Consuming Main Menu from Classification Tree API 
                 MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
                 // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Statistics_Main = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("7"), Domain.System.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("7"), Domain.System.Encrypt("0")),
                 // Consuming Cylindar Category from Classification Tree API 
-                Statistics_Categories = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
+                Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
 
             };
             return homePageViewModel;
@@ -90,6 +90,14 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> IndexAsync(string ID_)
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("7"), Domain.System.Encrypt(ID_));
+            foreach (var child in model.Main_Section)
+            {
+                foreach (var classification in child.LstChildClassification)
+                {
+                    if (classification.ClassificationID.ToString() == ID_)
+                        classification.IsActive = true;
+                }
+            }
             await CachedAllImagesAsync(model, "Statistics");
             await CachedAllHtmlLinksAsync(model, "Statistics");
             return View(model);

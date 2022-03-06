@@ -16,6 +16,17 @@ namespace WebApp_gastec.Controllers
         {
             _hostingEnvironment = hostingEnvironment;
         }
+        private void ActivateSelectedForMainCategories(HomePageViewModel model_, string id_)
+        {
+            foreach (var child in model_.Car_ConversionMain)
+            {
+                foreach (var classification in child.LstChildClassification)
+                {
+                    if (classification.ClassificationID.ToString() == id_)
+                        classification.IsActive = true;
+                }
+            }
+        }
         // Caching All HTML Links Returned From API via Model
         private async Task CachedAllHtmlLinksAsync(HomePageViewModel model_, string folderName_)
         {
@@ -92,6 +103,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> AdvantageAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("19"));
+            ActivateSelectedForMainCategories(model, "19");
             await CachedAllImagesAsync(model, "CarConversion_Advantage");
             await CachedAllHtmlLinksAsync(model, "CarConversion_Advantage");
             return View(model);
@@ -100,6 +112,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> Conversion_ProccessAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("20"));
+            ActivateSelectedForMainCategories(model, "20");
             await CachedAllImagesAsync(model, "Conversion_Proccess");
             await CachedAllHtmlLinksAsync(model, "Conversion_Proccess");
             return View(model);
@@ -108,6 +121,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> Conversion_CostAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("21"));
+            ActivateSelectedForMainCategories(model, "21");
             await CachedAllImagesAsync(model, "Conversion_Cost");
             await CachedAllHtmlLinksAsync(model, "Conversion_Cost");
             return View(model);
@@ -116,6 +130,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> SafteyFactorAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("22"));
+            ActivateSelectedForMainCategories(model, "22");
             await CachedAllImagesAsync(model, "SafteyFactor");
             await CachedAllHtmlLinksAsync(model, "SafteyFactor");
             return View(model);
@@ -124,6 +139,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> CommonQuestionsAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("23"));
+            ActivateSelectedForMainCategories(model, "23");
             await CachedAllImagesAsync(model, "CommonQuestions");
             await CachedAllHtmlLinksAsync(model, "CommonQuestions");
             return View(model);
@@ -132,6 +148,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> Conversion_CentersAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("24"));
+            ActivateSelectedForMainCategories(model, "24");
             await CachedAllImagesAsync(model, "Conversion_Centers");
             await CachedAllHtmlLinksAsync(model, "Conversion_Centers");
             return View(model);
@@ -140,6 +157,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> local_manufacturingAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("25"));
+            ActivateSelectedForMainCategories(model, "25");
             await CachedAllImagesAsync(model, "local_manufacturing");
             await CachedAllHtmlLinksAsync(model, "local_manufacturing");
             return View(model);

@@ -90,10 +90,33 @@ namespace WebApp_gastec.Controllers
             };
             return homePageViewModel;
         }
+        private void ActivateSelectedForMainCategories (HomePageViewModel model_ , string id_)
+        {
+            foreach (var child in model_.AboutUs)
+            {
+                foreach (var classification in child.LstChildClassification)
+                {
+                    if (classification.ClassificationID.ToString() == id_)
+                        classification.IsActive = true;
+                }
+            }
+        }
+        private void ActivateSelectedForSubCategories(HomePageViewModel model_, string id_)
+        {
+            foreach (var child in model_.HR)
+            {
+                foreach (var classification in child.LstChildClassification)
+                {
+                    if (classification.ClassificationID.ToString() == id_)
+                        classification.IsActive = true;
+                }
+            }
+        }
         // Route For Legal Entity Page
         public async Task<IActionResult> LegalEntityAsync()
         {
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt("9"));
+            ActivateSelectedForMainCategories(model, "9");
             await CachedAllImagesAsync(model, "LegalEntity");
             await CachedAllHtmlLinksAsync(model, "LegalEntity");
 
@@ -103,6 +126,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> VisionMisionAsync()
         {
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt("121"));
+            ActivateSelectedForMainCategories(model, "121");
             await CachedAllImagesAsync(model, "VisionAndMision");
             await CachedAllHtmlLinksAsync(model, "VisionAndMision");
 
@@ -114,6 +138,7 @@ namespace WebApp_gastec.Controllers
             CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
             Domain.System system = new Domain.System();
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt("124"));
+            ActivateSelectedForMainCategories(model, "124");
             await CachedAllImagesAsync(model, "Activities");
             foreach (var entity in model.AboutUsSection)
             {
@@ -129,6 +154,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> MembersAsync()
         {
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt("120"));
+            ActivateSelectedForMainCategories(model, "120");
             await CachedAllImagesAsync(model, "Members");
             await CachedAllHtmlLinksAsync(model, "Members");
             return View(model);
@@ -137,6 +163,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> HRAsync()
         {
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("123"), Domain.System.Encrypt("15"));
+            ActivateSelectedForSubCategories(model, "15");
             await CachedAllImagesAsync(model, "Management");
             await CachedAllHtmlLinksAsync(model, "Management");
             return View(model);
@@ -145,6 +172,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> ContributorsAsync()
         {
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt("122"));
+            ActivateSelectedForMainCategories(model, "122");
             await CachedAllImagesAsync(model, "Contributors");
             await CachedAllHtmlLinksAsync(model, "Contributors");
             return View(model);
@@ -153,6 +181,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> RelationsAsync()
         {
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("123"), Domain.System.Encrypt("78"));
+            ActivateSelectedForSubCategories(model, "78");
             await CachedAllImagesAsync(model, "Relations");
             await CachedAllHtmlLinksAsync(model, "Relations");
             return View(model);
@@ -161,6 +190,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> TrainingAsync()
         {
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("123"), Domain.System.Encrypt("17"));
+            ActivateSelectedForSubCategories(model, "17");
             await CachedAllImagesAsync(model, "Training");
             return View(model);
         }
@@ -168,6 +198,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> organizationalAsync()
         {
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("123"), Domain.System.Encrypt("18"));
+            ActivateSelectedForSubCategories(model, "18");
             return View(model);
         }
 

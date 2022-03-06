@@ -7,7 +7,7 @@
 }
 
 
-@foreach (var entity in Model.Statistics_Categories)
+@foreach (var entity in Model.Sub_Section)
 {
     @foreach (var Websection in entity.LstWebSections)
     {
@@ -18,7 +18,7 @@
 <!-- Page Title-->
 <section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/Stat.jpg');">
     <div class="auto-container">
-        @foreach (var entity in Model.Statistics_Categories)
+        @foreach (var entity in Model.Sub_Section)
         {
             <!-- <h1>@entity.ClassificationName  </h1>-->
         }
@@ -31,7 +31,7 @@
         <div class="inner-container clearfix">
             <ul class="bread-crumb pull-right">
                 <li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
-                @foreach (var entity in Model.Statistics_Categories)
+                @foreach (var entity in Model.Sub_Section)
                 {
                     <li>@entity.ClassificationName</li>
                 }
@@ -50,13 +50,23 @@
                     <div id="sidenavelist">
                         <div class="sidebar-widget sidebar-blog-category">
                             <ul class="blog-cat">
-                                @foreach (var mainSection in Model.Statistics_Main)
+                                @foreach (var mainSection in Model.Main_Section)
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
-                                        <li>
-                                            <a href="@Url.Action("Index", "Statistics",new { ID_ = entity.ClassificationID.ToString()})">@entity.ClassificationName</a>
-                                        </li>
+                                        @if (entity.IsActive == true)
+                                        {
+                                            <li class="active">
+                                                <a href="@Url.Action("Index", "Statistics",new { ID_ = entity.ClassificationID.ToString()})">@entity.ClassificationName</a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <a href="@Url.Action("Index", "Statistics",new { ID_ = entity.ClassificationID.ToString()})">@entity.ClassificationName</a>
+                                            </li>
+                                        }
+
                                     }
                                 }
                             </ul>
@@ -69,7 +79,7 @@
                 <div class="services-single" dir="rtl">
                     <div class="inner-box">
                         <div id="cmspage1">
-                            @foreach (var entity in Model.Statistics_Categories)
+                            @foreach (var entity in Model.Sub_Section)
                             {
                                 <h2>@entity.ClassificationName</h2>
                                 <div style="font-size:14px; position:relative">

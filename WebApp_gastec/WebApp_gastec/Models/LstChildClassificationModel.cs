@@ -19,5 +19,7 @@ namespace WebApp_gastec.Models
         public List<LstImageModel> LstImages { get; set; }
         public List<LstFile> LstFiles { get; set; }
         public List<LstChildClassificationModel> LstChildClassification { get; set; }
+        public bool IsActive { get; set; }
+
     }
 }

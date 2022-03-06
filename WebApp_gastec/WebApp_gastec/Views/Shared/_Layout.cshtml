@@ -407,7 +407,7 @@
                                                             @foreach (var entity in classification.LstChildClassification)
                                                             {
                                                                 <li>
-                                                                    <a href="@Url.Action(GetActionName.GetActionNameforCylindarTestingSectionByID(entity.ClassificationID), "Cylindar_Test")">@entity.ClassificationName</a>
+                                                                    <a href="@Url.Action("Index", "Cylindar_Test",new { ID_ = entity.ClassificationID.ToString()})">@entity.ClassificationName</a>
                                                                 </li>
                                                             }
                                                         }
@@ -427,7 +427,7 @@
                                                             @foreach (var entity in classification.LstChildClassification)
                                                             {
                                                                 <li>
-                                                                    <a href="@Url.Action(GetActionName.GetActionNameforStatisticsSectionByID(entity.ClassificationID), "Statistics")">@entity.ClassificationName</a>
+                                                                    <a href="@Url.Action("Index", "Statistics",new { ID_ = entity.ClassificationID.ToString()})">@entity.ClassificationName</a>
                                                                 </li>
                                                             }
                                                         }

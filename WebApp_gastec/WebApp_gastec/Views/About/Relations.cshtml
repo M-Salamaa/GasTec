@@ -61,8 +61,16 @@
                             {
                                 @foreach (var entity in mainSection.LstChildClassification)
                                 {
-                                    <li><a href="@Url.Action(GetActionName.GetActionNameforHRSectionByID(entity.ClassificationID), "About")">@entity.ClassificationName</a></li>
+                                    @if (entity.IsActive == true)
+                                    {
 
+                                        <li class="active"><a href="@Url.Action(GetActionName.GetActionNameforHRSectionByID(entity.ClassificationID), "About")">@entity.ClassificationName</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action(GetActionName.GetActionNameforHRSectionByID(entity.ClassificationID), "About")">@entity.ClassificationName</a></li>
+
+                                    }
                                 }
                             }
                         </ul>

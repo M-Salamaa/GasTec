@@ -16,6 +16,17 @@ namespace WebApp_gastec.Controllers
         {
             _hostingEnvironment = hostEnvironment;
         }
+        private void ActivateSelectedForMainCategories(HomePageViewModel model_, string id_)
+        {
+            foreach (var child in model_.Stations_Main)
+            {
+                foreach (var classification in child.LstChildClassification)
+                {
+                    if (classification.ClassificationID.ToString() == id_)
+                        classification.IsActive = true;
+                }
+            }
+        }
         private async Task CachedAllHtmlLinksAsync(HomePageViewModel model_, string folderName_)
         {
             string path = "";
@@ -90,6 +101,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> NaturalGasAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("26"));
+            ActivateSelectedForMainCategories(model, "26");
             await CachedAllImagesAsync(model, "NaturalGas_Stations");
             await CachedAllHtmlLinksAsync(model, "NaturalGas_Stations");
             return View(model);
@@ -98,6 +110,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> LiquidGasAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("27"));
+            ActivateSelectedForMainCategories(model, "27");
             await CachedAllImagesAsync(model, "LiquidGas_Stations");
             await CachedAllHtmlLinksAsync(model, "LiquidGas_Stations");
             return View(model);
@@ -126,6 +139,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> TransportationProccessAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("29"));
+            ActivateSelectedForMainCategories(model, "29");
             await CachedAllImagesAsync(model, "Transportation_Proccess");
             await CachedAllHtmlLinksAsync(model, "Transportation_Proccess");
             return View(model);
@@ -134,6 +148,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> OccupationalSafetyAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("30"));
+            ActivateSelectedForMainCategories(model, "30");
             await CachedAllImagesAsync(model, "Occupational_Safety");
             await CachedAllHtmlLinksAsync(model, "Occupational_Safety");
             return View(model);
@@ -142,6 +157,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> MobileStationsAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("31"));
+            ActivateSelectedForMainCategories(model, "31");
             await CachedAllImagesAsync(model, "Mobile_Stations");
             await CachedAllHtmlLinksAsync(model, "Mobile_Stations");
             return View(model);

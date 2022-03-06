@@ -16,6 +16,17 @@ namespace WebApp_gastec.Controllers
         {
             _hostingEnvironment = hostingEnviroment;
         }
+        private void ActivateSelectedForMainCategories(HomePageViewModel model_, string id_)
+        {
+            foreach (var child in model_.Oil_Main)
+            {
+                foreach (var classification in child.LstChildClassification)
+                {
+                    if (classification.ClassificationID.ToString() == id_)
+                        classification.IsActive = true;
+                }
+            }
+        }
         private async Task CachedAllHtmlLinksAsync(HomePageViewModel model_, string folderName_)
         {
             string path = "";
@@ -100,6 +111,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> AgencyAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("40"));
+            ActivateSelectedForMainCategories(model, "40");
             await CachedAllImagesAsync(model, "Oil_Agency");
             await CachedAllHtmlLinksAsync(model, "Oil_Agency");
             return View(model);
@@ -108,7 +120,9 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> IndustrialAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("41"), Domain.System.Encrypt("0"));
+
             await CachedAllImagesAsync(model, "Industrial_Oil");
+            model.IsActive = true;
             //await CachedAllHtmlLinksAsync(model, "Industrial_Oil");
             return View(model);
         }
@@ -116,8 +130,17 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> CommercialAsync()
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("42"));
+            ActivateSelectedForMainCategories(model, "42");
             await CachedAllImagesAsync(model, "Commerical_Oil");
             await CachedAllHtmlLinksAsync(model, "Commerical_Oil");
+            return View(model);
+        }
+        // Routing for Oil Distribution Page
+        public async Task<IActionResult> DistributorAsync()
+        {
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("43"));
+            ActivateSelectedForMainCategories(model, "43");
+            await CachedAllImagesAsync(model, "Oil_Distributer");
             return View(model);
         }
         // Routing for Sub Commerical Oils Page
@@ -135,13 +158,6 @@ namespace WebApp_gastec.Controllers
             model.WebSectionID = OilID_;
             await CachedAllImagesAsync(model, "Industrial_Oil");
             await CachedAllHtmlLinksAsync(model, "Industrial_Oil");
-            return View(model);
-        }
-        // Routing for Oil Distribution Page
-        public async Task<IActionResult> DistributorAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("43"));
-            await CachedAllImagesAsync(model, "Oil_Distributer");
             return View(model);
         }
     }
