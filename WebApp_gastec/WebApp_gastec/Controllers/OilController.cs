@@ -82,7 +82,7 @@ namespace WebApp_gastec.Controllers
                         }
                     }
                 }
-                else if (entity.LstChildClassification.Count > 0)
+                if (entity.LstChildClassification.Count > 0)
                 {
                     foreach (var classification in entity.LstChildClassification)
                     {
@@ -92,7 +92,7 @@ namespace WebApp_gastec.Controllers
                         }
                     }
                 }
-                else
+               if (entity.LstImages.Count > 0)
                 {
                     foreach (var image in entity.LstImages)
                     {
@@ -133,7 +133,6 @@ namespace WebApp_gastec.Controllers
             var model = this.GetHomeViewModel(Domain.System.Encrypt("41"), Domain.System.Encrypt("0"));
             await CachedAllImagesAsync(model, "Industrial_Oil");
             ActivateSelectedForMainCategories(model, "41");
-            //await CachedAllHtmlLinksAsync(model, "Industrial_Oil");
             return View(model);
         }
         // Routing for Commerical Oils Page
@@ -165,8 +164,7 @@ namespace WebApp_gastec.Controllers
         // Routing for Sub Industrial Oils Page
         public async Task<IActionResult> SubIndustrialAsync(string OilID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("42"));
-            model.WebSectionID = OilID_;
+            var model = this.GetHomeViewModel(Domain.System.Encrypt(OilID_), Domain.System.Encrypt("0"));
             await CachedAllImagesAsync(model, "Industrial_Oil");
             await CachedAllHtmlLinksAsync(model, "Industrial_Oil");
             return View(model);

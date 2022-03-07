@@ -311,3 +311,4 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.dl
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\ref\WebApp_gastec.dll
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.pdb
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.genruntimeconfig.cache
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Oil\SubIndustrial.cshtml.g.cs
