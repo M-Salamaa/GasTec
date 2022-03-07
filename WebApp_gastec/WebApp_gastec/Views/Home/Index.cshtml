@@ -308,53 +308,63 @@
     <!--End News Section-->
     <!--================Map Area =================-->
     @*check the Map Section in Source code*@
-
-    <!--<div class="row" style="background-color: #BDD2E2; margin: 0;">
-        <?php
-        $getGovernorats = \App\System::getGovernorat();
-        ?>
-        <?php if(\App\System::getCookies()=="ar"){ ?>
+    <div class="row" style="background-color: #BDD2E2; margin: 0;">
         <div class="col-md-3 col-xs-12 pull-right text-right">
             <h1>خدمات غازتك</h1>
             <select id="getGovernorat" style="width: 100%; padding:10px;direction:rtl">
-                <option value="0">كل المحافظات</option>-->
-   @*             @foreach ($getGovernorats as $getGovernorat)*@
-    <!--<option value="{{ $getGovernorat['id'] }}">
-        {{ $getGovernorat['namear'] }}
-    </option>-->
-     @*           @endforeach*@
-            <!--</select>
+                <option value="0">كل المحافظات</option>
+                <option value="1">
+                    القاهرة
+                </option>
+            </select>
         </div>
-        <?php }elseif(\App\System::getCookies()=="en"){ ?>
-        <div class="col-md-3 col-xs-12">
-            <h1>GASTEC Services</h1>
-            <select id="getGovernorat" style="width: 100%; padding:10px;">
-                <option value="0">All Governorates</option>-->
-       @*         @foreach ($getGovernorats as $getGovernorat)*@
-    <!--<option value="{{ $getGovernorat['id'] }}">
-        {{ $getGovernorat['name'] }}
-    </option>-->
-         @*       @endforeach*@
-            <!--</select>
-        </div>
-        <?php } ?>
     </div>
     <div id="locationmap"></div>
-    <?php
-    \App\System::showMap();
-    ?>-->
-    <!--End Call Back Section-->
-    <!--<script>
-        $("#getGovernorat").change(function () {
-            $.ajax({
-                type: 'POST',
-                url: "<?= env('APP_URL') ?>index.php/geomap/0",
-                data: "_token=<?php echo csrf_token(); ?>&getlat=1&getlong=2",
-            }).success(function (response) {
-                $("#locationmap").html(response);
-            });
+    <script>
+    $(document).ready(function () {
+        navigator.geolocation.getCurrentPosition(showPosition, error);
+    });
+
+    function showPosition(position) {
+
+        getlat = position.coords.latitude;
+        getlong = position.coords.longitude;
+        $("#locationmap").html("please wait...");
+        $.ajax({
+            type: 'POST',
+            url: "@Url.Action("_ShowMapPartial","Home")",
+            data: { longtitude: 7.629603, latitude: 23.377556 },    
+        }).success(function (response) {
+
+            $("#locationmap").html(response);
+            console.log(response);
+
         });
-    </script>-->
+
+    }
+    function error(err) {
+        $("#locationmap").html("please wait...");
+        $.ajax({
+            type: 'POST',
+            url: "@Url.Action("_ShowMapPartial","Home")",
+            data: { longtitude: 7.629603, latitude: 23.377556 },
+        }).success(function (response) {
+
+            $("#locationmap").html(response);
+        });
+    }
+    </script>
+    @*<script>
+            $("#getGovernorat").change(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: "<?= env('APP_URL') ?>index.php/geomap/0",
+                    data: "_token=<?php echo csrf_token(); ?>&getlat=1&getlong=2",
+                }).success(function (response) {
+                    $("#locationmap").html(response);
+                });
+            });
+        </script>*@
 
     <!--End Call Back Section-->
     <!-- PAGE - END -->
@@ -371,7 +381,7 @@
     <div style="position: absolute; left: 0px; top: -2px; height: 1px; overflow: hidden; visibility: hidden; width: 1px;"><span style="position: absolute; font-size: 300px; width: auto; height: auto; margin: 0px; padding: 0px; font-family: Roboto, Arial, sans-serif;">BESbswy</span></div>
 </body>
 <script src="~/public/assets/softextwo/js/main-slider-script.js"></script>
-<script>
+@*<script>
     if ($('.single-item-carousel').length) {
         $('.single-item-carousel').owlCarousel({
             loop: true,
@@ -429,40 +439,7 @@
         });
     }
 </script>
-<script>
-    $(document).ready(function () {
-        navigator.geolocation.getCurrentPosition(showPosition, error);
-    });
 
-    function showPosition(position) {
-
-        getlat = position.coords.latitude;
-        getlong = position.coords.longitude;
-        $("#locationmap").html("please wait...");
-        $.ajax({
-            type: 'POST',
-            url: "<?= env('APP_URL') ?>index.php/geomap/0",
-            data: "_token=<?php echo csrf_token(); ?>&getlat=" + getlat + "&getlong=" + getlong,
-        }).success(function (response) {
-
-            $("#locationmap").html(response);
-
-        });
-
-    }
-    function error(err) {
-        $("#locationmap").html("please wait...");
-        $.ajax({
-            type: 'POST',
-            url: "@Url.Action("_ShowMapPartial","Home")",
-            data: { longtitude: 7.629603, latitude: 23.377556 },
-        }).success(function (response) {
-
-            $("#locationmap").html(response);
-
-        });
-    }
-</script>
 <script>
     //Four Item Carousel
     if ($('.four-item-carousel').length) {
@@ -495,4 +472,4 @@
             }
         });
     }
-</script>
+</script>*@

@@ -43,7 +43,6 @@ namespace WebApp_gastec.Controllers
                 {
                     path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
                     entity.Body = system.ReadFileAsStringForBody(path);
-                    entity.Style = system.ReadFileAsStringForStyle(path);
                 }
             }
             #endregion
@@ -144,7 +143,6 @@ namespace WebApp_gastec.Controllers
             {
                 string path = await cachedHtml.CahceAllHtmlLinksAsync("Activities", entity.HTML_GUID, entity.Classification_HTMLLink);
                 entity.Body = system.ReadFileAsStringForBody(path);
-                entity.Style = system.ReadFileAsStringForStyle(path);
             }
 
 

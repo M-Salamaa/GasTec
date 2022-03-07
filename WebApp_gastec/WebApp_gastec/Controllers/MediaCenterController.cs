@@ -68,14 +68,12 @@ namespace WebApp_gastec.Controllers
                     {
                         path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
                         webSection.Body = system.ReadFileAsStringForBody(path);
-                        webSection.Style = system.ReadFileAsStringForStyle(path);
                     }
                 }
                 else
                 {
                     path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
                     entity.Body = system.ReadFileAsStringForBody(path);
-                    entity.Style = system.ReadFileAsStringForStyle(path);
                 }
             }
             #endregion
@@ -119,7 +117,6 @@ namespace WebApp_gastec.Controllers
                 Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("8"), Domain.System.Encrypt("0")),
                 // Consuming Cylindar Category from Classification Tree API 
                 Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
-
             };
             return homePageViewModel;
         }
@@ -167,14 +164,9 @@ namespace WebApp_gastec.Controllers
         {
             var model = await this.GetNewsModel(GroupId_);
             await CacheAllNewsImages(model, "MediaCenter_NewsSection");
-            foreach(var group in model.News_Group)
-            {
-                if (group.GroupID == GroupId_)
-                    group.IsActive = true;
-            }
+            model.IsActive = true;
             return View(model);
         }
-
         // Caching All News Images
         private async Task CacheAllNewsImages(HomePageViewModel model_ , string folderName_)
         {
@@ -186,6 +178,16 @@ namespace WebApp_gastec.Controllers
             }
             #endregion
         }
-      
+        public async Task<IActionResult> SubSectionsAsync(string GroupId_)
+        {
+            var model =  this.GetHomeViewModel(Domain.System.Encrypt(GroupId_), Domain.System.Encrypt("0"));
+            await CachedAllImagesAsync(model, "MediaCenter_PhotoCenter");
+            foreach (var group in model.Sub_Section)
+            {
+                if (group.ClassificationID.ToString() == GroupId_)
+                    group.IsActive = true;
+            }
+            return View(model);
+        }
     }
 }

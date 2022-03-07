@@ -40,10 +40,6 @@
             top.location.href = document.location.href;
         }
     </script>
-
-    @if (Gastech_Vault.TranslationLanguageID == 0)
-    {
-        <script src="~/public/assets/softextwo/js/jquery.js"></script>
         <script type="text/javascript">
             //remove any externals iframes
             var topHref = '';
@@ -70,23 +66,7 @@
         <link id="theme-color-file" href="~/public/assets/softextwo/css/color-themes/red-theme.css" rel="stylesheet">
         <!--Maps CSS-->
         <link rel="stylesheet" type="text/css" href="~/public/src/style/css/pluginStyle.css">
-    }
-    else
-    {
-        <link href="~/public/assets/softextwo/css-en/bootstrap.css" rel="stylesheet">
-        <link href="~/public/assets/softextwo/plugins/revolution/css/settings.css" rel="stylesheet" type="text/css">
-        <!-- REVOLUTION SETTINGS STYLES -->
-        <link href="~/public/assets/softextwo/plugins/revolution/css/layers.css" rel="stylesheet" type="text/css">
-        <!-- REVOLUTION LAYERS STYLES -->
-        <link href="~/public/assets/softextwo/plugins/revolution/css/navigation.css" rel="stylesheet" type="text/css">
-        <!-- REVOLUTION NAVIGATION STYLES -->
-        <link href="~/public/assets/softextwo/css-en/style.css" rel="stylesheet">
-        <link href="~/public/assets/softextwo/css-en/responsive.css" rel="stylesheet">
-        <link id="theme-color-file" href="~/public/assets/softextwo/css-en/color-themes/red-theme.css" rel="stylesheet">
-        <!--Maps CSS-->
-        <link rel="stylesheet" type="text/css" href="<?=env('APP_URL')?>src/style/css/pluginStyle-ar.css">
-        <link rel="stylesheet" type="text/css" href="~/public/src/style/css/pluginStyle-ar.css">
-    }
+   
     <link rel="shortcut icon" href="~/public/assets/softextwo/images/favicon.png" type="image/x-icon">
     <link rel="icon" href="~/public/assets/softextwo/images/favicon.png" type="image/x-icon">
 </head>

@@ -6,15 +6,6 @@
     Layout = "_Layout";
 }
 
-
-@foreach (var entity in Model.Sub_Section)
-{
-    @foreach (var Websection in entity.LstWebSections)
-    {
-        @Html.Raw(Websection.Style)
-    }
-}
-
 <!-- Page Title-->
 <section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/Stat.jpg');">
     <div class="auto-container">
