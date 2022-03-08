@@ -127,7 +127,7 @@ namespace WebApp_gastec.Controllers
             {
                 foreach (var child in entity.LstChildClassification)
                 {
-                    foreach (var file in child.LstFiles.Where(x=>x.FileLinkedID == child.ClassificationID).ToList())
+                    foreach (var file in child.LstFiles.Where(x => x.FileLinkedID == child.ClassificationID))
                     {
                         var test = file;
                     }
