@@ -18,5 +18,6 @@ namespace WebApp_gastec.Models
         public string ShortDescription { get; set; }
         public string ImageLink { get; set; }
         public string ImageGUID { get; set; }
+        public bool IsActive { get; set; }
     }
 }
