@@ -103,16 +103,6 @@ namespace WebApp_gastec.Controllers
             };
             return homePageViewModel;
         }
-        public IActionResult PhotoCenter()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("48"), Domain.System.Encrypt("0"));
-            return View(model);
-        }
-        public IActionResult ActivitiesPhoto()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("8"), Domain.System.Encrypt("50"));
-            return View(model);
-        }
         public async Task<IActionResult> NewsAsync()
         {
             var model = await this.GetNewsModel();
@@ -123,16 +113,6 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> SubSectionsAsync(string GroupId_)
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt(GroupId_), Domain.System.Encrypt("0"));
-            foreach (var entity in model.Sub_Section)
-            {
-                foreach (var child in entity.LstChildClassification)
-                {
-                    foreach (var file in child.LstFiles.Where(x => x.FileLinkedID == child.ClassificationID))
-                    {
-                        var test = file;
-                    }
-                }
-            }
             foreach (var section in model.Sub_Section)
             {
                 if (section.ClassificationID == 48)

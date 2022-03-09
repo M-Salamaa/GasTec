@@ -80,6 +80,7 @@
             <!--Content Side-->
             @foreach (var entity in Model.Sub_Section)
             {
+                // ID = 48 is for Media Center Photos
                 @if (entity.ClassificationID == 48)
                 {
                     <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
@@ -90,8 +91,8 @@
                                     <ul class="nav nav-tabs" dir="rtl">
                                         @foreach (var child in entity.LstChildClassification)
                                         {
-                                            <li id=" active-tab ">
-                                                <a data-toggle="tab" href="#@child.ClassificationID">
+                                            <li id="active-tab">
+                                                <a data-toggle="tab" href="#@child.ClassificationID" aria-expanded="true">
                                                     @child.ClassificationName
                                                 </a>
                                             </li>
@@ -100,9 +101,9 @@
                                     <div class="tab-content text-right" style="padding-top: 20px">
                                         @foreach (var child in entity.LstChildClassification)
                                         {
-                                            @foreach (var subChild in child.LstChildClassification)
-                                            {
-                                                <div id="@child.ClassificationID" class="tab-pane fade in active ">
+                                            <div id="@child.ClassificationID" class="tab-pane fade in active ">
+                                                @foreach (var subChild in child.LstChildClassification)
+                                                {
                                                     <div class="clearfix">
                                                         <div class="page-info">
                                                             <div class="auto-container">
@@ -122,10 +123,10 @@
                                                                         <!--//end backend to retrieve variables  -->
                                                                         <!--Team Block-->
                                                                         <div class="shop-item col-md-3 col-sm-6 col-xs-12 pull-right">
-                                                                            <div class="inner-box">
-                                                                                <div class="image">
+                                                                            <div class="inner-box" style="max-height:120px ;overflow:hidden">
+                                                                                <div class="image" style="">
                                                                                     <a href="@image.ImageLink" data-fancybox="images" data-caption="This image has a caption">
-                                                                                        <img src="~/Images/PhotoCenter_MediaCenter/@image.ImageGUID" alt="">
+                                                                                        <img src="~/Images/PhotoCenter_MediaCenter/@image.ImageGUID" alt="" style="min-height:120px">
                                                                                     </a>
                                                                                 </div>
                                                                             </div>
@@ -135,8 +136,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            }
+                                                }
+                                            </div>
                                         }
                                     </div>
                                 </div>
@@ -146,6 +147,7 @@
                         <!--End About Section-->
                     </div>
                 }
+                // ID = 49 is for Media Center Videos
                 else if (entity.ClassificationID == 49)
                 {
                     <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
@@ -190,6 +192,7 @@
                         </div>
                     </div>
                 }
+                // ID = 51 is for Media Center Reports
                 else if (entity.ClassificationID == 51)
                 {
                     <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
@@ -209,23 +212,21 @@
                                     <div class="tab-content text-right" style="padding-top: 20px">
                                         @foreach (var child in entity.LstChildClassification)
                                         {
-                                            <div>
-                                                <div id="@child.ClassificationID" class="tab-pane fade in active">
-                                                    <div class="clearfix"></div>
-                                                    <div>
-                                                        @foreach (var file in child.LstFiles.Where(x => x.FileLinkedID == child.ClassificationID).ToList())
-                                                        {
-                                                            <!--//Start backend to retrieve variables  -->
-                                                            <!--//End backend to retrieve variables  -->
-                                                            <!--News Block-->
-                                                            <div>
-                                                                <a href="@file.FileLink" style="font-size: 14px;" target="_blank">
-                                                                    <i class="fa fa-download" style="margin-left: 10px;"></i>
-                                                                    @file.FileName
-                                                                </a>
-                                                            </div>
-                                                        }
-                                                    </div>
+                                            <div id="@child.ClassificationID" class="tab-pane fade in">
+                                                <div class="clearfix"></div>
+                                                <div>
+                                                    @foreach (var file in child.LstFiles.Where(x => x.FileLinkedID == child.ClassificationID).ToList())
+                                                    {
+                                                        <!--//Start backend to retrieve variables  -->
+                                                        <!--//End backend to retrieve variables  -->
+                                                        <!--News Block-->
+                                                        <div>
+                                                            <a href="@file.FileLink" style="font-size: 14px;" target="_blank">
+                                                                <i class="fa fa-download" style="margin-left: 10px;"></i>
+                                                                @file.FileName
+                                                            </a>
+                                                        </div>
+                                                    }
                                                 </div>
                                             </div>
                                         }
@@ -240,10 +241,23 @@
     </div>
 </div>
 
-
 <script>
     $(document).ready(function () {
         $("#active-tab").addClass("active");
+         $("#360").addClass("active");
+
     });
 </script>
 
+@foreach (var entity in Model.Sub_Section)
+{
+    @foreach (var child in entity.LstChildClassification)
+    {
+        <script>
+            $("#active-tab").click(function () {
+                $("#@child.ClassificationID").addClass("active");
+            });
+        </script>
+
+    }
+}
