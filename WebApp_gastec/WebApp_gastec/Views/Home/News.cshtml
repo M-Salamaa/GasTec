@@ -1,5 +1,4 @@
 ﻿@model HomePageViewModel
-@using WebApp_gastec.Domain
 
 @{
     ViewData["Title"] = "GASTEC";
@@ -22,7 +21,9 @@
         <div class="inner-container clearfix">
             <ul class="bread-crumb pull-right">
                 <li><a href="@Url.Action("Index", "Home")">الرئيسية</a></li>
-                <li>المركز الإعلامى</li>
+                <li>
+                    أخبار وفاعليات غازتك
+                </li>
             </ul>
         </div>
     </div>
@@ -31,50 +32,8 @@
 <div class="sidebar-page-container">
     <div class="auto-container">
         <div class="row clearfix">
-            <!--Sidebar Side-->
-            <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-right">
-                <aside class="sidebar">
-                    <!--Blog Category Widget-->
-                    <div id="sidenavelist">
-                        <div class="sidebar-widget sidebar-blog-category">
-                            <ul class="blog-cat">
-                                @foreach (var mainSection in Model.Main_Section)
-                                {
-                                    @if (Model.IsActive == true)
-                                    {
-                                        <li class="active">
-                                            <a href="@Url.Action("News", "MediaCenter")">أحدث الأخبار</a>
-                                        </li>
-                                    }
-                                    else
-                                    {
-                                        <li>
-                                            <a href="@Url.Action("News", "MediaCenter")">أحدث الأخبار</a>
-                                        </li>
-                                    }
-                                    @foreach (var entity in mainSection.LstChildClassification)
-                                    {
-                                        @if (entity.IsActive == true)
-                                        {
-                                            <li class="active">
-                                                <a href="@Url.Action("SubSections", "MediaCenter", new { GroupId_ = entity.ClassificationID})">@entity.ClassificationName</a>
-                                            </li>
-                                        }
-                                        else
-                                        {
-                                            <li>
-                                                <a href="@Url.Action("SubSections", "MediaCenter", new { GroupId_ = entity.ClassificationID})">@entity.ClassificationName</a>
-                                            </li>
-                                        }
-                                    }
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                </aside>
-            </div>
             <!--Content Side-->
-            <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
+            <div class="content-side col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="services-single" dir="rtl">
                     <div class="inner-box">
                         <div id="events1">
@@ -107,7 +66,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row" >
+                                        <div class="row">
                                             <!--//Start backend to retrieve variables  -->
                                             <!--//End backend to retrieve variables  -->
                                             <!--News Block-->
@@ -121,10 +80,10 @@
                                                             </a>
                                                         </div>
                                                         <div class="lower-box" style="min-height:200px">
-                                                            <div class="post-info" >
+                                                            <div class="post-info">
                                                                 @topic.TopicDate.ToShortDateString()
                                                             </div>
-                                                            <h3 >
+                                                            <h3>
                                                                 <a href="#" class="theme-btn read-more" style="margin-top: 10px;">
                                                                     @topic.NewsTitle
                                                                 </a>
@@ -157,9 +116,9 @@
 </script>
 @foreach (var entity in Model.News_Group)
 {
-        <script>
+    <script>
             $("#active-tab").click(function () {
                 $("#@entity.GroupID").addClass("active");
             });
-        </script>
+    </script>
 }

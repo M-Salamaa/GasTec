@@ -84,6 +84,17 @@ namespace WebApp_gastec.Controllers
             }
             #endregion Caching images returned from API
         }
+        // Caching All News Images
+        private async Task CacheAllNewsImages(HomePageViewModel model_, string folderName_)
+        {
+            #region caching images 
+            CacheImages cachedImages = new CacheImages(_hostingEnvironment);
+            foreach (var entity in model_.NewsTopics.LstNews)
+            {
+                entity.ImageGUID = await cachedImages.CahceAllImageAsync(folderName_, entity.ImageGUID, entity.ImageLink);
+            }
+            #endregion
+        }
         // Function to retrive Home page view Model from API
         private async Task<HomePageViewModel> GetHomeViewModelAsync()
         {
@@ -110,6 +121,28 @@ namespace WebApp_gastec.Controllers
             // Caching all images Returned in home page view model
             await CachedAllImagesAsync(homePageViewModel);
             return homePageViewModel;
+        }
+        private async Task<HomePageViewModel> GetNewsModel()
+        {
+            HomePageViewModel homePageViewModel = new()
+            {
+                // Consuming Main Menu from Classification Tree API 
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                // Consuming Main Cylindar Test Menu from Classification Tree API 
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("8"), Domain.System.Encrypt("0")),
+                // Consuming News Groups from Get News Topic API
+                News_Group = await API_GetNewsGroup.GetNewsGroup(),
+                // Consuming All News from Get News Topic API
+                NewsTopics = await API_GetNewsTopics.GetAllNewsTopics(0),
+            };
+            return homePageViewModel;
+        }
+        public async Task<IActionResult> NewsAsync()
+        {
+            var model = await this.GetNewsModel();
+            await CacheAllNewsImages(model, "MediaCenter_NewsSection");
+            model.IsActive = true;
+            return View(model);
         }
         // Action for home page loading
         public async Task<IActionResult> IndexAsync()
