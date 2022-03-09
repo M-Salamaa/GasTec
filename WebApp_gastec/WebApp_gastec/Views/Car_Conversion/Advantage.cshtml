@@ -78,29 +78,15 @@
                                     @foreach (var webSection in entity.LstWebSections)
                                     {
                                         <!-- Rendreing Body with HTML Link-->
-                                        @Html.Raw(webSection.Body)
 
+                                        @Html.Raw(webSection.Body)
+                                        <br />
                                         @foreach (var image in webSection.LstImages)
                                         {
                                             <!--//end backend to retrieve variables  -->
                                             <!--//Start backend to retrieve variables  -->
                                             <p>
-                                                @if (webSection.WebSectionID == 25)
-                                                {
-                                                    <span style="color:#273461;"><img src="~/Images/CarConversion_Advantage/@image.ImageGUID" style="height: 346px; width: 900px;"></span>
-                                                }
-                                                else if (webSection.WebSectionID == 30)
-                                                {
-                                                    <img src="~/Images/CarConversion_Advantage/@image.ImageGUID" style="height: 193px; width: 400px; float: left; margin: 10px;">
-                                                }
-                                                else if (webSection.WebSectionID == 32)
-                                                {
-                                                    <img src="~/Images/CarConversion_Advantage/@image.ImageGUID" style="width: 400px; float: left; margin: 10px;">
-                                                }
-                                                else if (webSection.WebSectionID == 33)
-                                                {
-                                                    <span style="color:#273461;"><img src="~/Images/CarConversion_Advantage/@image.ImageGUID" style="height: 533px; width: 900px;"></span>
-                                                }
+                                                <img src="~/Images/CarConversion_Advantage/@image.ImageGUID" style="height: 346px; width: 900px;">
                                             </p>
                                             <hr />
                                         }

@@ -96,7 +96,7 @@
                             <div class="tab-content text-right" style="padding-top: 20px">
                                 @foreach (var year in Model.News_Group)
                                 {
-                                    <div id="@year.GroupID" class="tab-pane fade in active">
+                                    <div id="@year.GroupID" class="tab-pane fade in">
                                         <div class="clearfix"></div>
                                         <div class="page-info" style="margin-bottom: 10px;">
                                             <div class="auto-container">
@@ -113,24 +113,24 @@
                                             <!--News Block-->
                                             @foreach (var topic in Model.NewsTopics.LstNews.Where(x => x.GroupID == year.GroupID).ToList())
                                             {
-                                                <div class="news-block col-md-3 col-sm-6 col-xs-12 wow fadeIn pull-right">
-                                                    <div class="inner-box">
+                                                <div class="news-block col-md-3 col-sm-6 col-xs-12 wow fadeIn pull-right" style="max-height:385px; overflow:hidden">
+                                                    <div class="inner-box" >
                                                         <div class="image">
                                                             <a href="@topic.ImageLink">
-                                                                <img src="~/Images/MediaCenter_NewsSection/@topic.ImageGUID" style="height: 150px;" alt="">
+                                                                <img src="~/Images/MediaCenter_NewsSection/@topic.ImageGUID" style="max-height: 150px;" alt="">
                                                             </a>
                                                         </div>
-                                                        <div class="lower-box">
-                                                            <div class="post-info">
+                                                        <div class="lower-box" style="max-height: 235px">
+                                                            <div class="post-info" style="max-height: 30px">
                                                                 @topic.TopicDate.ToShortDateString()
                                                             </div>
                                                             <h3>
-                                                                <a href="#" class="theme-btn read-more" style="margin-top: 10px">
+                                                                <a href="#" class="theme-btn read-more" style="margin-top: 10px; max-height:165px">
                                                                     @topic.NewsTitle
                                                                 </a>
                                                             </h3>
 
-                                                            <a href="#" class="theme-btn read-more" style="margin-top: 10px; font-size: 14px">
+                                                            <a href="#" class="theme-btn read-more" style="margin-top: 10px; font-size: 14px;max-height:34px">
                                                                 إقرأ المزيد
                                                                 <span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
                                                             </a>
@@ -153,5 +153,14 @@
 <script>
     $(document).ready(function () {
         $("#active-tab").addClass("active");
+        $("#1").addClass("active");
     });
 </script>
+@foreach (var entity in Model.News_Group)
+{
+        <script>
+            $("#active-tab").click(function () {
+                $("#@entity.GroupID").addClass("active");
+            });
+        </script>
+}

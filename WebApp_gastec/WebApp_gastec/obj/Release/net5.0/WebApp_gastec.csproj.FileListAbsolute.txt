@@ -286,11 +286,7 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Cyli
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\_ShowMapPartial.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\MediaCenter\ActivitiesPhoto.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\MediaCenter\News.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\MediaCenter\PhotoCenter.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\MediaCenter\Reports.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\MediaCenter\Videos.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Oil\Agency.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Oil\Commercial.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Oil\Distributor.cshtml.g.cs
@@ -312,3 +308,4 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\ref\WebApp_gaste
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.pdb
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.genruntimeconfig.cache
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Oil\SubIndustrial.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\MediaCenter\Index.cshtml.g.cs

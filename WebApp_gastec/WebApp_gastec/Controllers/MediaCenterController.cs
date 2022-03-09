@@ -110,7 +110,7 @@ namespace WebApp_gastec.Controllers
             model.IsActive = true;
             return View(model);
         }
-        public async Task<IActionResult> SubSectionsAsync(string GroupId_)
+        public async Task<IActionResult> IndexAsync(string GroupId_)
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt(GroupId_), Domain.System.Encrypt("0"));
             foreach (var section in model.Sub_Section)

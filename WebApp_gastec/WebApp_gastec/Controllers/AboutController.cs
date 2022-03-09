@@ -35,8 +35,6 @@ namespace WebApp_gastec.Controllers
                     {
                         path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
                         webSection.Body = system.ReadFileAsStringForBody(path);
-                        webSection.Style = system.ReadFileAsStringForStyle(path);
-
                     }
                 }
                 else
@@ -112,91 +110,22 @@ namespace WebApp_gastec.Controllers
             }
         }
         // Route For Legal Entity Page
-        public async Task<IActionResult> LegalEntityAsync()
+        public async Task<IActionResult> IndexAsync(string ID_)
         {
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt("9"));
-            ActivateSelectedForMainCategories(model, "9");
-            await CachedAllImagesAsync(model, "LegalEntity");
-            await CachedAllHtmlLinksAsync(model, "LegalEntity");
+            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt(ID_));
+            ActivateSelectedForMainCategories(model, ID_);
+            await CachedAllImagesAsync(model, "AboutUS");
+            await CachedAllHtmlLinksAsync(model, "AboutUs");
 
-            return View(model);
-        }
-        // Route For Vision and Mision Page
-        public async Task<IActionResult> VisionMisionAsync()
-        {
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt("121"));
-            ActivateSelectedForMainCategories(model, "121");
-            await CachedAllImagesAsync(model, "VisionAndMision");
-            await CachedAllHtmlLinksAsync(model, "VisionAndMision");
-
-            return View(model);
-        }
-        // Route For Activites Page
-        public async Task<IActionResult> ActivitiesAsync()
-        {
-            CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
-            Domain.System system = new Domain.System();
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt("124"));
-            ActivateSelectedForMainCategories(model, "124");
-            await CachedAllImagesAsync(model, "Activities");
-            foreach (var entity in model.AboutUsSection)
-            {
-                string path = await cachedHtml.CahceAllHtmlLinksAsync("Activities", entity.HTML_GUID, entity.Classification_HTMLLink);
-                entity.Body = system.ReadFileAsStringForBody(path);
-            }
-
-
-            return View(model);
-        }
-        // Route For Members Page
-        public async Task<IActionResult> MembersAsync()
-        {
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt("120"));
-            ActivateSelectedForMainCategories(model, "120");
-            await CachedAllImagesAsync(model, "Members");
-            await CachedAllHtmlLinksAsync(model, "Members");
             return View(model);
         }
         // Route For Human resource Page
-        public async Task<IActionResult> HRAsync()
+        public async Task<IActionResult> HumanResourcesAsync(string ID_)
         {
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("123"), Domain.System.Encrypt("15"));
-            ActivateSelectedForSubCategories(model, "15");
-            await CachedAllImagesAsync(model, "Management");
-            await CachedAllHtmlLinksAsync(model, "Management");
-            return View(model);
-        }
-        // Route For  Contributors Page
-        public async Task<IActionResult> ContributorsAsync()
-        {
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt("122"));
-            ActivateSelectedForMainCategories(model, "122");
-            await CachedAllImagesAsync(model, "Contributors");
-            await CachedAllHtmlLinksAsync(model, "Contributors");
-            return View(model);
-        }
-        // This function is Done without any Data to view(Data in List of Web Section)
-        public async Task<IActionResult> RelationsAsync()
-        {
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("123"), Domain.System.Encrypt("78"));
-            ActivateSelectedForSubCategories(model, "78");
-            await CachedAllImagesAsync(model, "Relations");
-            await CachedAllHtmlLinksAsync(model, "Relations");
-            return View(model);
-        }
-        // Route For  Training Page
-        public async Task<IActionResult> TrainingAsync()
-        {
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("123"), Domain.System.Encrypt("17"));
-            ActivateSelectedForSubCategories(model, "17");
-            await CachedAllImagesAsync(model, "Training");
-            return View(model);
-        }
-        // Route For  Organizitional Page
-        public async Task<IActionResult> organizationalAsync()
-        {
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("123"), Domain.System.Encrypt("18"));
-            ActivateSelectedForSubCategories(model, "18");
+            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("123"), Domain.System.Encrypt(ID_));
+            ActivateSelectedForSubCategories(model, ID_);
+            await CachedAllImagesAsync(model, "HumanResources");
+            await CachedAllHtmlLinksAsync(model, "HumanResources");
             return View(model);
         }
 

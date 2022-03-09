@@ -70,13 +70,15 @@ namespace WebApp_gastec.Controllers
                         foreach (var image in webSection.LstImages)
                         {
                             image.ImageGUID = await cachedImages.CahceAllImageAsync(folderName_, image.ImageGUID, image.ImageLink);
-
                         }
                     }
                 }
-                foreach (var image in entity.LstImages)
+                else
                 {
-                    image.ImageGUID = await cachedImages.CahceAllImageAsync(folderName_, image.ImageGUID, image.ImageLink);
+                    foreach (var image in entity.LstImages)
+                    {
+                        image.ImageGUID = await cachedImages.CahceAllImageAsync(folderName_, image.ImageGUID, image.ImageLink);
+                    }
                 }
             }
             #endregion Caching images returned from API

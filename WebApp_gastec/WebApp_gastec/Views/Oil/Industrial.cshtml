@@ -84,9 +84,9 @@
                                     {
                                         <div class="team-block col-md-3 col-sm-6 col-xs-12 pull-left">
                                             <div class="inner-box">
-                                                <div class="image">
+                                                <div class="image" style="max-height:350px; overflow:hidden">
                                                     <a href="@Url.Action("SubIndustrial", "Oil", new { oilID_ = entity.ClassificationID.ToString()})">
-                                                        <img src="~/Images/Industrial_Oil/@entity.LstImages.Select(x=>x.ImageGUID).FirstOrDefault().ToString()" alt="" />
+                                                        <img src="~/Images/Industrial_Oil/@entity.LstImages.Select(x=>x.ImageGUID).FirstOrDefault().ToString()" alt="" style="min-height:350px"/>
                                                     </a>
                                                 </div>
                                                 <div class="lower-box">

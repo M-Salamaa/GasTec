@@ -84,6 +84,7 @@ namespace WebApp_gastec.Controllers
             }
             #endregion Caching images returned from API
         }
+        // Function to retrive Home page view Model from API
         private async Task<HomePageViewModel> GetHomeViewModelAsync()
         {
             // Create Instance for home page view model to return Main Home Page View
@@ -92,7 +93,7 @@ namespace WebApp_gastec.Controllers
                 // Consuming Main Menu from Classification Tree API 
                 MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
                 // Consuming Banners API 
-                BannersHome =  API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("1"), Domain.System.Encrypt("118")),
+                BannersHome = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("1"), Domain.System.Encrypt("118")),
                 //Consuming Gastech Numbers Section from Classification Tree API 
                 GastechNumbers = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("1"), Domain.System.Encrypt("349")),
                 //Consuming Mid Section from Classification Tree API 
@@ -110,6 +111,7 @@ namespace WebApp_gastec.Controllers
             await CachedAllImagesAsync(homePageViewModel);
             return homePageViewModel;
         }
+        // Action for home page loading
         public async Task<IActionResult> IndexAsync()
         {
             // return Model to Display in Home Page
@@ -120,12 +122,7 @@ namespace WebApp_gastec.Controllers
         {
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        // Action to partial view to Display Map
         [HttpPost]
         public IActionResult _ShowMapPartial(double longtitude, double latitude)
         {
@@ -133,6 +130,11 @@ namespace WebApp_gastec.Controllers
             model.longtitude = longtitude;
             model.latitude = latitude;
             return PartialView(model);
+        }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

@@ -199,13 +199,13 @@
                                                                     {
                                                                         // HR
                                                                         <li class="dropdown">
-                                                                            <a href="@Url.Action(GetActionName.GetActionNameByClassificationTreeID(entity.ClassificationID),"About")">@entity.ClassificationName</a>
+                                                                            <a href="#">@entity.ClassificationName</a>
                                                                             <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>
                                                                             <ul>
                                                                                 @foreach (var child in entity.LstChildClassification)
                                                                                 {
                                                                                     <li>
-                                                                                        <a href="@Url.Action(GetActionName.GetActionNameforHRSectionByID(child.ClassificationID),"About")">@child.ClassificationName</a>
+                                                                                        <a href="@Url.Action("HumanResources","About", new { ID_ = child.ClassificationID})">@child.ClassificationName</a>
                                                                                     </li>
                                                                                 }
                                                                             </ul>
@@ -214,7 +214,7 @@
                                                                     else
                                                                     {
                                                                         <li>
-                                                                            <a href="@Url.Action(GetActionName.GetActionNameByClassificationTreeID(entity.ClassificationID),"About")">@entity.ClassificationName</a>
+                                                                            <a href="@Url.Action("Index","About", new { ID_ = entity.ClassificationID.ToString()})">@entity.ClassificationName</a>
                                                                         </li>
                                                                     }
                                                                 }
@@ -379,9 +379,18 @@
                                                         {
                                                             @foreach (var entity in classification.LstChildClassification)
                                                             {
-                                                                <li>
-                                                                    <a href="@Url.Action(GetActionName.GetActionNameByClassificationTreeID(entity.ClassificationID), "About")">@entity.ClassificationName</a>
-                                                                </li>
+                                                                @if (entity.ClassificationID == 123)
+                                                                {
+                                                                    <li>
+                                                                        <a href="@Url.Action("HumanResources","About", new { ID_ = "15"})">@entity.ClassificationName</a>
+                                                                    </li>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <li>
+                                                                        <a href="@Url.Action("Index","About", new { ID_ = entity.ClassificationID.ToString()})">@entity.ClassificationName</a>
+                                                                    </li>
+                                                                }
                                                             }
                                                         }
                                                         // check if Id = 3 for Car Conversion
