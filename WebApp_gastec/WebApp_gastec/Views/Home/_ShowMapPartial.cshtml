@@ -1,24 +1,25 @@
 ﻿@model MapLocationModel
 
-<section class="ct-section--grey text-center " onLoad="javascript:setLocation(@Model.longtitude,@Model.latitude)">
-    <div class="text-right">
+    <section class="ct-section--grey text-center ">
+        <div class="text-right">
 
-        <div class="seventhStyle"></div>
-       
-    </div>
-</section>
+            <div class="seventhStyle"></div>
 
-<!-- Maps -->
+        </div>
+    </section>
 
-<script src="~/public/maps/js/device.min.js"></script>
-<script src="~/public/maps/js/jquery.browser.min.js"></script>
-<script>
-    function setLocation(longt,lati) {
-        var getlong = longt;
-        var getlat = lati;
+
+    <!-- Maps -->
+
+    <script src="~/public/maps/js/device.min.js"></script>
+    <script src="~/public/maps/js/jquery.browser.min.js"></script>
+    <script>
+        function setLocation(longt, lati) {
+            var getlong = longt;
+            var getlat = lati;
         }
-</script>
+    </script>
 
-<script src="~/public/src/shop-locator.min.js"></script>
+    <script src="~/public/src/shop-locator.min.js"></script>
 
-<script src="~/public/maps/js/splash.js"></script>
+    <script src="~/public/maps/js/splash.js"></script>

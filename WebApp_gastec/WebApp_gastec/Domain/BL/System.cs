@@ -35,7 +35,7 @@ namespace WebApp_gastec.Domain
             return FinalString;
         }
         // Function To Read Files and Return Body Tags
-        public string ReadFileAsStringForBody(string fuulPath_)
+        public static string ReadFileAsStringForBody(string fuulPath_)
         {
 
             using (StreamReader reader = new StreamReader(fuulPath_))

@@ -70,7 +70,7 @@
             <div class="sec-title">
                 <h2>
                     أحدث الأخبار
-                    <a href="@Url.Action("News","Home")" class="theme-btn read-more"
+                    <a href="@Url.Action("AllNews","Home")" class="theme-btn read-more"
                        style="float: left;direction: rtl;font-size: 18px;">
                         عرض جميع الأخبار<span class="icon flaticon-left-arrow"
                                               style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
@@ -95,10 +95,10 @@
                                                     </div>
 
                                                     <h4>
-                                                        <a href="#">@topic.NewsTitle</a>
+                                                        <a href="@Url.Action("NewsDetails", "Home", new { serial_ = topic.Serial})">@topic.NewsTitle</a>
                                                     </h4>
 
-                                                    <a href="#" class="detail">
+                                                    <a href="@Url.Action("NewsDetails", "Home", new { serial_ = topic.Serial})" class="detail">
                                                         اقرأ
                                                         المزيد
                                                     </a>
@@ -199,7 +199,7 @@
                             </div>
                             @* Remeber h-Reference *@
                             <div dir="rtl">
-                                <a href="#" class="theme-btn read-more">
+                                <a href="@Url.Action("AllNews","Home")" class="theme-btn read-more">
                                     المزيد من الأخبار<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
                                 </a>
                             </div>
@@ -268,7 +268,7 @@
             <div class="sec-title">
                 <h2>
                     فعاليات غازتك
-                    <a href="#" class="theme-btn read-more" style="float: left;direction: rtl;font-size: 18px;color: #fff;">
+                    <a href="@Url.Action("AllNews","Home")" class="theme-btn read-more" style="float: left;direction: rtl;font-size: 18px;color: #fff;">
                         عرض جميع الفعاليات<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
                     </a>
                 </h2>
@@ -310,7 +310,8 @@
     <!--End News Section-->
     <!--================Map Area =================-->
     @*check the Map Section in Source code*@
-    <div class="row" style="background-color: #BDD2E2; margin: 0;">
+
+    <div class="row" style="background-color: #bdd2e2; margin: 0;">
         <div class="col-md-3 col-xs-12 pull-right text-right">
             <h1>خدمات غازتك</h1>
             <select id="getGovernorat" style="width: 100%; padding:10px;direction:rtl">
@@ -318,42 +319,125 @@
                 <option value="1">
                     القاهرة
                 </option>
+                <option value="2">
+                    الاسكندريه
+                </option>
+                <option value="3">
+                    أسيوط
+                </option>
+                <option value="4">
+                    أسوان
+                </option>
+                <option value="5">
+                    البحيرة
+                </option>
+                <option value="6">
+                    بني سويف
+                </option>
+                <option value="7">
+                    الدقهلية
+                </option>
+                <option value="8">
+                    دمياط
+                </option>
+                <option value="9">
+                    الفيوم
+                </option>
+                <option value="10">
+                    الغربية
+                </option>
+                <option value="11">
+                    الجيزة
+                </option>
+                <option value="12">
+                    البحر الاحمر
+                </option>
+                <option value="13">
+                    الإسماعيلية
+                </option>
+                <option value="14">
+                    كفر الشيخ
+                </option>
+                <option value="15">
+                    الأقصر
+                </option>
+                <option value="16">
+                    مطروح
+                </option>
+                <option value="17">
+                    المنيا
+                </option>
+                <option value="18">
+                    المنوفية
+                </option>
+                <option value="19">
+                    بورسعيد
+                </option>
+                <option value="20">
+                    سوهاج
+                </option>
+                <option value="21">
+                    القليوبية
+                </option>
+                <option value="22">
+                    السويس
+                </option>
+                <option value="23">
+                    قنا
+                </option>
+                <option value="24">
+                    الشرقية
+                </option>
+                <option value="25">
+                    شمال سيناء
+                </option>
+                <option value="26">
+                    جنوب سيناء
+                </option>
+                <option value="27">
+                    الوادي الجديد
+                </option>
             </select>
         </div>
     </div>
-    <div id="locationmap"></div>
+
+
+    <div id="locationmap"> 
+    </div>
+    
     <script>
-    $(document).ready(function () {
-        navigator.geolocation.getCurrentPosition(showPosition, error);
-    });
-
-    function showPosition(position) {
-
-        getlat = position.coords.latitude;
-        getlong = position.coords.longitude;
-        $("#locationmap").html("please wait...");
-        $.ajax({
-            type: 'POST',
-            url: "@Url.Action("_ShowMapPartial","Home")",
-            data: { longtitude: 7.629603, latitude: 23.377556 },
-        }).success(function (response) {
-
-            $("#locationmap").html(response);
+        $(document).ready(function () {
+            navigator.geolocation.getCurrentPosition(showPosition, error);
         });
 
-    }
-    function error(err) {
-        $("#locationmap").html("please wait...");
-        $.ajax({
-            type: 'POST',
-            url: "@Url.Action("_ShowMapPartial","Home")",
-            data: { longtitude: 7.629603, latitude: 23.377556 },
-        }).success(function (response) {
+        function showPosition(position) {
 
-            $("#locationmap").html(response);
-        });
-    }
-    </script>
+            getlat = position.coords.latitude;
+            getlong = position.coords.longitude;
+            $("#locationmap").html("please wait...");
+            $.ajax({
+                type: 'POST',
+                url: "@Url.Action("_ShowMapPartial","Home")",
+                data: { longtitude: 7.629603, latitude: 23.377556 },
+            }).success(function (response) {
+
+                $("#locationmap").html(response);
+                console.log(response);
+            });
+
+        }
+        function error(err) {
+            $("#locationmap").html("please wait...");
+            $.ajax({
+                type: 'POST',
+                url: "@Url.Action("_ShowMapPartial","Home")",
+                data: { longtitude: 7.629603, latitude: 23.377556 },
+            }).success(function (response) {
+
+                $("#locationmap").html(response);
+            });
+        }
+        </script>
 
     <!--End Call Back Section-->
     <!-- PAGE - END -->

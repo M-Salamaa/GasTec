@@ -113,7 +113,7 @@
                                             <!--News Block-->
                                             @foreach (var topic in Model.NewsTopics.LstNews.Where(x => x.GroupID == year.GroupID).ToList())
                                             {
-                                                <div class="news-block col-md-3 col-sm-6 col-xs-12 wow fadeIn pull-right" style="max-height:400px; overflow:hidden; margin-top:20px">
+                                                <div class="news-block col-md-3 col-sm-6 col-xs-12 wow fadeIn pull-right" style="float:right" margin-top:20px">
                                                     <div class="inner-box">
                                                         <div class="image">
                                                             <a href="@topic.ImageLink">

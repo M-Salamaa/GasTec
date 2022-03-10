@@ -29,13 +29,13 @@ namespace WebApp_gastec.Controllers
                     foreach (var webSection in entity.LstWebSections)
                     {
                         path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
-                        webSection.Body = system.ReadFileAsStringForBody(path);
+                        webSection.Body = Domain.System.ReadFileAsStringForBody(path);
                     }
                 }
                 else
                 {
                     path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
-                    entity.Body = system.ReadFileAsStringForBody(path);
+                    entity.Body = Domain.System.ReadFileAsStringForBody(path);
                 }
             }
             #endregion

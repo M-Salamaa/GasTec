@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using WebApp_gastec.Models;
 using WebApp_gastec.Domain;
 using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace WebApp_gastec.Controllers
 {
@@ -89,9 +90,36 @@ namespace WebApp_gastec.Controllers
         {
             #region caching images 
             CacheImages cachedImages = new CacheImages(_hostingEnvironment);
-            foreach (var entity in model_.NewsTopics.LstNews)
+            if (model_.NewsTopics.LstNews.Count > 0)
             {
-                entity.ImageGUID = await cachedImages.CahceAllImageAsync(folderName_, entity.ImageGUID, entity.ImageLink);
+                foreach (var entity in model_.NewsTopics.LstNews)
+                {
+                    entity.ImageGUID = await cachedImages.CahceAllImageAsync(folderName_, entity.ImageGUID, entity.ImageLink);
+                }
+            }
+            if (model_.News_Details.Count > 0)
+            {
+                foreach (var entity in model_.News_Details)
+                {
+                    foreach (var image in entity.LstImages)
+                    {
+                        image.ImageGUID = await cachedImages.CahceAllImageAsync(folderName_, image.ImageGUID, image.ImageLink);
+                    }
+                }
+            }
+            #endregion
+        }
+
+        private async Task CacheAllHtmlforNewsDetails(HomePageViewModel model_, string folderName_)
+        {
+            string path = "";
+            #region caching html 
+            CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
+            foreach (var entitiy in model_.News_Details)
+            {
+                entitiy.Topic_Name = entitiy.Serial.ToString() + "artice";
+                path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entitiy.Topic_Name, entitiy.NewsTopic_HTMLLink);
+                entitiy.body = Domain.System.ReadFileAsStringForBody(path);
             }
             #endregion
         }
@@ -137,12 +165,37 @@ namespace WebApp_gastec.Controllers
             };
             return homePageViewModel;
         }
-        public async Task<IActionResult> NewsAsync()
+
+        private async Task<HomePageViewModel> GetNewsDetailsModel(int serial_)
+        {
+            HomePageViewModel homePageViewModel = new()
+            {
+                // Consuming Main Menu from Classification Tree API 
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                // Consuming News Details form News Details API 
+                News_Details = await API_GetNewsTopics.GetNewsDetails(serial_),
+                // Consuming All News from Get News Topic API
+                NewsTopics = await API_GetNewsTopics.GetAllNewsTopics(0),
+            };
+            return homePageViewModel;
+
+        }
+        //Action to get All News
+        public async Task<IActionResult> AllNewsAsync()
         {
             var model = await this.GetNewsModel();
             await CacheAllNewsImages(model, "MediaCenter_NewsSection");
             model.IsActive = true;
             return View(model);
+        }
+        //Action to get News Details
+        public async Task<IActionResult> NewsDetailsAsync(int serial_)
+        {
+            var model = await this.GetNewsDetailsModel(serial_);
+            await CacheAllNewsImages(model, "News");
+            await CacheAllHtmlforNewsDetails(model, "News");
+            return View(model);
+
         }
         // Action for home page loading
         public async Task<IActionResult> IndexAsync()
@@ -168,6 +221,12 @@ namespace WebApp_gastec.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        public IActionResult ReturnJsonFile(string filepath, int government_)
+        {
+            string finalPath = "wwwroot/public/src/json/ar/" + filepath + ".json";
+            StreamReader reader = new StreamReader(finalPath);
+            return Json(reader.ReadToEnd());
         }
     }
 }

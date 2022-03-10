@@ -45,18 +45,18 @@ namespace WebApp_gastec.Controllers
                             foreach (var image in webSection.LstImages)
                             {
                                 path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, image.ImageGUID, image.HTMLLink);
-                                image.Body = system.ReadFileAsStringForBody(path);
+                                image.Body = Domain.System.ReadFileAsStringForBody(path);
                             }
                         }
                         path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
-                        webSection.Body = system.ReadFileAsStringForBody(path);
+                        webSection.Body = Domain.System.ReadFileAsStringForBody(path);
 
                     }
                 }
                 else
                 {
                     path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
-                    entity.Body = system.ReadFileAsStringForBody(path);
+                    entity.Body = Domain.System.ReadFileAsStringForBody(path);
                 }
             }
             #endregion
