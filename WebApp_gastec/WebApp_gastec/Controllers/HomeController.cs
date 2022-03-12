@@ -9,6 +9,7 @@ using WebApp_gastec.Models;
 using WebApp_gastec.Domain;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace WebApp_gastec.Controllers
 {
@@ -226,7 +227,25 @@ namespace WebApp_gastec.Controllers
         {
             string finalPath = "wwwroot/public/src/json/ar/" + filepath + ".json";
             StreamReader reader = new StreamReader(finalPath);
-            return Json(reader.ReadToEnd());
+            if(government_ == 0)
+            {
+            ViewBag.JsonReturn = reader.ReadToEnd();
+            }
+            else
+            {
+                //var jsonObject = JsonConvert.SerializeObject(reader.ReadToEnd());
+                var model = JsonConvert.DeserializeObject<List<MapModel>>(reader.ReadToEnd());
+                List<MapModel> newModel = new List<MapModel>();
+                foreach(var item in model)
+                {
+                    if(item.Governorat == government_.ToString())
+                    {
+                        newModel.Add(item);
+                    }
+                }
+                ViewBag.JsonReturn = JsonConvert.SerializeObject(newModel);
+            }
+            return PartialView("_ReturnJsonFile");
         }
     }
 }

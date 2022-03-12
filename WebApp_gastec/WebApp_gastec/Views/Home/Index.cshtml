@@ -1,6 +1,7 @@
 ﻿@model HomePageViewModel
 
 @{
+  
     ViewData["Title"] = "GASTEC";
     Layout = "_Layout";
 }
@@ -408,6 +409,21 @@
     <script>
         $(document).ready(function () {
             navigator.geolocation.getCurrentPosition(showPosition, error);
+            $("#getGovernorat").change(function () {
+
+        
+            $("#locationmap").html("please wait...");
+            $.ajax({
+                type: 'POST',
+                url: "@Url.Action("_ShowMapPartial","Home")",
+                data: { longtitude: 7.629603, latitude: 23.377556 },
+            }).success(function (response) {
+
+                $("#locationmap").html(response);
+                console.log(response);
+            });
+
+            });
         });
 
         function showPosition(position) {
@@ -437,7 +453,7 @@
                 $("#locationmap").html(response);
             });
         }
-        </script>
+    </script>
 
     <!--End Call Back Section-->
     <!-- PAGE - END -->
