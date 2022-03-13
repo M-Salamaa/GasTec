@@ -225,6 +225,7 @@ namespace WebApp_gastec.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        // need to change it download files and caching it
         public IActionResult ReturnJsonFile(string filepath, int government_)
         {
             string finalPath = "wwwroot/public/src/json/ar/" + filepath + ".json";
