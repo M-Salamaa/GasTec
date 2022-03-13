@@ -146,6 +146,8 @@ namespace WebApp_gastec.Controllers
                 EniGastech = await API_GetNewsTopics.GetAllNewsTopics(3),
                 //Consuming News Section from Classification Tree API 
                 NewsSection = await API_GetNewsTopics.GetAllNewsTopics(4),
+                //Consuming Cities from GetCities API 
+                Cities = await API_GetCities.GetAllCitiesAsync(),
             };
             // Caching all images Returned in home page view model
             await CachedAllImagesAsync(homePageViewModel);

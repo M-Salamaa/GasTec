@@ -16,6 +16,7 @@ namespace WebApp_gastec.Models
         public List<OutputGetClassificationTreeModel> MidSection { get; set; }
         public List<OutputGetClassificationTreeModel> MidBanner { get; set; }
         public OutputGetNewsTopicsModel NewsTopics { get; set; }
+        public List<OutputGetCities> Cities { get; set; }
         // *********************************************************************** 
         public List<OutputGetClassificationTreeModel> AboutUs { get; set; }
         public List<OutputGetClassificationTreeModel> AboutUsSection { get; set; }

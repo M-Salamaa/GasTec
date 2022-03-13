@@ -76,7 +76,7 @@
                 minWidth: 170,
                 maxWidth: 250
             },
-            markersIcon: "src/style/cosmic/images/marker.png",
+            markersIcon: "public/src/style/cosmic/images/marker.png",
             map:{
                 mapStyle: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#7d8d97"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"color":"#f2f5f6"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.attraction","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#e6f3d6"},{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#f4d2c5"},{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"labels.text","stylers":[{"color":"#4e4e4e"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#f4f4f4"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#787878"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"hue":"#ff0000"},{"saturation":"-100"},{"lightness":"45"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#cddbe2"}]}]
             },
@@ -95,9 +95,9 @@
                     widthMD: 56,
                     heightBIG: 75,
                     widthBIG: 75,
-                    iconSmall: "src/style/cosmic/images/clusterSmall.png",
-                    iconMedium: "src/style/cosmic/images/clusterMedium.png",
-                    iconBig: "src/style/cosmic/images/clusterBig.png"
+                    iconSmall: "public/src/style/cosmic/images/clusterSmall.png",
+                    iconMedium: "public/src/style/cosmic/images/clusterMedium.png",
+                    iconBig: "public/src/style/cosmic/images/clusterBig.png"
                 }
             },
             sidebar: {
@@ -134,7 +134,7 @@
 
         $(".thirdExample").ShopLocator({
             pluginStyle: "cosmic",
-            json: "src/json/markers.json",
+            json: "public/src/json/markers.json",
             infoBubble: {
                 visible: true,
                 arrowPosition: 50,
@@ -143,7 +143,7 @@
                 minWidth: 170,
                 maxWidth: 250
             },
-            markersIcon: "src/style/cosmic/images/marker.png",
+            markersIcon: "public/src/style/cosmic/images/marker.png",
             cluster:{
                 enable: true,
                 gridSize: 50,
@@ -156,9 +156,9 @@
                     widthMD: 56,
                     heightBIG: 75,
                     widthBIG: 75,
-                    iconSmall: "src/style/cosmic/images/clusterSmall.png",
-                    iconMedium: "src/style/cosmic/images/clusterMedium.png",
-                    iconBig: "src/style/cosmic/images/clusterBig.png"
+                    iconSmall: "public/src/style/cosmic/images/clusterSmall.png",
+                    iconMedium: "public/src/style/cosmic/images/clusterMedium.png",
+                    iconBig: "public/src/style/cosmic/images/clusterBig.png"
                 }
             }
         });
@@ -174,7 +174,7 @@
                 minWidth: 170,
                 maxWidth: 250
             },
-            markersIcon: "src/style/cosmic/images/marker.png",
+            markersIcon: "public/src/style/cosmic/images/marker.png",
             map:{
                 scrollwheel: false,
                 mapStyle: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#7d8d97"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"color":"#f2f5f6"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.attraction","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#e6f3d6"},{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#f4d2c5"},{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"labels.text","stylers":[{"color":"#4e4e4e"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#f4f4f4"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#787878"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"hue":"#ff0000"},{"saturation":"-100"},{"lightness":"45"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#cddbe2"}]}]
@@ -191,9 +191,9 @@
                     widthMD: 56,
                     heightBIG: 75,
                     widthBIG: 75,
-                    iconSmall: "src/style/cosmic/images/clusterSmall.png",
-                    iconMedium: "src/style/cosmic/images/clusterMedium.png",
-                    iconBig: "src/style/cosmic/images/clusterBig.png"
+                    iconSmall: "public/src/style/cosmic/images/clusterSmall.png",
+                    iconMedium: "public/src/style/cosmic/images/clusterMedium.png",
+                    iconBig: "public/src/style/cosmic/images/clusterBig.png"
                 }
             },
             sidebar: {
@@ -228,7 +228,7 @@
             map:{
                 mapStyle: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
             },
-            markersIcon: "src/style/metro/images/marker.png",
+            markersIcon: "public/src/style/metro/images/marker.png",
             cluster:{
                 enable: true,
                 gridSize: 60,
@@ -241,9 +241,9 @@
                     widthMD: 64,
                     heightBIG: 74,
                     widthBIG: 74,
-                    iconSmall: "src/style/metro/images/clusterSmall.png",
-                    iconMedium: "src/style/metro/images/clusterMedium.png",
-                    iconBig: "src/style/metro/images/clusterBig.png"
+                    iconSmall: "public/src/style/metro/images/clusterSmall.png",
+                    iconMedium: "public/src/style/metro/images/clusterMedium.png",
+                    iconBig: "public/src/style/metro/images/clusterBig.png"
                 }
             },
             sidebar: {

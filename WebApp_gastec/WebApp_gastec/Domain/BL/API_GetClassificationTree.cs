@@ -28,7 +28,7 @@ namespace WebApp_gastec.Domain
                 //Create Base Address
                 client.BaseAddress = new Uri(Gastech_Vault.baseURL);
                 // just for testing encryption
-                //var test = Domain.System.Encrypt("");
+                //var test = Domain.System.Encrypt("126");
                 // Creating Instance To Pass Input to API 
                 InputGetClassificationTreeModel getClassificationInputObject = new InputGetClassificationTreeModel()
                 {

@@ -259,15 +259,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\scopedcss\bundle
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.TagHelpers.input.cache
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.TagHelpers.output.cache
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.RazorCoreGenerate.cache
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\About\Activities.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\About\Contributors.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\About\HR.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\About\LegalEntity.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\About\Members.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\About\organizational.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\About\Relations.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\About\Training.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\About\VisionMision.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Car_Conversion\Advantage.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Car_Conversion\CommonQuestions.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Car_Conversion\Conversion_Centers.cshtml.g.cs
@@ -456,3 +447,8 @@ E:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.dl
 E:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\ref\WebApp_gastec.dll
 E:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.pdb
 E:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.genruntimeconfig.cache
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\About\HumanResources.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\About\Index.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\AllNews.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\NewsDetails.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\_ReturnJsonFile.cshtml.g.cs

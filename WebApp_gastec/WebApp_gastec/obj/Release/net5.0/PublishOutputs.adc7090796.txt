@@ -1,8 +1,10 @@
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\WebApp_gastec.exe
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\css\site.css
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\favicon.ico
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Activities\.html
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Activities\126-124-02-03-20221-04-10PM.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\AboutUs\.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\AboutUs\126-120-24-02-202211-58-18AM.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\AboutUs\126-121-24-02-202211-57-42AM.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\AboutUs\126-9-20-02-20224-12-08PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\CarConversion_Advantage\123-25-21-02-202212-57-39PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\CarConversion_Advantage\123-27-21-02-202212-58-38PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\CarConversion_Advantage\123-30-21-02-202212-58-54PM.html
@@ -43,8 +45,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Commerical_Oil\156_211_17_02_20223_59_13PM.webp.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Commerical_Oil\156_211_20_02_20221_08_33PM.webp.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\CommonQuestions\126-23-16-02-20222-19-04PM.html
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Contributors\.html
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Contributors\126-122-27-02-202210-49-51AM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Conversion_Centers\126-24-16-02-20222-39-09PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Conversion_Cost\123-55-21-02-20221-13-49PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Conversion_Cost\123-56-21-02-20221-13-54PM.html
@@ -68,6 +68,12 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Cylinder_Testing\123-164-23-02-202210-17-08AM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Cylinder_Testing\123-165-23-02-202210-17-13AM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Cylinder_Testing\123-166-23-02-202210-17-19AM.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\HumanResources\123-1-17-02-20224-06-34PM.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\HumanResources\123-2-17-02-20224-06-41PM.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\HumanResources\123-3-17-02-20224-06-51PM.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\HumanResources\123-4-17-02-20224-07-13PM.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\HumanResources\126-15-20-02-20223-38-42PM.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\HumanResources\126-18-20-02-20223-35-07PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Industrial_Oil\126-186-21-02-202211-27-04AM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Industrial_Oil\126-188-21-02-202211-27-38AM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Industrial_Oil\126-189-21-02-202211-27-44AM.html
@@ -107,15 +113,13 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Integrated_Stations\123-232-23-02-202210-32-24AM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Integrated_Stations\123-233-23-02-202210-32-35AM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Integrated_Stations\126-28-05-03-20222-45-23AM.html
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\LegalEntity\126-9-20-02-20224-12-08PM.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Integrated_Stations\126-28-07-03-20222-04-11PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\LiquidGas_Stations\123-93-21-02-20223-24-27PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\LiquidGas_Stations\123-94-21-02-20223-25-32PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\LiquidGas_Stations\123-95-21-02-20223-25-38PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\local_manufacturing\123-65-21-02-20221-16-13PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\local_manufacturing\123-66-21-02-20221-16-18PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\local_manufacturing\123-67-21-02-20221-16-24PM.html
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Management\126-15-20-02-20223-38-42PM.html
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Members\126-120-24-02-202211-58-18AM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Mobile_Stations\126-31-17-02-202210-09-57AM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\NaturalGas_Stations\123-72-21-02-20221-17-27PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\NaturalGas_Stations\123-73-21-02-20221-17-36PM.html
@@ -128,6 +132,9 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\NaturalGas_Stations\123-86-21-02-20223-23-40PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\NaturalGas_Stations\123-87-21-02-20223-23-46PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\NaturalGas_Stations\123-92-21-02-20223-24-20PM.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\News\12artice.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\News\24artice.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\News\4artice.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Occupational_Safety\123-100-21-02-20223-26-20PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Occupational_Safety\123-101-21-02-20223-26-25PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Occupational_Safety\123-99-21-02-20223-26-13PM.html
@@ -135,9 +142,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Oil_Agency\123-168-23-02-202210-17-28AM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Oil_Agency\156_167_17_02_202212_49_34PM.webp.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Oil_Agency\156_168_17_02_202212_50_45PM.webp.html
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Relations\123-1-17-02-20224-06-34PM.html
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Relations\123-2-17-02-20224-06-41PM.html
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Relations\123-3-17-02-20224-06-51PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\SafteyFactor\123-63-21-02-20221-14-53PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\SafteyFactor\123-64-21-02-20221-16-08PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Statistics\123-171-23-02-202210-17-48AM.html
@@ -166,8 +170,18 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Transportation_Proccess\123-113-21-02-20223-32-23PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Transportation_Proccess\123-114-21-02-20223-36-53PM.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\Transportation_Proccess\123-115-21-02-20223-38-28PM.html
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\VisionAndMision\126-121-24-02-202211-57-42AM.html
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Activities\126-124-20-02-20224-11-32PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\AboutUS\126-10-10-02-20221-02-57PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\AboutUS\126-122-27-02-202210-49-24AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\AboutUS\126-124-20-02-20224-11-32PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\AboutUS\126-13-10-02-20222-02-46PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\AboutUS\126-13-10-02-20222-03-56PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\AboutUS\126-13-10-02-20222-08-28PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\AboutUS\126-13-10-02-20222-09-26PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\AboutUS\126-13-10-02-20222-10-19PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\AboutUS\126-13-10-02-20222-11-37PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\AboutUS\126-13-10-02-20222-12-25PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\AboutUS\126-13-10-02-20222-13-41PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\AboutUS\126-9-10-02-202212-54-16PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Banners\126-118-20-02-20223-08-05PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Banners\126-118-20-02-20223-17-20PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Banners\126-118-22-02-202212-24-33PM.webp
@@ -204,7 +218,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Commerical_Oil\156_211_17_02_20223_59_13PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Commerical_Oil\156_211_20_02_20221_08_33PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\CommonQuestions\126-23-16-02-20222-07-47PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Contributors\126-122-27-02-202210-49-24AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Conversion_Centers\126-24-16-02-20222-47-00PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Conversion_Centers\126-24-16-02-20222-47-18PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Conversion_Centers\126-24-16-02-20222-47-59PM.webp
@@ -242,6 +255,40 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\GastechNumbers\156_218_23_02_20222_36_54PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\GastechNumbers\156_219_23_02_20222_37_08PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\GastechNumbers\156_220_23_02_20222_37_23PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20222-45-29PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20222-46-53PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20222-48-28PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20222-49-41PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20222-56-46PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20222-58-40PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20223-01-13PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20223-03-06PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20223-07-23PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20223-09-02PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20223-20-54PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20223-24-57PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20223-27-17PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20223-36-00PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20223-38-31PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20223-43-24PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20223-45-08PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20223-47-08PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20224-19-35PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20224-25-55PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20224-27-24PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20224-29-52PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20224-31-36PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\126-15-10-02-20224-33-24PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\156_1_10_02_20224_47_35PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\156_1_10_02_20224_47_41PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\156_1_10_02_20224_47_46PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\156_2_10_02_20224_51_28PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\156_2_10_02_20224_51_33PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\156_2_10_02_20224_51_38PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\156_3_10_02_20224_53_39PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\156_3_10_02_20224_53_44PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\156_3_10_02_20224_53_49PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\HumanResources\156_4_10_02_20224_55_34PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Industrial_Oil\126-186-21-02-202211-29-32AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Industrial_Oil\126-186-21-02-202211-30-55AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Industrial_Oil\126-187-21-02-202211-47-27AM.webp
@@ -315,7 +362,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Integrated_Stations\156_232_05_03_20222_52_23AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Integrated_Stations\156_232_05_03_20222_52_28AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Integrated_Stations\156_233_05_03_20222_52_00AM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\LegalEntity\126-9-10-02-202212-54-16PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\LiquidGas_Stations\156_93_17_02_20229_52_27AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\LiquidGas_Stations\156_93_17_02_20229_52_34AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\LiquidGas_Stations\156_94_17_02_20229_54_36AM.webp
@@ -326,30 +372,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\local_manufacturing\156_67_16_02_20222_56_12PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\local_manufacturing\156_67_16_02_20222_56_19PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\local_manufacturing\156_67_16_02_20222_56_25PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20222-45-29PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20222-46-53PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20222-48-28PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20222-49-41PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20222-56-46PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20222-58-40PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20223-01-13PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20223-03-06PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20223-07-23PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20223-09-02PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20223-20-54PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20223-24-57PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20223-27-17PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20223-36-00PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20223-38-31PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20223-43-24PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20223-45-08PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20223-47-08PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20224-19-35PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20224-25-55PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20224-27-24PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20224-29-52PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20224-31-36PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Management\126-15-10-02-20224-33-24PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\MediaCenter\156_221_05_03_20223_37_29AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\MediaCenter\156_222_05_03_20223_39_17AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\MediaCenter\156_223_05_03_20223_40_59AM.webp
@@ -403,14 +425,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\MediaCenter_NewsSection\113_7_23_02_202211_48_44AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\MediaCenter_NewsSection\113_8_23_02_202211_56_48AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\MediaCenter_NewsSection\113_9_23_02_202212_01_11PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Members\126-13-10-02-20222-02-46PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Members\126-13-10-02-20222-03-56PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Members\126-13-10-02-20222-08-28PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Members\126-13-10-02-20222-09-26PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Members\126-13-10-02-20222-10-19PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Members\126-13-10-02-20222-11-37PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Members\126-13-10-02-20222-12-25PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Members\126-13-10-02-20222-13-41PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\MidBanner\126-350-22-02-20222-30-07PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\MidSection\126-353-22-02-20224-21-00PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\MidSection\126-353-22-02-20224-21-14PM.webp
@@ -512,6 +526,54 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\NewsTopics\113_7_23_02_202211_48_44AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\NewsTopics\113_8_23_02_202211_56_48AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\NewsTopics\113_9_23_02_202212_01_11PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_10_23_02_202212_07_09PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_11_23_02_202212_18_50PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_12_24_02_202212_30_16PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_13_23_02_202212_24_09PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_14_23_02_202212_27_24PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_15_23_02_202212_30_43PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_16_23_02_202212_33_47PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_17_23_02_202212_38_29PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_18_23_02_202212_42_52PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_19_24_02_202212_39_15PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_1_21_02_20224_42_39PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_20_23_02_202212_54_16PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_21_23_02_202212_56_38PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_22_23_02_20221_11_15PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_23_23_02_20221_20_28PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_24_24_02_202212_30_34PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_24_24_02_202212_30_45PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_24_24_02_202212_30_53PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_24_24_02_202212_31_01PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_25_24_02_202212_43_21PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_26_24_02_202212_49_26PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_27_24_02_202212_52_02PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_28_24_02_20221_02_58PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_29_24_02_20221_06_08PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_2_23_02_202210_43_06AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_30_27_02_202210_57_03AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_31_27_02_202211_01_15AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_32_27_02_202211_05_18AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_33_27_02_202211_10_17AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_34_27_02_202211_20_24AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_35_27_02_202211_28_42AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_36_27_02_202211_33_09AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_37_27_02_202211_36_32AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_38_27_02_202211_44_25AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_39_27_02_202211_51_37AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_3_23_02_202210_45_02AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_40_27_02_202211_54_48AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_41_27_02_202212_01_39PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_42_27_02_202212_07_32PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_43_27_02_202212_12_29PM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_4_23_02_202211_00_41AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_4_23_02_202211_03_39AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_4_23_02_202211_03_52AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_5_23_02_202211_08_26AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_6_23_02_202211_39_41AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_7_23_02_202211_48_44AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_8_23_02_202211_56_48AM.webp
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\News\113_9_23_02_202212_01_11PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Occupational_Safety\156_100_17_02_202210_21_16AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Occupational_Safety\156_100_17_02_202210_21_33AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Occupational_Safety\156_101_17_02_202210_23_15AM.webp
@@ -637,15 +699,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\PhotoCenter_MediaCenter\126-381-05-03-20224-12-35AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\PhotoCenter_MediaCenter\126-381-05-03-20224-12-40AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\PhotoCenter_MediaCenter\126-381-05-03-20224-12-44AM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Relations\156_1_10_02_20224_47_35PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Relations\156_1_10_02_20224_47_41PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Relations\156_1_10_02_20224_47_46PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Relations\156_2_10_02_20224_51_28PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Relations\156_2_10_02_20224_51_33PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Relations\156_2_10_02_20224_51_38PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Relations\156_3_10_02_20224_53_39PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Relations\156_3_10_02_20224_53_44PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Relations\156_3_10_02_20224_53_49PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\SafteyFactor\156_63_16_02_20222_01_55PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\SafteyFactor\156_64_16_02_20222_04_26PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Statistics\156_171_17_02_20221_32_32PM.webp
@@ -660,7 +713,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Statistics\156_190_17_02_20222_02_10PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Statistics\156_192_17_02_20222_03_57PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Statistics\156_194_17_02_20222_06_17PM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Training\156_4_10_02_20224_55_34PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Transportation_Proccess\156_104_17_02_202210_30_05AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Transportation_Proccess\156_104_17_02_202210_30_31AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Transportation_Proccess\156_107_17_02_202210_36_09AM.webp
@@ -671,7 +723,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Transportation_Proccess\156_114_17_02_202210_46_08AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Transportation_Proccess\156_114_17_02_202210_46_16AM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Transportation_Proccess\156_115_17_02_202210_47_39AM.webp
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\VisionAndMision\126-10-10-02-20221-02-57PM.webp
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\js\site.js
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -736,6 +787,7 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\assets\softextwo\css-en\style.css
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\assets\softextwo\css\animate.css
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\assets\softextwo\css\bootstrap.css
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\assets\softextwo\css\bootstrap.min.js
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\assets\softextwo\css\color-switcher-design.css
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\assets\softextwo\css\color-themes\aqua-theme.css
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\assets\softextwo\css\color-themes\blue-theme.css
@@ -1660,6 +1712,256 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\resources\views\softextwo\site\videos.blade.php
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\resources\views\softextwo\videos\tempone.blade.php
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\resources\views\softextwo\welcome.blade.php
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\BU\json\ar\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\BU\json\ar\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\BU\json\ar\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\BU\json\ar\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\BU\json\ar\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\BU\json\en\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\BU\json\en\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\BU\json\en\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\BU\json\en\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\BU\json\en\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\BU\json\markers-alex.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\dependences\infobubble.js
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\dependences\markerclusterer.js
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar-bu\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar-bu\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar-bu\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar-bu\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar-bu\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar\convert-centers.json2021-08-17 14_09_59
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar\cylinder-test.json2021-08-17 14_14_44
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar\cylinder-test.json2021-08-18 09_03_32
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar\cylinder-test.json2021-08-18 09_05_23
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar\gas-station.json2021-08-17 14_31_12
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar\oil-distribution.json2021-08-17 14_16_27
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\ar\petrol-station.json2021-08-17 14_17_46
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en-bu\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en-bu\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en-bu\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en-bu\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en-bu\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\convert-centers.json2021-08-17 12_59_44
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\convert-centers.json2021-08-17 13_01_43
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\convert-centers.json2021-08-17 13_02_12
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\convert-centers.json2021-08-17 13_49_23
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\convert-centers.json2021-08-17 13_58_06
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\convert-centers.json2021-08-17 14_09_17
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\convert-centers.json2021-08-17 14_17_26
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\cylinder-test.json2021-08-17 13_58_47
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\cylinder-test.json2021-08-17 14_13_55
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\gas-station.json2021-08-17 14_05_12
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\oil-distribution.json2021-08-17 14_06_01
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\en\petrol-station.json2021-08-17 14_06_15
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\markers-alex.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\markers-alex.php
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json-old\markers.php
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu-old\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu-old\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu-old\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu-old\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu-old\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu\convert-centers.json2021-08-17 140959
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu\cylinder-test.json2021-08-17 141444
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu\cylinder-test.json2021-08-18 090332
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu\cylinder-test.json2021-08-18 090523
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu\gas-station.json2021-08-17 143112
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu\oil-distribution.json2021-08-17 141627
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar-bu\petrol-station.json2021-08-17 141746
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\ar\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu-old\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu-old\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu-old\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu-old\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu-old\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\convert-centers.json2021-08-17 125944
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\convert-centers.json2021-08-17 130143
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\convert-centers.json2021-08-17 130212
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\convert-centers.json2021-08-17 134923
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\convert-centers.json2021-08-17 135806
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\convert-centers.json2021-08-17 140917
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\convert-centers.json2021-08-17 141726
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\cylinder-test.json2021-08-17 135847
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\cylinder-test.json2021-08-17 141355
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\gas-station.json2021-08-17 140512
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\oil-distribution.json2021-08-17 140601
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en-bu\petrol-station.json2021-08-17 140615
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\en\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\map-addresses.zip
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\map-addresses\ar\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\map-addresses\ar\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\map-addresses\ar\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\map-addresses\ar\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\map-addresses\ar\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\map-addresses\en\convert-centers.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\map-addresses\en\cylinder-test.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\map-addresses\en\gas-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\map-addresses\en\oil-distribution.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\map-addresses\en\petrol-station.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\markers-alex.json
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\markers-alex.php
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\json\markers.php
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\shop-locator-en.min.js
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\shop-locator.min.js
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\closeButton.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\css\pluginStyle-ar.css
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\css\pluginStyle.css
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\lollipop\images\clusterSmall.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\lollipop\images\gradient-background.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\lollipop\images\item-arrow.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\lollipop\images\item-arrowWhite.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\lollipop\images\items-decoration.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\lollipop\images\marker.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\lollipop\images\paginationLeftArrow--disable.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\lollipop\images\paginationLeftArrow.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\lollipop\images\paginationRightArrow--disable.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\lollipop\images\paginationRightArrow.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\lollipop\images\select-icon.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\clusterBig.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\clusterMedium.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\clusterSmall.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\eni-marker.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\input-image.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\item-arrow.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\item-arrowWhite.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\marker.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\00d.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\00sadasd.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\01convert-4.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\1.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\31-32-5.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\convertion-center.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\edite.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Filter.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG-20170917-f.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG-20170917-WA0008.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1233.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1235.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1236.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1240.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1256.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1263.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1274.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1638.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1651.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1755.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1756.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1759.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1760.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1763.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1789.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1790.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1797.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1801.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1851.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_1854.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_20200113_162108.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_4293.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_4298.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_4329.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_4342.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_4351.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_4386.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_4398.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7079.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7311.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7339.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7383-edit.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7385.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7396.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7420.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7427.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7464.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7480.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7532.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7673.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7679.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7691.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7727.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7733.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7747.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7880.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_7905.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_8154.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_8157.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_8188.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9495.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9502.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9520.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9527.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9554.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9578.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9584.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9598.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9601.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9602.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9608.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9629.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9633.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9644.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9659.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9682.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\IMG_9777.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Lubricants--(1).jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Lubricants--(10).jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Lubricants--(11).jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Lubricants--(12).jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Lubricants--(13).jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Lubricants--(2).jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Lubricants--(3).jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Lubricants--(4).jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Lubricants--(5).jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Lubricants--(6).jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Lubricants--(7).jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Lubricants--(8).jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\Lubricants--(9).jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\P1060172.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\P1080333.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\P1080338.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\P1080383.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\P1080387.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\P1080402.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\photos\P1080406.jpg
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\select-icon.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\metro\images\select-image.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\selective\images\input-image.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\selective\images\item-arrow-active.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\selective\images\item-arrow.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\selective\images\paginationLeftArrow--disable.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\selective\images\paginationLeftArrow.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\selective\images\paginationRightArrow--disable.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\selective\images\paginationRightArrow.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\selective\images\select-icon.png
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\src\style\selective\images\select-image.png
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\appsettings.json
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\WebApp_gastec.dll

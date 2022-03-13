@@ -1,7 +1,7 @@
 ﻿@model HomePageViewModel
 
 @{
-  
+
     ViewData["Title"] = "GASTEC";
     Layout = "_Layout";
 }
@@ -317,101 +317,23 @@
             <h1>خدمات غازتك</h1>
             <select id="getGovernorat" style="width: 100%; padding:10px;direction:rtl">
                 <option value="0">كل المحافظات</option>
-                <option value="1">
-                    القاهرة
-                </option>
-                <option value="2">
-                    الاسكندريه
-                </option>
-                <option value="3">
-                    أسيوط
-                </option>
-                <option value="4">
-                    أسوان
-                </option>
-                <option value="5">
-                    البحيرة
-                </option>
-                <option value="6">
-                    بني سويف
-                </option>
-                <option value="7">
-                    الدقهلية
-                </option>
-                <option value="8">
-                    دمياط
-                </option>
-                <option value="9">
-                    الفيوم
-                </option>
-                <option value="10">
-                    الغربية
-                </option>
-                <option value="11">
-                    الجيزة
-                </option>
-                <option value="12">
-                    البحر الاحمر
-                </option>
-                <option value="13">
-                    الإسماعيلية
-                </option>
-                <option value="14">
-                    كفر الشيخ
-                </option>
-                <option value="15">
-                    الأقصر
-                </option>
-                <option value="16">
-                    مطروح
-                </option>
-                <option value="17">
-                    المنيا
-                </option>
-                <option value="18">
-                    المنوفية
-                </option>
-                <option value="19">
-                    بورسعيد
-                </option>
-                <option value="20">
-                    سوهاج
-                </option>
-                <option value="21">
-                    القليوبية
-                </option>
-                <option value="22">
-                    السويس
-                </option>
-                <option value="23">
-                    قنا
-                </option>
-                <option value="24">
-                    الشرقية
-                </option>
-                <option value="25">
-                    شمال سيناء
-                </option>
-                <option value="26">
-                    جنوب سيناء
-                </option>
-                <option value="27">
-                    الوادي الجديد
-                </option>
+                @foreach (var city in Model.Cities)
+                {
+                    <option value="@city.ID">
+                        @city.Name
+                    </option>
+                }
             </select>
         </div>
     </div>
-
-
-    <div id="locationmap"> 
+    <div id="locationmap">
     </div>
-    
     <script>
         $(document).ready(function () {
             navigator.geolocation.getCurrentPosition(showPosition, error);
             $("#getGovernorat").change(function () {
 
-        
+
             $("#locationmap").html("please wait...");
             $.ajax({
                 type: 'POST',
@@ -420,7 +342,6 @@
             }).success(function (response) {
 
                 $("#locationmap").html(response);
-                console.log(response);
             });
 
             });
@@ -438,7 +359,6 @@
             }).success(function (response) {
 
                 $("#locationmap").html(response);
-                console.log(response);
             });
 
         }

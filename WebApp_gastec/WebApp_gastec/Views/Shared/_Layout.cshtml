@@ -334,19 +334,18 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+
                         <div class="signin-form profile">
-                            <h3 class="creainfo_sign">{{ \App\System::getFinalText("Contact Us") }}</h3>
+                            <h3 class="creainfo_sign">للتواصل معنا</h3>
                             <div class="login-form">
                                 <div id="thankyou"></div>
                                 <input type="text" name="name" id="nameusr" placeholder="الاسم" required="">
                                 <input type="email" name="email" id="Email" placeholder="البريد الاليكترونى" required="">
                                 <input type="text" name="phone" id="UserPhone" placeholder="رقم الهاتف" required="">
-                                <textarea type="text" name="message" id="Msgdata" placeholder="اترك رسالتك"
-                                          required=""></textarea>
+                                <textarea type="text" name="message" id="Msgdata" placeholder="اترك رسالتك" required=""></textarea>
                                 <input type="submit" id="sendrequest" value="ارسل">
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -561,12 +560,13 @@
 
         <script src="~/public/assets/softextwo/js/script.js"></script>
 
-        @*<script type="text/javascript"
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxFPv8F8EXVy6pkK4YWtY8Ef8PqjM7xlA&libraries=places,geometry">
-        </script>*@
         <script type="text/javascript"
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqVSNGgLqPe8vvHDWiHXwWJX0s4iuF2fs&libraries=places,geometry">
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxFPv8F8EXVy6pkK4YWtY8Ef8PqjM7xlA&libraries=places,geometry">
         </script>
+
+        @*<script type="text/javascript"
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqVSNGgLqPe8vvHDWiHXwWJX0s4iuF2fs&libraries=places,geometry">
+            </script>*@
 
 
         <!--Revolution Slider-->
