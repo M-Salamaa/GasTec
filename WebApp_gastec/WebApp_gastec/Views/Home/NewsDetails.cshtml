@@ -72,7 +72,24 @@
                                         <div class="inner-box">
                                             @foreach (var entity in Model.News_Details)
                                             {
-                                                
+                                                <section class="services-section">
+                                                    <div class="auto-container">
+                                                        <div class="single-item-carousel owl-carousel owl-theme owl-loaded owl-drag">
+                                                            @foreach (var image in entity.LstImages)
+                                                            {
+                                                                <div class="testimonial-block">
+                                                                    <div class="inner-box">
+                                                                        <div class="upper-box">
+                                                                            <div class="image">
+                                                                                <img src="~/Images/News/@image.ImageGUID" alt="" style="width:800px" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </section>
                                                 <div class="lower-content">
                                                     <div class="lower-box">
                                                         <p style="color: #999">
