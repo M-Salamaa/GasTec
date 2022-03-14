@@ -72,20 +72,7 @@
                                         <div class="inner-box">
                                             @foreach (var entity in Model.News_Details)
                                             {
-                                                <div class="single-item-carousel owl-carousel owl-theme">
-                                                    @foreach (var img in entity.LstImages)
-                                                    {
-                                                        <div class="testimonial-block">
-                                                            <div class="inner-box">
-                                                                <div class="upper-box">
-                                                                    <div class="image">
-                                                                        <img src="~/Images/News/@img.ImageGUID" alt="" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    }
-                                                </div>
+                                                
                                                 <div class="lower-content">
                                                     <div class="lower-box">
                                                         <p style="color: #999">
@@ -103,7 +90,6 @@
                                                             عرض جميع الأخبار<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;">
                                                             </span>
                                                         </a>
-
                                                     </div>
                                                 </div>
                                             }
@@ -112,6 +98,7 @@
 
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
