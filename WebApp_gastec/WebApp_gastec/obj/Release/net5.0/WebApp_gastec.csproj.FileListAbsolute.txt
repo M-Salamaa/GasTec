@@ -452,3 +452,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Abou
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\AllNews.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\NewsDetails.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\_ReturnJsonFile.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\Contacts.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\ContactUs.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\Conversion_Form.cshtml.g.cs

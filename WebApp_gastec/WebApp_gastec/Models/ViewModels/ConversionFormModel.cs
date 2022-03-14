@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 
 namespace WebApp_gastec.Models
 {
-    public class ContactUsViewModel
+    public class ConversionFormModel
     {
         public string Name { get; set; }
-        public string Email { get; set; }
         public string PhoneNumber { get; set; }
-        public string Message { get; set; }
+        public string Car_Model { get; set; }
+        public string Car_Type { get; set; }
+        public string Country { get; set; }
+        public string ValidationNumber { get; set; }
     }
 }

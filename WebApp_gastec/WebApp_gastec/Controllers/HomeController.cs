@@ -10,6 +10,8 @@ using WebApp_gastec.Domain;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using Newtonsoft.Json;
+using System.Net.Http;
+using System.Text;
 
 namespace WebApp_gastec.Controllers
 {
@@ -230,18 +232,18 @@ namespace WebApp_gastec.Controllers
         {
             string finalPath = "wwwroot/public/src/json/ar/" + filepath + ".json";
             StreamReader reader = new StreamReader(finalPath);
-            if(government_ == 0)
+            if (government_ == 0)
             {
-            ViewBag.JsonReturn = reader.ReadToEnd();
+                ViewBag.JsonReturn = reader.ReadToEnd();
             }
             else
             {
                 //var jsonObject = JsonConvert.SerializeObject(reader.ReadToEnd());
                 var model = JsonConvert.DeserializeObject<List<MapModel>>(reader.ReadToEnd());
                 List<MapModel> newModel = new List<MapModel>();
-                foreach(var item in model)
+                foreach (var item in model)
                 {
-                    if(item.Governorat == government_.ToString())
+                    if (item.Governorat == government_.ToString())
                     {
                         newModel.Add(item);
                     }
@@ -249,6 +251,126 @@ namespace WebApp_gastec.Controllers
                 ViewBag.JsonReturn = JsonConvert.SerializeObject(newModel);
             }
             return PartialView("_ReturnJsonFile");
+        }
+
+        [HttpPost]
+        public ActionResult ContactUs(HomePageViewModel contactModel_)
+        {
+            var model = contactModel_.ContactUs;
+            if (model != null)
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(Gastech_Vault.baseURL);
+                    InputContactUsModel inputContactUsModel = new()
+                    {
+                        SecurityString = Gastech_Vault.SecurityString,
+                        ServerIP = Gastech_Vault.ServerIP,
+                        DatabaseName = Gastech_Vault.DatabaseName,
+                        EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
+                        ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
+                        Subject = "Contact Us:" + model.Name,
+                        RequestDetails = model.Message,
+                        SecurityDetails = model.Name + "\r\r\r\n" + model.Email + "\r\r\r\n" + model.PhoneNumber,
+                        EncryptedPageURL = Domain.System.Encrypt(Gastech_Vault.baseURL)
+                    };
+                    string getContactUsInputObject = JsonConvert.SerializeObject(inputContactUsModel);
+                    var httpContent = new StringContent(getContactUsInputObject, Encoding.UTF8, "application/json");
+                    var responseTask = client.PostAsync("Main/AddNewContactLog", httpContent);
+                    responseTask.Wait();
+                    if (responseTask.Result.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                        return BadRequest("Can't Submit Please Check Your Internet Connection.");
+                }
+            }
+            return RedirectToAction("Index");
+
+        }
+        public IActionResult Contacts(HomePageViewModel contactModel_)
+        {
+            HomePageViewModel homePageViewModel = new HomePageViewModel()
+            {
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                ContactUs = contactModel_.ContactUs,
+            };
+            if (homePageViewModel.ContactUs != null)
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(Gastech_Vault.baseURL);
+                    InputContactUsModel inputContactUsModel = new()
+                    {
+                        SecurityString = Gastech_Vault.SecurityString,
+                        ServerIP = Gastech_Vault.ServerIP,
+                        DatabaseName = Gastech_Vault.DatabaseName,
+                        EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
+                        ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
+                        Subject = "Contact Us:" + homePageViewModel.ContactUs.Name,
+                        RequestDetails = homePageViewModel.ContactUs.Message,
+                        SecurityDetails = homePageViewModel.ContactUs.Name + "\r\r\r\n" + homePageViewModel.ContactUs.Email + "\r\r\r\n" + homePageViewModel.ContactUs.PhoneNumber,
+                        EncryptedPageURL = Domain.System.Encrypt(Gastech_Vault.baseURL)
+                    };
+                    string getContactUsInputObject = JsonConvert.SerializeObject(inputContactUsModel);
+                    var httpContent = new StringContent(getContactUsInputObject, Encoding.UTF8, "application/json");
+                    var responseTask = client.PostAsync("Main/AddNewContactLog", httpContent);
+                    responseTask.Wait();
+                    if (responseTask.Result.IsSuccessStatusCode)
+                    {
+                        homePageViewModel.ContactUs = new ContactUsViewModel();
+                        return RedirectToAction("Contacts", "Home");
+                    }
+                    else
+                        return BadRequest("Can't Submit Please Check Your Internet Connection.");
+                }
+            }
+            return View(homePageViewModel);
+        }
+        public async Task<IActionResult> Conversion_FormAsync(HomePageViewModel contactModel_)
+        {
+            HomePageViewModel homePageViewModel = new HomePageViewModel()
+            {
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                Cities = await API_GetCities.GetAllCitiesAsync(),
+                Car_Conversion = contactModel_.Car_Conversion,
+            };
+            Random rnd = new Random();
+            homePageViewModel.ValidationNumber = rnd.Next(99999);
+            if (homePageViewModel.Car_Conversion != null)
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(Gastech_Vault.baseURL);
+                    InputContactUsModel inputCarConversionModel = new()
+                    {
+                        SecurityString = Gastech_Vault.SecurityString,
+                        ServerIP = Gastech_Vault.ServerIP,
+                        DatabaseName = Gastech_Vault.DatabaseName,
+                        EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
+                        ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
+                        Subject = "Conversion Request:" + homePageViewModel.Car_Conversion.Name,
+                        RequestDetails = homePageViewModel.Car_Conversion.Name + "\r\r\r\n" + homePageViewModel.Car_Conversion.PhoneNumber + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Model + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Type +
+                         "\r\r\r\n" + homePageViewModel.Car_Conversion.Country + "\r\r\r\n" + homePageViewModel.Car_Conversion.ValidationNumber,
+                        SecurityDetails = homePageViewModel.Car_Conversion.Name + "\r\r\r\n" + homePageViewModel.Car_Conversion.PhoneNumber + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Model + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Type +
+                         "\r\r\r\n" + homePageViewModel.Car_Conversion.Country + "\r\r\r\n" + homePageViewModel.Car_Conversion.ValidationNumber,
+                        EncryptedPageURL = Domain.System.Encrypt(Gastech_Vault.baseURL)
+                    };
+                    string getCarConversionInputObject = JsonConvert.SerializeObject(inputCarConversionModel);
+                    var httpContent = new StringContent(getCarConversionInputObject, Encoding.UTF8, "application/json");
+                    var responseTask = client.PostAsync("Main/AddNewContactLog", httpContent);
+                    responseTask.Wait();
+                    if (responseTask.Result.IsSuccessStatusCode)
+                    {
+                        homePageViewModel.Car_Conversion = new ConversionFormModel();
+                        return RedirectToAction("Conversion_Form", "Home");
+                    }
+                    else
+                        return BadRequest("Can't Submit Please Check Your Internet Connection.");
+                }
+            }
+            return View(homePageViewModel);
         }
     }
 }

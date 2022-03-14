@@ -121,8 +121,8 @@
                                                 continue;
                                         }
                                         <li><a href="https://www.gastec-egypt.com/public/careers">وظائف</a></li>
-                                        <li><a href="https://www.gastec-egypt.com/public/contacts">اتصل بنا</a></li>
-                                        <li><a href="https://www.gastec-egypt.com/public/conversion_form">طلب تحويل سيارة</a></li>
+                                        <li><a href="@Url.Action("Contacts", "Home")">اتصل بنا</a></li>
+                                        <li><a href="@Url.Action("Conversion_Form","Home")">طلب تحويل سيارة</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -336,17 +336,17 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">×</button>
 
-                        <div class="signin-form profile">
+                        <form asp-controller="Home" asp-action="ContactUs" method="post" class="signin-form profile">
                             <h3 class="creainfo_sign">للتواصل معنا</h3>
                             <div class="login-form">
                                 <div id="thankyou"></div>
-                                <input type="text" name="name" id="nameusr" placeholder="الاسم" required="">
-                                <input type="email" name="email" id="Email" placeholder="البريد الاليكترونى" required="">
-                                <input type="text" name="phone" id="UserPhone" placeholder="رقم الهاتف" required="">
-                                <textarea type="text" name="message" id="Msgdata" placeholder="اترك رسالتك" required=""></textarea>
-                                <input type="submit" id="sendrequest" value="ارسل">
+                                <input asp-for="@Model.ContactUs.Name" id="nameusr" placeholder="الاسم" required="">
+                                <input asp-for="@Model.ContactUs.Email" id="Email" placeholder="البريد الاليكترونى" required="">
+                                <input asp-for="@Model.ContactUs.PhoneNumber" id="UserPhone" placeholder="رقم الهاتف" required="">
+                                <textarea asp-for="@Model.ContactUs.Message" id="Msgdata" placeholder="اترك رسالتك" required=""></textarea>
+                                <input asp-controller="Home" asp-action="ContactUs" type="submit" id="sendrequest" value="ارسل">
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

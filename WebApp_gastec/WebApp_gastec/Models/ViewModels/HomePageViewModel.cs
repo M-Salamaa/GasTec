@@ -42,7 +42,10 @@ namespace WebApp_gastec.Models
         public List<OutputGetClassificationTreeModel> Sub_Section { get; set; }
         public List<OutPutGetNewsGroupModel> News_Group { get; set; }
         public List<OutputGetNewsDetails> News_Details { get; set; }
+        public ContactUsViewModel ContactUs { get; set; }
+        public ConversionFormModel Car_Conversion { get; set; }
         public string WebSectionID { get; set; }
         public bool IsActive { get; set; }
+        public int ValidationNumber { get; set; }
     }
 }
