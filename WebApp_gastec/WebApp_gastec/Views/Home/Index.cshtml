@@ -1,4 +1,5 @@
 ﻿@model HomePageViewModel
+@using WebApp_gastec.Domain
 
 @{
 
@@ -127,7 +128,6 @@
                     </div>
                     <h1 class="cng">CNG for Mobility</h1>
                 </div>
-                @*This Part is for numbers*@
                 <!--Counter Column-->
                 <div class="counter-main-column col-lg-10 col-md-12 col-sm-12">
                     <div class="inner-column">
@@ -174,7 +174,6 @@
                 </div>
                 <div class="row clearfix">
                     <!--Column-->
-                    <!--Column-->
                     <div class="column col-md-12 col-sm-12">
                         <div class="row clearfix">
                             <!--News Block-->
@@ -192,13 +191,12 @@
                                                 </div>
                                             </div>
                                             <div class="text">
-                                                <a href="#">@img.NewsTitle</a>
+                                                <a href="@Url.Action("NewsDetails", "Home", new { serial_ = img.Serial})">@img.NewsTitle</a>
                                             </div>
                                         </div>
                                     </div>
                                 }
                             </div>
-                            @* Remeber h-Reference *@
                             <div dir="rtl">
                                 <a href="@Url.Action("AllNews","Home")" class="theme-btn read-more">
                                     المزيد من الأخبار<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
@@ -236,16 +234,16 @@
                         <div class="services-block-three">
                             <div class="inner-box">
                                 <div class="image">
-                                    <a href="#">
+                                    <a href="@Url.Action("Index" , "Oil" , new { ID_ = GetActionName.GetActionNameforEniImagesByID(image.ImageID) })">
                                         <img src="~/Images/MidSection/@image.ImageGUID" alt="" />
                                     </a>
                                 </div>
                                 <div class="lower-content">
                                     <h3>
-                                        <a href="#">@image.ImageName</a>
+                                        <a href="@Url.Action("Index" , "Oil" , new { ID_ = GetActionName.GetActionNameforEniImagesByID(image.ImageID) })">@image.ImageName</a>
                                     </h3>
                                     <div class="text">
-                                        <a href="#" class="theme-btn read-more" dir="rtl">
+                                        <a href="@Url.Action("Index" , "Oil" , new { ID_ = GetActionName.GetActionNameforEniImagesByID(image.ImageID) })" class="theme-btn read-more" dir="rtl">
                                             إقرأ المزيد<span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
                                         </a>
                                     </div>
@@ -285,15 +283,15 @@
                                 <div class="news-block col-md-4 col-sm-6 col-xs-12 wow fadeIn pull-right" style="visibility: visible; animation-name: fadeIn;">
                                     <div class="inner-box">
                                         <div class="image">
-                                            <a href="#"><img src="~/Images/NewsSection/@image.ImageGUID" alt="" /></a>
+                                            <a href="@Url.Action("NewsDetails", "Home", new { serial_ = image.Serial})"><img src="~/Images/NewsSection/@image.ImageGUID" alt="" /></a>
                                         </div>
                                         @* Adding News Date *@
                                         <div class="lower-box">
                                             <div class="post-info">@image.TopicDate.ToShortDateString()</div>
                                             <h3>
-                                                <a href="#">@image.NewsTitle</a>
+                                                <a href="@Url.Action("NewsDetails", "Home", new { serial_ = image.Serial})">@image.NewsTitle</a>
                                             </h3>
-                                            <a href="#" class="theme-btn read-more">
+                                            <a href="@Url.Action("NewsDetails", "Home", new { serial_ = image.Serial})" class="theme-btn read-more">
                                                 إقرأ المزيد
                                                 <span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
                                             </a>

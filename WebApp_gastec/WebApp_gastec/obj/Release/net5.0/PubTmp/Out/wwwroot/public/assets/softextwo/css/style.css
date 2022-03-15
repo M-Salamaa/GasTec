@@ -3872,13 +3872,13 @@ h3.creainfo_sign {
 .services-section .owl-next {
     width: 46px;
     height: 46px;
-    color: #222222;
+    color: #FFFFFF;
     text-align: center;
     line-height: 40px;
     display: inline-block;
     margin: 0px 5px;
     font-size: 18px;
-    border: 2px solid #222222;
+    border: 2px solid #FFFFFF;
     position: absolute;
     top: 50%;
     transition: all 300ms ease;
@@ -3902,11 +3902,11 @@ h3.creainfo_sign {
 }
 
 .services-section .single-item-carousel .owl-prev {
-    left: -60px!important;
+    left: 0px!important;
 }
 
 .services-section .single-item-carousel .owl-next {
-    right: -60px!important;
+    right: 0px!important;
 }
 
 

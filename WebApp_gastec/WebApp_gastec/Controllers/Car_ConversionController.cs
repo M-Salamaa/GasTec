@@ -99,67 +99,13 @@ namespace WebApp_gastec.Controllers
             };
             return homePageViewModel;
         }
-        // Routing for Advantage Page
-        public async Task<IActionResult> AdvantageAsync()
+        // Routing for Car Conversion Setcion Pages with Classification ID
+        public async Task<IActionResult> Index(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("19"));
-            ActivateSelectedForMainCategories(model, "19");
-            await CachedAllImagesAsync(model, "CarConversion_Advantage");
-            await CachedAllHtmlLinksAsync(model, "CarConversion_Advantage");
-            return View(model);
-        }
-        // Routing for Conversion Process Page
-        public async Task<IActionResult> Conversion_ProccessAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("20"));
-            ActivateSelectedForMainCategories(model, "20");
-            await CachedAllImagesAsync(model, "Conversion_Proccess");
-            await CachedAllHtmlLinksAsync(model, "Conversion_Proccess");
-            return View(model);
-        }
-        // Routing for Conversion Cost Page
-        public async Task<IActionResult> Conversion_CostAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("21"));
-            ActivateSelectedForMainCategories(model, "21");
-            await CachedAllImagesAsync(model, "Conversion_Cost");
-            await CachedAllHtmlLinksAsync(model, "Conversion_Cost");
-            return View(model);
-        }
-        // Routing for Saftey Factor Page
-        public async Task<IActionResult> SafteyFactorAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("22"));
-            ActivateSelectedForMainCategories(model, "22");
-            await CachedAllImagesAsync(model, "SafteyFactor");
-            await CachedAllHtmlLinksAsync(model, "SafteyFactor");
-            return View(model);
-        }
-        // Routing for Common Questions Page
-        public async Task<IActionResult> CommonQuestionsAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("23"));
-            ActivateSelectedForMainCategories(model, "23");
-            await CachedAllImagesAsync(model, "CommonQuestions");
-            await CachedAllHtmlLinksAsync(model, "CommonQuestions");
-            return View(model);
-        }
-        // Routing for Conversion Center Page
-        public async Task<IActionResult> Conversion_CentersAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("24"));
-            ActivateSelectedForMainCategories(model, "24");
-            await CachedAllImagesAsync(model, "Conversion_Centers");
-            await CachedAllHtmlLinksAsync(model, "Conversion_Centers");
-            return View(model);
-        }
-        // Routing for Local Manufacturing Page
-        public async Task<IActionResult> local_manufacturingAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt("25"));
-            ActivateSelectedForMainCategories(model, "25");
-            await CachedAllImagesAsync(model, "local_manufacturing");
-            await CachedAllHtmlLinksAsync(model, "local_manufacturing");
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt(ID_));
+            ActivateSelectedForMainCategories(model, ID_);
+            await CachedAllImagesAsync(model, "Car_Conversion");
+            await CachedAllHtmlLinksAsync(model, "Car_Conversion");
             return View(model);
         }
     }

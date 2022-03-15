@@ -16,6 +16,53 @@ namespace WebApp_gastec.Controllers
         {
             _hostingEnvironment = hostingEnviroment;
         }
+        // Return Data Model after Consuming API
+        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_)
+        {
+            // Create Instance for home page view model to return Main Home Page View
+            HomePageViewModel homePageViewModel = new()
+            {
+                // Consuming Main Menu from Classification Tree API 
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                // Consuming Main Cylindar Test Menu from Classification Tree API 
+                Oil_Main = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("6"), Domain.System.Encrypt("0")),
+                // Consuming Cylindar Category from Classification Tree API 
+                Oil_Categories = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
+
+            };
+            return homePageViewModel;
+        }
+        // Routing for Page View with Classification ID
+        public async Task<IActionResult> Index(string ID_)
+        {
+            var model = new HomePageViewModel();
+            if (ID_ == "41")
+                model = this.GetHomeViewModel(Domain.System.Encrypt(ID_), Domain.System.Encrypt("0"));
+            else
+                model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt(ID_));
+            ActivateSelectedForMainCategories(model, ID_);
+            await CachedAllImagesAsync(model, "Oil_Distribution");
+            await CachedAllHtmlLinksAsync(model, "Oil_Distribution");
+            return View(model);
+
+        }
+        // Routing for Sub Commerical Oils Page
+        public async Task<IActionResult> SubCommercialAsync(string OilID_)
+        {
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("42"));
+            model.WebSectionID = OilID_;
+            await CachedAllImagesAsync(model, "Commerical_Oil");
+            await CachedAllHtmlLinksAsync(model, "Commerical_Oil");
+            return View(model);
+        }
+        // Routing for Sub Industrial Oils Page
+        public async Task<IActionResult> SubIndustrialAsync(string OilID_)
+        {
+            var model = this.GetHomeViewModel(Domain.System.Encrypt(OilID_), Domain.System.Encrypt("0"));
+            await CachedAllImagesAsync(model, "Industrial_Oil");
+            await CachedAllHtmlLinksAsync(model, "Industrial_Oil");
+            return View(model);
+        }
         // Activate Selected Page in WebSite
         private void ActivateSelectedForMainCategories(HomePageViewModel model_, string id_)
         {
@@ -89,7 +136,7 @@ namespace WebApp_gastec.Controllers
                         }
                     }
                 }
-               if (entity.LstImages.Count > 0)
+                if (entity.LstImages.Count > 0)
                 {
                     foreach (var image in entity.LstImages)
                     {
@@ -98,73 +145,6 @@ namespace WebApp_gastec.Controllers
                 }
             }
             #endregion Caching images returned from API
-        }
-        // Return Data Model after Consuming API
-        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_)
-        {
-            // Create Instance for home page view model to return Main Home Page View
-            HomePageViewModel homePageViewModel = new()
-            {
-                // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
-                // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Oil_Main = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("6"), Domain.System.Encrypt("0")),
-                // Consuming Cylindar Category from Classification Tree API 
-                Oil_Categories = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
-
-            };
-            return homePageViewModel;
-        }
-        // Routing for Exclusive Agency Page
-        public async Task<IActionResult> AgencyAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("40"));
-            ActivateSelectedForMainCategories(model, "40");
-            await CachedAllImagesAsync(model, "Oil_Agency");
-            await CachedAllHtmlLinksAsync(model, "Oil_Agency");
-            return View(model);
-        }
-        // Routing for Industrial Oils Page (This Function doesn't Return the List of Child Classification)
-        public async Task<IActionResult> IndustrialAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("41"), Domain.System.Encrypt("0"));
-            await CachedAllImagesAsync(model, "Industrial_Oil");
-            ActivateSelectedForMainCategories(model, "41");
-            return View(model);
-        }
-        // Routing for Commerical Oils Page
-        public async Task<IActionResult> CommercialAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("42"));
-            ActivateSelectedForMainCategories(model, "42");
-            await CachedAllImagesAsync(model, "Commerical_Oil");
-            await CachedAllHtmlLinksAsync(model, "Commerical_Oil");
-            return View(model);
-        }
-        // Routing for Oil Distribution Page
-        public async Task<IActionResult> DistributorAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("43"));
-            ActivateSelectedForMainCategories(model, "43");
-            await CachedAllImagesAsync(model, "Oil_Distributer");
-            return View(model);
-        }
-        // Routing for Sub Commerical Oils Page
-        public async Task<IActionResult> SubCommercialAsync(string OilID_)
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("42"));
-            model.WebSectionID = OilID_;
-            await CachedAllImagesAsync(model, "Commerical_Oil");
-            await CachedAllHtmlLinksAsync(model, "Commerical_Oil");
-            return View(model);
-        }
-        // Routing for Sub Industrial Oils Page
-        public async Task<IActionResult> SubIndustrialAsync(string OilID_)
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt(OilID_), Domain.System.Encrypt("0"));
-            await CachedAllImagesAsync(model, "Industrial_Oil");
-            await CachedAllHtmlLinksAsync(model, "Industrial_Oil");
-            return View(model);
         }
     }
 }

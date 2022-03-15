@@ -230,7 +230,7 @@
                                                                 @foreach (var entity in classification.LstChildClassification)
                                                                 {
                                                                     <li>
-                                                                        <a href="@Url.Action(GetActionName.GetActionNameforCarConversionSectionByID(entity.ClassificationID),"Car_Conversion")">@entity.ClassificationName</a>
+                                                                        <a href="@Url.Action("Index","Car_Conversion", new { ID_ = entity.ClassificationID})">@entity.ClassificationName</a>
                                                                     </li>
                                                                 }
                                                             </ul>
@@ -260,7 +260,7 @@
                                                                 @foreach (var entity in classification.LstChildClassification)
                                                                 {
                                                                     <li>
-                                                                        <a href="@Url.Action(GetActionName.GetActionNameforCateringStationsSectionByID(entity.ClassificationID), "Catering_Stations")">@entity.ClassificationName</a>
+                                                                        <a href="@Url.Action("Index", "Catering_Stations",new { ID_ = entity.ClassificationID.ToString()})">@entity.ClassificationName</a>
                                                                     </li>
                                                                 }
                                                             </ul>
@@ -290,7 +290,7 @@
                                                                 @foreach (var entity in classification.LstChildClassification)
                                                                 {
                                                                     <li>
-                                                                        <a href="@Url.Action(GetActionName.GetActionNameforOilsSectionByID(entity.ClassificationID), "Oil")">@entity.ClassificationName</a>
+                                                                        <a href="@Url.Action("Index", "Oil", new { ID_ = entity.ClassificationID})">@entity.ClassificationName</a>
                                                                     </li>
                                                                 }
                                                             </ul>
@@ -398,7 +398,7 @@
                                                             @foreach (var entity in classification.LstChildClassification)
                                                             {
                                                                 <li>
-                                                                    <a href="@Url.Action(GetActionName.GetActionNameforCarConversionSectionByID(entity.ClassificationID), "Car_Conversion")">@entity.ClassificationName</a>
+                                                                    <a href="@Url.Action("Index","Car_Conversion", new { ID_ = entity.ClassificationID})">@entity.ClassificationName</a>
                                                                 </li>
                                                             }
 
@@ -419,7 +419,7 @@
                                                             @foreach (var entity in classification.LstChildClassification)
                                                             {
                                                                 <li>
-                                                                    <a href="@Url.Action(GetActionName.GetActionNameforCateringStationsSectionByID(entity.ClassificationID), "Catering_Stations")">@entity.ClassificationName</a>
+                                                                    <a href="@Url.Action("Index", "Catering_Stations",new { ID_ = entity.ClassificationID.ToString()})">@entity.ClassificationName</a>
                                                                 </li>
                                                             }
                                                         }
@@ -439,7 +439,7 @@
                                                             @foreach (var entity in classification.LstChildClassification)
                                                             {
                                                                 <li>
-                                                                    <a href="@Url.Action(GetActionName.GetActionNameforOilsSectionByID(entity.ClassificationID), "Oil")">@entity.ClassificationName</a>
+                                                                    <a href="@Url.Action("Index", "Oil", new { ID_ = entity.ClassificationID})">@entity.ClassificationName</a>
                                                                 </li>
                                                             }
                                                         }

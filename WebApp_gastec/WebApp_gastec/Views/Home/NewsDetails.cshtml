@@ -38,17 +38,17 @@
                         <!-- Popular Posts -->
                         <div class="sidebar-widget popular-posts">
                             <div class="sidebar-title"><h2>آخر الأخبار</h2></div>
-                            @foreach (var topic in Model.NewsTopics.LstNews.Take(11))
+                            @foreach (var topic in Model.NewsTopics.LstNews.Take(10))
                             {
                                 <!--//Start backend to retrieve variables  -->
                                 <article class="post">
                                     <figure class="post-thumb">
-                                        <a href="@Url.Action("NewsDetails", "Home", new { srial_ = topic.Serial})">
+                                        <a href="@Url.Action("NewsDetails", "Home", new { serial_ = topic.Serial})">
                                             <img src="~/Images/MediaCenter_NewsSection/@topic.ImageGUID" alt="">
                                         </a>
                                     </figure>
                                     <div class="text">
-                                        <a href="@Url.Action("NewsDetails", "Home", new { srial_ = topic.Serial})">
+                                        <a href="@Url.Action("NewsDetails", "Home", new { serial_ = topic.Serial})">
                                             @topic.NewsTitle
                                         </a>
                                     </div>
@@ -61,6 +61,27 @@
             </div>
             <!--Content Side-->
             <div class="content-side col-lg-9 col-md-8 col-sm-12 col-xs-12 pull-right">
+                @foreach (var entity in Model.News_Details)
+                {
+                    <section class="services-section" style="padding:0">
+                        <div class="auto-container">
+                            <div class="single-item-carousel owl-carousel owl-theme owl-loaded owl-drag">
+                                @foreach (var image in entity.LstImages)
+                                {
+                                    <div class="testimonial-block" >
+                                        <div class="inner-box">
+                                            <div class="upper-box">
+                                                <div class="image">
+                                                    <img src="~/Images/News/@image.ImageGUID"  alt="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </section>
+                }
                 <div class="services-single" dir="rtl">
                     <div class="inner-box">
                         <div id="events1">
@@ -72,24 +93,6 @@
                                         <div class="inner-box">
                                             @foreach (var entity in Model.News_Details)
                                             {
-                                                <section class="services-section">
-                                                    <div class="auto-container">
-                                                        <div class="single-item-carousel owl-carousel owl-theme owl-loaded owl-drag">
-                                                            @foreach (var image in entity.LstImages)
-                                                            {
-                                                                <div class="testimonial-block">
-                                                                    <div class="inner-box">
-                                                                        <div class="upper-box">
-                                                                            <div class="image">
-                                                                                <img src="~/Images/News/@image.ImageGUID" alt="" style="width:800px" />
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            }
-                                                        </div>
-                                                    </div>
-                                                </section>
                                                 <div class="lower-content">
                                                     <div class="lower-box">
                                                         <p style="color: #999">
@@ -100,7 +103,6 @@
                                                                 @entity.NewsTitle
                                                             </a>
                                                         </h3>
-
                                                         @Html.Raw(entity.body)
 
                                                         <a href="@Url.Action("AllNews","Home")" class="theme-btn read-more" style="float: left;direction: rtl;font-size: 18px;">

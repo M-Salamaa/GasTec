@@ -95,79 +95,42 @@ namespace WebApp_gastec.Controllers
             };
             return homePageViewModel;
         }
-        // Routing for Natural Gas Page
-        public async Task<IActionResult> NaturalGasAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("26"));
-            ActivateSelectedForMainCategories(model, "26");
-            await CachedAllImagesAsync(model, "NaturalGas_Stations");
-            await CachedAllHtmlLinksAsync(model, "NaturalGas_Stations");
-            return View(model);
-        }
-        // Routing for Liquid Gas Page
-        public async Task<IActionResult> LiquidGasAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("27"));
-            ActivateSelectedForMainCategories(model, "27");
-            await CachedAllImagesAsync(model, "LiquidGas_Stations");
-            await CachedAllHtmlLinksAsync(model, "LiquidGas_Stations");
-            return View(model);
-        }
-        // Routing For Integreated Station Page
-        public async Task<IActionResult> IntegratedStationsAsync()
-        {
-            CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
-            Domain.System system = new Domain.System();
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("28"), Domain.System.Encrypt("0"));
-            ActivateSelectedForMainCategories(model, "28");
-            await CachedAllImagesAsync(model, "Integrated_Stations");
-            await CachedAllHtmlLinksAsync(model, "Integrated_Stations");
-            foreach (var entity in model.Stations_Categories)
-            {
-                string path = await cachedHtml.CahceAllHtmlLinksAsync("Integrated_Stations", entity.HTML_GUID, entity.Classification_HTMLLink);
-                entity.Body = Domain.System.ReadFileAsStringForBody(path);
-                foreach (var image in entity.LstImages)
-                {
-                    image.ImageGUID = await cachedHtml.CahceAllImageAsync("Integrated_Stations", image.ImageGUID, image.ImageLink);
-                }
-            }
-            return View(model);
-        }
-        // Routing For Transportation Proccess Page
-        public async Task<IActionResult> TransportationProccessAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("29"));
-            ActivateSelectedForMainCategories(model, "29");
-            await CachedAllImagesAsync(model, "Transportation_Proccess");
-            await CachedAllHtmlLinksAsync(model, "Transportation_Proccess");
-            return View(model);
-        }
-        // Routing For Occupational Saftey Page
-        public async Task<IActionResult> OccupationalSafetyAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("30"));
-            ActivateSelectedForMainCategories(model, "30");
-            await CachedAllImagesAsync(model, "Occupational_Safety");
-            await CachedAllHtmlLinksAsync(model, "Occupational_Safety");
-            return View(model);
-        }
-        // Routing For Mobile Station Page
-        public async Task<IActionResult> MobileStationsAsync()
-        {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt("31"));
-            ActivateSelectedForMainCategories(model, "31");
-            await CachedAllImagesAsync(model, "Mobile_Stations");
-            await CachedAllHtmlLinksAsync(model, "Mobile_Stations");
-            return View(model);
-        }
         // Routing For Integreated Station Category Page
-        public async Task<IActionResult> Stations(string Id_)
+        public async Task<IActionResult> Stations(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt(Id_));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt(ID_));
             await CachedAllImagesAsync(model, "Integrated_Stations");
             await CachedAllHtmlLinksAsync(model, "Integrated_Stations");
             return View(model);
         }
 
+        public async Task<IActionResult> Index(string ID_)
+        {
+            CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
+            var model = new HomePageViewModel();
+            if (ID_ == "28")
+            {
+                model = this.GetHomeViewModel(Domain.System.Encrypt(ID_), Domain.System.Encrypt("0"));
+                await CachedAllImagesAsync(model, "Stations");
+                await CachedAllHtmlLinksAsync(model, "Stations");
+                foreach (var entity in model.Stations_Categories)
+                {
+                    string path = await cachedHtml.CahceAllHtmlLinksAsync("Stations", entity.HTML_GUID, entity.Classification_HTMLLink);
+                    entity.Body = Domain.System.ReadFileAsStringForBody(path);
+                    foreach (var image in entity.LstImages)
+                    {
+                        image.ImageGUID = await cachedHtml.CahceAllImageAsync("Stations", image.ImageGUID, image.ImageLink);
+                    }
+                }
+            }
+            else
+            {
+                model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt(ID_));
+                await CachedAllImagesAsync(model, "Stations");
+                await CachedAllHtmlLinksAsync(model, "Stations");
+            }
+            ActivateSelectedForMainCategories(model, ID_);
+            return View(model);
+        }
     }
 }

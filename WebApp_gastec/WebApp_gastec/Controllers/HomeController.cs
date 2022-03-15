@@ -100,7 +100,7 @@ namespace WebApp_gastec.Controllers
                     entity.ImageGUID = await cachedImages.CahceAllImageAsync(folderName_, entity.ImageGUID, entity.ImageLink);
                 }
             }
-            if (model_.News_Details.Count > 0)
+            if (model_.News_Details != null)
             {
                 foreach (var entity in model_.News_Details)
                 {
