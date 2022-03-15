@@ -4,22 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using WebApp_gastec.Models;
-
 namespace WebApp_gastec.Domain
 {
-    public class API_GetClassificationTree
+    public class API_GetMapFiles
     {
         //if property want to show set by one 
         private static readonly int showProperty = 1;
         private static readonly string encryptedMajorTreeNodeID = System.Encrypt("1");
 
-
-        // Function to get Tree Nodes for Clasification Tree with EncryptedSpecificTreeClassificationID
-        public static List<OutputGetClassificationTreeModel> GetClassificationTree(string encryptedTreeClassificationID_, string encryptedSpecificTreeClassificationID_)
+        public static List<OutputGetClassificationTreeModel> GetMapFiles(string encryptedTreeClassificationID_)
         {
-            // Create instance for output
-            List<OutputGetClassificationTreeModel> descrptionText = new ();
+            List<OutputGetClassificationTreeModel> descrptionText = new();
             //create Client to consume the API
             using (var client = new HttpClient())
             {
@@ -43,31 +40,30 @@ namespace WebApp_gastec.Domain
                     // Get Encrypted Tree Classification ID
                     EncryptedTreeClassificationID = encryptedTreeClassificationID_,
                     // Get Encrypted Specific Tree Classification ID
-                    EncryptedSpecificTreeClassificationID = encryptedSpecificTreeClassificationID_,
+                    EncryptedSpecificTreeClassificationID = Domain.System.Encrypt("0"),
                     // Get Max Tree Level
-                    MaxTreeLevel = 3,
+                    MaxTreeLevel = 0,
                     // Get Translation Language ID
                     TranslationLanguageID = Gastech_Vault.TranslationLanguageID,
                     // Get Classification Settings
                     ClassificationSettings = new ClassificationSettings()
                     {
                         ShowFiles = showProperty,
-                        ShowImages = showProperty,
-                        ShowWebSections = showProperty,
+                        ShowImages = 0,
+                        ShowWebSections = 0,
                         PageNumber = showProperty,
                         ResultCount = 0
                     }
                 };
-                // Get Json from Input Object to pass it to API
                 string getClassificationInputJson = JsonConvert.SerializeObject(getClassificationInputObject);
                 var httpContent = new StringContent(getClassificationInputJson, Encoding.UTF8, "application/json");
-                var responseTask = client.PostAsync("ClassificationTree/GetClassificationTree", httpContent);   
+                var responseTask = client.PostAsync("ClassificationTree/GetClassificationTree", httpContent);
                 responseTask.Wait();
                 var result = responseTask.Result;
                 if (result.IsSuccessStatusCode)
                 {
                     var response = result.Content.ReadAsStringAsync().Result;
-                    descrptionText = JsonConvert.DeserializeObject<List<OutputGetClassificationTreeModel>> (response);
+                    descrptionText = JsonConvert.DeserializeObject<List<OutputGetClassificationTreeModel>>(response);
                 }
                 // Returned Data From API
                 return descrptionText;

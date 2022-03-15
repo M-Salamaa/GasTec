@@ -150,6 +150,8 @@ namespace WebApp_gastec.Controllers
                 NewsSection = await API_GetNewsTopics.GetAllNewsTopics(4),
                 //Consuming Cities from GetCities API 
                 Cities = await API_GetCities.GetAllCitiesAsync(),
+                //Consuming Map Files from Classification Tree API
+                MapFiles = API_GetMapFiles.GetMapFiles(Domain.System.Encrypt("1")),
             };
             // Caching all images Returned in home page view model
             await CachedAllImagesAsync(homePageViewModel);
@@ -207,6 +209,7 @@ namespace WebApp_gastec.Controllers
         {
             // return Model to Display in Home Page
             var model = await this.GetHomeViewModelAsync();
+            await CacheAllFiles(model);
             return View(model);
         }
         public IActionResult Privacy()
@@ -238,7 +241,6 @@ namespace WebApp_gastec.Controllers
             }
             else
             {
-                //var jsonObject = JsonConvert.SerializeObject(reader.ReadToEnd());
                 var model = JsonConvert.DeserializeObject<List<MapModel>>(reader.ReadToEnd());
                 List<MapModel> newModel = new List<MapModel>();
                 foreach (var item in model)
@@ -252,7 +254,6 @@ namespace WebApp_gastec.Controllers
             }
             return PartialView("_ReturnJsonFile");
         }
-
         [HttpPost]
         public ActionResult ContactUs(HomePageViewModel contactModel_)
         {
@@ -371,6 +372,20 @@ namespace WebApp_gastec.Controllers
                 }
             }
             return View(homePageViewModel);
+        }
+
+        //***********************************************************************************************//
+        //Cache all files 
+        private async Task CacheAllFiles(HomePageViewModel model_)
+        {
+            CacheFiles cacheedFile = new CacheFiles(_hostingEnvironment);
+            foreach (var entity in model_.MapFiles)
+            {
+                foreach(var file in entity.LstFiles)
+                {
+                    file.FileGUID = await cacheedFile.CahceAllFilesAsync(file.FileGUID);
+                }
+            }
         }
     }
 }

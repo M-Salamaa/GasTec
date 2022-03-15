@@ -63,6 +63,7 @@ namespace WebApp_gastec.Domain
         {
             return htmlGuid_.Replace(":", "_").Replace(" ", "").Replace("/", "_") + ".html";
         }
+        
         //Set Local Path for Caching images and return it
         public string GetCacheFullPath(string folderName_, string imgGuid_)
         {
@@ -86,6 +87,7 @@ namespace WebApp_gastec.Domain
             // Return Full Path and Image GUID 
             return contentRootPath + htmlGuid_;
         }
+        
         // Save Image on Server 
         public async Task SaveImageAsync(string fullPath_, string imageDownloadLink_)
         {
