@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApp_gastec.Domain.Enums
+namespace WebApp_gastec.Domain
 {
     public class MapFileName
     {
@@ -13,19 +13,19 @@ namespace WebApp_gastec.Domain.Enums
             switch(fileID_)
             {
                 case 245:
-                    fileName = "convert-centers";
+                    fileName = "convert-centers.json";
                     break;
                 case 256:
-                    fileName = "cylinder-test";
+                    fileName = "cylinder-test.json";
                     break;
                 case 257:
-                    fileName = "gas-station";
+                    fileName = "gas-station.json";
                     break;
                 case 258:
-                    fileName = "oil-distribution";
+                    fileName = "oil-distribution.json";
                     break;  
                 case 259:
-                    fileName = "petrol-station";
+                    fileName = "petrol-station.json";
                     break;
             }
             return fileName;

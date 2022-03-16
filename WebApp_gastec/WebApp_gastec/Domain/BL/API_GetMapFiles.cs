@@ -14,7 +14,7 @@ namespace WebApp_gastec.Domain
         private static readonly int showProperty = 1;
         private static readonly string encryptedMajorTreeNodeID = System.Encrypt("1");
 
-        public static List<OutputGetClassificationTreeModel> GetMapFiles(string encryptedTreeClassificationID_)
+        public static async Task<List<OutputGetClassificationTreeModel>> GetMapFilesAsync(string encryptedTreeClassificationID_)
         {
             List<OutputGetClassificationTreeModel> descrptionText = new();
             //create Client to consume the API
@@ -57,12 +57,10 @@ namespace WebApp_gastec.Domain
                 };
                 string getClassificationInputJson = JsonConvert.SerializeObject(getClassificationInputObject);
                 var httpContent = new StringContent(getClassificationInputJson, Encoding.UTF8, "application/json");
-                var responseTask = client.PostAsync("ClassificationTree/GetClassificationTree", httpContent);
-                responseTask.Wait();
-                var result = responseTask.Result;
-                if (result.IsSuccessStatusCode)
+                var responseTask = await client.PostAsync("ClassificationTree/GetClassificationTree", httpContent);
+                if (responseTask.IsSuccessStatusCode)
                 {
-                    var response = result.Content.ReadAsStringAsync().Result;
+                    var response = responseTask.Content.ReadAsStringAsync().Result;
                     descrptionText = JsonConvert.DeserializeObject<List<OutputGetClassificationTreeModel>>(response);
                 }
                 // Returned Data From API

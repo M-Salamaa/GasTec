@@ -151,7 +151,7 @@ namespace WebApp_gastec.Controllers
                 //Consuming Cities from GetCities API 
                 Cities = await API_GetCities.GetAllCitiesAsync(),
                 //Consuming Map Files from Classification Tree API
-                MapFiles = API_GetMapFiles.GetMapFiles(Domain.System.Encrypt("1")),
+                MapFiles = await API_GetMapFiles.GetMapFilesAsync(Domain.System.Encrypt("1")),
             };
             // Caching all images Returned in home page view model
             await CachedAllImagesAsync(homePageViewModel);
@@ -209,7 +209,6 @@ namespace WebApp_gastec.Controllers
         {
             // return Model to Display in Home Page
             var model = await this.GetHomeViewModelAsync();
-            await CacheAllFiles(model);
             return View(model);
         }
         public IActionResult Privacy()
@@ -218,8 +217,10 @@ namespace WebApp_gastec.Controllers
         }
         // Action to partial view to Display Map
         [HttpPost]
-        public IActionResult _ShowMapPartial(double longtitude, double latitude)
+        public async Task<IActionResult> _ShowMapPartialAsync(double longtitude, double latitude)
         {
+            var model_ = await API_GetMapFiles.GetMapFilesAsync(Domain.System.Encrypt("1"));
+            CacheAllFiles(model_);
             MapLocationModel model = new MapLocationModel();
             model.longtitude = longtitude;
             model.latitude = latitude;
@@ -376,14 +377,14 @@ namespace WebApp_gastec.Controllers
 
         //***********************************************************************************************//
         //Cache all files 
-        private async Task CacheAllFiles(HomePageViewModel model_)
+        private void CacheAllFiles(List<OutputGetClassificationTreeModel> model_)
         {
             CacheFiles cacheedFile = new CacheFiles(_hostingEnvironment);
-            foreach (var entity in model_.MapFiles)
+            foreach (var entity in model_)
             {
-                foreach(var file in entity.LstFiles)
+                foreach (var file in entity.LstFiles)
                 {
-                    file.FileGUID = await cacheedFile.CahceAllFilesAsync(file.FileGUID);
+                    file.FileGUID = cacheedFile.CahceAllFiles(file.FileGUID, MapFileName.GetMApFileName(file.FileID), file.FileLink);
                 }
             }
         }
