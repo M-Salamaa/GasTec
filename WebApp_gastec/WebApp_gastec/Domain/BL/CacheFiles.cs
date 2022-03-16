@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using WebApp_gastec.Models;
+using System.Text.Json.Serialization;
+
 
 namespace WebApp_gastec.Domain
 {
@@ -29,11 +31,15 @@ namespace WebApp_gastec.Domain
             // Check if the Image Exist in our full Path or not 
             if (!File.Exists(fullPathForTextFile))
             {
-                GetCacheFullPathforJsonFile(jsonFileName_, fileLink_);
+                //Create Empty File with File GUID Name To Check every Time before caching
                 File.Create(fullPathForTextFile);
+                //Check if Json File Exist and Cahcing it if not
+                GetCacheFullPathforJsonFile(jsonFileName_, fileLink_);
             }
+            //Return Full Path for File GUID  
             return fullPathForTextFile;
         }
+        // Function to Get Empty File Full Path
         public string GetCacheFullPathforEmptyFiles(string fileGuid_)
         {
             // Set Local Path in Local Machine
@@ -45,6 +51,7 @@ namespace WebApp_gastec.Domain
             // Return Full Path and Image GUID 
             return contentRootPath + fileGuid_;
         }
+        // Function to Sace Json File if not exist
         public void GetCacheFullPathforJsonFile(string fileName_, string fileLink_)
         {
             // Set Local Path in Local Machine
@@ -53,47 +60,34 @@ namespace WebApp_gastec.Domain
             string contentRootPath = Path.Combine(_hostingEnvironment.WebRootPath, localPath);
             // Create Directory for Cahcing images with our combined Path
             string backupFile = contentRootPath + ".bak";
+            // Check if Json File Exist
             if (!File.Exists(contentRootPath))
             {
-                // Create New File 
-                File.Create(contentRootPath);
                 // Create Instance for Http Client
                 using var client = new WebClient();
-                // Get the Image As Bytes with GET Request to our URL
-                string jsonFileContent = client.DownloadString(fileLink_);
-                var model = JsonConvert.DeserializeObject<List<MapModel>>(jsonFileContent);
-                File.WriteAllText(contentRootPath, JsonConvert.SerializeObject(model));
-
+                {
+                    // Get Content of Json File Using Fike URL 
+                    string jsonFileContent = client.DownloadString(fileLink_);
+                    // Create New File with to the specified path and Append all text to it
+                    File.AppendAllText(contentRootPath, jsonFileContent);
+                }
             }
             else
             {
                 // Create Instance for Web Client
                 using var client = new WebClient();
-                // Get the Image As Bytes with GET Request to our URL
+                // Get Content of Json File Using Fike URL 
                 var jsonFileContent = client.DownloadString(fileLink_);
                 // Write All Json Content to the file as String
-                File.WriteAllTextAsync(contentRootPath, jsonFileContent);
-                // Over write the Existing File with the new one
-                File.Replace(contentRootPath, contentRootPath, backupFile);
+                File.WriteAllText(contentRootPath, jsonFileContent);
+                //// Over write the Existing File with the new one
+                //File.Replace(contentRootPath, contentRootPath, backupFile);
             }
         }
+        // Function To Remove Special Characters From File GUID
         public string ReplaceSpecialCharInFileGuidForEmptyFile(string fileGuid_)
         {
             return fileGuid_.Replace(":", "_").Replace(" ", "").Replace("/", "_") + ".txt";
-        }
-        public void SaveEmptyFile(string fullPath_)
-        {
-            File.Create(fullPath_);
-        }
-        public async Task SaveJsonFileAsync(string fullPath_, string fileLink_)
-        {
-            // Create Instance for Http Client
-            using var client = new HttpClient();
-            // Get the Image As Bytes with GET Request to our URL
-            var jsonStr = await client.GetStringAsync(fileLink_);
-            var model = JsonConvert.DeserializeObject<List<MapModel>>(jsonStr);
-            var newmodel = JsonConvert.SerializeObject(model);
-            await File.WriteAllTextAsync(fullPath_, newmodel);
         }
     }
 }

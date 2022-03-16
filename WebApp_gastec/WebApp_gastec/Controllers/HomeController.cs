@@ -219,6 +219,7 @@ namespace WebApp_gastec.Controllers
         [HttpPost]
         public async Task<IActionResult> _ShowMapPartialAsync(double longtitude, double latitude)
         {
+            // Get All Json Files For Map To Cache it
             var model_ = await API_GetMapFiles.GetMapFilesAsync(Domain.System.Encrypt("1"));
             CacheAllFiles(model_);
             MapLocationModel model = new MapLocationModel();
@@ -374,9 +375,7 @@ namespace WebApp_gastec.Controllers
             }
             return View(homePageViewModel);
         }
-
-        //***********************************************************************************************//
-        //Cache all files 
+        // Function To Cache All Json Files
         private void CacheAllFiles(List<OutputGetClassificationTreeModel> model_)
         {
             CacheFiles cacheedFile = new CacheFiles(_hostingEnvironment);
