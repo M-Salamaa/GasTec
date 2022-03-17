@@ -383,7 +383,7 @@ namespace WebApp_gastec.Controllers
                 }
             }
         }
-
+        // Check this Function
         public async Task<IActionResult> SearchResult(SearchInputModel searchModel_)
         {
             var model = new HomePageViewModel()
