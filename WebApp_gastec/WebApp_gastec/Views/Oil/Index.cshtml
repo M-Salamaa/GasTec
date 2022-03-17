@@ -10,7 +10,7 @@
 <!-- Page Title-->
 <section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/eni-header.jpg');">
     <div class="auto-container">
-        @foreach (var entity in Model.Oil_Categories)
+        @foreach (var entity in Model.Sub_Section)
         {
             <!-- <h1>@entity.ClassificationName  </h1>-->
         }
@@ -23,7 +23,7 @@
         <div class="inner-container clearfix">
             <ul class="bread-crumb pull-right">
                 <li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
-                @foreach (var entity in Model.Oil_Categories)
+                @foreach (var entity in Model.Sub_Section)
                 {
                     <li>@entity.ClassificationName</li>
                 }
@@ -42,7 +42,7 @@
                     <div id="sidenavelist">
                         <div class="sidebar-widget sidebar-blog-category">
                             <ul class="blog-cat">
-                                @foreach (var mainSection in Model.Oil_Main)
+                                @foreach (var mainSection in Model.Main_Section)
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
@@ -67,7 +67,7 @@
                 </aside>
             </div>
             <!--Content Side-->
-            @foreach (var entity in Model.Oil_Categories)
+            @foreach (var entity in Model.Sub_Section)
             {<div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
                     <!--Check ID = 40 for Agency Section-->
 
@@ -178,13 +178,13 @@
                                             @if (image.ImageID == "88")
                                             {
                                                 <a href="@image.ImageLink" target="_blank">
-                                                    <img src="~/Images/Oil_Distribution/@image.ImageGUID">
+                                                    <img src="~/Images/Oil_Distribution/@image.ImageGUID" style="padding:10px">
                                                 </a>
                                             }
                                             else
                                             {
                                                 <a href="@image.ImageLink" target="_blank">
-                                                    <img src="~/Images/Oil_Distribution/@image.ImageGUID" style="height: 464px; width: 450px;">
+                                                    <img src="~/Images/Oil_Distribution/@image.ImageGUID" style="height: 464px; width: 450px; padding: 5px">
                                                 </a>
                                             }
                                         }

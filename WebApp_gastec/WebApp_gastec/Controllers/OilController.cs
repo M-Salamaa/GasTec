@@ -25,9 +25,9 @@ namespace WebApp_gastec.Controllers
                 // Consuming Main Menu from Classification Tree API 
                 MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
                 // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Oil_Main = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("6"), Domain.System.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("6"), Domain.System.Encrypt("0")),
                 // Consuming Cylindar Category from Classification Tree API 
-                Oil_Categories = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
+                Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
 
             };
             return homePageViewModel;
@@ -42,7 +42,7 @@ namespace WebApp_gastec.Controllers
                 model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt(ID_));
             ActivateSelectedForMainCategories(model, ID_);
             await CachedAllImagesAsync(model, "Oil_Distribution");
-            await CachedAllHtmlLinksAsync(model, "Oil_Distribution");
+            CachedAllHtmlLinks(model, "Oil_Distribution");
             return View(model);
 
         }
@@ -52,7 +52,7 @@ namespace WebApp_gastec.Controllers
             var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("42"));
             model.WebSectionID = OilID_;
             await CachedAllImagesAsync(model, "Commerical_Oil");
-            await CachedAllHtmlLinksAsync(model, "Commerical_Oil");
+            CachedAllHtmlLinks(model, "Commerical_Oil");
             return View(model);
         }
         // Routing for Sub Industrial Oils Page
@@ -60,13 +60,13 @@ namespace WebApp_gastec.Controllers
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt(OilID_), Domain.System.Encrypt("0"));
             await CachedAllImagesAsync(model, "Industrial_Oil");
-            await CachedAllHtmlLinksAsync(model, "Industrial_Oil");
+            CachedAllHtmlLinks(model, "Industrial_Oil");
             return View(model);
         }
         // Activate Selected Page in WebSite
         private void ActivateSelectedForMainCategories(HomePageViewModel model_, string id_)
         {
-            foreach (var child in model_.Oil_Main)
+            foreach (var child in model_.Main_Section)
             {
                 foreach (var classification in child.LstChildClassification)
                 {
@@ -75,13 +75,13 @@ namespace WebApp_gastec.Controllers
                 }
             }
         }
-        private async Task CachedAllHtmlLinksAsync(HomePageViewModel model_, string folderName_)
+        private void CachedAllHtmlLinks(HomePageViewModel model_, string folderName_)
         {
             string path = "";
             #region Caching Html Links Returned from API
-            CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
+            Cache cachedHtml = new Cache(_hostingEnvironment);
             Domain.System system = new Domain.System();
-            foreach (var entity in model_.Oil_Categories)
+            foreach (var entity in model_.Sub_Section)
             {
                 if (entity.LstWebSections.Count > 0)
                 {
@@ -91,18 +91,18 @@ namespace WebApp_gastec.Controllers
                         {
                             foreach (var image in webSection.LstImages)
                             {
-                                path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, image.ImageGUID, image.HTMLLink);
+                                path = cachedHtml.CahceAllHtmlLinks(folderName_, image.ImageGUID, image.HTMLLink);
                                 image.Body = Domain.System.ReadFileAsStringForBody(path);
                             }
                         }
-                        path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
+                        path = cachedHtml.CahceAllHtmlLinks(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
                         webSection.Body = Domain.System.ReadFileAsStringForBody(path);
 
                     }
                 }
                 else
                 {
-                    path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
+                    path = cachedHtml.CahceAllHtmlLinks(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
                     entity.Body = Domain.System.ReadFileAsStringForBody(path);
                 }
             }
@@ -112,8 +112,8 @@ namespace WebApp_gastec.Controllers
         private async Task CachedAllImagesAsync(HomePageViewModel model_, string folderName_)
         {
             #region Caching images returned from API 
-            CacheImages cachedImages = new CacheImages(_hostingEnvironment);
-            foreach (var entity in model_.Oil_Categories)
+            Cache cachedImages = new Cache(_hostingEnvironment);
+            foreach (var entity in model_.Sub_Section)
             {
                 if (entity.LstWebSections.Count > 0)
                 {

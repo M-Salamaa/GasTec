@@ -449,6 +449,9 @@ E:\Softex\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\refint\WebApp_gast
 E:\Softex\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.pdb
 E:\Softex\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.genruntimeconfig.cache
 E:\Softex\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\ref\WebApp_gastec.dll
+E:\Softex\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Car_Conversion\Index.cshtml.g.cs
+E:\Softex\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Catering_Stations\Index.cshtml.g.cs
+E:\Softex\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Oil\Index.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\bin\Debug\net5.0\appsettings.Development.json
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\bin\Debug\net5.0\appsettings.json
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\bin\Debug\net5.0\WebApp_gastec.exe
@@ -551,6 +554,8 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.TagH
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.RazorCoreGenerate.cache
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\About\HumanResources.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\About\Index.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Car_Conversion\Index.cshtml.g.cs
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Catering_Stations\Index.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Catering_Stations\Stations.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Cylindar_Test\Index.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Home\AllNews.cshtml.g.cs
@@ -559,7 +564,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Home\C
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Home\Conversion_Form.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Home\NewsDetails.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Home\_ReturnJsonFile.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Home\_ShowMapPartial.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\MediaCenter\Index.cshtml.g.cs
@@ -583,8 +587,3 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\ref\WebApp_gastec.
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.pdb
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.genruntimeconfig.cache
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\WebApp_gastec.csproj.AssemblyReference.cache
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Car_Conversion\Index.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Catering_Stations\Index.cshtml.g.cs
-E:\Softex\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Car_Conversion\Index.cshtml.g.cs
-E:\Softex\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Catering_Stations\Index.cshtml.g.cs
-E:\Softex\GasTec\WebApp_gastec\WebApp_gastec\obj\Debug\net5.0\Razor\Views\Oil\Index.cshtml.g.cs

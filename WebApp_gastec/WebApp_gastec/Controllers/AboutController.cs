@@ -21,25 +21,25 @@ namespace WebApp_gastec.Controllers
 
 
         // Caching All HTML Links Returned From API via Model
-        private async Task CachedAllHtmlLinksAsync(HomePageViewModel model_, string folderName_)
+        private void CachedAllHtmlLinks(HomePageViewModel model_, string folderName_)
         {
             string path = "";
             #region Caching Html Links Returned from API
-            CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
+            Cache cachedHtml = new Cache(_hostingEnvironment);
             Domain.System system = new Domain.System();
-            foreach (var entity in model_.AboutUsSection)
+            foreach (var entity in model_.Main_Section)
             {
                 if (entity.LstWebSections.Count > 0)
                 {
                     foreach (var webSection in entity.LstWebSections)
                     {
-                        path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
+                        path = cachedHtml.CahceAllHtmlLinks(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
                         webSection.Body = Domain.System.ReadFileAsStringForBody(path);
                     }
                 }
                 else
                 {
-                    path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
+                    path = cachedHtml.CahceAllHtmlLinks(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
                     entity.Body = Domain.System.ReadFileAsStringForBody(path);
                 }
             }
@@ -49,8 +49,8 @@ namespace WebApp_gastec.Controllers
         private async Task CachedAllImagesAsync(HomePageViewModel model_, string folderName_)
         {
             #region Caching images returned from API 
-            CacheImages cachedImages = new CacheImages(_hostingEnvironment);
-            foreach (var entity in model_.AboutUsSection)
+            Cache cachedImages = new Cache(_hostingEnvironment);
+            foreach (var entity in model_.Main_Section)
             {
                 if (entity.LstWebSections.Count > 0)
                 {
@@ -81,15 +81,15 @@ namespace WebApp_gastec.Controllers
             {
                 // Consuming Main Menu from Classification Tree API 
                 MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
-                AboutUsSection = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
-                AboutUs = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("125"), Domain.System.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
+                Sub_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("125"), Domain.System.Encrypt("0")),
                 HR = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("123"), Domain.System.Encrypt("0")),
             };
             return homePageViewModel;
         }
         private void ActivateSelectedForMainCategories (HomePageViewModel model_ , string id_)
         {
-            foreach (var child in model_.AboutUs)
+            foreach (var child in model_.Sub_Section)
             {
                 foreach (var classification in child.LstChildClassification)
                 {
@@ -115,7 +115,7 @@ namespace WebApp_gastec.Controllers
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt(ID_));
             ActivateSelectedForMainCategories(model, ID_);
             await CachedAllImagesAsync(model, "AboutUS");
-            await CachedAllHtmlLinksAsync(model, "AboutUs");
+            CachedAllHtmlLinks(model, "AboutUs");
 
             return View(model);
         }
@@ -125,7 +125,7 @@ namespace WebApp_gastec.Controllers
             var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("123"), Domain.System.Encrypt(ID_));
             ActivateSelectedForSubCategories(model, ID_);
             await CachedAllImagesAsync(model, "HumanResources");
-            await CachedAllHtmlLinksAsync(model, "HumanResources");
+            CachedAllHtmlLinks(model, "HumanResources");
             return View(model);
         }
 

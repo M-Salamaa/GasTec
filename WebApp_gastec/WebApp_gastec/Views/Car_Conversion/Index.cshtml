@@ -9,7 +9,7 @@
 <!-- Page Title-->
 <section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/car_conv.jpg');">
     <div class="auto-container">
-        @foreach (var entity in Model.Car_ConversionCategory)
+        @foreach (var entity in Model.Sub_Section)
         {
             <!-- <h1>@entity.ClassificationName  </h1>-->
         }
@@ -22,7 +22,7 @@
         <div class="inner-container clearfix">
             <ul class="bread-crumb pull-right">
                 <li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
-                @foreach (var entity in Model.Car_ConversionCategory)
+                @foreach (var entity in Model.Sub_Section)
                 {
                     <li>@entity.ClassificationName</li>
                 }
@@ -41,7 +41,7 @@
                     <div id="sidenavelist">
                         <div class="sidebar-widget sidebar-blog-category">
                             <ul class="blog-cat">
-                                @foreach (var mainSection in Model.Car_ConversionMain)
+                                @foreach (var mainSection in Model.Main_Section)
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
@@ -67,7 +67,7 @@
             </div>
             <!--Content Side-->
             <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
-                @foreach (var entity in Model.Car_ConversionCategory)
+                @foreach (var entity in Model.Sub_Section)
                 {
                     // Check ID = 19 Advantages Section
                     @if (entity.ClassificationID == 19)
@@ -153,31 +153,37 @@
                                             <!-- Rendreing Body with HTML Link-->
                                             @Html.Raw(webSection.Body)
 
-                                            <p style="text-align: justify;">
-                                                @foreach (var image in webSection.LstImages)
-                                                {
-                                                    <!--//end backend to retrieve variables  -->
-                                                    <!--//Start backend to retrieve variables  -->
+                                            @if (webSection.WebSectionID == 57)
+                                            {
+                                                <p style="text-align: justify;">
+                                                    <table border="1" cellpadding="1" cellspacing="1" dir="rtl" style="width: 800px;">
+                                                        <tbody>
+                                                            <tr>
+                                                                @foreach (var img in webSection.LstImages)
+                                                                {
 
-                                                    @if (webSection.WebSectionID == 57)
-                                                    {
-                                                        <table border="1" cellpadding="1" cellspacing="1" dir="rtl" style="width: 800px;">
-                                                            <tbody>
-                                                                <tr>
                                                                     <td style="text-align: justify;">
-                                                                        <img src="~/Images/Car_Conversion/@image.ImageGUID" style="height: 250px; width: 400px;">
+                                                                        <img src="~/Images/Car_Conversion/@img.ImageGUID" style="height: 250px; width: 400px; padding:5px">
                                                                     </td>
 
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    }
-                                                    else
+                                                                }
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </p>
+                                            }
+                                            else
+                                            {
+                                                <p style="text-align: justify;">
+                                                    @foreach (var image in webSection.LstImages)
                                                     {
-                                                        <img src="~/Images/Car_Conversion/@image.ImageGUID">
+                                                        <!--//end backend to retrieve variables  -->
+                                                        <!--//Start backend to retrieve variables  -->
+                                                        <img src="~/Images/Car_Conversion/@image.ImageGUID" style="width:100%">
+
                                                     }
-                                                }
-                                            </p>
+                                                </p>
+                                            }
                                             <hr />
                                         }
                                     </div>

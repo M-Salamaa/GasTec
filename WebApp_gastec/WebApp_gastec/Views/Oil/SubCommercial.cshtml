@@ -10,7 +10,7 @@
 <!-- Page Title-->
 <section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/Integrated_station.jpg');">
     <div class="auto-container">
-        @foreach (var entity in Model.Oil_Categories)
+        @foreach (var entity in Model.Sub_Section)
         {
             <!-- <h1>@entity.ClassificationName  </h1>-->
         }
@@ -25,7 +25,7 @@
         <div class="inner-container clearfix">
             <ul class="bread-crumb pull-right">
                 <li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
-                @foreach (var entity in Model.Oil_Main)
+                @foreach (var entity in Model.Main_Section)
                 {
                     <li>@entity.ClassificationName</li>
                 }
@@ -38,7 +38,7 @@
     <div class="auto-container">
         <div class="row clearfix">
             <!--Content Side-->
-            @foreach (var type in Model.Oil_Categories)
+            @foreach (var type in Model.Sub_Section)
             {
                 @foreach (var webSection in type.LstWebSections)
                 {

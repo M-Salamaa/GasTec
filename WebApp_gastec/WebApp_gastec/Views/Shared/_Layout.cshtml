@@ -489,7 +489,7 @@
             </div>
         </footer>
         @*Footer End*@
-        @*<script>
+        <script>
                 //Update Header Style and Scroll to Top
                 function headerStyle() {
                     if ($('.main-header').length) {
@@ -522,27 +522,7 @@
                         e.preventDefault();
                     });
                 }
-            </script>*@
-        @*<script>
-                $(document).ready(function () {
-                    $("#sendrequest").click(function () {
-                        $("#thankyou").html("يتم الإرسال");
-                        $("#sendrequest").remove()
-                        $.ajax({
-                            url: "<?= env('APP_URL') ?>index.php/request",
-                            type: "post",
-                            data: "_token=<?php echo csrf_token() ;?>&Name=" + $("#nameusr").val() +
-                                "&UserPhone=" + $("#UserPhone").val() + "&Email=" + $("#Email").val() +
-                                "&Msgdata=" + $("#Msgdata").val(),
-                            success: function (response) {
-
-                                $("#thankyou").html(response);
-
-                            }
-                        });
-                    });
-                });
-            </script>*@
+            </script>
 
         <script src="~/public/assets/softextwo/js/bootstrap.min.js"></script>
 

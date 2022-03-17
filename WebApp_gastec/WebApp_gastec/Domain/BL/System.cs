@@ -40,7 +40,6 @@ namespace WebApp_gastec.Domain
 
             using (StreamReader reader = new StreamReader(fuulPath_))
             {
-                string Final;
                 string line = "";
                 StringBuilder stringBuilder = new StringBuilder();
                 while ((line = reader.ReadLine()) != null)
@@ -69,6 +68,7 @@ namespace WebApp_gastec.Domain
                 return Final;
             }
         }
+        // Function to gt Video Image
         public string getYouTubeThumbnail(string YoutubeUrl)
         {
             string youTubeThumb = string.Empty;

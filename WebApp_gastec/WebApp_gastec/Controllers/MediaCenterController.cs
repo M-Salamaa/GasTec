@@ -20,7 +20,7 @@ namespace WebApp_gastec.Controllers
         private async Task CachedAllImagesAsync(HomePageViewModel model_, string folderName_)
         {
             #region Caching images returned from API 
-            CacheImages cachedImages = new CacheImages(_hostingEnvironment);
+            Cache cachedImages = new Cache(_hostingEnvironment);
             foreach (var entity in model_.Sub_Section)
             {
                 if (entity.LstWebSections.Count > 0)
@@ -47,7 +47,7 @@ namespace WebApp_gastec.Controllers
         private async Task CachedAllIPhotoCentermagesAsync(HomePageViewModel model_, string folderName_)
         {
             #region Caching images returned from API 
-            CacheImages cachedImages = new CacheImages(_hostingEnvironment);
+            Cache cachedImages = new Cache(_hostingEnvironment);
             foreach (var entity in model_.Sub_Section)
             {
                 foreach (var classification in entity.LstChildClassification)
@@ -67,7 +67,7 @@ namespace WebApp_gastec.Controllers
         private async Task CacheAllNewsImages(HomePageViewModel model_, string folderName_)
         {
             #region caching images 
-            CacheImages cachedImages = new CacheImages(_hostingEnvironment);
+            Cache cachedImages = new Cache(_hostingEnvironment);
             foreach (var entity in model_.NewsTopics.LstNews)
             {
                 entity.ImageGUID = await cachedImages.CahceAllImageAsync(folderName_, entity.ImageGUID, entity.ImageLink);

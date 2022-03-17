@@ -10,7 +10,7 @@
 <!-- Page Title-->
 <section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/Stations.jpg');">
     <div class="auto-container">
-        @foreach (var entity in Model.Stations_Categories)
+        @foreach (var entity in Model.Sub_Section)
         {
             <!-- <h1>@entity.ClassificationName  </h1>-->
         }
@@ -23,7 +23,7 @@
         <div class="inner-container clearfix">
             <ul class="bread-crumb pull-right">
                 <li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
-                @foreach (var entity in Model.Stations_Categories)
+                @foreach (var entity in Model.Sub_Section)
                 {
                     <li>@entity.ClassificationName</li>
                 }
@@ -42,7 +42,7 @@
                     <div id="sidenavelist">
                         <div class="sidebar-widget sidebar-blog-category">
                             <ul class="blog-cat">
-                                @foreach (var mainSection in Model.Stations_Main)
+                                @foreach (var mainSection in Model.Main_Section)
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
@@ -72,7 +72,7 @@
                         <div id="cmspage1">
                             <!--//end backend to retrieve variables  -->
                             <!--//Start backend to retrieve variables  -->
-                            @foreach (var station in Model.Stations_Categories)
+                            @foreach (var station in Model.Sub_Section)
                             {
                                 <h2>
                                     @station.ClassificationName
@@ -86,17 +86,18 @@
                                         {
                                             @if (webSection.WebSectionID == 231 || webSection.WebSectionID == 233 || webSection.WebSectionID == 127 || webSection.WebSectionID == 130 || webSection.WebSectionID == 136 || webSection.WebSectionID == 142 || webSection.WebSectionID == 148)
                                             {
-                                                <img src="~/Images/Integrated_Stations/@image.ImageGUID">
+                                                <img src="~/Images/Integrated_Stations/@image.ImageGUID" style="padding:10px">
                                             }
                                             else if (webSection.WebSectionID == 232 || webSection.WebSectionID == 128 || webSection.WebSectionID == 129 || webSection.WebSectionID == 137)
                                             {
-                                                <img src="~/Images/Integrated_Stations/@image.ImageGUID" style="height: 200px; width: 300px;">
+                                                <img src="~/Images/Integrated_Stations/@image.ImageGUID" style="height: 200px; width: 300px; padding: 10px">
                                             }
                                             else if (webSection.WebSectionID == 149 || webSection.WebSectionID == 143)
                                             {
-                                                <img src="~/Images/Integrated_Stations/@image.ImageGUID">
+                                                <img src="~/Images/Integrated_Stations/@image.ImageGUID" style="padding:10px">
                                             }
                                         }
+                                        <p> &nbsp; &nbsp; </p>
                                     }
                                 </div>
                             }

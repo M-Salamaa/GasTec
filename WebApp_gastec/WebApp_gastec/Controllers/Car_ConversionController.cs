@@ -18,7 +18,7 @@ namespace WebApp_gastec.Controllers
         }
         private void ActivateSelectedForMainCategories(HomePageViewModel model_, string id_)
         {
-            foreach (var child in model_.Car_ConversionMain)
+            foreach (var child in model_.Main_Section)
             {
                 foreach (var classification in child.LstChildClassification)
                 {
@@ -28,27 +28,27 @@ namespace WebApp_gastec.Controllers
             }
         }
         // Caching All HTML Links Returned From API via Model
-        private async Task CachedAllHtmlLinksAsync(HomePageViewModel model_, string folderName_)
+        private void CachedAllHtmlLinks(HomePageViewModel model_, string folderName_)
         {
             string path = "";
             #region Caching Html Links Returned from API
             //Create Instance from Caching Image Class
-            CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
+            Cache cachedHtml = new Cache(_hostingEnvironment);
             //Create Instance from System Class
             Domain.System system = new Domain.System();
-            foreach (var entity in model_.Car_ConversionCategory)
+            foreach (var entity in model_.Sub_Section)
             {
                 if (entity.LstWebSections.Count > 0)
                 {
                     foreach (var webSection in entity.LstWebSections)
                     {
-                        path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
+                        path = cachedHtml.CahceAllHtmlLinks(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
                         webSection.Body = Domain.System.ReadFileAsStringForBody(path);
                     }
                 }
                 else
                 {
-                    path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
+                    path = cachedHtml.CahceAllHtmlLinks(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
                     entity.Body = Domain.System.ReadFileAsStringForBody(path);
                 }
             }
@@ -59,8 +59,8 @@ namespace WebApp_gastec.Controllers
         {
             #region Caching images returned from API 
             //Create Instance from Caching Image Class
-            CacheImages cachedImages = new CacheImages(_hostingEnvironment);
-            foreach (var entity in model_.Car_ConversionCategory)
+            Cache cachedImages = new Cache(_hostingEnvironment);
+            foreach (var entity in model_.Sub_Section)
             {
                 // Check if there are a List of Web Sections
                 if (entity.LstWebSections.Count > 0)
@@ -92,9 +92,9 @@ namespace WebApp_gastec.Controllers
                 // Consuming Main Navigation bar from Classification Tree API 
                 MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
                 // Consuming Main Menu of Car Conversion Section from Classification Tree API 
-                Car_ConversionMain = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("3"), Domain.System.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("3"), Domain.System.Encrypt("0")),
                 // Consuming Sub Categories of car Conversion Section from Classification Tree API 
-                Car_ConversionCategory = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
+                Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
 
             };
             return homePageViewModel;
@@ -105,7 +105,7 @@ namespace WebApp_gastec.Controllers
             var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt(ID_));
             ActivateSelectedForMainCategories(model, ID_);
             await CachedAllImagesAsync(model, "Car_Conversion");
-            await CachedAllHtmlLinksAsync(model, "Car_Conversion");
+            CachedAllHtmlLinks(model, "Car_Conversion");
             return View(model);
         }
     }

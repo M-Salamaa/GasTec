@@ -10,7 +10,7 @@
 <!-- Page Title-->
 <section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/Stations.jpg');">
     <div class="auto-container">
-        @foreach (var entity in Model.Stations_Categories)
+        @foreach (var entity in Model.Sub_Section)
         {
             <!-- <h1>@entity.ClassificationName  </h1>-->
         }
@@ -23,7 +23,7 @@
         <div class="inner-container clearfix">
             <ul class="bread-crumb pull-right">
                 <li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
-                @foreach (var entity in Model.Stations_Categories)
+                @foreach (var entity in Model.Sub_Section)
                 {
                     <li>@entity.ClassificationName</li>
                 }
@@ -42,7 +42,7 @@
                     <div id="sidenavelist">
                         <div class="sidebar-widget sidebar-blog-category">
                             <ul class="blog-cat">
-                                @foreach (var mainSection in Model.Stations_Main)
+                                @foreach (var mainSection in Model.Main_Section)
                                 {
                                     @foreach (var entity in mainSection.LstChildClassification)
                                     {
@@ -68,7 +68,7 @@
             </div>
             <!--Content Side-->
             <div class="content-side pull-left col-lg-9 col-md-8 col-sm-12 col-xs-12">
-                @foreach (var entity in Model.Stations_Categories)
+                @foreach (var entity in Model.Sub_Section)
                 {
                     // Check if ID = 26 for Natural Gas Stations
                     @if (entity.ClassificationID == 26)
@@ -239,42 +239,40 @@
                                     <div style="font-size:14px; position:relative">
                                         @foreach (var webSection in entity.LstWebSections)
                                         {
-                                            <p>&nbsp;</p>
-                                            <p>
-                                                @Html.Raw(webSection.Body)
-                                                @foreach (var image in webSection.LstImages)
+
+                                            @Html.Raw(webSection.Body)
+                                            @foreach (var image in webSection.LstImages)
+                                            {
+                                                @if (webSection.WebSectionID == 104)
                                                 {
-                                                    @if (webSection.WebSectionID == 104)
-                                                    {
-                                                        <img src="~/Images/Stations/@image.ImageGUID" style="height: 230px; width: 400px; margin: 10px;">
-                                                    }
-                                                    else if (webSection.WebSectionID == 107)
-                                                    {
-                                                        <img src="~/Images/Stations/@image.ImageGUID" style="height: 117px; width: 250px; float: left;">
-                                                    }
-                                                    else if (webSection.WebSectionID == 109)
-                                                    {
-                                                        <img src="~/Images/Stations/@image.ImageGUID" style="float: left; height: 149px; width: 150px; margin: 10px;">
-                                                    }
-                                                    else if (webSection.WebSectionID == 111)
-                                                    {
-                                                        <img src="~/Images/Stations/@image.ImageGUID" style="height: 232px; width: 900px;">
-                                                    }
-                                                    else if (webSection.WebSectionID == 112)
-                                                    {
-                                                        <img src="~/Images/Stations/@image.ImageGUID" style="height: 243px; width: 900px;">
-                                                    }
-                                                    else if (webSection.WebSectionID == 114)
-                                                    {
-                                                        <img src="~/Images/Stations/@image.ImageGUID" style="height: 292px; width: 500px;">
-                                                    }
-                                                    else
-                                                    {
-                                                        <img src="~/Images/Stations/@image.ImageGUID">
-                                                    }
+                                                    <img src="~/Images/Stations/@image.ImageGUID" style="height: 230px; width: 400px; margin: 10px;">
                                                 }
-                                            </p>
-                                            <p>&nbsp;</p>
+                                                else if (webSection.WebSectionID == 107)
+                                                {
+                                                    <img src="~/Images/Stations/@image.ImageGUID" style="height: 117px; width: 250px; float: left;">
+                                                }
+                                                else if (webSection.WebSectionID == 109)
+                                                {
+                                                    <img src="~/Images/Stations/@image.ImageGUID" style="float: left; height: 149px; width: 150px; margin: 5px;">
+                                                }
+                                                else if (webSection.WebSectionID == 111)
+                                                {
+                                                    <img src="~/Images/Stations/@image.ImageGUID" style="height: 232px; width: 900px;">
+                                                }
+                                                else if (webSection.WebSectionID == 112)
+                                                {
+                                                    <img src="~/Images/Stations/@image.ImageGUID" style="height: 243px; width: 900px; ">
+                                                }
+                                                else if (webSection.WebSectionID == 114)
+                                                {
+                                                    <img src="~/Images/Stations/@image.ImageGUID" style="height: 292px; width: 500px; margin:10px">
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Images/Stations/@image.ImageGUID">
+                                                }
+                                                <p>&nbsp;</p>
+                                            }
                                             <hr />
                                         }
                                     </div>
@@ -299,11 +297,11 @@
                                                 {
                                                     @if (webSection.WebSectionID == 100)
                                                     {
-                                                        <img src="~/Images/Stations/@image.ImageGUID" style="height: 309px; width: 400px;">
+                                                        <img src="~/Images/Stations/@image.ImageGUID" style="height: 309px; width: 400px; padding:5px">
                                                     }
                                                     else if (webSection.WebSectionID == 101)
                                                     {
-                                                        <img src="~/Images/Stations/@image.ImageGUID">
+                                                        <img src="~/Images/Stations/@image.ImageGUID" style="max-width:100% ; height:auto">
 
                                                     }
                                                     else
@@ -334,12 +332,13 @@
                                                     @Html.Raw(entity.Body)
                                                 </span>
                                             </strong>
-                                            @foreach (var image in entity.LstImages)
-                                            {
-                                                <span style="font-family:Arial,Helvetica,sans-serif;">
-                                                    <img src="~/Images/Stations/@image.ImageGUID" style="height: 267px; width: 400px;">
-                                                </span>
-                                            }
+                                        <p>&nbsp;</p>
+                                        @foreach (var image in entity.LstImages)
+                                        {
+                                            <span style="font-family:Arial,Helvetica,sans-serif;">
+                                                <img src="~/Images/Stations/@image.ImageGUID" style="height: 267px; width: 400px;">
+                                            </span>
+                                        }
                                         </p>
                                     </div>
                                 </div>

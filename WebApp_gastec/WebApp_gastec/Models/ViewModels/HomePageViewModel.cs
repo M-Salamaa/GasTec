@@ -18,27 +18,7 @@ namespace WebApp_gastec.Models
         public OutputGetNewsTopicsModel NewsTopics { get; set; }
         public List<OutputGetCities> Cities { get; set; }
         public List<OutputGetClassificationTreeModel> MapFiles { get; set; }
-        // *********************************************************************** 
-        public List<OutputGetClassificationTreeModel> AboutUs { get; set; }
-        public List<OutputGetClassificationTreeModel> AboutUsSection { get; set; }
         public List<OutputGetClassificationTreeModel> HR { get; set; }
-        // *********************************************************************** 
-        public List<OutputGetClassificationTreeModel> Car_ConversionMain { get; set; }
-        public List<OutputGetClassificationTreeModel> Car_ConversionCategory { get; set; }
-        // *********************************************************************** 
-        public List<OutputGetClassificationTreeModel> Cylindar_Test_Main { get; set; }
-        public List<OutputGetClassificationTreeModel> Cylindar_Test_Categories { get; set; }
-        // *********************************************************************** 
-        public List<OutputGetClassificationTreeModel> Stations_Main { get; set; }
-        public List<OutputGetClassificationTreeModel> Stations_Categories { get; set; }
-
-        // *********************************************************************** 
-        public List<OutputGetClassificationTreeModel> Statistics_Main{ get; set; }
-        public List<OutputGetClassificationTreeModel> Statistics_Categories { get; set; }
-        // *********************************************************************** 
-        public List<OutputGetClassificationTreeModel> Oil_Main { get; set; }
-        public List<OutputGetClassificationTreeModel> Oil_Categories { get; set; }
-        // *********************************************************************** 
         public List<OutputGetClassificationTreeModel> Main_Section { get; set; }
         public List<OutputGetClassificationTreeModel> Sub_Section { get; set; }
         public List<OutPutGetNewsGroupModel> News_Group { get; set; }

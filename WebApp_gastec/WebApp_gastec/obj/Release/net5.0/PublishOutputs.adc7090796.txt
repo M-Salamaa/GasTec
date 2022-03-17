@@ -164,8 +164,10 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\News\19artice.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\News\20artice.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\News\24artice.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\News\27artice.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\News\38artice.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\News\3artice.html
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\News\40artice.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\News\4artice.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\News\5artice.html
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\HtmlFiles\News\6artice.html
@@ -1474,6 +1476,11 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\src\json\ar-bu\oil-distribution.json2021-08-17 141627
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\src\json\ar-bu\petrol-station.json
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\src\json\ar-bu\petrol-station.json2021-08-17 141746
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\src\json\ar\126-1-01-03-202212-28-52PM.txt
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\src\json\ar\126-1-01-03-202212-29-10PM.txt
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\src\json\ar\126-1-01-03-202212-32-38PM.txt
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\src\json\ar\126-1-01-03-202212-32-47PM.txt
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\src\json\ar\126-1-24-02-202210-36-27AM.txt
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\src\json\ar\convert-centers.json
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\src\json\ar\cylinder-test.json
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\PubTmp\Out\wwwroot\public\src\json\ar\gas-station.json

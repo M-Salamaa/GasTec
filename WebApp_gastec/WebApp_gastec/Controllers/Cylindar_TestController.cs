@@ -17,11 +17,11 @@ namespace WebApp_gastec.Controllers
         {
             _hostingEnvironment = hostingEnvironment;
         }
-        private async Task CachedAllHtmlLinksAsync(HomePageViewModel model_, string folderName_)
+        private void CachedAllHtmlLinks(HomePageViewModel model_, string folderName_)
         {
             string path = "";
             #region Caching Html Links Returned from API
-            CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
+            Cache cachedHtml = new Cache(_hostingEnvironment);
             Domain.System system = new Domain.System();
             foreach (var entity in model_.Sub_Section)
             {
@@ -29,13 +29,13 @@ namespace WebApp_gastec.Controllers
                 {
                     foreach (var webSection in entity.LstWebSections)
                     {
-                        path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
+                        path = cachedHtml.CahceAllHtmlLinks(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
                         webSection.Body = Domain.System.ReadFileAsStringForBody(path);
                     }
                 }
                 else
                 {
-                    path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
+                    path = cachedHtml.CahceAllHtmlLinks(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
                     entity.Body = Domain.System.ReadFileAsStringForBody(path);
                 }
             }
@@ -45,7 +45,7 @@ namespace WebApp_gastec.Controllers
         private async Task CachedAllImagesAsync(HomePageViewModel model_, string folderName_)
         {
             #region Caching images returned from API 
-            CacheImages cachedImages = new CacheImages(_hostingEnvironment);
+            Cache cachedImages = new Cache(_hostingEnvironment);
             foreach (var entity in model_.Sub_Section)
             {
                 if (entity.LstWebSections.Count > 0)
@@ -95,7 +95,7 @@ namespace WebApp_gastec.Controllers
                 }
             }
             await CachedAllImagesAsync(model, "Cylinder_Testing");
-            await CachedAllHtmlLinksAsync(model, "Cylinder_Testing");
+            CachedAllHtmlLinks(model, "Cylinder_Testing");
             return View(model);
         }
     }

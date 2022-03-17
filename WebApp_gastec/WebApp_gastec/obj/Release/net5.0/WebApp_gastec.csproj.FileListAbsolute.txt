@@ -262,7 +262,6 @@ D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.Ra
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Catering_Stations\Stations.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Cylindar_Test\Index.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\_ShowMapPartial.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\MediaCenter\News.cshtml.g.cs
 D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Oil\SubCommercial.cshtml.g.cs

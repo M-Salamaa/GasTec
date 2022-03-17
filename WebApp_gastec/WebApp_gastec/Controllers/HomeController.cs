@@ -29,7 +29,7 @@ namespace WebApp_gastec.Controllers
         private async Task CachedAllImagesAsync(HomePageViewModel model_)
         {
             #region Caching images returned from API 
-            CacheImages cacheImages = new CacheImages(_hostingEnvironment);
+            Cache cacheImages = new Cache(_hostingEnvironment);
             //Caching main slider banners 
             foreach (var entity in model_.BannersHome)
             {
@@ -92,7 +92,7 @@ namespace WebApp_gastec.Controllers
         private async Task CacheAllNewsImages(HomePageViewModel model_, string folderName_)
         {
             #region caching images 
-            CacheImages cachedImages = new CacheImages(_hostingEnvironment);
+            Cache cachedImages = new Cache(_hostingEnvironment);
             if (model_.NewsTopics.LstNews.Count > 0)
             {
                 foreach (var entity in model_.NewsTopics.LstNews)
@@ -112,16 +112,16 @@ namespace WebApp_gastec.Controllers
             }
             #endregion
         }
-
-        private async Task CacheAllHtmlforNewsDetails(HomePageViewModel model_, string folderName_)
+        // Caching HTML for News Details
+        private void CacheAllHtmlforNewsDetails(List<OutputGetNewsDetails> newsDetailsModel_, string folderName_)
         {
             string path = "";
             #region caching html 
-            CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
-            foreach (var entitiy in model_.News_Details)
+            Cache cachedHtml = new Cache(_hostingEnvironment);
+            foreach (var entitiy in newsDetailsModel_)
             {
                 entitiy.Topic_Name = entitiy.Serial.ToString() + "artice";
-                path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entitiy.Topic_Name, entitiy.NewsTopic_HTMLLink);
+                path = cachedHtml.CahceAllHtmlLinks(folderName_, entitiy.Topic_Name, entitiy.NewsTopic_HTMLLink);
                 entitiy.body = Domain.System.ReadFileAsStringForBody(path);
             }
             #endregion
@@ -153,10 +153,10 @@ namespace WebApp_gastec.Controllers
                 //Consuming Map Files from Classification Tree API
                 MapFiles = await API_GetMapFiles.GetMapFilesAsync(Domain.System.Encrypt("1")),
             };
-            // Caching all images Returned in home page view model
-            await CachedAllImagesAsync(homePageViewModel);
+         
             return homePageViewModel;
         }
+        // Function To Return View Model for All News
         private async Task<HomePageViewModel> GetNewsModel()
         {
             HomePageViewModel homePageViewModel = new()
@@ -172,7 +172,7 @@ namespace WebApp_gastec.Controllers
             };
             return homePageViewModel;
         }
-
+        // Function To Return View Model for News Details
         private async Task<HomePageViewModel> GetNewsDetailsModel(int serial_)
         {
             HomePageViewModel homePageViewModel = new()
@@ -200,20 +200,18 @@ namespace WebApp_gastec.Controllers
         {
             var model = await this.GetNewsDetailsModel(serial_);
             await CacheAllNewsImages(model, "News");
-            await CacheAllHtmlforNewsDetails(model, "News");
+            CacheAllHtmlforNewsDetails(model.News_Details, "News");
             return View(model);
 
         }
-        // Action for home page loading
+        // Action for Index View (Home PAge)
         public async Task<IActionResult> IndexAsync()
         {
             // return Model to Display in Home Page
             var model = await this.GetHomeViewModelAsync();
+            // Caching all images Returned in home page view model
+            await CachedAllImagesAsync(model);
             return View(model);
-        }
-        public IActionResult Privacy()
-        {
-            return View();
         }
         // Action to partial view to Display Map
         [HttpPost]
@@ -227,12 +225,7 @@ namespace WebApp_gastec.Controllers
             model.latitude = latitude;
             return PartialView(model);
         }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-        // need to change it download files and caching it
+        // Action to return Json Files For Map From Specified Location with Specific Government ID
         public IActionResult ReturnJsonFile(string filepath, int government_)
         {
             string finalPath = "wwwroot/public/src/json/ar/" + filepath + ".json";
@@ -256,6 +249,7 @@ namespace WebApp_gastec.Controllers
             }
             return PartialView("_ReturnJsonFile");
         }
+        //Action For Contact US Popup
         [HttpPost]
         public ActionResult ContactUs(HomePageViewModel contactModel_)
         {
@@ -292,6 +286,7 @@ namespace WebApp_gastec.Controllers
             return RedirectToAction("Index");
 
         }
+        // Action For Contact US View
         public IActionResult Contacts(HomePageViewModel contactModel_)
         {
             HomePageViewModel homePageViewModel = new HomePageViewModel()
@@ -311,7 +306,7 @@ namespace WebApp_gastec.Controllers
                         DatabaseName = Gastech_Vault.DatabaseName,
                         EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
                         ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
-                        Subject = "Contact Us:" + homePageViewModel.ContactUs.Name,
+                        Subject = "Contact Us: " + homePageViewModel.ContactUs.Name,
                         RequestDetails = homePageViewModel.ContactUs.Message,
                         SecurityDetails = homePageViewModel.ContactUs.Name + "\r\r\r\n" + homePageViewModel.ContactUs.Email + "\r\r\r\n" + homePageViewModel.ContactUs.PhoneNumber,
                         EncryptedPageURL = Domain.System.Encrypt(Gastech_Vault.baseURL)
@@ -331,6 +326,7 @@ namespace WebApp_gastec.Controllers
             }
             return View(homePageViewModel);
         }
+        // Action For Conversion Form View
         public async Task<IActionResult> Conversion_FormAsync(HomePageViewModel contactModel_)
         {
             HomePageViewModel homePageViewModel = new HomePageViewModel()
@@ -353,7 +349,7 @@ namespace WebApp_gastec.Controllers
                         DatabaseName = Gastech_Vault.DatabaseName,
                         EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
                         ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
-                        Subject = "Conversion Request:" + homePageViewModel.Car_Conversion.Name,
+                        Subject = "Conversion Request: " + homePageViewModel.Car_Conversion.Name,
                         RequestDetails = homePageViewModel.Car_Conversion.Name + "\r\r\r\n" + homePageViewModel.Car_Conversion.PhoneNumber + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Model + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Type +
                          "\r\r\r\n" + homePageViewModel.Car_Conversion.Country + "\r\r\r\n" + homePageViewModel.Car_Conversion.ValidationNumber,
                         SecurityDetails = homePageViewModel.Car_Conversion.Name + "\r\r\r\n" + homePageViewModel.Car_Conversion.PhoneNumber + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Model + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Type +
@@ -375,7 +371,7 @@ namespace WebApp_gastec.Controllers
             }
             return View(homePageViewModel);
         }
-        // Function To Cache All Json Files
+        // Function To Cache All Json Files for Map
         private void CacheAllFiles(List<OutputGetClassificationTreeModel> model_)
         {
             CacheFiles cacheedFile = new CacheFiles(_hostingEnvironment);
@@ -387,5 +383,11 @@ namespace WebApp_gastec.Controllers
                 }
             }
         }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
     }
 }

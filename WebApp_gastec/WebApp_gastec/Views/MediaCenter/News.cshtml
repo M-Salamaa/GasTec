@@ -57,13 +57,13 @@
                                         @if (entity.IsActive == true)
                                         {
                                             <li class="active">
-                                                <a href="@Url.Action("SubSections", "MediaCenter", new { GroupId_ = entity.ClassificationID})">@entity.ClassificationName</a>
+                                                <a href="@Url.Action("Index", "MediaCenter", new { GroupId_ = entity.ClassificationID})">@entity.ClassificationName</a>
                                             </li>
                                         }
                                         else
                                         {
                                             <li>
-                                                <a href="@Url.Action("SubSections", "MediaCenter", new { GroupId_ = entity.ClassificationID})">@entity.ClassificationName</a>
+                                                <a href="@Url.Action("Index", "MediaCenter", new { GroupId_ = entity.ClassificationID})">@entity.ClassificationName</a>
                                             </li>
                                         }
                                     }
@@ -116,7 +116,7 @@
                                                 <div class="news-block col-md-3 col-sm-6 col-xs-12 wow fadeIn pull-right" style="float:right" margin-top:20px">
                                                     <div class="inner-box">
                                                         <div class="image">
-                                                            <a href="@topic.ImageLink">
+                                                            <a href="@Url.Action("NewsDetails", "Home", new { serial_ = topic.Serial})">
                                                                 <img src="~/Images/MediaCenter_NewsSection/@topic.ImageGUID" style="height:150px" alt="">
                                                             </a>
                                                         </div>
@@ -125,11 +125,11 @@
                                                                 @topic.TopicDate.ToShortDateString()
                                                             </div>
                                                             <h3 >
-                                                                <a href="#" class="theme-btn read-more" style="margin-top: 10px;">
+                                                                <a href="@Url.Action("NewsDetails", "Home", new { serial_ = topic.Serial})" class="theme-btn read-more" style="margin-top: 10px;">
                                                                     @topic.NewsTitle
                                                                 </a>
                                                             </h3>
-                                                            <a href="#" class="theme-btn read-more" style="margin-top: 10px; font-size: 14px;">
+                                                            <a href="@Url.Action("NewsDetails", "Home", new { serial_ = topic.Serial})" class="theme-btn read-more" style="margin-top: 10px; font-size: 14px;">
                                                                 إقرأ المزيد
                                                                 <span class="icon flaticon-left-arrow" style="margin-right: 10px;font-size: 20px;vertical-align: sub;"></span>
                                                             </a>

@@ -18,7 +18,7 @@ namespace WebApp_gastec.Controllers
         }
         private void ActivateSelectedForMainCategories(HomePageViewModel model_, string id_)
         {
-            foreach (var child in model_.Stations_Main)
+            foreach (var child in model_.Main_Section)
             {
                 foreach (var classification in child.LstChildClassification)
                 {
@@ -27,25 +27,25 @@ namespace WebApp_gastec.Controllers
                 }
             }
         }
-        private async Task CachedAllHtmlLinksAsync(HomePageViewModel model_, string folderName_)
+        private void CachedAllHtmlLinks(HomePageViewModel model_, string folderName_)
         {
             string path = "";
             #region Caching Html Links Returned from API
-            CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
+            Cache cachedHtml = new Cache(_hostingEnvironment);
             Domain.System system = new Domain.System();
-            foreach (var entity in model_.Stations_Categories)
+            foreach (var entity in model_.Sub_Section)
             {
                 if (entity.LstWebSections.Count > 0)
                 {
                     foreach (var webSection in entity.LstWebSections)
                     {
-                        path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
+                        path = cachedHtml.CahceAllHtmlLinks(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
                         webSection.Body = Domain.System.ReadFileAsStringForBody(path);
                     }
                 }
                 else
                 {
-                    path = await cachedHtml.CahceAllHtmlLinksAsync(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
+                    path = cachedHtml.CahceAllHtmlLinks(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
                     entity.Body = Domain.System.ReadFileAsStringForBody(path);
                 }
             }
@@ -55,8 +55,8 @@ namespace WebApp_gastec.Controllers
         private async Task CachedAllImagesAsync(HomePageViewModel model_, string folderName_)
         {
             #region Caching images returned from API 
-            CacheImages cachedImages = new CacheImages(_hostingEnvironment);
-            foreach (var entity in model_.Stations_Categories)
+            Cache cachedImages = new Cache(_hostingEnvironment);
+            foreach (var entity in model_.Sub_Section)
             {
                 if (entity.LstWebSections.Count > 0)
                 {
@@ -88,9 +88,9 @@ namespace WebApp_gastec.Controllers
                 // Consuming Main Menu from Classification Tree API 
                 MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
                 // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Stations_Main = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("4"), Domain.System.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("4"), Domain.System.Encrypt("0")),
                 // Consuming Cylindar Category from Classification Tree API 
-                Stations_Categories = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
+                Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
 
             };
             return homePageViewModel;
@@ -100,22 +100,22 @@ namespace WebApp_gastec.Controllers
         {
             var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt(ID_));
             await CachedAllImagesAsync(model, "Integrated_Stations");
-            await CachedAllHtmlLinksAsync(model, "Integrated_Stations");
+            CachedAllHtmlLinks(model, "Integrated_Stations");
             return View(model);
         }
 
         public async Task<IActionResult> Index(string ID_)
         {
-            CacheImages cachedHtml = new CacheImages(_hostingEnvironment);
+            Cache cachedHtml = new Cache(_hostingEnvironment);
             var model = new HomePageViewModel();
             if (ID_ == "28")
             {
                 model = this.GetHomeViewModel(Domain.System.Encrypt(ID_), Domain.System.Encrypt("0"));
                 await CachedAllImagesAsync(model, "Stations");
-                await CachedAllHtmlLinksAsync(model, "Stations");
-                foreach (var entity in model.Stations_Categories)
+                CachedAllHtmlLinks(model, "Stations");
+                foreach (var entity in model.Sub_Section)
                 {
-                    string path = await cachedHtml.CahceAllHtmlLinksAsync("Stations", entity.HTML_GUID, entity.Classification_HTMLLink);
+                    string path = cachedHtml.CahceAllHtmlLinks("Stations", entity.HTML_GUID, entity.Classification_HTMLLink);
                     entity.Body = Domain.System.ReadFileAsStringForBody(path);
                     foreach (var image in entity.LstImages)
                     {
@@ -127,7 +127,7 @@ namespace WebApp_gastec.Controllers
             {
                 model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt(ID_));
                 await CachedAllImagesAsync(model, "Stations");
-                await CachedAllHtmlLinksAsync(model, "Stations");
+                CachedAllHtmlLinks(model, "Stations");
             }
             ActivateSelectedForMainCategories(model, ID_);
             return View(model);

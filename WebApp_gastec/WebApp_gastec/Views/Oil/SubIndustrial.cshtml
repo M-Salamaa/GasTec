@@ -10,7 +10,7 @@
 <!-- Page Title-->
 <section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/4.jpg');">
     <div class="auto-container">
-        @foreach (var entity in Model.Oil_Categories)
+        @foreach (var entity in Model.Sub_Section)
         {
             <!-- <h1>@entity.ClassificationName  </h1>-->
         }
@@ -23,7 +23,7 @@
         <div class="inner-container clearfix">
             <ul class="bread-crumb pull-right">
                 <li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
-                @foreach (var entity in Model.Oil_Main)
+                @foreach (var entity in Model.Main_Section)
                 {
                     <li>@entity.ClassificationName</li>
                 }
@@ -39,7 +39,7 @@
         <div class="row clearfix">
             <!--Content Side-->
             <div id="imgfull">
-                @foreach (var entity in Model.Oil_Categories)
+                @foreach (var entity in Model.Sub_Section)
                 {
                     <div class="sidebar-side col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-right text-right">
                         <img src="~/Images/Industrial_Oil/@entity.LstImages.Select(x=>x.ImageGUID).FirstOrDefault().ToString()" alt="">

@@ -8,7 +8,7 @@
 <!--Page Title-->
 <section class="page-title" style="background-image:url('../../wwwroot/public/assets/softextwo/images/background/hr.jpg');">
     <div class="auto-container">
-        @foreach (var section in Model.AboutUsSection)
+        @foreach (var section in Model.Main_Section)
         {
             @foreach (var entity in section.LstChildClassification)
             {
@@ -34,7 +34,7 @@
                         عن غازتك
                     </a>
                 </li>
-                @foreach (var entity in Model.AboutUsSection)
+                @foreach (var entity in Model.Main_Section)
                 {
                     <li>@entity.ClassificationName</li>
                 }
@@ -71,7 +71,7 @@
                     </div>
                 </aside>
             </div>
-            @foreach (var entity in Model.AboutUsSection)
+            @foreach (var entity in Model.Main_Section)
             {
                 <!--Content Side-->
                 // check if ID = 15 for Management Section
@@ -165,7 +165,7 @@
                 //Check if ID = 18 for Organiztional Section
                 else if (entity.ClassificationID == 18)
                 {
-
+                    continue;
                 }
                 //Check if ID = 78 for Relations Section
                 else if (entity.ClassificationID == 78)
