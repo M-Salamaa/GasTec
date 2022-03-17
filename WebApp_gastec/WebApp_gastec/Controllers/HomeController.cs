@@ -153,7 +153,7 @@ namespace WebApp_gastec.Controllers
                 //Consuming Map Files from Classification Tree API
                 MapFiles = await API_GetMapFiles.GetMapFilesAsync(Domain.System.Encrypt("1")),
             };
-
+         
             return homePageViewModel;
         }
         // Function To Return View Model for All News
@@ -266,7 +266,7 @@ namespace WebApp_gastec.Controllers
                         DatabaseName = Gastech_Vault.DatabaseName,
                         EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
                         ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
-                        Subject = "Contact Us",
+                        Subject = "Contact Us:" + model.Name,
                         RequestDetails = model.Message,
                         SecurityDetails = model.Name + "\r\r\r\n" + model.Email + "\r\r\r\n" + model.PhoneNumber,
                         EncryptedPageURL = Domain.System.Encrypt(Gastech_Vault.baseURL)
@@ -306,7 +306,7 @@ namespace WebApp_gastec.Controllers
                         DatabaseName = Gastech_Vault.DatabaseName,
                         EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
                         ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
-                        Subject = "Contact Us",
+                        Subject = "Contact Us: " + homePageViewModel.ContactUs.Name,
                         RequestDetails = homePageViewModel.ContactUs.Message,
                         SecurityDetails = homePageViewModel.ContactUs.Name + "\r\r\r\n" + homePageViewModel.ContactUs.Email + "\r\r\r\n" + homePageViewModel.ContactUs.PhoneNumber,
                         EncryptedPageURL = Domain.System.Encrypt(Gastech_Vault.baseURL)
@@ -349,7 +349,7 @@ namespace WebApp_gastec.Controllers
                         DatabaseName = Gastech_Vault.DatabaseName,
                         EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
                         ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
-                        Subject = "Conversion Request",
+                        Subject = "Conversion Request: " + homePageViewModel.Car_Conversion.Name,
                         RequestDetails = homePageViewModel.Car_Conversion.Name + "\r\r\r\n" + homePageViewModel.Car_Conversion.PhoneNumber + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Model + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Type +
                          "\r\r\r\n" + homePageViewModel.Car_Conversion.Country + "\r\r\r\n" + homePageViewModel.Car_Conversion.ValidationNumber,
                         SecurityDetails = homePageViewModel.Car_Conversion.Name + "\r\r\r\n" + homePageViewModel.Car_Conversion.PhoneNumber + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Model + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Type +
@@ -383,22 +383,11 @@ namespace WebApp_gastec.Controllers
                 }
             }
         }
-
-        public async Task<IActionResult> SearchResult(SearchInputModel searchModel_)
-        {
-            var model = new HomePageViewModel()
-            {
-                // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
-                // Consuming Search Result using Key Word
-                searchResult = await API_GetSearchResult.GetSearchResult(searchModel_),
-            };
-            return View(model);
-        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
