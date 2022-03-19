@@ -25,6 +25,8 @@ namespace WebApp_gastec.Models
         public List<OutputGetNewsDetails> News_Details { get; set; }
         public ContactUsViewModel ContactUs { get; set; }
         public ConversionFormModel Car_Conversion { get; set; }
+        public OutputSearchModel searchResult { get; set; }
+        public SearchInputModel searchInput { get; set; }
         public string WebSectionID { get; set; }
         public bool IsActive { get; set; }
         public int ValidationNumber { get; set; }
