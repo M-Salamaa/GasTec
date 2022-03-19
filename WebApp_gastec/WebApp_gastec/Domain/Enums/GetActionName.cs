@@ -30,6 +30,23 @@ namespace WebApp_gastec.Domain
             }
             return sectionID_;
         }
+        public static string GetActionNameForSearch(string parentID_)
+        {
+            string actionName_ = "";
+            switch(parentID_)
+            {
+                case "28":
+                    actionName_ = "Stations";
+                    break ;
+                case "123":
+                    actionName_ = "HR";
+                    break;
+                default:
+                    actionName_ = "Index";
+                    break;
+            }
+            return actionName_;
+        }
       
 
     }

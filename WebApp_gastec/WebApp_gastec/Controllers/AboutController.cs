@@ -74,7 +74,7 @@ namespace WebApp_gastec.Controllers
             #endregion Caching images returned from API
         }
         // Get Model From API
-        private async Task<HomePageViewModel> GetHomeViewModelAsync(string encryptedClassificationId_, string encryptedTreeClassificationId_)
+        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_)
         {
             // Create Instance for home page view model to return Main Home Page View
             HomePageViewModel homePageViewModel = new()
@@ -112,7 +112,7 @@ namespace WebApp_gastec.Controllers
         // Route For Legal Entity Page
         public async Task<IActionResult> IndexAsync(string ID_)
         {
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("125"), Domain.System.Encrypt(ID_));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("125"), Domain.System.Encrypt(ID_));
             ActivateSelectedForMainCategories(model, ID_);
             await CachedAllImagesAsync(model, "AboutUS");
             CachedAllHtmlLinks(model, "AboutUs");
@@ -122,7 +122,7 @@ namespace WebApp_gastec.Controllers
         // Route For Human resource Page
         public async Task<IActionResult> HumanResourcesAsync(string ID_)
         {
-            var model = await this.GetHomeViewModelAsync(Domain.System.Encrypt("123"), Domain.System.Encrypt(ID_));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt("123"), Domain.System.Encrypt(ID_));
             ActivateSelectedForSubCategories(model, ID_);
             await CachedAllImagesAsync(model, "HumanResources");
             CachedAllHtmlLinks(model, "HumanResources");
