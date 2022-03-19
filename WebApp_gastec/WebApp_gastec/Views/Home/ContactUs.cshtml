@@ -57,26 +57,26 @@
 
                     <!--Contact Form-->
                     <div class="contact-form">
-                        <form method="post" asp-controller="Home" asp-action="ContactUs" id="contact-form" dir="rtl">
+                        <form method="post" action="" id="contact-form" dir="rtl">
                             <div class="row clearfix">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                    <input asp-for="@Model.ContactUs.Name" value="" placeholder="الإسم" required>
+                                    <input type="text" name="Name" value="" placeholder="{{ \App\System::getFinalText('Name') }}" required>
                                 </div>
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <input asp-for="@Model.ContactUs.Email" value="" placeholder="البريد الإلكترونى" required>
+                                    <input type="text" name="Email" value="" placeholder="{{ \App\System::getFinalText('Email') }}" required>
                                 </div>
 
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <input asp-for="@Model.ContactUs.PhoneNumber" value="" placeholder="رقم الهاتف" required>
+                                    <input type="text" name="UserPhone" value="" placeholder="{{ \App\System::getFinalText('Phone Number') }}" required>
                                 </div>
 
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                    <textarea asp-for="@Model.ContactUs.Message" placeholder="رسالتك"></textarea>
+                                    <textarea name="message" placeholder="{{ \App\System::getFinalText('Your Message') }}"></textarea>
                                 </div>
 
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                    <button asp-controller="Home" asp-action="ContactUs" class="theme-btn btn-style-one pull-right">إرسال</button>
+                                    <button type="submit" class="theme-btn btn-style-one pull-right">إرسال</button>
 
                                 </div>
                             </div>

@@ -384,14 +384,14 @@ namespace WebApp_gastec.Controllers
             }
         }
         // Check this Function
-        public async Task<IActionResult> SearchResult( HomePageViewModel model_)
+        public async Task<IActionResult> SearchResult(SearchInputModel searchModel_)
         {
             var model = new HomePageViewModel()
             {
                 // Consuming Main Menu from Classification Tree API 
                 MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
                 // Consuming Search Result using Key Word
-                searchResult = await API_GetSearchResult.GetSearchResult(model_.searchInput.keyWord_),
+                searchResult = await API_GetSearchResult.GetSearchResult(searchModel_),
             };
             return View(model);
         }

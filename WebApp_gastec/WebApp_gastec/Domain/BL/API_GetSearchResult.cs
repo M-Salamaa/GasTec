@@ -11,9 +11,9 @@ namespace WebApp_gastec.Domain
 {
     public class API_GetSearchResult
     {
-        public static async Task<OutputSearchModel> GetSearchResult(string keyWord_)
+        public static async Task<List<OutputSearchModel>> GetSearchResult(SearchInputModel model_)
         {
-            OutputSearchModel searchResult = new();
+            List<OutputSearchModel> searchResult = new List<OutputSearchModel>();
             using (var client = new HttpClient())
             {
                 StringBuilder ApiURL = new StringBuilder();
@@ -28,7 +28,7 @@ namespace WebApp_gastec.Domain
                 //Add Encrypted ExAppId 
                 ApiURL.Append($"&InputX.encryptedEXAppID={Gastech_Vault.EncryptedEXAppID}");
                 // Add Search KEy Word
-                ApiURL.Append($"&InputX.searchKeyWord={keyWord_}");
+                ApiURL.Append($"&InputX.searchKeyWord={model_.keyWord_}");
                 //Add Search In Tree = True
                 ApiURL.Append($"&InputX.searcInTree={true}");
                 //Add Search In News = True
@@ -41,10 +41,10 @@ namespace WebApp_gastec.Domain
 
 
                 var responseTask = await client.GetAsync(ApiURL.ToString());
-                if (responseTask.IsSuccessStatusCode)
+                if(responseTask.IsSuccessStatusCode)
                 {
                     var response = responseTask.Content.ReadAsStringAsync().Result;
-                    searchResult = JsonConvert.DeserializeObject<OutputSearchModel>(response);
+                    searchResult = JsonConvert.DeserializeObject<List<OutputSearchModel>>(response);
                 }
                 return searchResult;
             }
