@@ -147,10 +147,10 @@
                                         <ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu4">
                                             <li class="panel-outer">
                                                 <div class="form-container">
-                                                    <form method="get" action="https://www.gastec-egypt.com/public/searchresult">
+                                                    <form method="get" asp-controller="Home" asp-action="SearcResult">
                                                         <div class="form-group">
-                                                            <input type="text" name="keyword" value="" placeholder="Search Here" required="" />
-                                                            <button type="submit" class="search-btn"><span class="fa fa-search"></span></button>
+                                                            <input asp-for="@Model.searchInput.keyWord_" value="" placeholder="Search Here" required="" />
+                                                            <button asp-controller="Home" asp-action="SearchResult" type="submit" class="search-btn"><span class="fa fa-search"></span></button>
                                                         </div>
                                                     </form>
                                                 </div>

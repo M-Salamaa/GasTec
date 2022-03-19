@@ -6236,11 +6236,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Softex\\GasTec\\WebApp_gastec\\WebApp_gastec\\WebApp_gastec.csproj",
+      "projectUniqueName": "E:\\Softex\\GitHub\\GasTec\\WebApp_gastec\\WebApp_gastec\\WebApp_gastec.csproj",
       "projectName": "WebApp_gastec",
-      "projectPath": "E:\\Softex\\GasTec\\WebApp_gastec\\WebApp_gastec\\WebApp_gastec.csproj",
+      "projectPath": "E:\\Softex\\GitHub\\GasTec\\WebApp_gastec\\WebApp_gastec\\WebApp_gastec.csproj",
       "packagesPath": "C:\\Users\\Salama\\.nuget\\packages\\",
-      "outputPath": "E:\\Softex\\GasTec\\WebApp_gastec\\WebApp_gastec\\obj\\",
+      "outputPath": "E:\\Softex\\GitHub\\GasTec\\WebApp_gastec\\WebApp_gastec\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

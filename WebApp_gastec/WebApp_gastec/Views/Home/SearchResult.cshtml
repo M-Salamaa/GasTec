@@ -37,11 +37,10 @@
                     <h2>نتائج البحث</h2>
                     <hr>
                     <div id="searchblocks"></div>
-                    @foreach (var entity in Model.searchResult)
-                    {
+                 
                         <div class="row clearfix">
                             <div class="page-info">
-                                @if (entity.ListClassFicationTree != null)
+                                @if (Model.searchResult.ListClassFicationTree != null)
                                 {
                                     <div class="auto-container">
                                         <div class="inner-container clearfix text-right">
@@ -51,7 +50,7 @@
                                     <div class="team-column col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
                                         <div class="inner-column">
                                             <div class="row clearfix">
-                                                @foreach (var classification in entity.ListClassFicationTree)
+                                                @foreach (var classification in Model.searchResult.ListClassFicationTree)
                                                 {
                                                     <div style="margin-bottom: 10px" class="text-right">
                                                         <a href="#" target="blank" data-caption="@classification.Name">
@@ -63,7 +62,7 @@
                                         </div>
                                     </div>
                                 }
-                                @if (entity.ListNews != null)
+                                @if (Model.searchResult.ListNews != null)
                                 {
                                     <div class="auto-container">
                                         <div class="inner-container clearfix text-right">
@@ -73,7 +72,7 @@
                                     <div class="team-column col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
                                         <div class="inner-column">
                                             <div class="row clearfix">
-                                                @foreach (var classification in entity.ListNews)
+                                                @foreach (var classification in Model.searchResult.ListNews)
                                                 {
                                                     <div style="margin-bottom: 10px" class="text-right">
                                                         <a href="@Url.Action("NewsDetails", "Home", new { serial_ = classification.Serial})" target="blank" data-caption="@classification.Name">
@@ -85,7 +84,7 @@
                                         </div>
                                     </div>
                                 }
-                                @if (entity.ListVideos != null)
+                                @if (Model.searchResult.ListVideos != null)
                                 {
                                     <div class="auto-container">
                                         <div class="inner-container clearfix text-right">
@@ -95,7 +94,7 @@
                                     <div class="team-column col-md-12 col-sm-12 col-xs-12" style="margin-top: 30px">
                                         <div class="inner-column">
                                             <div class="row clearfix">
-                                                @foreach (var classification in entity.ListVideos)
+                                                @foreach (var classification in Model.searchResult.ListVideos)
                                                 {
                                                     <div style="margin-bottom: 10px" class="text-right">
                                                         <a href="@classification.URL" class="lightbox-image overlay-box" data-caption="@classification.Name">
@@ -109,7 +108,6 @@
                                 }
                             </div>
                         </div>
-                    }
                 </div>
 
             </div>
