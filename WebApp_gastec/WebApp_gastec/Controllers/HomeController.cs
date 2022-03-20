@@ -12,6 +12,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
+using GoogleReCaptcha.V3.Interface;
 
 namespace WebApp_gastec.Controllers
 {
@@ -19,10 +20,12 @@ namespace WebApp_gastec.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         public readonly IWebHostEnvironment _hostingEnvironment;
-        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment hostingEnvironment)
+        private readonly ICaptchaValidator _captchaValidator;
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment hostingEnvironment, ICaptchaValidator captchaValidator)
         {
             _logger = logger;
             _hostingEnvironment = hostingEnvironment;
+            _captchaValidator = captchaValidator;
         }
 
         // function to Cahcing All Images Returned
@@ -332,16 +335,16 @@ namespace WebApp_gastec.Controllers
             return View(homePageViewModel);
         }
         // Action For Conversion Form View
-        public async Task<IActionResult> Conversion_FormAsync(HomePageViewModel contactModel_)
+        public async Task<IActionResult> Conversion_FormAsync(HomePageViewModel contactModel_, string captcha_)
         {
+
+
             HomePageViewModel homePageViewModel = new HomePageViewModel()
             {
                 MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
                 Cities = await API_GetCities.GetAllCitiesAsync(),
                 Car_Conversion = contactModel_.Car_Conversion,
-            };
-            Random rnd = new Random();
-            homePageViewModel.ValidationNumber = rnd.Next(99999);
+            };    
             if (homePageViewModel.Car_Conversion != null)
             {
                 using (var client = new HttpClient())
@@ -365,13 +368,17 @@ namespace WebApp_gastec.Controllers
                     var httpContent = new StringContent(getCarConversionInputObject, Encoding.UTF8, "application/json");
                     var responseTask = client.PostAsync("Main/AddNewContactLog", httpContent);
                     responseTask.Wait();
-                    if (responseTask.Result.IsSuccessStatusCode)
+                    if (!await _captchaValidator.IsCaptchaPassedAsync(captcha_))
                     {
-                        homePageViewModel.Car_Conversion = new ConversionFormModel();
-                        return RedirectToAction("Conversion_Form", "Home");
+                        ModelState.AddModelError("captcha", "Captcha validation failed");
+                        if (responseTask.Result.IsSuccessStatusCode)
+                        {
+                            homePageViewModel.Car_Conversion = new ConversionFormModel();
+                            return RedirectToAction("Conversion_Form", "Home");
+                        }
+                        else
+                            return BadRequest("Can't Submit Please Check Your Internet Connection.");
                     }
-                    else
-                        return BadRequest("Can't Submit Please Check Your Internet Connection.");
                 }
             }
             return View(homePageViewModel);

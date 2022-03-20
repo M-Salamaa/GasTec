@@ -1,4 +1,5 @@
-﻿@model HomePageViewModel
+﻿@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+@model HomePageViewModel
 
 @{
     ViewData["Title"] = "GASTEC";
@@ -59,10 +60,11 @@
                     </div>
 
                     <!--Contact Form-->
+
                     <div class="contact-form">
                         <form method="post" asp-controller="Home" asp-action="Conversion_Form" id="contact-form" dir="rtl">
                             <div class="row clearfix">
-                                <input type="hidden" name="_token" value="W4Vee2TiNwINfbXyA4h5cGe0ZzFwTPZT6o2hm3xS">
+                                <input type="hidden" name="captcha" id="captchaInput">
 
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                     <input asp-for="@Model.Car_Conversion.Name" value="" placeholder="الإسم بالكامل*" required="">
@@ -95,14 +97,23 @@
                                 <div id="getstations"></div>
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                     <div class="example" style="padding: 20px 0;">
-                                        <span>
-                                            الرجاء كتابة الرقم <b>@Model.ValidationNumber</b>
-                                        </span>
-
-                                        <input class="range-example-input-2" asp-for="@Model.Car_Conversion.ValidationNumber" min="9999" max="99999" id="captchaValue" step="1" required="">
+                                        <label asp-for="@Model.Car_Conversion.ValidationNumber"> </label>
+                                        <input class="form-control" asp-for="@Model.Car_Conversion.ValidationNumber"  required="">
+                                        <span asp-validation-for="@Model.Car_Conversion.ValidationNumber" class="text-danger"></span>
                                     </div>
 
                                     <button asp-controller="Home" asp-action="Conversion_Form" type="submit" class="theme-btn btn-style-one pull-right">  إرسال طلبك</button>
+
+                                    <script src="https://www.google.com/recaptcha/api.js?render=@Configuration["googleReCaptcha:SiteKey"]">
+
+                                    </script>
+                                    <script>
+                                        grecaptcha.ready(function() {
+                                            window.grecaptcha.execute('@Configuration["googleReCaptcha:SiteKey"]', { action: 'home' }).then(function (token) {
+                                                $("#captchaInput").val(token);
+                                            });
+                                        });
+                                    </script>
                                 </div>
                             </div>
                         </form>
@@ -122,3 +133,4 @@
         });
     });
 </script>
+

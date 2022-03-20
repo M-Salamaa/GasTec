@@ -1,5 +1,7 @@
 ﻿@model HomePageViewModel
 @using WebApp_gastec.Domain
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+
 
 <!DOCTYPE html>
 
@@ -490,39 +492,39 @@
         </footer>
         @*Footer End*@
         <script>
-                //Update Header Style and Scroll to Top
-                function headerStyle() {
-                    if ($('.main-header').length) {
-                        var windowpos = $(window).scrollTop();
-                        var siteHeader = $('.main-header');
+            //Update Header Style and Scroll to Top
+            function headerStyle() {
+                if ($('.main-header').length) {
+                    var windowpos = $(window).scrollTop();
+                    var siteHeader = $('.main-header');
 
-                        var scrollLink = $('.scroll-to-top');
-                        if (windowpos >= 1) {
-                            siteHeader.addClass('fixed-header');
-                            scrollLink.fadeIn(0);
-                        } else {
-                            siteHeader.removeClass('fixed-header');
-                            scrollLink.fadeOut(0);
-                        }
+                    var scrollLink = $('.scroll-to-top');
+                    if (windowpos >= 1) {
+                        siteHeader.addClass('fixed-header');
+                        scrollLink.fadeIn(0);
+                    } else {
+                        siteHeader.removeClass('fixed-header');
+                        scrollLink.fadeOut(0);
                     }
                 }
+            }
 
-                headerStyle();
-                //Submenu Dropdown Toggle
-                if ($('.main-header li.dropdown ul').length) {
-                    $('.main-header li.dropdown').append('<div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>');
+            headerStyle();
+            //Submenu Dropdown Toggle
+            if ($('.main-header li.dropdown ul').length) {
+                $('.main-header li.dropdown').append('<div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>');
 
-                    //Dropdown Button
-                    $('.main-header li.dropdown .dropdown-btn').on('click', function () {
-                        $(this).prev('ul').slideToggle(500);
-                    });
+                //Dropdown Button
+                $('.main-header li.dropdown .dropdown-btn').on('click', function () {
+                    $(this).prev('ul').slideToggle(500);
+                });
 
-                    //Disable dropdown parent link
-                    $('.main-header .navigation li.dropdown > a,.hidden-bar .side-menu li.dropdown > a').on('click', function (e) {
-                        e.preventDefault();
-                    });
-                }
-            </script>
+                //Disable dropdown parent link
+                $('.main-header .navigation li.dropdown > a,.hidden-bar .side-menu li.dropdown > a').on('click', function (e) {
+                    e.preventDefault();
+                });
+            }
+        </script>
 
         <script src="~/public/assets/softextwo/js/bootstrap.min.js"></script>
 
@@ -548,6 +550,10 @@
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqVSNGgLqPe8vvHDWiHXwWJX0s4iuF2fs&libraries=places,geometry">
             </script>*@
 
+
+        <!-- Try Google reCAPTCHA-->
+        <script type="text/javascript"
+                src="https://www.google.com/recaptcha/api.js?render=6LfCsvYeAAAAADTu6HLYC_IvH__akj8McpQKt2fy"></script>
 
         <!--Revolution Slider-->
         <script src="~/public/assets/softextwo/plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
