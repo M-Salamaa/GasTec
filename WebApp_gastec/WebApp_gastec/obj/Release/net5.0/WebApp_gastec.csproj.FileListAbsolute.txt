@@ -576,3 +576,4 @@ E:\Softex\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\refint\We
 E:\Softex\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.pdb
 E:\Softex\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\WebApp_gastec.genruntimeconfig.cache
 E:\Softex\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\ref\WebApp_gastec.dll
+D:\GitHub\GasTec\WebApp_gastec\WebApp_gastec\obj\Release\net5.0\Razor\Views\Home\SearchResult.cshtml.g.cs

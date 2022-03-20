@@ -54,11 +54,22 @@
                                     <div class="row clearfix">
                                         @foreach (var classification in Model.searchResult.ListClassFicationTree)
                                         {
-                                            <div style="margin-bottom: 10px" class="text-right">
-                                                <a href="@Url.Action(GetActionName.GetActionNameForSearch(@classification.ParentID.ToString()),GetControllerName.GetControllerNameByParentID(@classification.ParentID.ToString()) , new {ID_ = @classification.Serial.ToString()})" target="blank" data-caption="@classification.Name">
-                                                    @classification.Name
-                                                </a>
-                                            </div>
+                                            @if (classification.ParentID == 56 || classification.ParentID == 57 || classification.ParentID == 58)
+                                            {
+                                                <div style="margin-bottom: 10px" class="text-right">
+                                                    <a href="@Url.Action(GetActionName.GetActionNameForSearch(@classification.ParentID.ToString()),GetControllerName.GetControllerNameByParentID(@classification.ParentID.ToString()) , new {ID_ = "48"})" target="_blank" data-caption="@classification.Name">
+                                                        @classification.Name
+                                                    </a>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div style="margin-bottom: 10px" class="text-right">
+                                                    <a href="@Url.Action(GetActionName.GetActionNameForSearch(@classification.ParentID.ToString()),GetControllerName.GetControllerNameByParentID(@classification.ParentID.ToString()) , new {ID_ = @classification.Serial.ToString()})" target="_blank" data-caption="@classification.Name">
+                                                        @classification.Name
+                                                    </a>
+                                                </div>
+                                            }
                                         }
                                     </div>
                                 </div>
@@ -81,7 +92,7 @@
                                         @foreach (var classification in Model.searchResult.ListNews)
                                         {
                                             <div style="margin-bottom: 10px" class="text-right">
-                                                <a href="@Url.Action("NewsDetails", "Home", new { serial_ = classification.Serial})" target="blank" data-caption="@classification.Name">
+                                                <a href="@Url.Action("NewsDetails", "Home", new { serial_ = classification.Serial})" target="_blank" data-caption="@classification.Name">
                                                     @classification.Name
                                                 </a>
                                             </div>

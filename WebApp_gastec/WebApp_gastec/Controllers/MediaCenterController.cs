@@ -110,9 +110,9 @@ namespace WebApp_gastec.Controllers
             model.IsActive = true;
             return View(model);
         }
-        public async Task<IActionResult> IndexAsync(string GroupId_)
+        public async Task<IActionResult> IndexAsync(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt(GroupId_), Domain.System.Encrypt("0"));
+            var model = this.GetHomeViewModel(Domain.System.Encrypt(ID_), Domain.System.Encrypt("0"));
             foreach (var section in model.Sub_Section)
             {
                 if (section.ClassificationID == 48)
@@ -126,7 +126,7 @@ namespace WebApp_gastec.Controllers
             {
                 foreach (var classification in child.LstChildClassification)
                 {
-                    if (classification.ClassificationID.ToString() == GroupId_)
+                    if (classification.ClassificationID.ToString() == ID_)
                         classification.IsActive = true;
                 }
             }

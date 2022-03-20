@@ -28,6 +28,21 @@
                 case "28":
                     controllerName = "Catering_Stations";
                     break;
+                case "50":
+                    controllerName = "MediaCenter";
+                    break;
+                case "51":
+                    controllerName = "MediaCenter";
+                    break;
+                case "56":
+                    controllerName = "MediaCenter";
+                    break;
+                case "57":
+                    controllerName = "MediaCenter";
+                    break;
+                case "58":
+                    controllerName = "MediaCenter";
+                    break;
                 default:
                     controllerName = "Home";
                     break;

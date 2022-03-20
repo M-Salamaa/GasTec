@@ -152,6 +152,7 @@ namespace WebApp_gastec.Controllers
                 Cities = await API_GetCities.GetAllCitiesAsync(),
                 //Consuming Map Files from Classification Tree API
                 MapFiles = await API_GetMapFiles.GetMapFilesAsync(Domain.System.Encrypt("1")),
+
             };
 
             return homePageViewModel;
@@ -253,8 +254,12 @@ namespace WebApp_gastec.Controllers
         [HttpPost]
         public ActionResult ContactUs(HomePageViewModel contactModel_)
         {
-            var model = contactModel_.ContactUs;
-            if (model != null)
+            HomePageViewModel homePageViewModel = new HomePageViewModel()
+            {
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                ContactUs = contactModel_.ContactUs,
+            };
+            if (homePageViewModel.ContactUs != null)
             {
                 using (var client = new HttpClient())
                 {
@@ -267,8 +272,8 @@ namespace WebApp_gastec.Controllers
                         EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
                         ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
                         Subject = "Contact Us",
-                        RequestDetails = model.Message,
-                        SecurityDetails = model.Name + "\r\r\r\n" + model.Email + "\r\r\r\n" + model.PhoneNumber,
+                        RequestDetails = homePageViewModel.ContactUs.Message,
+                        SecurityDetails = homePageViewModel.ContactUs.Name + "\r\r\r\n" + homePageViewModel.ContactUs.Email + "\r\r\r\n" + homePageViewModel.ContactUs.PhoneNumber,
                         EncryptedPageURL = Domain.System.Encrypt(Gastech_Vault.baseURL)
                     };
                     string getContactUsInputObject = JsonConvert.SerializeObject(inputContactUsModel);
