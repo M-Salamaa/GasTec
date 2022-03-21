@@ -12,6 +12,5 @@ namespace WebApp_gastec.Models
         public string Car_Model { get; set; }
         public string Car_Type { get; set; }
         public string Country { get; set; }
-        public string ValidationNumber { get; set; }
     }
 }

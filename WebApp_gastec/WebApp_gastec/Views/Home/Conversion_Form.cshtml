@@ -1,10 +1,12 @@
 ﻿@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
 @model HomePageViewModel
-
+@using WebApp_gastec.Domain
 @{
     ViewData["Title"] = "GASTEC";
     Layout = "_Layout";
 }
+
+
 
 <!--Page Title-->
 <section class="page-title" style="background-image:url(../../wwwroot/public/assets/softextwo/images/background/4.jpg);">
@@ -60,12 +62,11 @@
                     </div>
 
                     <!--Contact Form-->
-
+                    @*@Html.ValidationSummary()*@
                     <div class="contact-form">
                         <form method="post" asp-controller="Home" asp-action="Conversion_Form" id="contact-form" dir="rtl">
                             <div class="row clearfix">
-                                <input type="hidden" name="captcha" id="captchaInput">
-
+                                @*<input type="hidden" name="captcha" id="captchaInput">*@
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                     <input asp-for="@Model.Car_Conversion.Name" value="" placeholder="الإسم بالكامل*" required="">
                                 </div>
@@ -95,26 +96,14 @@
                                     <div id="getformarea"></div>
                                 </div>
                                 <div id="getstations"></div>
+                                <script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                    <div class="example" style="padding: 20px 0;">
-                                        <label asp-for="@Model.Car_Conversion.ValidationNumber"> </label>
-                                        <input class="form-control" asp-for="@Model.Car_Conversion.ValidationNumber"  required="">
-                                        <span asp-validation-for="@Model.Car_Conversion.ValidationNumber" class="text-danger"></span>
-                                    </div>
-
-                                    <button asp-controller="Home" asp-action="Conversion_Form" type="submit" class="theme-btn btn-style-one pull-right">  إرسال طلبك</button>
-
-                                    <script src="https://www.google.com/recaptcha/api.js?render=@Configuration["googleReCaptcha:SiteKey"]">
-
-                                    </script>
-                                    <script>
-                                        grecaptcha.ready(function() {
-                                            window.grecaptcha.execute('@Configuration["googleReCaptcha:SiteKey"]', { action: 'home' }).then(function (token) {
-                                                $("#captchaInput").val(token);
-                                            });
-                                        });
-                                    </script>
+                                    <div class="g-recaptcha" data-sitekey="@SiteSettings.GoogleRecaptchaSiteKey"></div>
                                 </div>
+                                <button asp-controller="Home" asp-action="Conversion_Form" type="submit" class="theme-btn btn-style-one pull-right">  إرسال طلبك</button>
                             </div>
                         </form>
                     </div>
@@ -125,7 +114,6 @@
     </div>
 </section>
 <!--End Contact Section-->
-
 <script type="text/javascript">
     $(document).ready(function () {
         $("#contact-form").submit(function () {
@@ -133,4 +121,6 @@
         });
     });
 </script>
+
+
 

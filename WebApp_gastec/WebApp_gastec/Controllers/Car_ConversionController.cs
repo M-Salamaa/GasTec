@@ -35,7 +35,7 @@ namespace WebApp_gastec.Controllers
             //Create Instance from Caching Image Class
             Cache cachedHtml = new Cache(_hostingEnvironment);
             //Create Instance from System Class
-            Domain.System system = new Domain.System();
+            Domain.Service system = new Domain.Service();
             foreach (var entity in model_.Sub_Section)
             {
                 if (entity.LstWebSections.Count > 0)
@@ -43,13 +43,13 @@ namespace WebApp_gastec.Controllers
                     foreach (var webSection in entity.LstWebSections)
                     {
                         path = cachedHtml.CahceAllHtmlLinks(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
-                        webSection.Body = Domain.System.ReadFileAsStringForBody(path);
+                        webSection.Body = Domain.Service.ReadFileAsStringForBody(path);
                     }
                 }
                 else
                 {
                     path = cachedHtml.CahceAllHtmlLinks(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
-                    entity.Body = Domain.System.ReadFileAsStringForBody(path);
+                    entity.Body = Domain.Service.ReadFileAsStringForBody(path);
                 }
             }
             #endregion
@@ -90,9 +90,9 @@ namespace WebApp_gastec.Controllers
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Navigation bar from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
                 // Consuming Main Menu of Car Conversion Section from Classification Tree API 
-                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("3"), Domain.System.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("3"), Domain.Service.Encrypt("0")),
                 // Consuming Sub Categories of car Conversion Section from Classification Tree API 
                 Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
 
@@ -102,7 +102,7 @@ namespace WebApp_gastec.Controllers
         // Routing for Car Conversion Setcion Pages with Classification ID
         public async Task<IActionResult> Index(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("3"), Domain.System.Encrypt(ID_));
+            var model = this.GetHomeViewModel(Domain.Service.Encrypt("3"), Domain.Service.Encrypt(ID_));
             ActivateSelectedForMainCategories(model, ID_);
             await CachedAllImagesAsync(model, "Car_Conversion");
             CachedAllHtmlLinks(model, "Car_Conversion");

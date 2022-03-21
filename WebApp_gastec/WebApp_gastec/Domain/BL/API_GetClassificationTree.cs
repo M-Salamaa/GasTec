@@ -12,7 +12,7 @@ namespace WebApp_gastec.Domain
     {
         //if property want to show set by one 
         private static readonly int showProperty = 1;
-        private static readonly string encryptedMajorTreeNodeID = System.Encrypt("1");
+        private static readonly string encryptedMajorTreeNodeID = Service.Encrypt("1");
 
 
         // Function to get Tree Nodes for Clasification Tree with EncryptedSpecificTreeClassificationID

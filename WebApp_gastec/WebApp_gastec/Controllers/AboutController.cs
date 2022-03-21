@@ -26,7 +26,7 @@ namespace WebApp_gastec.Controllers
             string path = "";
             #region Caching Html Links Returned from API
             Cache cachedHtml = new Cache(_hostingEnvironment);
-            Domain.System system = new Domain.System();
+            Domain.Service system = new Domain.Service();
             foreach (var entity in model_.Main_Section)
             {
                 if (entity.LstWebSections.Count > 0)
@@ -34,13 +34,13 @@ namespace WebApp_gastec.Controllers
                     foreach (var webSection in entity.LstWebSections)
                     {
                         path = cachedHtml.CahceAllHtmlLinks(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
-                        webSection.Body = Domain.System.ReadFileAsStringForBody(path);
+                        webSection.Body = Domain.Service.ReadFileAsStringForBody(path);
                     }
                 }
                 else
                 {
                     path = cachedHtml.CahceAllHtmlLinks(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
-                    entity.Body = Domain.System.ReadFileAsStringForBody(path);
+                    entity.Body = Domain.Service.ReadFileAsStringForBody(path);
                 }
             }
             #endregion
@@ -80,10 +80,10 @@ namespace WebApp_gastec.Controllers
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
                 Main_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
-                Sub_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("125"), Domain.System.Encrypt("0")),
-                HR = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("123"), Domain.System.Encrypt("0")),
+                Sub_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("125"), Domain.Service.Encrypt("0")),
+                HR = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("123"), Domain.Service.Encrypt("0")),
             };
             return homePageViewModel;
         }
@@ -112,7 +112,7 @@ namespace WebApp_gastec.Controllers
         // Route For Legal Entity Page
         public async Task<IActionResult> IndexAsync(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("125"), Domain.System.Encrypt(ID_));
+            var model = this.GetHomeViewModel(Domain.Service.Encrypt("125"), Domain.Service.Encrypt(ID_));
             ActivateSelectedForMainCategories(model, ID_);
             await CachedAllImagesAsync(model, "AboutUS");
             CachedAllHtmlLinks(model, "AboutUs");
@@ -122,7 +122,7 @@ namespace WebApp_gastec.Controllers
         // Route For Human resource Page
         public async Task<IActionResult> HumanResourcesAsync(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("123"), Domain.System.Encrypt(ID_));
+            var model = this.GetHomeViewModel(Domain.Service.Encrypt("123"), Domain.Service.Encrypt(ID_));
             ActivateSelectedForSubCategories(model, ID_);
             await CachedAllImagesAsync(model, "HumanResources");
             CachedAllHtmlLinks(model, "HumanResources");

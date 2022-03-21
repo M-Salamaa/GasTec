@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WebApp_gastec.Domain
 {
-    public class System
+    public class Service
     {
         private static string FirstSalt = "*&*$(#-j90";
         private static string SecondSalt = "($34#45(*)";

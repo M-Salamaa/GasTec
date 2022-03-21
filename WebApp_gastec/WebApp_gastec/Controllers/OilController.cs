@@ -23,9 +23,9 @@ namespace WebApp_gastec.Controllers
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
                 // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("6"), Domain.System.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("6"), Domain.Service.Encrypt("0")),
                 // Consuming Cylindar Category from Classification Tree API 
                 Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
 
@@ -37,9 +37,9 @@ namespace WebApp_gastec.Controllers
         {
             var model = new HomePageViewModel();
             if (ID_ == "41")
-                model = this.GetHomeViewModel(Domain.System.Encrypt(ID_), Domain.System.Encrypt("0"));
+                model = this.GetHomeViewModel(Domain.Service.Encrypt(ID_), Domain.Service.Encrypt("0"));
             else
-                model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt(ID_));
+                model = this.GetHomeViewModel(Domain.Service.Encrypt("6"), Domain.Service.Encrypt(ID_));
             ActivateSelectedForMainCategories(model, ID_);
             await CachedAllImagesAsync(model, "Oil_Distribution");
             CachedAllHtmlLinks(model, "Oil_Distribution");
@@ -49,7 +49,7 @@ namespace WebApp_gastec.Controllers
         // Routing for Sub Commerical Oils Page
         public async Task<IActionResult> SubCommercialAsync(string OilID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("6"), Domain.System.Encrypt("42"));
+            var model = this.GetHomeViewModel(Domain.Service.Encrypt("6"), Domain.Service.Encrypt("42"));
             model.WebSectionID = OilID_;
             await CachedAllImagesAsync(model, "Commerical_Oil");
             CachedAllHtmlLinks(model, "Commerical_Oil");
@@ -58,7 +58,7 @@ namespace WebApp_gastec.Controllers
         // Routing for Sub Industrial Oils Page
         public async Task<IActionResult> SubIndustrialAsync(string OilID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt(OilID_), Domain.System.Encrypt("0"));
+            var model = this.GetHomeViewModel(Domain.Service.Encrypt(OilID_), Domain.Service.Encrypt("0"));
             await CachedAllImagesAsync(model, "Industrial_Oil");
             CachedAllHtmlLinks(model, "Industrial_Oil");
             return View(model);
@@ -80,7 +80,7 @@ namespace WebApp_gastec.Controllers
             string path = "";
             #region Caching Html Links Returned from API
             Cache cachedHtml = new Cache(_hostingEnvironment);
-            Domain.System system = new Domain.System();
+            Domain.Service system = new Domain.Service();
             foreach (var entity in model_.Sub_Section)
             {
                 if (entity.LstWebSections.Count > 0)
@@ -92,18 +92,18 @@ namespace WebApp_gastec.Controllers
                             foreach (var image in webSection.LstImages)
                             {
                                 path = cachedHtml.CahceAllHtmlLinks(folderName_, image.ImageGUID, image.HTMLLink);
-                                image.Body = Domain.System.ReadFileAsStringForBody(path);
+                                image.Body = Domain.Service.ReadFileAsStringForBody(path);
                             }
                         }
                         path = cachedHtml.CahceAllHtmlLinks(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
-                        webSection.Body = Domain.System.ReadFileAsStringForBody(path);
+                        webSection.Body = Domain.Service.ReadFileAsStringForBody(path);
 
                     }
                 }
                 else
                 {
                     path = cachedHtml.CahceAllHtmlLinks(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
-                    entity.Body = Domain.System.ReadFileAsStringForBody(path);
+                    entity.Body = Domain.Service.ReadFileAsStringForBody(path);
                 }
             }
             #endregion

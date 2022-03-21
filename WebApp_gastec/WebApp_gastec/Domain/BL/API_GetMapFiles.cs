@@ -12,7 +12,7 @@ namespace WebApp_gastec.Domain
     {
         //if property want to show set by one 
         private static readonly int showProperty = 1;
-        private static readonly string encryptedMajorTreeNodeID = System.Encrypt("1");
+        private static readonly string encryptedMajorTreeNodeID = Service.Encrypt("1");
 
         public static async Task<List<OutputGetClassificationTreeModel>> GetMapFilesAsync(string encryptedTreeClassificationID_)
         {
@@ -40,7 +40,7 @@ namespace WebApp_gastec.Domain
                     // Get Encrypted Tree Classification ID
                     EncryptedTreeClassificationID = encryptedTreeClassificationID_,
                     // Get Encrypted Specific Tree Classification ID
-                    EncryptedSpecificTreeClassificationID = Domain.System.Encrypt("0"),
+                    EncryptedSpecificTreeClassificationID = Domain.Service.Encrypt("0"),
                     // Get Max Tree Level
                     MaxTreeLevel = 0,
                     // Get Translation Language ID

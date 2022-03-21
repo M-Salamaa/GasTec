@@ -125,7 +125,7 @@ namespace WebApp_gastec.Controllers
             {
                 entitiy.Topic_Name = entitiy.Serial.ToString() + "artice";
                 path = cachedHtml.CahceAllHtmlLinks(folderName_, entitiy.Topic_Name, entitiy.NewsTopic_HTMLLink);
-                entitiy.body = Domain.System.ReadFileAsStringForBody(path);
+                entitiy.body = Domain.Service.ReadFileAsStringForBody(path);
             }
             #endregion
         }
@@ -136,15 +136,15 @@ namespace WebApp_gastec.Controllers
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
                 // Consuming Banners API 
-                BannersHome = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("1"), Domain.System.Encrypt("118")),
+                BannersHome = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("1"), Domain.Service.Encrypt("118")),
                 //Consuming Gastech Numbers Section from Classification Tree API 
-                GastechNumbers = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("1"), Domain.System.Encrypt("349")),
+                GastechNumbers = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("1"), Domain.Service.Encrypt("349")),
                 //Consuming Mid Section from Classification Tree API 
-                MidSection = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("1"), Domain.System.Encrypt("353")),
+                MidSection = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("1"), Domain.Service.Encrypt("353")),
                 //Consuming Mid Banner from Classification Tree API 
-                MidBanner = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("1"), Domain.System.Encrypt("350")),
+                MidBanner = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("1"), Domain.Service.Encrypt("350")),
                 // Consuming Latest News API 
                 NewsTopics = await API_GetNewsTopics.GetAllNewsTopics(0),
                 //Consuming Service Section (Eni Gastech) from Classification Tree API 
@@ -154,7 +154,7 @@ namespace WebApp_gastec.Controllers
                 //Consuming Cities from GetCities API 
                 Cities = await API_GetCities.GetAllCitiesAsync(),
                 //Consuming Map Files from Classification Tree API
-                MapFiles = await API_GetMapFiles.GetMapFilesAsync(Domain.System.Encrypt("1")),
+                MapFiles = await API_GetMapFiles.GetMapFilesAsync(Domain.Service.Encrypt("1")),
 
             };
 
@@ -166,9 +166,9 @@ namespace WebApp_gastec.Controllers
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
                 // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("8"), Domain.System.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("8"), Domain.Service.Encrypt("0")),
                 // Consuming News Groups from Get News Topic API
                 News_Group = await API_GetNewsGroup.GetNewsGroup(),
                 // Consuming All News from Get News Topic API
@@ -182,7 +182,7 @@ namespace WebApp_gastec.Controllers
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
                 // Consuming News Details form News Details API 
                 News_Details = await API_GetNewsTopics.GetNewsDetails(serial_),
                 // Consuming All News from Get News Topic API
@@ -222,7 +222,7 @@ namespace WebApp_gastec.Controllers
         public async Task<IActionResult> _ShowMapPartialAsync(double longtitude, double latitude)
         {
             // Get All Json Files For Map To Cache it
-            var model_ = await API_GetMapFiles.GetMapFilesAsync(Domain.System.Encrypt("1"));
+            var model_ = await API_GetMapFiles.GetMapFilesAsync(Domain.Service.Encrypt("1"));
             CacheAllFiles(model_);
             MapLocationModel model = new MapLocationModel();
             model.longtitude = longtitude;
@@ -259,7 +259,7 @@ namespace WebApp_gastec.Controllers
         {
             HomePageViewModel homePageViewModel = new HomePageViewModel()
             {
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
                 ContactUs = contactModel_.ContactUs,
             };
             if (homePageViewModel.ContactUs != null)
@@ -277,7 +277,7 @@ namespace WebApp_gastec.Controllers
                         Subject = "Contact Us",
                         RequestDetails = homePageViewModel.ContactUs.Message,
                         SecurityDetails = homePageViewModel.ContactUs.Name + "\r\r\r\n" + homePageViewModel.ContactUs.Email + "\r\r\r\n" + homePageViewModel.ContactUs.PhoneNumber,
-                        EncryptedPageURL = Domain.System.Encrypt(Gastech_Vault.baseURL)
+                        EncryptedPageURL = Domain.Service.Encrypt(Gastech_Vault.baseURL)
                     };
                     string getContactUsInputObject = JsonConvert.SerializeObject(inputContactUsModel);
                     var httpContent = new StringContent(getContactUsInputObject, Encoding.UTF8, "application/json");
@@ -299,82 +299,40 @@ namespace WebApp_gastec.Controllers
         {
             HomePageViewModel homePageViewModel = new HomePageViewModel()
             {
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
                 ContactUs = contactModel_.ContactUs,
             };
             if (homePageViewModel.ContactUs != null)
             {
-                using (var client = new HttpClient())
+                // Return reCAPTCHA Response as String
+                string captchaResponse = HttpContext.Request.Form["g-Recaptcha-Response"];
+                // Return Captcha Response Model using IsValid Function
+                CaptchaResponseViewModel result = IsValid(captchaResponse);
+                if (result.Success)
                 {
-                    client.BaseAddress = new Uri(Gastech_Vault.baseURL);
-                    InputContactUsModel inputContactUsModel = new()
+                    using (var client = new HttpClient())
                     {
-                        SecurityString = Gastech_Vault.SecurityString,
-                        ServerIP = Gastech_Vault.ServerIP,
-                        DatabaseName = Gastech_Vault.DatabaseName,
-                        EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
-                        ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
-                        Subject = "Contact Us",
-                        RequestDetails = homePageViewModel.ContactUs.Message,
-                        SecurityDetails = homePageViewModel.ContactUs.Name + "\r\r\r\n" + homePageViewModel.ContactUs.Email + "\r\r\r\n" + homePageViewModel.ContactUs.PhoneNumber,
-                        EncryptedPageURL = Domain.System.Encrypt(Gastech_Vault.baseURL)
-                    };
-                    string getContactUsInputObject = JsonConvert.SerializeObject(inputContactUsModel);
-                    var httpContent = new StringContent(getContactUsInputObject, Encoding.UTF8, "application/json");
-                    var responseTask = client.PostAsync("Main/AddNewContactLog", httpContent);
-                    responseTask.Wait();
-                    if (responseTask.Result.IsSuccessStatusCode)
-                    {
-                        homePageViewModel.ContactUs = new ContactUsViewModel();
-                        return RedirectToAction("Contacts", "Home");
-                    }
-                    else
-                        return BadRequest("Can't Submit Please Check Your Internet Connection.");
-                }
-            }
-            return View(homePageViewModel);
-        }
-        // Action For Conversion Form View
-        public async Task<IActionResult> Conversion_FormAsync(HomePageViewModel contactModel_, string captcha_)
-        {
-
-
-            HomePageViewModel homePageViewModel = new HomePageViewModel()
-            {
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
-                Cities = await API_GetCities.GetAllCitiesAsync(),
-                Car_Conversion = contactModel_.Car_Conversion,
-            };    
-            if (homePageViewModel.Car_Conversion != null)
-            {
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri(Gastech_Vault.baseURL);
-                    InputContactUsModel inputCarConversionModel = new()
-                    {
-                        SecurityString = Gastech_Vault.SecurityString,
-                        ServerIP = Gastech_Vault.ServerIP,
-                        DatabaseName = Gastech_Vault.DatabaseName,
-                        EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
-                        ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
-                        Subject = "Conversion Request",
-                        RequestDetails = homePageViewModel.Car_Conversion.Name + "\r\r\r\n" + homePageViewModel.Car_Conversion.PhoneNumber + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Model + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Type +
-                         "\r\r\r\n" + homePageViewModel.Car_Conversion.Country + "\r\r\r\n" + homePageViewModel.Car_Conversion.ValidationNumber,
-                        SecurityDetails = homePageViewModel.Car_Conversion.Name + "\r\r\r\n" + homePageViewModel.Car_Conversion.PhoneNumber + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Model + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Type +
-                         "\r\r\r\n" + homePageViewModel.Car_Conversion.Country + "\r\r\r\n" + homePageViewModel.Car_Conversion.ValidationNumber,
-                        EncryptedPageURL = Domain.System.Encrypt(Gastech_Vault.baseURL)
-                    };
-                    string getCarConversionInputObject = JsonConvert.SerializeObject(inputCarConversionModel);
-                    var httpContent = new StringContent(getCarConversionInputObject, Encoding.UTF8, "application/json");
-                    var responseTask = client.PostAsync("Main/AddNewContactLog", httpContent);
-                    responseTask.Wait();
-                    if (!await _captchaValidator.IsCaptchaPassedAsync(captcha_))
-                    {
-                        ModelState.AddModelError("captcha", "Captcha validation failed");
+                        client.BaseAddress = new Uri(Gastech_Vault.baseURL);
+                        InputContactUsModel inputContactUsModel = new()
+                        {
+                            SecurityString = Gastech_Vault.SecurityString,
+                            ServerIP = Gastech_Vault.ServerIP,
+                            DatabaseName = Gastech_Vault.DatabaseName,
+                            EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
+                            ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
+                            Subject = "Contact Us",
+                            RequestDetails = homePageViewModel.ContactUs.Message,
+                            SecurityDetails = homePageViewModel.ContactUs.Name + "\r\r\r\n" + homePageViewModel.ContactUs.Email + "\r\r\r\n" + homePageViewModel.ContactUs.PhoneNumber,
+                            EncryptedPageURL = Domain.Service.Encrypt(Gastech_Vault.baseURL)
+                        };
+                        string getContactUsInputObject = JsonConvert.SerializeObject(inputContactUsModel);
+                        var httpContent = new StringContent(getContactUsInputObject, Encoding.UTF8, "application/json");
+                        var responseTask = client.PostAsync("Main/AddNewContactLog", httpContent);
+                        responseTask.Wait();
                         if (responseTask.Result.IsSuccessStatusCode)
                         {
-                            homePageViewModel.Car_Conversion = new ConversionFormModel();
-                            return RedirectToAction("Conversion_Form", "Home");
+                            homePageViewModel.ContactUs = new ContactUsViewModel();
+                            return RedirectToAction("Contacts", "Home");
                         }
                         else
                             return BadRequest("Can't Submit Please Check Your Internet Connection.");
@@ -382,6 +340,86 @@ namespace WebApp_gastec.Controllers
                 }
             }
             return View(homePageViewModel);
+        }
+        // Action For Conversion Form View
+        public async Task<IActionResult> Conversion_FormAsync(HomePageViewModel contactModel_, string captcha_)
+        {
+            HomePageViewModel homePageViewModel = new HomePageViewModel()
+            {
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
+                Cities = await API_GetCities.GetAllCitiesAsync(),
+                Car_Conversion = contactModel_.Car_Conversion,
+            };
+
+            if (homePageViewModel.Car_Conversion != null)
+            {
+                // Return reCAPTCHA Response as String
+                string captchaResponse = HttpContext.Request.Form["g-Recaptcha-Response"];
+                // Return Captcha Response Model using IsValid Function
+                CaptchaResponseViewModel result = IsValid(captchaResponse);
+                if (result.Success)
+                {
+
+                    using (var client = new HttpClient())
+                    {
+
+                        client.BaseAddress = new Uri(Gastech_Vault.baseURL);
+                        InputContactUsModel inputCarConversionModel = new()
+                        {
+                            SecurityString = Gastech_Vault.SecurityString,
+                            ServerIP = Gastech_Vault.ServerIP,
+                            DatabaseName = Gastech_Vault.DatabaseName,
+                            EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
+                            ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
+                            Subject = "Conversion Request",
+                            RequestDetails = homePageViewModel.Car_Conversion.Name + "\r\r\r\n" + homePageViewModel.Car_Conversion.PhoneNumber + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Model + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Type +
+                             "\r\r\r\n" + homePageViewModel.Car_Conversion.Country,
+                            SecurityDetails = homePageViewModel.Car_Conversion.Name + "\r\r\r\n" + homePageViewModel.Car_Conversion.PhoneNumber + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Model + "\r\r\r\n" + homePageViewModel.Car_Conversion.Car_Type +
+                             "\r\r\r\n" + homePageViewModel.Car_Conversion.Country,
+                            EncryptedPageURL = Domain.Service.Encrypt(Gastech_Vault.baseURL)
+                        };
+                        string getCarConversionInputObject = JsonConvert.SerializeObject(inputCarConversionModel);
+                        var httpContent = new StringContent(getCarConversionInputObject, Encoding.UTF8, "application/json");
+                        var responseTask = client.PostAsync("Main/AddNewContactLog", httpContent);
+                        responseTask.Wait();
+                        if (responseTask.Result.IsSuccessStatusCode)
+                        {
+                            homePageViewModel.Car_Conversion = new ConversionFormModel();
+                            return RedirectToAction("Conversion_Form", "Home");
+                        }
+                        else
+                            return BadRequest("Can't Submit Please Check Your Internet Connection.");
+
+                    }
+                }
+            }
+            return View(homePageViewModel);
+        }
+        // Function to Check reCAPTCHA Response and Deserialize it to CaptchaResponseModel 
+        public static CaptchaResponseViewModel IsValid(string captchaResponse)
+        {
+            // Check if reCAPTCHA Response is Empty
+            if (string.IsNullOrWhiteSpace(captchaResponse))
+            {
+                return new CaptchaResponseViewModel()
+                { Success = false };
+            }
+            //Creating Instance of HTTP Client
+            HttpClient client = new HttpClient();
+            // Declare the Base Address to the client variable
+            client.BaseAddress = new Uri("https://www.google.com");
+            // Create Instance to Pass Secret Key and reCAPTCHA Response
+            var values = new List<KeyValuePair<string, string>>();
+            values.Add(new KeyValuePair<string, string>("secret", SiteSettings.GoogleRecaptchaSecretKey));
+            values.Add(new KeyValuePair<string, string>("response", captchaResponse));
+            FormUrlEncodedContent content = new FormUrlEncodedContent(values);
+            //Posting the content of the Response
+            HttpResponseMessage response = client.PostAsync("/recaptcha/api/siteverify", content).Result;
+            // Extract the reCAPTCHA Response Result
+            string verificationResponse = response.Content.ReadAsStringAsync().Result;
+            // Deserialize reCAPTCHA Response to CaptchaResponseModel
+            var verificationResult = JsonConvert.DeserializeObject<CaptchaResponseViewModel>(verificationResponse);
+            return verificationResult;
         }
         // Function To Cache All Json Files for Map
         private void CacheAllFiles(List<OutputGetClassificationTreeModel> model_)
@@ -401,7 +439,7 @@ namespace WebApp_gastec.Controllers
             var model = new HomePageViewModel()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
                 // Consuming Search Result using Key Word
                 searchResult = await API_GetSearchResult.GetSearchResult(model_.searchInput.keyWord_),
             };

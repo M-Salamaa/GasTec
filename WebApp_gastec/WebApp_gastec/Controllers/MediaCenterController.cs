@@ -80,9 +80,9 @@ namespace WebApp_gastec.Controllers
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
                 // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("8"), Domain.System.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("8"), Domain.Service.Encrypt("0")),
                 // Consuming Cylindar Category from Classification Tree API 
                 Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
             };
@@ -93,9 +93,9 @@ namespace WebApp_gastec.Controllers
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
                 // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("8"), Domain.System.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("8"), Domain.Service.Encrypt("0")),
                 // Consuming News Groups from Get News Topic API
                 News_Group = await API_GetNewsGroup.GetNewsGroup(),
                 // Consuming All News from Get News Topic API
@@ -112,7 +112,7 @@ namespace WebApp_gastec.Controllers
         }
         public async Task<IActionResult> IndexAsync(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt(ID_), Domain.System.Encrypt("0"));
+            var model = this.GetHomeViewModel(Domain.Service.Encrypt(ID_), Domain.Service.Encrypt("0"));
             foreach (var section in model.Sub_Section)
             {
                 if (section.ClassificationID == 48)

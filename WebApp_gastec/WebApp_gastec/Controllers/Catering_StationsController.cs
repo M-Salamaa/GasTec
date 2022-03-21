@@ -32,7 +32,7 @@ namespace WebApp_gastec.Controllers
             string path = "";
             #region Caching Html Links Returned from API
             Cache cachedHtml = new Cache(_hostingEnvironment);
-            Domain.System system = new Domain.System();
+            Domain.Service system = new Domain.Service();
             foreach (var entity in model_.Sub_Section)
             {
                 if (entity.LstWebSections.Count > 0)
@@ -40,13 +40,13 @@ namespace WebApp_gastec.Controllers
                     foreach (var webSection in entity.LstWebSections)
                     {
                         path = cachedHtml.CahceAllHtmlLinks(folderName_, webSection.HTML_GUID, webSection.WebSection_HTM_Link);
-                        webSection.Body = Domain.System.ReadFileAsStringForBody(path);
+                        webSection.Body = Domain.Service.ReadFileAsStringForBody(path);
                     }
                 }
                 else
                 {
                     path = cachedHtml.CahceAllHtmlLinks(folderName_, entity.HTML_GUID, entity.Classification_HTMLLink);
-                    entity.Body = Domain.System.ReadFileAsStringForBody(path);
+                    entity.Body = Domain.Service.ReadFileAsStringForBody(path);
                 }
             }
             #endregion
@@ -86,9 +86,9 @@ namespace WebApp_gastec.Controllers
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("0"), Domain.System.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
                 // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.System.Encrypt("4"), Domain.System.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("4"), Domain.Service.Encrypt("0")),
                 // Consuming Cylindar Category from Classification Tree API 
                 Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
 
@@ -98,7 +98,7 @@ namespace WebApp_gastec.Controllers
         // Routing For Integreated Station Category Page
         public async Task<IActionResult> Stations(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt(ID_));
+            var model = this.GetHomeViewModel(Domain.Service.Encrypt("4"), Domain.Service.Encrypt(ID_));
             await CachedAllImagesAsync(model, "Integrated_Stations");
             CachedAllHtmlLinks(model, "Integrated_Stations");
             return View(model);
@@ -110,13 +110,13 @@ namespace WebApp_gastec.Controllers
             var model = new HomePageViewModel();
             if (ID_ == "28")
             {
-                model = this.GetHomeViewModel(Domain.System.Encrypt(ID_), Domain.System.Encrypt("0"));
+                model = this.GetHomeViewModel(Domain.Service.Encrypt(ID_), Domain.Service.Encrypt("0"));
                 await CachedAllImagesAsync(model, "Stations");
                 CachedAllHtmlLinks(model, "Stations");
                 foreach (var entity in model.Sub_Section)
                 {
                     string path = cachedHtml.CahceAllHtmlLinks("Stations", entity.HTML_GUID, entity.Classification_HTMLLink);
-                    entity.Body = Domain.System.ReadFileAsStringForBody(path);
+                    entity.Body = Domain.Service.ReadFileAsStringForBody(path);
                     foreach (var image in entity.LstImages)
                     {
                         image.ImageGUID = await cachedHtml.CahceAllImageAsync("Stations", image.ImageGUID, image.ImageLink);
@@ -125,7 +125,7 @@ namespace WebApp_gastec.Controllers
             }
             else
             {
-                model = this.GetHomeViewModel(Domain.System.Encrypt("4"), Domain.System.Encrypt(ID_));
+                model = this.GetHomeViewModel(Domain.Service.Encrypt("4"), Domain.Service.Encrypt(ID_));
                 await CachedAllImagesAsync(model, "Stations");
                 CachedAllHtmlLinks(model, "Stations");
             }
