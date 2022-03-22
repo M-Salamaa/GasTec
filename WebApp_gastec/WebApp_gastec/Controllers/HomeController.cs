@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
 using GoogleReCaptcha.V3.Interface;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApp_gastec.Controllers
 {
@@ -208,6 +209,11 @@ namespace WebApp_gastec.Controllers
             return View(model);
 
         }
+
+        private void Translation()
+        {
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", HttpContext.Session.GetString("Localization"));
+        }
         // Action for Index View (Home PAge)
         public async Task<IActionResult> IndexAsync()
         {
@@ -264,31 +270,38 @@ namespace WebApp_gastec.Controllers
             };
             if (homePageViewModel.ContactUs != null)
             {
-                using (var client = new HttpClient())
+                // Return reCAPTCHA Response as String
+                string captchaResponse = HttpContext.Request.Form["g-Recaptcha-Response"];
+                // Return Captcha Response Model using IsValid Function
+                CaptchaResponseViewModel result = Service.IsValid(captchaResponse);
+                if (result.Success)
                 {
-                    client.BaseAddress = new Uri(Gastech_Vault.baseURL);
-                    InputContactUsModel inputContactUsModel = new()
+                    using (var client = new HttpClient())
                     {
-                        SecurityString = Gastech_Vault.SecurityString,
-                        ServerIP = Gastech_Vault.ServerIP,
-                        DatabaseName = Gastech_Vault.DatabaseName,
-                        EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
-                        ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
-                        Subject = "Contact Us",
-                        RequestDetails = homePageViewModel.ContactUs.Message,
-                        SecurityDetails = homePageViewModel.ContactUs.Name + "\r\r\r\n" + homePageViewModel.ContactUs.Email + "\r\r\r\n" + homePageViewModel.ContactUs.PhoneNumber,
-                        EncryptedPageURL = Domain.Service.Encrypt(Gastech_Vault.baseURL)
-                    };
-                    string getContactUsInputObject = JsonConvert.SerializeObject(inputContactUsModel);
-                    var httpContent = new StringContent(getContactUsInputObject, Encoding.UTF8, "application/json");
-                    var responseTask = client.PostAsync("Main/AddNewContactLog", httpContent);
-                    responseTask.Wait();
-                    if (responseTask.Result.IsSuccessStatusCode)
-                    {
-                        return RedirectToAction("Index");
+                        client.BaseAddress = new Uri(Gastech_Vault.baseURL);
+                        InputContactUsModel inputContactUsModel = new()
+                        {
+                            SecurityString = Gastech_Vault.SecurityString,
+                            ServerIP = Gastech_Vault.ServerIP,
+                            DatabaseName = Gastech_Vault.DatabaseName,
+                            EncryptedEXAppID = Gastech_Vault.EncryptedEXAppID,
+                            ClientIPAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
+                            Subject = "Contact Us",
+                            RequestDetails = homePageViewModel.ContactUs.Message,
+                            SecurityDetails = homePageViewModel.ContactUs.Name + "\r\r\r\n" + homePageViewModel.ContactUs.Email + "\r\r\r\n" + homePageViewModel.ContactUs.PhoneNumber,
+                            EncryptedPageURL = Domain.Service.Encrypt(Gastech_Vault.baseURL)
+                        };
+                        string getContactUsInputObject = JsonConvert.SerializeObject(inputContactUsModel);
+                        var httpContent = new StringContent(getContactUsInputObject, Encoding.UTF8, "application/json");
+                        var responseTask = client.PostAsync("Main/AddNewContactLog", httpContent);
+                        responseTask.Wait();
+                        if (responseTask.Result.IsSuccessStatusCode)
+                        {
+                            return RedirectToAction("Index");
+                        }
+                        else
+                            return BadRequest("Can't Submit Please Check Your Internet Connection.");
                     }
-                    else
-                        return BadRequest("Can't Submit Please Check Your Internet Connection.");
                 }
             }
             return RedirectToAction("Index");
@@ -307,7 +320,7 @@ namespace WebApp_gastec.Controllers
                 // Return reCAPTCHA Response as String
                 string captchaResponse = HttpContext.Request.Form["g-Recaptcha-Response"];
                 // Return Captcha Response Model using IsValid Function
-                CaptchaResponseViewModel result = IsValid(captchaResponse);
+                CaptchaResponseViewModel result = Service.IsValid(captchaResponse);
                 if (result.Success)
                 {
                     using (var client = new HttpClient())
@@ -356,13 +369,11 @@ namespace WebApp_gastec.Controllers
                 // Return reCAPTCHA Response as String
                 string captchaResponse = HttpContext.Request.Form["g-Recaptcha-Response"];
                 // Return Captcha Response Model using IsValid Function
-                CaptchaResponseViewModel result = IsValid(captchaResponse);
+                CaptchaResponseViewModel result = Service.IsValid(captchaResponse);
                 if (result.Success)
                 {
-
                     using (var client = new HttpClient())
                     {
-
                         client.BaseAddress = new Uri(Gastech_Vault.baseURL);
                         InputContactUsModel inputCarConversionModel = new()
                         {
@@ -389,38 +400,12 @@ namespace WebApp_gastec.Controllers
                         }
                         else
                             return BadRequest("Can't Submit Please Check Your Internet Connection.");
-
                     }
                 }
             }
             return View(homePageViewModel);
         }
-        // Function to Check reCAPTCHA Response and Deserialize it to CaptchaResponseModel 
-        public static CaptchaResponseViewModel IsValid(string captchaResponse)
-        {
-            // Check if reCAPTCHA Response is Empty
-            if (string.IsNullOrWhiteSpace(captchaResponse))
-            {
-                return new CaptchaResponseViewModel()
-                { Success = false };
-            }
-            //Creating Instance of HTTP Client
-            HttpClient client = new HttpClient();
-            // Declare the Base Address to the client variable
-            client.BaseAddress = new Uri("https://www.google.com");
-            // Create Instance to Pass Secret Key and reCAPTCHA Response
-            var values = new List<KeyValuePair<string, string>>();
-            values.Add(new KeyValuePair<string, string>("secret", SiteSettings.GoogleRecaptchaSecretKey));
-            values.Add(new KeyValuePair<string, string>("response", captchaResponse));
-            FormUrlEncodedContent content = new FormUrlEncodedContent(values);
-            //Posting the content of the Response
-            HttpResponseMessage response = client.PostAsync("/recaptcha/api/siteverify", content).Result;
-            // Extract the reCAPTCHA Response Result
-            string verificationResponse = response.Content.ReadAsStringAsync().Result;
-            // Deserialize reCAPTCHA Response to CaptchaResponseModel
-            var verificationResult = JsonConvert.DeserializeObject<CaptchaResponseViewModel>(verificationResponse);
-            return verificationResult;
-        }
+
         // Function To Cache All Json Files for Map
         private void CacheAllFiles(List<OutputGetClassificationTreeModel> model_)
         {

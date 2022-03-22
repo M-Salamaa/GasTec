@@ -44,9 +44,9 @@
               "target": "Package",
               "version": "[1.3.0, )"
             },
-            "Microsoft.AspNet.Mvc": {
+            "Microsoft.AspNetCore.Session": {
               "target": "Package",
-              "version": "[5.2.0, )"
+              "version": "[2.2.0, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

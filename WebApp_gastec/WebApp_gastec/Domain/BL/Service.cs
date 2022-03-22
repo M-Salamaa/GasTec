@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
 using System.Text;
+using WebApp_gastec.Models;
 
 namespace WebApp_gastec.Domain
 {
@@ -95,6 +99,33 @@ namespace WebApp_gastec.Domain
             }
 
             return "http://img.youtube.com/vi/" + youTubeThumb + "/default.jpg";
+        }
+
+        // Function to Check reCAPTCHA Response and Deserialize it to CaptchaResponseModel 
+        public static CaptchaResponseViewModel IsValid(string captchaResponse)
+        {
+            // Check if reCAPTCHA Response is Empty
+            if (string.IsNullOrWhiteSpace(captchaResponse))
+            {
+                return new CaptchaResponseViewModel()
+                { Success = false };
+            }
+            //Creating Instance of HTTP Client
+            HttpClient client = new HttpClient();
+            // Declare the Base Address to the client variable
+            client.BaseAddress = new Uri("https://www.google.com");
+            // Create Instance to Pass Secret Key and reCAPTCHA Response
+            var values = new List<KeyValuePair<string, string>>();
+            values.Add(new KeyValuePair<string, string>("secret", SiteSettings.GoogleRecaptchaSecretKey));
+            values.Add(new KeyValuePair<string, string>("response", captchaResponse));
+            FormUrlEncodedContent content = new FormUrlEncodedContent(values);
+            //Posting the content of the Response
+            HttpResponseMessage response = client.PostAsync("/recaptcha/api/siteverify", content).Result;
+            // Extract the reCAPTCHA Response Result
+            string verificationResponse = response.Content.ReadAsStringAsync().Result;
+            // Deserialize reCAPTCHA Response to CaptchaResponseModel
+            var verificationResult = JsonConvert.DeserializeObject<CaptchaResponseViewModel>(verificationResponse);
+            return verificationResult;
         }
 
     }
