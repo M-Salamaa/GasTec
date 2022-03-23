@@ -81,6 +81,13 @@ h6 {
     font-family: 'Tajawal', sans-serif!important;
 }
 
+h1 span {
+    color: #004F93!important;
+    font-weight: 600!important;
+    line-height: 2.6em!important;
+    font-size: 28px!important;
+}
+
 input,
 button,
 select,
@@ -94,12 +101,13 @@ textarea {
 
 .theme_color {
     color: #f2d046;
+
 }
 
 p,
 .text {
     position: relative;
-    line-height: 1.8em;
+    line-height: 1.8em!important;
 }
 
 .strike-through {

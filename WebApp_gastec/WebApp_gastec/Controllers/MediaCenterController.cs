@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApp_gastec.Domain;
 using WebApp_gastec.Models;
-
+using Microsoft.AspNetCore.Http;
 namespace WebApp_gastec.Controllers
 {
     public class MediaCenterController : Controller
@@ -74,17 +74,17 @@ namespace WebApp_gastec.Controllers
             }
             #endregion
         }
-        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_)
+        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_, int translationID_)
         {
             // Create Instance for home page view model to return Main Home Page View
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0"), translationID_),
                 // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("8"), Domain.Service.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("8"), Domain.Service.Encrypt("0"), translationID_),
                 // Consuming Cylindar Category from Classification Tree API 
-                Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
+                Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_, translationID_),
             };
             return homePageViewModel;
         }
@@ -93,18 +93,20 @@ namespace WebApp_gastec.Controllers
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0"), int.Parse(HttpContext.Session.GetString("Localization"))),
                 // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("8"), Domain.Service.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("8"), Domain.Service.Encrypt("0"), int.Parse(HttpContext.Session.GetString("Localization"))),
                 // Consuming News Groups from Get News Topic API
-                News_Group = await API_GetNewsGroup.GetNewsGroup(),
+                News_Group = await API_GetNewsGroup.GetNewsGroup(int.Parse(HttpContext.Session.GetString("Localization"))),
                 // Consuming All News from Get News Topic API
-                NewsTopics = await API_GetNewsTopics.GetAllNewsTopics(0),
+                NewsTopics = await API_GetNewsTopics.GetAllNewsTopics(0, int.Parse(HttpContext.Session.GetString("Localization"))),
             };
             return homePageViewModel;
         }
         public async Task<IActionResult> NewsAsync()
         {
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
             var model = await this.GetNewsModel();
             await CacheAllNewsImages(model, "MediaCenter_NewsSection");
             model.IsActive = true;
@@ -112,7 +114,9 @@ namespace WebApp_gastec.Controllers
         }
         public async Task<IActionResult> IndexAsync(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.Service.Encrypt(ID_), Domain.Service.Encrypt("0"));
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
+            var model = this.GetHomeViewModel(Domain.Service.Encrypt(ID_), Domain.Service.Encrypt("0"), int.Parse(HttpContext.Session.GetString("Localization")));
             foreach (var section in model.Sub_Section)
             {
                 if (section.ClassificationID == 48)

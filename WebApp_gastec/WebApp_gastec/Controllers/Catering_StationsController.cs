@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApp_gastec.Domain;
 using WebApp_gastec.Models;
-
+using Microsoft.AspNetCore.Http;
 namespace WebApp_gastec.Controllers
 {
     public class Catering_StationsController : Controller
@@ -80,17 +80,17 @@ namespace WebApp_gastec.Controllers
             #endregion Caching images returned from API
         }
         // Return Data Model after Consuming API
-        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_)
+        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_, int translationID_)
         {
             // Create Instance for home page view model to return Main Home Page View
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0"), translationID_),
                 // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("4"), Domain.Service.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("4"), Domain.Service.Encrypt("0"), translationID_),
                 // Consuming Cylindar Category from Classification Tree API 
-                Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
+                Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_, translationID_),
 
             };
             return homePageViewModel;
@@ -98,7 +98,9 @@ namespace WebApp_gastec.Controllers
         // Routing For Integreated Station Category Page
         public async Task<IActionResult> Stations(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.Service.Encrypt("4"), Domain.Service.Encrypt(ID_));
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
+            var model = this.GetHomeViewModel(Domain.Service.Encrypt("4"), Domain.Service.Encrypt(ID_), int.Parse(HttpContext.Session.GetString("Localization")));
             await CachedAllImagesAsync(model, "Integrated_Stations");
             CachedAllHtmlLinks(model, "Integrated_Stations");
             return View(model);
@@ -106,11 +108,13 @@ namespace WebApp_gastec.Controllers
 
         public async Task<IActionResult> Index(string ID_)
         {
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
             Cache cachedHtml = new Cache(_hostingEnvironment);
             var model = new HomePageViewModel();
             if (ID_ == "28")
             {
-                model = this.GetHomeViewModel(Domain.Service.Encrypt(ID_), Domain.Service.Encrypt("0"));
+                model = this.GetHomeViewModel(Domain.Service.Encrypt(ID_), Domain.Service.Encrypt("0"), int.Parse(HttpContext.Session.GetString("Localization")));
                 await CachedAllImagesAsync(model, "Stations");
                 CachedAllHtmlLinks(model, "Stations");
                 foreach (var entity in model.Sub_Section)
@@ -125,7 +129,7 @@ namespace WebApp_gastec.Controllers
             }
             else
             {
-                model = this.GetHomeViewModel(Domain.Service.Encrypt("4"), Domain.Service.Encrypt(ID_));
+                model = this.GetHomeViewModel(Domain.Service.Encrypt("4"), Domain.Service.Encrypt(ID_), int.Parse(HttpContext.Session.GetString("Localization")));
                 await CachedAllImagesAsync(model, "Stations");
                 CachedAllHtmlLinks(model, "Stations");
             }

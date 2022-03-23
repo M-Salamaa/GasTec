@@ -12,7 +12,7 @@ namespace WebApp_gastec.Domain
     public class API_GetNewsTopics
     {
         // this functions to Get Topics for Latest News Section
-        public static async Task<OutputGetNewsTopicsModel> GetAllNewsTopics(int groupId_)
+        public static async Task<OutputGetNewsTopicsModel> GetAllNewsTopics(int groupId_, int translationID_)
         {
             // Create instance for Save returned API Consuming
             OutputGetNewsTopicsModel newsTopics = new();
@@ -36,7 +36,7 @@ namespace WebApp_gastec.Domain
                 //Add resultCount to specify the number of returned Data
                 ApiURL.Append($"&InputX.groupID={groupId_}");
                 //Add showFeaturedOnly
-                ApiURL.Append($"&InputX.translationLanguageID={Gastech_Vault.TranslationLanguageID}");
+                ApiURL.Append($"&InputX.translationLanguageID={translationID_}");
                 // Create instance to get a Response from the URL Passed
                 var responseTask = await client.GetAsync(ApiURL.ToString());
                 // Check if Request Successed
@@ -52,7 +52,7 @@ namespace WebApp_gastec.Domain
             }
         }
         // this functions to Get Specific News for
-        public static async Task<List<OutputGetNewsDetails>> GetNewsDetails(int serial_)
+        public static async Task<List<OutputGetNewsDetails>> GetNewsDetails(int serial_, int translationID_)
         {
             // Create instance for Save returned API Consuming
             List<OutputGetNewsDetails> newsDetails = new();
@@ -76,7 +76,7 @@ namespace WebApp_gastec.Domain
                 //Add resultCount to specify the number of returned Data
                 ApiURL.Append($"&InputX.newsID={serial_}");
                 //Add showFeaturedOnly
-                ApiURL.Append($"&InputX.translationLanguageID={Gastech_Vault.TranslationLanguageID}");
+                ApiURL.Append($"&InputX.translationLanguageID={translationID_}");
                 // Create instance to get a Response from the URL Passed
                 var responseTask = await client.GetAsync(ApiURL.ToString());
                 // Check if Request Successed

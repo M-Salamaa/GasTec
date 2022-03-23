@@ -21,12 +21,10 @@ namespace WebApp_gastec.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         public readonly IWebHostEnvironment _hostingEnvironment;
-        private readonly ICaptchaValidator _captchaValidator;
-        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment hostingEnvironment, ICaptchaValidator captchaValidator)
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment hostingEnvironment)
         {
             _logger = logger;
             _hostingEnvironment = hostingEnvironment;
-            _captchaValidator = captchaValidator;
         }
 
         // function to Cahcing All Images Returned
@@ -131,63 +129,63 @@ namespace WebApp_gastec.Controllers
             #endregion
         }
         // Function to retrive Home page view Model from API
-        private async Task<HomePageViewModel> GetHomeViewModelAsync()
+        private async Task<HomePageViewModel> GetHomeViewModelAsync(int translationID_)
         {
             // Create Instance for home page view model to return Main Home Page View
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0"), translationID_),
                 // Consuming Banners API 
-                BannersHome = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("1"), Domain.Service.Encrypt("118")),
+                BannersHome = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("1"), Domain.Service.Encrypt("118"), translationID_),
                 //Consuming Gastech Numbers Section from Classification Tree API 
-                GastechNumbers = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("1"), Domain.Service.Encrypt("349")),
+                GastechNumbers = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("1"), Domain.Service.Encrypt("349"), translationID_),
                 //Consuming Mid Section from Classification Tree API 
-                MidSection = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("1"), Domain.Service.Encrypt("353")),
+                MidSection = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("1"), Domain.Service.Encrypt("353"), translationID_),
                 //Consuming Mid Banner from Classification Tree API 
-                MidBanner = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("1"), Domain.Service.Encrypt("350")),
+                MidBanner = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("1"), Domain.Service.Encrypt("350"), translationID_),
                 // Consuming Latest News API 
-                NewsTopics = await API_GetNewsTopics.GetAllNewsTopics(0),
+                NewsTopics = await API_GetNewsTopics.GetAllNewsTopics(0, translationID_),
                 //Consuming Service Section (Eni Gastech) from Classification Tree API 
-                EniGastech = await API_GetNewsTopics.GetAllNewsTopics(3),
+                EniGastech = await API_GetNewsTopics.GetAllNewsTopics(3, translationID_),
                 //Consuming News Section from Classification Tree API 
-                NewsSection = await API_GetNewsTopics.GetAllNewsTopics(4),
+                NewsSection = await API_GetNewsTopics.GetAllNewsTopics(4, translationID_),
                 //Consuming Cities from GetCities API 
-                Cities = await API_GetCities.GetAllCitiesAsync(),
+                Cities = await API_GetCities.GetAllCitiesAsync(translationID_),
                 //Consuming Map Files from Classification Tree API
-                MapFiles = await API_GetMapFiles.GetMapFilesAsync(Domain.Service.Encrypt("1")),
+                MapFiles = await API_GetMapFiles.GetMapFilesAsync(Domain.Service.Encrypt("1"), translationID_),
 
             };
 
             return homePageViewModel;
         }
         // Function To Return View Model for All News
-        private async Task<HomePageViewModel> GetNewsModel()
+        private async Task<HomePageViewModel> GetNewsModel(int translationID_)
         {
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0"), translationID_),
                 // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("8"), Domain.Service.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("8"), Domain.Service.Encrypt("0"), translationID_),
                 // Consuming News Groups from Get News Topic API
-                News_Group = await API_GetNewsGroup.GetNewsGroup(),
+                News_Group = await API_GetNewsGroup.GetNewsGroup(translationID_),
                 // Consuming All News from Get News Topic API
-                NewsTopics = await API_GetNewsTopics.GetAllNewsTopics(0),
+                NewsTopics = await API_GetNewsTopics.GetAllNewsTopics(0, translationID_),
             };
             return homePageViewModel;
         }
         // Function To Return View Model for News Details
-        private async Task<HomePageViewModel> GetNewsDetailsModel(int serial_)
+        private async Task<HomePageViewModel> GetNewsDetailsModel(int serial_,int translationID_)
         {
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0"), translationID_),
                 // Consuming News Details form News Details API 
-                News_Details = await API_GetNewsTopics.GetNewsDetails(serial_),
+                News_Details = await API_GetNewsTopics.GetNewsDetails(serial_, translationID_),
                 // Consuming All News from Get News Topic API
-                NewsTopics = await API_GetNewsTopics.GetAllNewsTopics(0),
+                NewsTopics = await API_GetNewsTopics.GetAllNewsTopics(0, translationID_),
             };
             return homePageViewModel;
 
@@ -195,7 +193,7 @@ namespace WebApp_gastec.Controllers
         //Action to get All News
         public async Task<IActionResult> AllNewsAsync()
         {
-            var model = await this.GetNewsModel();
+            var model = await this.GetNewsModel(int.Parse(HttpContext.Session.GetString("Localization")));
             await CacheAllNewsImages(model, "MediaCenter_NewsSection");
             model.IsActive = true;
             return View(model);
@@ -203,22 +201,25 @@ namespace WebApp_gastec.Controllers
         //Action to get News Details
         public async Task<IActionResult> NewsDetailsAsync(int serial_)
         {
-            var model = await this.GetNewsDetailsModel(serial_);
+            var model = await this.GetNewsDetailsModel(serial_, int.Parse(HttpContext.Session.GetString("Localization")));
             await CacheAllNewsImages(model, "News");
             CacheAllHtmlforNewsDetails(model.News_Details, "News");
             return View(model);
 
         }
 
-        private void Translation()
+        public IActionResult Translation()
         {
-            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", HttpContext.Session.GetString("Localization"));
+            Gastech_Vault.TranslationLanguageID = 1;
+            return RedirectToAction("Index");
         }
         // Action for Index View (Home PAge)
         public async Task<IActionResult> IndexAsync()
         {
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+            var test = HttpContext.Session.GetString("Localization");
             // return Model to Display in Home Page
-            var model = await this.GetHomeViewModelAsync();
+            var model = await this.GetHomeViewModelAsync(int.Parse(HttpContext.Session.GetString("Localization")));
             // Caching all images Returned in home page view model
             await CachedAllImagesAsync(model);
             return View(model);
@@ -227,8 +228,10 @@ namespace WebApp_gastec.Controllers
         [HttpPost]
         public async Task<IActionResult> _ShowMapPartialAsync(double longtitude, double latitude)
         {
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
             // Get All Json Files For Map To Cache it
-            var model_ = await API_GetMapFiles.GetMapFilesAsync(Domain.Service.Encrypt("1"));
+            var model_ = await API_GetMapFiles.GetMapFilesAsync(Domain.Service.Encrypt("1"), int.Parse(HttpContext.Session.GetString("Localization")));
             CacheAllFiles(model_);
             MapLocationModel model = new MapLocationModel();
             model.longtitude = longtitude;
@@ -238,6 +241,8 @@ namespace WebApp_gastec.Controllers
         // Action to return Json Files For Map From Specified Location with Specific Government ID
         public IActionResult ReturnJsonFile(string filepath, int government_)
         {
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
             string finalPath = "wwwroot/public/src/json/ar/" + filepath + ".json";
             StreamReader reader = new StreamReader(finalPath);
             if (government_ == 0)
@@ -263,9 +268,11 @@ namespace WebApp_gastec.Controllers
         [HttpPost]
         public ActionResult ContactUs(HomePageViewModel contactModel_)
         {
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
             HomePageViewModel homePageViewModel = new HomePageViewModel()
             {
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0"), int.Parse(HttpContext.Session.GetString("Localization"))),
                 ContactUs = contactModel_.ContactUs,
             };
             if (homePageViewModel.ContactUs != null)
@@ -310,9 +317,11 @@ namespace WebApp_gastec.Controllers
         // Action For Contact US View
         public IActionResult Contacts(HomePageViewModel contactModel_)
         {
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
             HomePageViewModel homePageViewModel = new HomePageViewModel()
             {
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0"), int.Parse(HttpContext.Session.GetString("Localization"))),
                 ContactUs = contactModel_.ContactUs,
             };
             if (homePageViewModel.ContactUs != null)
@@ -355,12 +364,14 @@ namespace WebApp_gastec.Controllers
             return View(homePageViewModel);
         }
         // Action For Conversion Form View
-        public async Task<IActionResult> Conversion_FormAsync(HomePageViewModel contactModel_, string captcha_)
+        public async Task<IActionResult> Conversion_FormAsync(HomePageViewModel contactModel_)
         {
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
             HomePageViewModel homePageViewModel = new HomePageViewModel()
             {
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
-                Cities = await API_GetCities.GetAllCitiesAsync(),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0"), int.Parse(HttpContext.Session.GetString("Localization"))),
+                Cities = await API_GetCities.GetAllCitiesAsync(int.Parse(HttpContext.Session.GetString("Localization"))),
                 Car_Conversion = contactModel_.Car_Conversion,
             };
 
@@ -421,12 +432,14 @@ namespace WebApp_gastec.Controllers
         // Action For Search View
         public async Task<IActionResult> SearchResult(HomePageViewModel model_)
         {
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
             var model = new HomePageViewModel()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0"), int.Parse(HttpContext.Session.GetString("Localization"))),
                 // Consuming Search Result using Key Word
-                searchResult = await API_GetSearchResult.GetSearchResult(model_.searchInput.keyWord_),
+                searchResult = await API_GetSearchResult.GetSearchResult(model_.searchInput.keyWord_, int.Parse(HttpContext.Session.GetString("Localization"))),
             };
             return View(model);
         }

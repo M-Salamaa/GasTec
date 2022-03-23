@@ -12,12 +12,16 @@ namespace WebApp_gastec.Domain
     {
         //if property want to show set by one 
         private static readonly int showProperty = 1;
-        private static readonly string encryptedMajorTreeNodeID = Service.Encrypt("1");
+        private static string encryptedMajorTreeNodeID = "";
 
 
         // Function to get Tree Nodes for Clasification Tree with EncryptedSpecificTreeClassificationID
-        public static List<OutputGetClassificationTreeModel> GetClassificationTree(string encryptedTreeClassificationID_, string encryptedSpecificTreeClassificationID_)
+        public static List<OutputGetClassificationTreeModel> GetClassificationTree(string encryptedTreeClassificationID_, string encryptedSpecificTreeClassificationID_, int translationID_)
         {
+            if (translationID_ == 0)
+                encryptedMajorTreeNodeID = Service.Encrypt("1");
+            else
+                encryptedMajorTreeNodeID = Service.Encrypt("2");
             // Create instance for output
             List<OutputGetClassificationTreeModel> descrptionText = new ();
             //create Client to consume the API
@@ -47,7 +51,7 @@ namespace WebApp_gastec.Domain
                     // Get Max Tree Level
                     MaxTreeLevel = 3,
                     // Get Translation Language ID
-                    TranslationLanguageID = Gastech_Vault.TranslationLanguageID,
+                    TranslationLanguageID = translationID_,
                     // Get Classification Settings
                     ClassificationSettings = new ClassificationSettings()
                     {

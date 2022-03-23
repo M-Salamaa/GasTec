@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApp_gastec.Domain;
 using WebApp_gastec.Models;
-
+using Microsoft.AspNetCore.Http;
 namespace WebApp_gastec.Controllers
 {
     public class Car_ConversionController : Controller
@@ -84,17 +84,17 @@ namespace WebApp_gastec.Controllers
             #endregion Caching images returned from API
         }
         // Get the OutPut Model after Consuming 
-        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_)
+        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_, int translationID_)
         {
             // Create Instance for home page view model to return Main Home Page View
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Navigation bar from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0"), translationID_),
                 // Consuming Main Menu of Car Conversion Section from Classification Tree API 
-                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("3"), Domain.Service.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("3"), Domain.Service.Encrypt("0"), translationID_),
                 // Consuming Sub Categories of car Conversion Section from Classification Tree API 
-                Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
+                Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_, translationID_),
 
             };
             return homePageViewModel;
@@ -102,7 +102,9 @@ namespace WebApp_gastec.Controllers
         // Routing for Car Conversion Setcion Pages with Classification ID
         public async Task<IActionResult> Index(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.Service.Encrypt("3"), Domain.Service.Encrypt(ID_));
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
+            var model = this.GetHomeViewModel(Domain.Service.Encrypt("3"), Domain.Service.Encrypt(ID_), int.Parse(HttpContext.Session.GetString("Localization")));
             ActivateSelectedForMainCategories(model, ID_);
             await CachedAllImagesAsync(model, "Car_Conversion");
             CachedAllHtmlLinks(model, "Car_Conversion");

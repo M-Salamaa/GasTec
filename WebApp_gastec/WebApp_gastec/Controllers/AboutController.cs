@@ -8,7 +8,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using WebApp_gastec.Domain;
 using WebApp_gastec.Models;
+using Microsoft.AspNetCore.Http;
+
 namespace WebApp_gastec.Controllers
+
 {
     public class AboutController : Controller
     {
@@ -74,20 +77,20 @@ namespace WebApp_gastec.Controllers
             #endregion Caching images returned from API
         }
         // Get Model From API
-        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_)
+        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_, int translationID_)
         {
             // Create Instance for home page view model to return Main Home Page View
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
-                Main_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
-                Sub_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("125"), Domain.Service.Encrypt("0")),
-                HR = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("123"), Domain.Service.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0"), translationID_),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_, translationID_),
+                Sub_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("125"), Domain.Service.Encrypt("0"), translationID_),
+                HR = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("123"), Domain.Service.Encrypt("0"), translationID_),
             };
             return homePageViewModel;
         }
-        private void ActivateSelectedForMainCategories (HomePageViewModel model_ , string id_)
+        private void ActivateSelectedForMainCategories(HomePageViewModel model_, string id_)
         {
             foreach (var child in model_.Sub_Section)
             {
@@ -112,7 +115,9 @@ namespace WebApp_gastec.Controllers
         // Route For Legal Entity Page
         public async Task<IActionResult> IndexAsync(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.Service.Encrypt("125"), Domain.Service.Encrypt(ID_));
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
+            var model = this.GetHomeViewModel(Domain.Service.Encrypt("125"), Domain.Service.Encrypt(ID_), int.Parse(HttpContext.Session.GetString("Localization")));
             ActivateSelectedForMainCategories(model, ID_);
             await CachedAllImagesAsync(model, "AboutUS");
             CachedAllHtmlLinks(model, "AboutUs");
@@ -122,7 +127,9 @@ namespace WebApp_gastec.Controllers
         // Route For Human resource Page
         public async Task<IActionResult> HumanResourcesAsync(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.Service.Encrypt("123"), Domain.Service.Encrypt(ID_));
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
+            var model = this.GetHomeViewModel(Domain.Service.Encrypt("123"), Domain.Service.Encrypt(ID_), int.Parse(HttpContext.Session.GetString("Localization")));
             ActivateSelectedForSubCategories(model, ID_);
             await CachedAllImagesAsync(model, "HumanResources");
             CachedAllHtmlLinks(model, "HumanResources");

@@ -11,7 +11,7 @@ namespace WebApp_gastec.Domain
 {
     public class API_GetSearchResult
     {
-        public static async Task<OutputSearchModel> GetSearchResult(string keyWord_)
+        public static async Task<OutputSearchModel> GetSearchResult(string keyWord_, int translationID_)
         {
             OutputSearchModel searchResult = new OutputSearchModel();
             using (var client = new HttpClient())
@@ -36,9 +36,7 @@ namespace WebApp_gastec.Domain
                 //Add Search In Videos = True
                 ApiURL.Append($"&InputX.searchInVideos={true}");
                 // Add Language
-                ApiURL.Append($"&InputX.translationLanguageID={Gastech_Vault.TranslationLanguageID}");
-
-
+                ApiURL.Append($"&InputX.translationLanguageID={translationID_}");
 
                 var responseTask = await client.GetAsync(ApiURL.ToString());
                 if(responseTask.IsSuccessStatusCode)

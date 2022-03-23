@@ -11,7 +11,7 @@ namespace WebApp_gastec.Domain
 {
     public class API_GetNewsGroup
     {
-        public static async Task<List<OutPutGetNewsGroupModel>> GetNewsGroup()
+        public static async Task<List<OutPutGetNewsGroupModel>> GetNewsGroup(int translationID_)
         {
             List<OutPutGetNewsGroupModel> newsGroups = new();
             using(var client = new HttpClient())
@@ -29,7 +29,7 @@ namespace WebApp_gastec.Domain
                 //Add Encrypted ExAppId 
                 ApiURL.Append($"&InputX.encryptedEXAppID={Gastech_Vault.EncryptedEXAppID}");
                 //Add showFeaturedOnly
-                ApiURL.Append($"&InputX.translationLanguageID={Gastech_Vault.TranslationLanguageID}");
+                ApiURL.Append($"&InputX.translationLanguageID={translationID_}");
                 // Create instance to get a Response from the URL Passed
                 var responseTask = await client.GetAsync(ApiURL.ToString());
                 // Check if Request Successed

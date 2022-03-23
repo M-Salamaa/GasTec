@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApp_gastec.Domain;
 using WebApp_gastec.Models;
-
+using Microsoft.AspNetCore.Http;
 namespace WebApp_gastec.Controllers
 {
     public class StatisticsController : Controller
@@ -69,17 +69,17 @@ namespace WebApp_gastec.Controllers
             #endregion Caching images returned from API
         }
         // Return Data Model after Consuming API
-        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_)
+        private HomePageViewModel GetHomeViewModel(string encryptedClassificationId_, string encryptedTreeClassificationId_, int translationID_)
         {
             // Create Instance for home page view model to return Main Home Page View
             HomePageViewModel homePageViewModel = new()
             {
                 // Consuming Main Menu from Classification Tree API 
-                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0")),
+                MainNavigationBar = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("0"), Domain.Service.Encrypt("0"), translationID_),
                 // Consuming Main Cylindar Test Menu from Classification Tree API 
-                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("7"), Domain.Service.Encrypt("0")),
+                Main_Section = API_GetClassificationTree.GetClassificationTree(Domain.Service.Encrypt("7"), Domain.Service.Encrypt("0"), translationID_),
                 // Consuming Cylindar Category from Classification Tree API 
-                Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_),
+                Sub_Section = API_GetClassificationTree.GetClassificationTree(encryptedClassificationId_, encryptedTreeClassificationId_, translationID_),
 
             };
             return homePageViewModel;
@@ -87,7 +87,9 @@ namespace WebApp_gastec.Controllers
         // Routing for Statistics Pages Using classification ID
         public async Task<IActionResult> IndexAsync(string ID_)
         {
-            var model = this.GetHomeViewModel(Domain.Service.Encrypt("7"), Domain.Service.Encrypt(ID_));
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "Localization", Gastech_Vault.TranslationLanguageID);
+
+            var model = this.GetHomeViewModel(Domain.Service.Encrypt("7"), Domain.Service.Encrypt(ID_), int.Parse(HttpContext.Session.GetString("Localization")));
             foreach (var child in model.Main_Section)
             {
                 foreach (var classification in child.LstChildClassification)

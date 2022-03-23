@@ -14,7 +14,7 @@ namespace WebApp_gastec.Domain
         private static readonly int showProperty = 1;
         private static readonly string encryptedMajorTreeNodeID = Service.Encrypt("1");
 
-        public static async Task<List<OutputGetClassificationTreeModel>> GetMapFilesAsync(string encryptedTreeClassificationID_)
+        public static async Task<List<OutputGetClassificationTreeModel>> GetMapFilesAsync(string encryptedTreeClassificationID_, int translationID_)
         {
             List<OutputGetClassificationTreeModel> descrptionText = new();
             //create Client to consume the API
@@ -44,7 +44,7 @@ namespace WebApp_gastec.Domain
                     // Get Max Tree Level
                     MaxTreeLevel = 0,
                     // Get Translation Language ID
-                    TranslationLanguageID = Gastech_Vault.TranslationLanguageID,
+                    TranslationLanguageID = translationID_,
                     // Get Classification Settings
                     ClassificationSettings = new ClassificationSettings()
                     {
